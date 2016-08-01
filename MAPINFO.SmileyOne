@@ -1,3 +1,5 @@
+//Episode 1-3 Clusters, and pictures when a level is ended.
+
 cluster 91
 {
 	flat = "$bgflatE1"

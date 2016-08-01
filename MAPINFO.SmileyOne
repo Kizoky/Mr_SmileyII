@@ -1,0 +1,20 @@
+cluster 91
+{
+	flat = "$bgflatE1"
+	music = "$MUSIC_VICTOR"
+	exittext = lookup, "IMPACT1"
+}
+
+cluster 92
+{
+	flat = "$bgflatE2"
+	music = "$MUSIC_VICTOR"
+	exittext = lookup, "IMPACT2"
+}
+
+cluster 93
+{
+	flat = "$bgflatE3"
+	music = "$MUSIC_VICTOR"
+	exittext = lookup, "IMPACT3"
+}

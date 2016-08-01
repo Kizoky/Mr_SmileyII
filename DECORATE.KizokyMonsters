@@ -1,0 +1,130 @@
+//These monsters are created by myself, or hugely edited which never existed in the Doom universe
+
+//I have an idea where multiple colors of rangers will attack the player(s). Their powers differs from the others.
+ACTOR GreenRanger : RedRanger
+{
+  Translation "199:202=112:114"
+}
+
+ACTOR PinkRanger : RedRanger
+{
+  Translation "199:202=251:252"
+}
+
+ACTOR WhiteRanger : RedRanger
+{
+  Translation "199:202=80:81"
+}
+
+ACTOR SilverRanger : RedRanger
+{
+  Translation "199:202=90:92"
+}
+
+ACTOR YellowRanger : RedRanger
+{
+  Translation "199:202=230:231"
+}
+
+ACTOR BrownRanger : RedRanger
+{
+  Translation "199:202=220:222"
+}
+
+ACTOR BlackRanger : RedRanger
+{
+  Translation "199:202=5:6"
+}
+
+
+
+ACTOR BlueGhost : PainElemental
+{
+	Species "BlueSoul"
+	Translation "175:191=199:207"
+	Health 730
+  Radius 31
+  Height 56
+  Mass 400
+  Speed 10
+  PainChance 96
+  Monster
+  +FLOAT
+  +NOGRAVITY
+  +DONTHURTSPECIES
+  +DONTHARMCLASS
+  SeeSound "pain/sight"
+  PainSound "pain/pain"
+  DeathSound "pain/death"
+  ActiveSound "pain/active"
+  Scale 1.2
+  Obituary "%o never believed that heshe could meet an Ao Ghost."
+  States
+  {
+  Spawn:
+    PAIN A 9 A_Look
+    Loop
+  See:
+    PAIN AABBCC 3 A_FastChase
+    Loop
+  Missile:
+	//TNT1 A 0 A_JumpIfCloser(120, "Bite")
+	TNT1 A 0 A_Jump(255,"LostSouls","Spit","Spit2","Spit3") //3 Spit states, just to make sure that Blue Ghost will not spam Blue Pacmans
+    Goto See
+  LostSouls:
+	PAIN D 4 A_FaceTarget
+    PAIN E 4 A_FaceTarget
+    PAIN F 3 Bright A_FaceTarget
+    PAIN F 1 Bright A_DualPainAttack("BlueSoul")
+	Goto See
+  Spit:
+	PAIN DE 4 A_FaceTarget
+	PAIN F 2 A_HeadAttack
+	Goto See
+  Spit2:
+	PAIN DE 4 A_FaceTarget
+	PAIN F 2 A_HeadAttack
+	Goto See
+  Spit3:
+	PAIN DE 4 A_FaceTarget
+	PAIN F 2 A_HeadAttack
+	Goto See
+  Bite:
+	PAIN DE 4 A_FaceTarget
+	PAIN F 3 A_SkelFist
+	Goto See
+  Pain:
+    PAIN G 6
+    PAIN G 6 A_Pain
+    Goto See
+  Death:
+    PAIN H 8 Bright
+    PAIN I 8 Bright A_Scream
+    PAIN JK 8 Bright
+    PAIN L 8 Bright A_PainDie("BlueSoul")
+    PAIN M 8 Bright
+    Stop
+  Raise:
+    PAIN MLKJIH 8
+    Goto See
+  }
+}
+
+ACTOR BlueSoul : LostSoul
+{
+  Translation "160:167=199:207","225:231=199:207","249:249=199:207","232:235=199:207","209:223=199:207","128:151=199:207","64:79=199:207","236:239=199:207","13:15=199:207"
+  //There may be some unnecessary translations, but atleast It is fully blue
+  Species "BlueSoul"
+  Health 150
+  Radius 16
+  Height 56
+  Mass 50
+  Speed 9
+  Damage 3
+  PainChance 200
+  Monster
+  +DONTHURTSPECIES
+  +NOINFIGHTING
+  +DONTHARMCLASS
+  Obituary "%o was eaten by a blue pacman."
+}

@@ -1,0 +1,3 @@
+Check list whether the levels of Smiley I are touched, or they aren't.
+
+E1M1 == touched

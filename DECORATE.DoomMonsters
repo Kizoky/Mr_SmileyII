@@ -1,0 +1,133 @@
+//You can find Vanilla Doom monsters in here, which means they existed in Doom and Doom II, just slightly changed.
+
+ACTOR HelloKitty : Arachnotron replaces Arachnotron
+{
+  Scale 2.2
+}
+
+ACTOR HelloKittyStar replaces ArachnotronPlasma
+{
+  Radius 13
+  Height 8
+  Speed 25
+  Damage 5
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add 
+  Alpha 0.75
+  SeeSound "baby/attack"
+  DeathSound "baby/shotx"
+  Scale 1.9
+  States
+  {
+  Spawn:
+    STAR AB 5 Bright
+    Loop
+  Death:
+    APBX ABCDE 5 Bright
+    Stop
+  }
+}
+
+ACTOR RedRanger : HellKnight replaces HellKnight
+{
+  DeathSound "redranger/death"
+  SeeSound "baron/sight"
+  PainSound "baron/pain"
+  ActiveSound "baron/active"
+  Translation "199:202=175:178"
+  States
+  {
+  Spawn:
+    BOSS AB 10 A_Look
+    Loop
+  See:
+    BOSS AABBCCDD 3 A_Chase
+    Loop
+  Melee:
+  Missile:
+    BOSS EF 8 A_FaceTarget
+    BOSS G 8 A_BruisAttack
+    Goto See
+  Pain:
+    BOSS H 2
+    BOSS H 2 A_Pain
+    Goto See
+  Death:
+    BOSS I 8
+    BOSS J 8 A_Scream
+    BOSS K 8
+    BOSS L 8 A_NoBlocking
+    BOSS MN 8
+    BOSS O -1
+    Stop
+  Raise:
+    BOSS O 8
+    BOSS NMLKJI 8
+    Goto See
+  }
+}
+
+//Spider Mastermind in Smiley I was invisible. Don't know why, don't ask me.
+ACTOR SmileySpider : SpiderMastermind replaces SpiderMastermind
+{
+  RenderStyle OptFuzzy
+}
+
+//In the future I will make Mr Smiley II's monsters standalone
+//Also, adding them new features... :F
+ACTOR MJClone : Zombieman
+{
+}
+
+ACTOR SafariGuy : Shotgunguy
+{
+}
+
+ACTOR Blackgang : Chaingunguy
+{
+}
+
+ACTOR Hugaholic : Demon
+{
+}
+
+ACTOR Rapeaholic : Spectre
+{
+}
+
+ACTOR Snowman : CyberDemon
+{
+}
+
+ACTOR Pacc : LostSoul
+{
+}
+
+ACTOR Ghost : PainElemental
+{
+}
+
+ACTOR SmileyAlien : DoomImp
+{
+}
+
+ACTOR BigEye : Cacodemon
+{
+}
+
+ACTOR MetalSmiley : Archvile
+{
+}
+
+ACTOR RacistMario : Fatso
+{
+}
+
+ACTOR Smileynator : Revenant
+{
+}
+
+ACTOR BlueRanger : BaronOfHell
+{
+}

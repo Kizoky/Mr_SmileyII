@@ -1,0 +1,95 @@
+[enu default]
+OB_CACOHIT = "%o is now Eye-food.";
+OB_DEMONHIT = "%o was hugged by a Barney.";
+OB_SPECTREHIT = "%o was molested by an invisible Barney.";
+OB_ZOMBIE = "%o had a dance with a Michael Jackson clone.";
+OB_SHOTGUY = "%o has been killed by a Safari Maniac.";
+OB_SKULL = "%o was PACCED to death.";
+OB_IMP = "%o was tickled to death by an Alien.";
+OB_BARON = "%o was POWERED down by a Blue Ranger.";
+OB_BARONHIT = "%o was punched to death by a Blue Ranger.";
+OB_CYBORG = "%o understimated the power of the SnowMan.";
+OB_BABY = "$o was killed by a not-so cute Hello Kitty.";
+OB_KNIGHTHIT = "%o was catched and killed by a Red Ranger."
+OB_KNIGHT = "%o was killed by a Red Ranger's Bottle."
+
+GOTMEGA = "Ya got Some R-mer, man!!";
+GOTHTHBONUS = "Ya got a Coca-Cola!!!!!!";
+GOTARMBONUS = "Ya got a Dodgers cap!!!!";
+GOTBLUECARD = "Got a Blue Key. Yes! Yes!";
+GOTYELWCARD = "Got a yellow key. Yeah!!";
+GOTREDCARD = "Got the red key. HA! HA!";
+GOTBLUESKUL = "Got the blue Happy Key!!";
+GOTYELWSKUL = "Got the yellow Happy key!!";
+GOTREDSKUL = "Got the red Happy key!!";
+GOTSTIM = "Got a Coffee cup.";
+GOTBERSERK = "BaseballBat";
+GOTMAP = "Tresure map of area";
+GOTVISOR = "See-It-All glasses!";
+GOTCLIP = "Got an ammo clip.";
+GOTCLIPBOX = "Got a box of happy bullets!";
+GOTROCKET = "Got a Chicken!";
+GOTROCKBOX = "Got a box of Chickenz!!!";
+GOTCELL = "Got Happy thingee.......";
+GOTCELLBOX = "Got Super Happy Thingee.....";
+GOTSHELLS = "Picked up 4 shotgun shells.";
+GOTSHELLBOX = "Picked up a box of shotgun shells.";
+GOTBACKPACK = "Got a Goodie-Pack of ammunition!!!!";
+GOTBFG9000 = "Got GFB (Good Fether Bird)!!";
+GOTCHAINGUN = "Got the MP69!";
+GOTCHAINSAW = "Got the Smiley tooth brush!!";
+GOTLAUNCHER = "Got Chicken Master 2000!";
+GOTPLASMA = "Got Aim-And-Flame!";
+STSTR_DQDON = "Happiness mode ON!!!";
+STSTR_DQDOFF = "Happiness mode OFF :(";
+STSTR_NCON = "Ghostly mode ON!";
+STSTR_NCOFF = "Ghostly mode OFF :(";
+STSTR_BEHOLDX = "Got Pumped-Up!!!";
+
+//Copy & Paste from "Vanilla" DooM3
+
+IMPACT1 =
+		"Hey man, u think you're cool\n"
+		"now, huh? but guess wut! u suk!\n"
+		"u aint even seen the half of it!\n"
+		"mr. smiley heads got 2 mo' mishunz\n"
+		"2 go, dork. well, anywayz, we wood\n"
+		"like 2 thank u 4 playin doom3.\n"
+		"wei wu, mike tam, anthony ong, &\n"
+		"i(calvin wong) have put in over 6\n"
+		"months of wurk on this sh_t. we r\n"
+		"impact software, flying bear software,\n"
+		"& sparrowbird studios. now, here'z a\n"
+		"foto of mr sm, me, & mike on\n"
+		"vacation at las vegas...(look familiar?)..\n";		
+IMPACT2 =
+		"hey, good! ya' still suck though.\n"
+		"beat safari and you worck ass! we'd\n"
+		"like to take a moment to immortalize\n"
+		"some of our friends because they kept\n"
+		"asking 4 the release date of doom3 &\n"
+		"we kept delaying it, we feel they r\n"
+		"worthy to be recognized 4 their\n"
+		"patience.\n"
+		"	r frenz:\n"
+		"mike ngai, edwin lee, victor gonzales\n"
+		"sinoeun choup, james ly, josh wheeler\n"
+		"jonathan chang, and all of michaels\n"
+		"frenz. ok now, herez ending number 2\n"
+		"4 u 2 c. afterwards, play mission 3.\n"
+		"hav fun!\n";		
+IMPACT3 =
+		"u r awesome! game over, man! yup,\n"
+		"that's it! now smiley lives happily\n"
+		"ever after...not! doom is not over\n"
+		"yet(is it ever?)! doom4: the final\n"
+		"chapter will be released by impact in\n"
+		"october! hope ya had fun, and spread\n"
+		"this game around 2 all your friends\n"
+		"cuz we don't give a sh_t about the\n"
+		"damn cash! if you'd like to join\n"
+		"our yung hakerz teem, give comments,\n"
+		"or thank us 4 being born, call us\n"
+		"at either (818)284-5897 or\n"
+		"(213)728-7993(not on weekdayz).\n"
+		"	we rok!(but kant spell :)\n";

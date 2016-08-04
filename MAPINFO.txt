@@ -38,6 +38,11 @@ episode E3M1
 	name="The Safari"
 }
 
+episode DEVMAP
+{
+	name="Development Map"
+}
+
 //episode XMAS01
 //{
 //	name="I Smiley XMAS <3"

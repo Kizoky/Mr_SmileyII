@@ -35,11 +35,19 @@ Texture AASTINKY, 24, 72
 
 Texture BIGDOOR1, 128, 96
 {
-	Patch W13_1, 0, 0
-	Patch W13_1, 0, 24
-	Patch DOOR2_1, 17, 0
+	Patch W13_1, -47, -71
+	Patch W13_1, 0, 1
+	Patch W13_1, 1, 1
 	Patch W13_1, 113, 0
-	Patch W13_1, 113, 25
+	Patch W13_1, 126, 0
+	Patch W13_1, 127, 0
+	Patch W13_1, 0, 24
+	Patch W13_1, 1, 24
+	Patch DOOR2_1, 17, 0
+	Patch W13_1, 81, -71
+	Patch W13_1, 113, 24
+	Patch W13_1, 126, 24
+	Patch W13_1, 127, 24
 }
 
 Texture BIGDOOR2, 128, 128

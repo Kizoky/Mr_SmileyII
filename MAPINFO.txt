@@ -1,18 +1,17 @@
 //Many thanks to Ed!
-
 gameinfo
 {
 	border = 0,0,"b","b","b","b","b","b","b","b"
 	borderflat = "KZKY"
-    dimcolor = ""
-    menufontcolor_title = "YELLOW"
-    menufontcolor_label = "UNTRANSLATED"
-    menufontcolor_value = "GRAY"
-    menufontcolor_action = "GRAY"
-    menufontcolor_header = "GOLD"
-    menufontcolor_highlight = "BLACK"
-    menufontcolor_selection = "BRICK"
-    //pausesign = "M_PAUSE"
+	dimcolor = ""
+	menufontcolor_title = "YELLOW"
+	menufontcolor_label = "UNTRANSLATED"
+	menufontcolor_value = "GRAY"
+	menufontcolor_action = "GRAY"
+	menufontcolor_header = "GOLD"
+	menufontcolor_highlight = "BLACK"
+	menufontcolor_selection = "BRICK"
+	//pausesign = "M_PAUSE"
 	playerclasses="MrSmiley"
 }
 
@@ -20,16 +19,19 @@ episode map01
 {
 	name="Safari II"
 }
+
 episode E1M1
 {
 	picname = "M_EPI1"
 	name="Smiley n the Suburban Slaughter.."
 }
+
 episode E2M1
 {
 	picname = "M_EPI2"
 	name="Where No Man Has Gone Before"
 }
+
 episode E3M1
 {
 	picname = "M_EPI3"
@@ -40,48 +42,53 @@ episode E3M1
 //{
 //	name="I Smiley XMAS <3"
 //}
+
 defaultmap //We don't want crouch and jumping for a while.
 {
 	nojump
 	nocrouch
 	sky1=SKY1
 }
+
 map TITLEMAP "Monster in-fighting"
 {
 	music=D_FFL1
 	totalinfighting
 }
+
 map map01 "Deja vuuh??"
 {
 	next=map02
 	par=120
 	music=D_E1M1
 }
+
 map map02 "Ugly caztle!!!"
 {
 	next=map03
 	par=120
 	music=D_E1M2
 }
+
 map map03 "Safari again??"
 {
 	next=map04
 	par=120
 	music=D_E3M1
 }
+
 map map04 "ZOMG LSD!!"
 {
 	next=map05
 	par=120
 	music=D_POPC
 }
+
 map map99 "ZOMG AN UGLY AND UNFINISHED LEVEL!!"
 {
 	next=map03
 	music=D_E1M2
 }
-
-
 
 //Mr Smiley Head's Safari I levels
 //-----------------------------Episode 1
@@ -94,8 +101,9 @@ map E1M1 "Calvin ROX"
 	cluster=91
 	par = 30
 	enterpic = "$IN_EPI1"
-    exitpic = "$IN_EPI1"
+	exitpic = "$IN_EPI1"
 }
+
 map E1M2 "Aagh!!!!!!!!"
 {
 	next=E1M3
@@ -105,8 +113,9 @@ map E1M2 "Aagh!!!!!!!!"
 	cluster=91
 	par = 75
 	enterpic = "$IN_EPI1"
-    exitpic = "$IN_EPI1"
+	exitpic = "$IN_EPI1"
 }
+
 map E1M3 "IMPACT FOREVER."
 {
 	next=E1M4
@@ -116,8 +125,9 @@ map E1M3 "IMPACT FOREVER."
 	cluster=91
 	par = 120
 	enterpic = "$IN_EPI1"
-    exitpic = "$IN_EPI1"
+	exitpic = "$IN_EPI1"
 }
+
 map E1M4 "FLYING BEAR LAND!"
 {
 	next=E1M5
@@ -127,8 +137,9 @@ map E1M4 "FLYING BEAR LAND!"
 	cluster=91
 	par = 90
 	enterpic = "$IN_EPI1"
-    exitpic = "$IN_EPI1"
+	exitpic = "$IN_EPI1"
 }
+
 map E1M5 "SPARROWBIRD"
 {
 	next=E1M6
@@ -138,8 +149,9 @@ map E1M5 "SPARROWBIRD"
 	cluster=91
 	par = 165
 	enterpic = "$IN_EPI1"
-    exitpic = "$IN_EPI1"
+	exitpic = "$IN_EPI1"
 }
+
 map E1M6 "DOOM RULES!!!!!!!!!"
 {
 	next=E1M7
@@ -149,8 +161,9 @@ map E1M6 "DOOM RULES!!!!!!!!!"
 	cluster=91
 	par = 180
 	enterpic = "$IN_EPI1"
-    exitpic = "$IN_EPI1"
+	exitpic = "$IN_EPI1"
 }
+
 map E1M7 "TONER IS A BONER"
 {
 	next=E1M8
@@ -160,8 +173,9 @@ map E1M7 "TONER IS A BONER"
 	cluster=91
 	par = 180
 	enterpic = "$IN_EPI1"
-    exitpic = "$IN_EPI1"
+	exitpic = "$IN_EPI1"
 }
+
 map E1M8 "HA! HA!"
 {
 	next=EndGame1
@@ -175,8 +189,9 @@ map E1M8 "HA! HA!"
 	cluster=91
 	par = 30
 	enterpic = "$IN_EPI1"
-    exitpic = "$IN_EPI1"
+	exitpic = "$IN_EPI1"
 }
+
 map E1M9 "CONGRATS, MAN!"
 {
 	next=E2M1
@@ -186,10 +201,10 @@ map E1M9 "CONGRATS, MAN!"
 	cluster=91
 	par = 165
 	enterpic = "$IN_EPI1"
-    exitpic = "$IN_EPI1"
+	exitpic = "$IN_EPI1"
 }
-//--------------------------Episode 2
 
+//--------------------------Episode 2
 map E2M1 "ANTHONY + NGA..."
 {
 	next=E2M2
@@ -198,8 +213,9 @@ map E2M1 "ANTHONY + NGA..."
 	cluster=92
 	par = 90
 	enterpic = "$IN_EPI2"
-    exitpic = "$IN_EPI2"
+	exitpic = "$IN_EPI2"
 }
+
 map E2M2 "DIARHEA..........."
 {
 	next=E2M3
@@ -208,8 +224,9 @@ map E2M2 "DIARHEA..........."
 	cluster=92
 	par = 90
 	enterpic = "$IN_EPI2"
-    exitpic = "$IN_EPI2"
+	exitpic = "$IN_EPI2"
 }
+
 map E2M3 "STARWARS"
 {
 	next=E2M4
@@ -218,8 +235,9 @@ map E2M3 "STARWARS"
 	cluster=92
 	par = 90
 	enterpic = "$IN_EPI2"
-    exitpic = "$IN_EPI2"
+	exitpic = "$IN_EPI2"
 }
+
 map E2M4 "SPOOON......."
 {
 	next=E2M5
@@ -228,8 +246,9 @@ map E2M4 "SPOOON......."
 	cluster=92
 	par = 120
 	enterpic = "$IN_EPI2"
-    exitpic = "$IN_EPI2"
+	exitpic = "$IN_EPI2"
 }
+
 map E2M5 "O.J. IS GIULTY!"
 {
 	next=E2M6
@@ -238,8 +257,9 @@ map E2M5 "O.J. IS GIULTY!"
 	cluster=92
 	par = 90
 	enterpic = "$IN_EPI2"
-    exitpic = "$IN_EPI2"
+	exitpic = "$IN_EPI2"
 }
+
 map E2M6 "KONCKIN ON HELLS DOOR."
 {
 	next=E2M7
@@ -248,8 +268,9 @@ map E2M6 "KONCKIN ON HELLS DOOR."
 	cluster=92
 	par = 360
 	enterpic = "$IN_EPI2"
-    exitpic = "$IN_EPI2"
+	exitpic = "$IN_EPI2"
 }
+
 map E2M7 "THIS SUX....."
 {
 	next=E2M8
@@ -258,8 +279,9 @@ map E2M7 "THIS SUX....."
 	cluster=92
 	par = 240
 	enterpic = "$IN_EPI2"
-    exitpic = "$IN_EPI2"
+	exitpic = "$IN_EPI2"
 }
+
 map E2M8 "SHOOT MEEEEEEEE..."
 {
 	next=EndGame2
@@ -272,8 +294,9 @@ map E2M8 "SHOOT MEEEEEEEE..."
 	cyberdemonspecial
 	specialaction_exitlevel
 	enterpic = "$IN_EPI2"
-    exitpic = "$IN_EPI2"
+	exitpic = "$IN_EPI2"
 }
+
 map E2M9 "THIS IS HOW WE DO IT.."
 {
 	next=E3M1
@@ -282,10 +305,10 @@ map E2M9 "THIS IS HOW WE DO IT.."
 	cluster=92
 	par = 170
 	enterpic = "$IN_EPI2"
-    exitpic = "$IN_EPI2"
+	exitpic = "$IN_EPI2"
 }
-//---------------------------------Episode 3
 
+//---------------------------------Episode 3
 map E3M1 "SAFARI"
 {
 	next=E3M2
@@ -294,8 +317,9 @@ map E3M1 "SAFARI"
 	cluster=93
 	par = 90
 	enterpic = "$IN_EPI3"
-    exitpic = "$IN_EPI3"
+	exitpic = "$IN_EPI3"
 }
+
 map E3M2 "DETH RO..........."
 {
 	next=E3M3
@@ -304,8 +328,9 @@ map E3M2 "DETH RO..........."
 	cluster=93
 	par = 45
 	enterpic = "$IN_EPI3"
-    exitpic = "$IN_EPI3"
+	exitpic = "$IN_EPI3"
 }
+
 map E3M3 "GAME OVER"
 {
 	next=E3M4
@@ -314,8 +339,9 @@ map E3M3 "GAME OVER"
 	cluster=93
 	par = 90
 	enterpic = "$IN_EPI3"
-    exitpic = "$IN_EPI3"
+	exitpic = "$IN_EPI3"
 }
+
 map E3M4 "HOUSE OF BUGIN"
 {
 	next=E3M5
@@ -324,8 +350,9 @@ map E3M4 "HOUSE OF BUGIN"
 	cluster=93
 	par = 150
 	enterpic = "$IN_EPI3"
-    exitpic = "$IN_EPI3"
+	exitpic = "$IN_EPI3"
 }
+
 map E3M5 "E3M5:E3M5:)......."
 {
 	next=E3M6
@@ -334,8 +361,9 @@ map E3M5 "E3M5:E3M5:)......."
 	cluster=93
 	par = 90
 	enterpic = "$IN_EPI3"
-    exitpic = "$IN_EPI3"
+	exitpic = "$IN_EPI3"
 }
+
 map E3M6 "PUBERTY"
 {
 	next=E3M7
@@ -344,8 +372,9 @@ map E3M6 "PUBERTY"
 	cluster=93
 	par = 90
 	enterpic = "$IN_EPI3"
-    exitpic = "$IN_EPI3"
+	exitpic = "$IN_EPI3"
 }
+
 map E3M7 "LOVE"
 {
 	next=E3M8
@@ -354,8 +383,9 @@ map E3M7 "LOVE"
 	cluster=93
 	par = 165
 	enterpic = "$IN_EPI3"
-    exitpic = "$IN_EPI3"
+	exitpic = "$IN_EPI3"
 }
+
 map E3M8 "HUH"
 {
 	next=endbunny
@@ -368,8 +398,9 @@ map E3M8 "HUH"
 	spidermastermindspecial
 	specialaction_exitlevel
 	enterpic = "$IN_EPI3"
-    exitpic = "$IN_EPI3"
+	exitpic = "$IN_EPI3"
 }
+
 map E3M9 "SH_____T"
 {
 	music=D_E3M9
@@ -379,5 +410,27 @@ map E3M9 "SH_____T"
 	next = "E3M7"
 	secretnext = "E3M7"
 	enterpic = "$IN_EPI3"
-    exitpic = "$IN_EPI3"
+	exitpic = "$IN_EPI3"
+}
+
+//Episode 1-3 Clusters, and pictures when a level is ended.
+cluster 91
+{
+	flat = "$bgflatE1"
+	music = "$MUSIC_VICTOR"
+	exittext = lookup, "IMPACT1"
+}
+
+cluster 92
+{
+	flat = "$bgflatE2"
+	music = "$MUSIC_VICTOR"
+	exittext = lookup, "IMPACT2"
+}
+
+cluster 93
+{
+	flat = "$bgflatE3"
+	music = "$MUSIC_VICTOR"
+	exittext = lookup, "IMPACT3"
 }

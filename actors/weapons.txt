@@ -1,15 +1,14 @@
 //We want to make it compatible with the current Zandronum version (July 2015)
-//So we have to remove the fancy Bob animations :'(
-//Fuck Zandronum.
+//So we have to remove the fancy Bob animations :'( - Fuck Zandronum.
 
 ACTOR MrSmiley : Doomplayer replaces Doomplayer
 {
-	player.startitem "SmileyPistol"
-	player.startitem "SmileyBat"
+	Player.StartItem "SmileyPistol"
+	Player.StartItem "SmileyBat"
 	Player.StartItem "Clip", 75
 	Player.StartItem "Shell", 20
 	Player.WeaponSlot 1, SmileyBat, Chainsaw
-   	Player.WeaponSlot 2, SmileyPistol
+	Player.WeaponSlot 2, SmileyPistol
 	Player.WeaponSlot 3, SmileyShotgun, SmileySuperShotgun
 	Player.WeaponSlot 4, SmileyChaingun
 	Player.WeaponSlot 5, SmileyChickenLauncher
@@ -19,36 +18,36 @@ ACTOR MrSmiley : Doomplayer replaces Doomplayer
 
 ACTOR SmileySuperShotgun : SuperShotgun replaces SuperShotgun
 {
-  Weapon.BobStyle InverseSmooth
-  Weapon.BobSpeed 1.5
-  Weapon.BobRangeY 0.4
-  Weapon.BobRangeX 1.4
+	Weapon.BobRangeX 1.4
+	Weapon.BobRangeY 0.4
+	Weapon.BobSpeed 1.5
+	Weapon.BobStyle InverseSmooth
 }
 
 ACTOR SmileyBat : Fist replaces Fist
 {
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 1.6
-	Weapon.BobRangeY 0.6
 	Weapon.BobRangeX 1.2
+	Weapon.BobRangeY 0.6
+	Weapon.BobSpeed 1.6
+	Weapon.BobStyle InverseSmooth
 	States
-  {
-  Fire:
-    PUNG BCDEFGH 1
-    PUNG F 3 A_Punch
-    PUNG ED 2
-    PUNG CB 3 A_ReFire
-    Goto Ready
-  }
+	{
+	Fire:
+		PUNG BCDEFGH 1
+		PUNG F 3 A_Punch
+		PUNG ED 2
+		PUNG CB 3 A_ReFire
+		Goto Ready
+	}
 }
 
 ACTOR SmileyShotgun : Shotgun replaces Shotgun
 {
-    Inventory.PickupMessage "$GOTSHOTGUN"
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 1.6
-	Weapon.BobRangeY 0.6
+	Inventory.PickupMessage "$GOTSHOTGUN"
 	Weapon.BobRangeX 1.2
+	Weapon.BobRangeY 0.6
+	Weapon.BobSpeed 1.6
+	Weapon.BobStyle InverseSmooth
 	States
 	{
 	Fire:
@@ -74,12 +73,12 @@ ACTOR SmileyShotgun : Shotgun replaces Shotgun
 
 ACTOR SmileyChaingun : Chaingun replaces Chaingun
 {
-	decal bulletchip
+	Decal bulletchip
 	Inventory.PickupMessage "$GOTCHAINGUN"
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 1.6
-	Weapon.BobRangeY 0.6
 	Weapon.BobRangeX 1.2
+	Weapon.BobRangeY 0.6
+	Weapon.BobSpeed 1.6
+	Weapon.BobStyle InverseSmooth
 	States
 	{
 	Fire:
@@ -100,27 +99,27 @@ ACTOR SmileyChaingun : Chaingun replaces Chaingun
 		CHGF B 1 Bright A_Light2
 		TNT1 A 2 A_Light1
 		Goto LightDone
-		CHGF CE 1 Bright A_Light1
-		CHGF DF 1 Bright A_Light2
-		TNT1 A 2 A_Light1
-		Goto LightDone
+			CHGF CE 1 Bright A_Light1
+			CHGF DF 1 Bright A_Light2
+			TNT1 A 2 A_Light1
+			Goto LightDone
 	}
 }
 
 ACTOR SmileyPistol : Pistol replaces Pistol
 {
-    Inventory.PickupMessage "Ya got the..Pistol?"
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 1.6
-	Weapon.BobRangeY 1.0
+	Decal bulletchip
+	Inventory.PickupMessage "Ya got the..Pistol?"
 	Weapon.BobRangeX 0.4
-	decal bulletchip
+	Weapon.BobRangeY 1.0
+	Weapon.BobSpeed 1.6
+	Weapon.BobStyle InverseSmooth
 	States
 	{
 	Ready:
 		PISG A 1 A_WeaponReady
 		Loop
-	Deselect:
+		Deselect:
 		PISG A 1 A_Lower
 		Loop
 	Select:
@@ -141,11 +140,11 @@ ACTOR SmileyPistol : Pistol replaces Pistol
 
 ACTOR SmileyChickenLauncher : RocketLauncher replaces RocketLauncher
 {
-    Inventory.PickupMessage "$GOTLAUNCHER"
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 1.6
-	Weapon.BobRangeY 0.6
+	Inventory.PickupMessage "$GOTLAUNCHER"
 	Weapon.BobRangeX 1.2
+	Weapon.BobRangeY 0.6
+	Weapon.BobSpeed 1.6
+	Weapon.BobStyle InverseSmooth
 	States
 	{
 	Fire:
@@ -169,29 +168,29 @@ ACTOR SmileyChickenLauncher : RocketLauncher replaces RocketLauncher
 
 Actor SmileyGoodFetherBird : BFG9000 replaces BFG9000
 {	
-	Weapon.BobStyle InverseSmooth
-	Weapon.BobSpeed 1.6
-	Weapon.BobRangeY 0.6
 	Weapon.BobRangeX 1.2
+	Weapon.BobRangeY 0.6
+	Weapon.BobSpeed 1.6
+	Weapon.BobStyle InverseSmooth
 	States
 	{
-    	Fire:
-		    TNT1 A 0 A_BFGSound
-    		BFGG ABCDAB 2
-    		BFGG ABCDAB 2 A_GunFlash
-		    BFGG EFG 4
-    		BFGG H 4 A_FireBFG
-		    BFGG I 1 A_ReFire
-		    BFGG J 4 A_ReFire
-    		goto Ready
+	Fire:
+		TNT1 A 0 A_BFGSound
+		BFGG ABCDAB 2
+		BFGG ABCDAB 2 A_GunFlash
+		BFGG EFG 4
+		BFGG H 4 A_FireBFG
+		BFGG I 1 A_ReFire
+		BFGG J 4 A_ReFire
+		goto Ready
 	Hold:
-		    BFGG A 1 A_BFGSound
-		    BFGG A 19
-    		BFGG B 2 A_GunFlash
-		    BFGG A 8
-    		BFGG B 10 A_FireBFG
-		    BFGG B 1 A_ReFire
-		    BFGG B 19 A_ReFire
-    		goto Ready
+		BFGG A 1 A_BFGSound
+		BFGG A 19
+		BFGG B 2 A_GunFlash
+		BFGG A 8
+		BFGG B 10 A_FireBFG
+		BFGG B 1 A_ReFire
+		BFGG B 19 A_ReFire
+		goto Ready
 	}
 }

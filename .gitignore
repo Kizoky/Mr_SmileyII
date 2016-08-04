@@ -1,0 +1,8 @@
+*.tmp
+*.dbs
+*.backup1
+*.backup2
+*.backup3
+*.bak
+*.php
+*.psd

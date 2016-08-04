@@ -1,5 +1,5 @@
 //decorate stuff from actors folder - ozy81
-#include "actors\dooms.txt"
-#include "actors\trees.txt"
-#include "actors\weapons.txt"
-#include "actors\kizokys.txt"
+#include "actors/dooms.txt"
+#include "actors/trees.txt"
+#include "actors/weapons.txt"
+#include "actors/kizokys.txt"

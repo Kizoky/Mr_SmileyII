@@ -439,3 +439,36 @@ cluster 93
 	music = "$MUSIC_VICTOR"
 	exittext = lookup, "IMPACT3"
 }
+
+//Skill definition things
+//Incompleted.
+
+clearskills
+
+skill 2ez
+{
+   SpawnFilter = Easy
+   Name = "Smiley Adventures"
+   Key = "1"
+}
+
+skill normie
+{
+   SpawnFilter = Normal
+   Name = "The Safari of the Smiley"
+   Key = "2"
+}
+
+skill wowowo
+{
+   SpawnFilter = Hard
+   Name = "Smiley's Bad Vacation"
+   Key = "3"
+}
+
+skill ohcr4p
+{
+   SpawnFilter = Nightmare
+   Name = "ABOMINATION"
+   Key = "4"
+}

@@ -1,6 +1,4 @@
-Check list whether the levels of Smiley I are touched, or they aren't.
-In this list, these levels were edited to correct some wrong texture offsets, level glitches, but NOT adding new sectors to it.
-For example, these levels will never have 3D Sectors added to it, so they will be compatible with non-ZDoom engine
-There may be an expection though.
+Mr. Smiley Head's Safari original levels.
+Were they edited already yet?
 
-E1M1 == touched
+E1M1 == Yes

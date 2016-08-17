@@ -3,6 +3,7 @@
 
 ACTOR MrSmiley : Doomplayer replaces Doomplayer
 {
+	Player.DisplayName "Mr. Smiley Head"
 	Player.StartItem "SmileyPistol"
 	Player.StartItem "SmileyBat"
 	Player.StartItem "Clip", 75
@@ -14,6 +15,12 @@ ACTOR MrSmiley : Doomplayer replaces Doomplayer
 	Player.WeaponSlot 5, SmileyChickenLauncher
 	Player.WeaponSlot 6, PlasmaRifle
 	Player.WeaponSlot 7, SmileyGoodFetherBird
+}
+
+ACTOR UncleSmiley : MrSmiley
+{
+	Player.DisplayName "Uncle Smiley"
+	Player.Face "UNC"
 }
 
 ACTOR SmileySuperShotgun : SuperShotgun replaces SuperShotgun

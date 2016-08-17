@@ -12,7 +12,7 @@ gameinfo
 	menufontcolor_highlight = "BLACK"
 	menufontcolor_selection = "BRICK"
 	//pausesign = "M_PAUSE"
-	playerclasses="MrSmiley"
+	playerclasses="MrSmiley", "UncleSmiley"
 }
 
 episode map01

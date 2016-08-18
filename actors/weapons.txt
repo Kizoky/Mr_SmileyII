@@ -1,9 +1,16 @@
 //We want to make it compatible with the current Zandronum version (July 2015)
 //So we have to remove the fancy Bob animations :'( - Fuck Zandronum.
+actor Boolprop: Inventory
+{
+    Inventory.MaxAmount 1
+    +UNDROPPABLE
+    -INVBAR
+}
 
 ACTOR MrSmiley : Doomplayer replaces Doomplayer
 {
 	Player.DisplayName "Mr. Smiley Head"
+	Player.StartItem "IsSmileyHead", 1
 	Player.StartItem "SmileyPistol"
 	Player.StartItem "SmileyBat"
 	Player.StartItem "Clip", 75
@@ -17,11 +24,27 @@ ACTOR MrSmiley : Doomplayer replaces Doomplayer
 	Player.WeaponSlot 7, SmileyGoodFetherBird
 }
 
-ACTOR UncleSmiley : MrSmiley
+ACTOR UncleSmiley : DoomPlayer
 {
 	Player.DisplayName "Uncle Smiley"
+	Player.StartItem "IsUncleSmiley", 1
 	Player.Face "UNC"
+	Player.Soundclass "UncleUncle"
+	Player.StartItem "SmileyPistol"
+	Player.StartItem "SmileyBat"
+	Player.StartItem "Clip", 75
+	Player.StartItem "Shell", 20
+	Player.WeaponSlot 1, SmileyBat, Chainsaw
+	Player.WeaponSlot 2, SmileyPistol
+	Player.WeaponSlot 3, SmileyShotgun, SmileySuperShotgun
+	Player.WeaponSlot 4, SmileyChaingun
+	Player.WeaponSlot 5, SmileyChickenLauncher
+	Player.WeaponSlot 6, PlasmaRifle
+	Player.WeaponSlot 7, SmileyGoodFetherBird
 }
+
+actor IsSmileyHead: Boolprop {}
+actor IsUncleSmiley: Boolprop {}
 
 ACTOR SmileySuperShotgun : SuperShotgun replaces SuperShotgun
 {

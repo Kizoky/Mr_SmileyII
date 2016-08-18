@@ -1,2 +1,13 @@
 //Red Ranger's death scream
 redranger/death DSRDRNGR
+
+//Uncle Smiley
+//Here's an interesting note: The Soundclass name must be longer than 5 words, otherwise It won't work.
+//..I hate bugs. Also, it is case sensitive.
+DSUNCDETH sounds/DSUNCDETH.wav
+DSUNCPAIN sounds/DSUNCPAIN.wav
+$playeralias           UncleUncle  male    *death          DSUNCDETH
+$playeralias           UncleUncle  male    *pain100        DSUNCPAIN
+$playeralias           UncleUncle  male    *pain75         *pain100
+$playeralias           UncleUncle  male    *pain50         *pain100
+$playeralias           UncleUncle  male    *pain25         *pain100

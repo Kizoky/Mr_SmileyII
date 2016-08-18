@@ -12,7 +12,7 @@ gameinfo
 	menufontcolor_highlight = "BLACK"
 	menufontcolor_selection = "BRICK"
 	//pausesign = "M_PAUSE"
-	playerclasses="MrSmiley", "UncleSmiley"
+	playerclasses="MrSmiley","UncleSmiley"
 }
 
 episode map01
@@ -469,6 +469,10 @@ skill wowowo
 skill ohcr4p
 {
    SpawnFilter = Nightmare
+   FastMonsters
+   DamageFactor = 1.5
+   Aggressiveness = 0.75
    Name = "ABOMINATION"
+   MustConfirm = "Ya gonna need more than Smileys!"
    Key = "4"
 }

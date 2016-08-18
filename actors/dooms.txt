@@ -78,6 +78,7 @@ ACTOR SmileySpider : SpiderMastermind replaces SpiderMastermind
 //Also, adding them new features... :F
 ACTOR MJClone : Zombieman
 {
+//DropItem "UncleLaugh"
 }
 
 ACTOR SafariGuy : Shotgunguy
@@ -130,4 +131,9 @@ ACTOR Smileynator : Revenant
 
 ACTOR BlueRanger : BaronOfHell
 {
+}
+
+ACTOR UncleLaugh
+{
+//ACS stuff
 }

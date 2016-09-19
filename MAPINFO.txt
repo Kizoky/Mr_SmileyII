@@ -2,10 +2,10 @@
 gameinfo
 {
 	border = 0,0,"b","b","b","b","b","b","b","b"
-	borderflat = "KZKY"
+	borderflat = "YLWRCK"
 	dimcolor = ""
 	menufontcolor_title = "YELLOW"
-	menufontcolor_label = "UNTRANSLATED"
+	menufontcolor_label = "RED"
 	menufontcolor_value = "GRAY"
 	menufontcolor_action = "GRAY"
 	menufontcolor_header = "GOLD"

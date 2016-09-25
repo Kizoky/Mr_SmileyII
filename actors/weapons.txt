@@ -20,7 +20,7 @@ ACTOR MrSmiley : Doomplayer replaces Doomplayer
 	Player.WeaponSlot 3, SmileyShotgun, SmileySuperShotgun
 	Player.WeaponSlot 4, SmileyChaingun
 	Player.WeaponSlot 5, SmileyChickenLauncher
-	Player.WeaponSlot 6, PlasmaRifle
+	Player.WeaponSlot 6, PlasmaRing
 	Player.WeaponSlot 7, SmileyGoodFetherBird
 }
 
@@ -39,7 +39,7 @@ ACTOR UncleSmiley : DoomPlayer
 	Player.WeaponSlot 3, SmileyShotgun, SmileySuperShotgun
 	Player.WeaponSlot 4, SmileyChaingun
 	Player.WeaponSlot 5, SmileyChickenLauncher
-	Player.WeaponSlot 6, PlasmaRifle
+	Player.WeaponSlot 6, PlasmaRing
 	Player.WeaponSlot 7, SmileyGoodFetherBird
 }
 
@@ -229,4 +229,31 @@ Actor SmileyGoodFetherBird : BFG9000 replaces BFG9000
 		BFGG B 19 A_ReFire
 		goto Ready
 	}
+}
+
+ACTOR PlasmaRing : PlasmaRifle replaces PlasmaRifle
+{
+  Weapon.BobRangeX 1.2
+  Weapon.BobRangeY 0.6
+  Weapon.BobSpeed 1.6
+  Weapon.BobStyle InverseSmooth
+  States
+  {
+  Ready:
+    PLSG A 1 A_WeaponReady
+    Loop
+  Deselect:
+    PLSG A 1 A_Lower
+    Loop
+  Select:
+    PLSG A 1 A_Raise
+    Loop
+  Fire:
+    PLSF ABAB 3 A_FireCustomMissile("PlasmaBall",0,1)
+	PLSG BA 6 A_ReFire
+    Goto Ready
+  Spawn:
+    PLAS A -1
+    Stop
+  }
 }

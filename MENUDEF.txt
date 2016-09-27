@@ -1,0 +1,71 @@
+LISTMENU "MainMenu"
+{	
+	IfGame(Doom, Chex)
+	{
+		StaticPatch 94, 2, "M_DOOM"
+		Position 97, 72
+		IfOption(ReadThis)
+		{
+			Position 97, 64
+		}
+	}
+	IfGame(Doom, Strife, Chex)
+	{
+		Font "DoomFont", "Red"
+		TextItem "New Game", "n", "PlayerclassMenu"
+		ifOption(SwapMenu)
+		{
+			TextItem "Load Game", "l", "LoadGameMenu"
+			TextItem "Save Game", "s", "SaveGameMenu"
+			TextItem "Optionz","o", "OptionsMenu"
+		}
+		else
+		{
+			TextItem "Optionz","o", "OptionsMenu"
+			TextItem "Load Game", "l", "LoadGameMenu"
+			TextItem "Save Game", "s", "SaveGameMenu"
+		}
+		TextItem "Quit", "q", "QuitMenu"
+	}
+}
+
+ListMenu "SkillMenu"
+{
+
+	IfGame(Doom, Chex)
+	{
+		Font "DoomFont", "Red"
+		StaticText 96, 14, "New Game"
+	}
+	IfGame(Doom, Strife, Chex)
+	{
+		Font "DoomFont", "Red"
+		StaticText 54, 38, "Choose yer skill:"
+		Position 48, 63
+	}
+}
+
+OptionMenu "OptionsMenu"
+{
+	Title "OPTIONZ"
+	Submenu "Customize Controls",		"CustomizeControls"
+	Submenu "Mouse optionz",			"MouseOptions"
+	Submenu "Joystick optionz",			"JoystickOptions"
+	StaticText " "
+	Submenu "Player Setup",				"PlayerMenu"
+	Submenu "Gameplay Optionz",			"GameplayOptions"
+	Submenu "Compatibility Optionz",	"CompatibilityOptions"
+	Submenu "Automap Optionz",			"AutomapOptions"
+	Submenu "HUD Optionz",				"HUDOptions"
+	Submenu "Miscellaneous Optionz",	"MiscOptions"
+	Submenu "Sound Optionz",			"SoundOptions"
+	Submenu "Display Optionz",			"VideoOptions"
+	Submenu "Set video mode",			"VideoModeMenu"
+	StaticText " "
+	SafeCommand "Reset to defaults",	"reset2defaults"
+	SafeCommand	"Reset to last saved",	"reset2saved"
+	Command "Go to console",			"menuconsole"
+	StaticText " "
+	StaticText "Mr. Smiley Head's Safari II"
+	StaticText "Alpha v0.40"
+}

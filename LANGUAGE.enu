@@ -46,6 +46,99 @@ STSTR_NCON = "Ghostly mode ON!";
 STSTR_NCOFF = "Ghostly mode OFF :(";
 STSTR_BEHOLDX = "Got Pumped-Up!!!";
 
+D_DEVSTR = "WTF are ya doing??.\n";
+D_CDROM = "Ya are stupid!!";
+PRESSKEY = "press a key, If ya dare.";
+PRESSYN = "press y or n, scrub.";
+LOADNET = "Ya can't load a game while in MP, idiot.";
+QLOADNET = "Ya can't quickload while in MP, idiot.";
+QSAVESPOT = "Quicksave first, ya idiot!!";
+SAVEDEAD = "Ya aren't even playing!!";
+QSPROMPT = "Quicksave n overwrite?\n\n'%s'?\n\npress y or n.";
+QLPROMPT = "Quickload the following?\n\n'%s'?\n\npress y or n.";
+NEWGAME = "Ya can't start a new game\nwhile in a network game, idiot!!\n\npress a key.";
+NIGHTMARE = "This skill level doesn't exist. huehuehuehuehue";
+SWSTRING = "Why bother with shareware, when this thing is free?";
+SECRETMESSAGE = "Ya found a secret!! Congratz!!";
+PD_BLUEO = "Ya need a blue key to activate this object";
+PD_REDO = "Ya need a red key to activate this object";
+PD_YELLOWO = "Ya need a yellow key to activate this object";
+PD_BLUEK = "Ya need a blue key to open this stupid door";
+PD_REDK = "Ya need a red key to open this idiot door";
+PD_YELLOWK = "Ya need a yellow key to open this retard door";
+PD_BLUECO = "Ya need a blue key to activate this object";
+PD_REDCO = "Ya need a red key to activate this object";
+PD_YELLOWCO = "Ya need a yellow happy key to activate this object";
+PD_BLUESO = "Ya need a blue happy key to activate this object";
+PD_REDSO = "Ya need a red happy key to activate this object";
+PD_YELLOWSO = "Ya need a yellow happy key to activate this object";
+
+STSTR_KFAADDED = "Got an arsenal of everything!! Ya dirty cheater!";
+STSTR_FAADDED = "Got an arsenal of.. almost everything!! Ya noob cheater!";
+STSTR_CHOPPERS = "I prefer an attack helicopter with a big ass minigun on it instead.";
+STSTR_CLEV = "Turbo Mega-Level Changer 3000 engaged!!\n";
+
+CC_ZOMBIE = "THE CLONE";
+CC_SHOTGUN = "WHO THE HELL IS HE?";
+CC_HEAVY = "UGH, GO AWAY";
+CC_IMP = "SILVER MONKEY";
+CC_DEMON = "HUGALOHIC SHITLORD";
+CC_LOST = "PACCING BULLSHIT";
+CC_CACO = "IVE GOT MY EYES ON YOU";
+CC_HELL = "IS THIS A DRESSUP?";
+CC_BARON = "YOU LOST YOUR SHITTY FRIEND";
+CC_ARACH = "SHOOTING STARS WITH HER SHITTY HANDS";
+CC_PAIN = "ANNOYING FUCKTARD";
+CC_REVEN = "ANOTHER ANNOYING FUCKTARD";
+CC_MANCU = "STOP THROWING SHIT AT ME";
+CC_ARCH = "MORE ANNOYING FUCKTARD!!";
+CC_SPIDER = "AND THIS FUCKER COMES";
+CC_CYBER = "AND THIS SHIT IS JUST FUCKED UP";
+CC_HERO = "AND YOU DON'T EVEN KNOW WHO IS HE";
+
+PD_BLUEC = "Ya need a blue key to open this door";
+PD_REDC = "Ya need a red key to open this door";
+PD_YELLOWC = "Ya need a yellow key to open this door";
+PD_BLUES = "Ya need a blue happy key to open this door";
+PD_REDS = "You need a red happy key to open this door";
+PD_YELLOWS = "You need a yellow happy key to open this door";
+PD_ANY = "Just get a key...";
+PD_ANYOBJ = "Just get a key...";
+PD_ALL3 = "Ya need all three keys to open this door";
+PD_ALL3O = "Ya need all three keys to activate this object";
+PD_ALL6 = "Ya need all six keys to open this door";
+PD_ALL6O = "Ya need all six keys to activate this object";
+PD_ALLKEYS = "Ya need all the keys";
+
+OB_SUICIDE = "%o suicides.";
+OB_FALLING = "%o fell too far.";
+OB_CRUSH = "%o was squished.";
+OB_EXIT = "%o tried to leave.";
+OB_WATER = "%o can't swim.";
+OB_SLIME = "%o was an idiot, and mutated.";
+OB_LAVA = "%o's mother didn't teached &h not to play in Chernobly. :))";
+OB_BARREL = "%o ate a lot of explosion.";
+OB_SPLASH = "%o stood in the wrong spot.";
+OB_R_SPLASH = "%o should have stood back.";
+OB_ROCKET = "%o should have stood back.";
+OB_KILLEDSELF = "%o idiot killed %hself.";
+
+OB_MONTELEFRAG = "%o was in a different dimension.";
+
+OB_DEFAULT = "%o died.";
+OB_MPDEFAULT = "%o was killed by %k.";
+OB_FRIENDLY1 = "%k mows down a teammate.";
+OB_FRIENDLY2 = "%k checks %p glasses.";
+OB_FRIENDLY3 = "%k gets a frag for the other team.";
+OB_FRIENDLY4 = "%k loses another idiot.";
+
+MNU_OPTIONS			= "OPTIONZ";
+MNU_GAMEFILES		= "GAME FILEZ";
+
+AM_MONSTERS			= "Monsterz:";
+AM_SECRETS			= "Secretz:";
+AM_ITEMS			= "Itemz:";
+
 //Copy & Paste from "Vanilla" DooM3
 
 IMPACT1 =

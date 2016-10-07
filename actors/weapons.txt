@@ -9,8 +9,10 @@ actor Boolprop: Inventory
 
 ACTOR MrSmiley : Doomplayer replaces Doomplayer
 {
+	Species "Marines"
 	Player.DisplayName "Mr. Smiley Head"
 	Player.StartItem "IsSmileyHead", 1
+	Player.StartItem "Buddy", 1
 	Player.StartItem "SmileyPistol"
 	Player.StartItem "SmileyBat"
 	Player.StartItem "Clip", 75
@@ -26,8 +28,10 @@ ACTOR MrSmiley : Doomplayer replaces Doomplayer
 
 ACTOR UncleSmiley : DoomPlayer
 {
+	Species "Marines"
 	Player.DisplayName "Uncle Smiley"
 	Player.StartItem "IsUncleSmiley", 1
+	Player.StartItem "Buddy", 1
 	Player.Face "UNC"
 	Player.Soundclass "UncleUncle"
 	Player.StartItem "SmileyPistol"
@@ -45,6 +49,7 @@ ACTOR UncleSmiley : DoomPlayer
 
 actor IsSmileyHead: Boolprop {}
 actor IsUncleSmiley: Boolprop {}
+actor Buddy: Boolprop {}
 
 ACTOR SmileySuperShotgun : DoomWeapon replaces SuperShotgun
 {

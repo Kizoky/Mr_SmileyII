@@ -3,3 +3,6 @@
 #include "actors/trees.txt"
 #include "actors/weapons.txt"
 #include "actors/kizokys.txt"
+
+#include "actors/buddiescore.txt"
+#include "actors/buddies.txt"

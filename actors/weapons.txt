@@ -46,12 +46,40 @@ ACTOR UncleSmiley : DoomPlayer
 actor IsSmileyHead: Boolprop {}
 actor IsUncleSmiley: Boolprop {}
 
-ACTOR SmileySuperShotgun : SuperShotgun replaces SuperShotgun
+ACTOR SmileySuperShotgun : DoomWeapon replaces SuperShotgun
 {
-	Weapon.BobRangeX 1.4
-	Weapon.BobRangeY 0.4
-	Weapon.BobSpeed 1.5
-	Weapon.BobStyle InverseSmooth
+  Weapon.BobRangeX 1.4
+  Weapon.BobRangeY 0.4
+  Weapon.BobSpeed 1.5
+  Weapon.BobStyle InverseSmooth
+  States
+  {
+  Ready:
+    SHT2 A 1 A_WeaponReady
+    Loop
+  Deselect:
+    SHT2 A 1 A_Lower
+    Loop
+  Select:
+    SHT2 A 1 A_Raise
+    Loop
+  Fire:
+    SHT2 A 3
+    KIST A 5 A_FireShotgun2
+	KIST B 1
+    SHT2 B 4 A_CheckReload
+    SHT2 C 5 A_OpenShotgun2
+    KIZO ABC 5
+    KIZO D 2 A_LoadShotgun2
+    KIZO EFG 4
+    KIZO H 2 A_CloseShotgun2
+    SHT2 EDCB 2
+	SHT2 B 4 A_ReFire
+    Goto Ready
+  Spawn:
+    SGN2 A -1
+    Stop
+  }
 }
 
 ACTOR SmileyBat : Fist replaces Fist

@@ -55,7 +55,7 @@ defaultmap //We don't want crouch and jumping for a while.
 	sky1=SKY1
 }
 
-map TITLEMAP "Monster in-fighting"
+map TITLEMAP "They don't know what's behind that wall"
 {
 	music=D_FFL1
 	totalinfighting

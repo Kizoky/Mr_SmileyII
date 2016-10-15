@@ -82,7 +82,7 @@ map map03 "Safari again??"
 	music=D_E3M1
 }
 
-map map04 "ZOMG LSD!!"
+map map04 "It's not a big one this time!!"
 {
 	next=map05
 	par=120

@@ -36,6 +36,8 @@ ACTOR RedRanger : HellKnight replaces HellKnight
 	PainSound "baron/pain"
 	ActiveSound "baron/active"
 	Translation "199:202=175:178"
+	Obituary "%o was killed by a Red Ranger's Bottle."
+	HitObituary "%o was catched and killed by a Red Ranger."
 	States
 	{
 	Spawn:

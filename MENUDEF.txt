@@ -40,7 +40,7 @@ ListMenu "SkillMenu"
 	IfGame(Doom, Strife, Chex)
 	{
 		Font "DoomFont", "Red"
-		StaticText 54, 38, "Choose yer skill:"
+		StaticText 54, 38, "How are ya feeling today?"
 		Position 48, 63
 	}
 }

@@ -3,11 +3,17 @@
 
 Sprite MISGA0, 640, 480
 {
+	xscale 1.5
+    yscale 1.5
+    offset 0,0
 	Patch MISGA0, 158, 80
 }
 
 Sprite MISGB0, 640, 480
-{
+{	
+	xscale 1.5
+    yscale 1.5
+    offset 0,0
 	Patch MISGB0, 158, 80
 }
 

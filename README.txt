@@ -1,43 +1,48 @@
 # DooM 3: Mr. Smiley Head's Safari II
 # Current version: Beta v0.40
-
-Tutorial:
+# Multiplayer compatibility: Testing
+|________________________________________________________|
+|This is the official git for Mr. Smiley Head's Safari II|
+|________________________________________________________|
+Building the pk3:
 
 After you downloaded the zip, don't forget to extract the folder, then run the BUILD.bat file in order to build the Mr_SmileyII.pk3 file
-The built file will be in the extracted folder where you first built the pk3 in the first place
---
+The pk3 file will be placed where you ran the BUILD.bat file in the first place
+ie.: "C:\Users\Administrator\Desktop\Mr_SmileyII\Mr_SmileyII.pk3"
+_________________________________________________________________
+Without building the pk3:
 
-Alternative:
+Extract the .zip file to the desktop (or anywhere else), then drag the folder over the ZDoom.exe(or GZDoom.exe; or Zandronum.exe)
+_________________________________________________________________
 
-You can also load the mod by dragging the whole folder to the (G)ZDoom.exe (Make sure there aren't any extra folders within the folder (ie.: master/Mr_SmileyII/Mr_SmileyII)
---
+The original Mr. Smiley Head's Safari levels are fully functional, even the animated intermission from Ultimate Doom
 
-This is the official git for Mr. Smiley Head's Safari II
+Bugs:
+-Some of the levels are using DooM II sky patches (1th episode, secret level)
+-Missing patches on walls from various levels
 
 ##### To do list:
-To make this mod as a full TC, we need to literally replace EVERYTHING in order to be "original"
+To present this mod as a full TC, we need to literally replace EVERYTHING in order to be "original"
 
 -Replace Archvile with Metalhead -- 80%
 -Replace Mancubus/Fatso with Cartman+Mario -- 0%
 -Replace Revenant with Transformer -- 0%
 -Replace Chaingunguy with ???
 -Add sounds for replaced monsters (Pain Elemental)
--Redraw every texture -- 22 left
--Redraw every USED patch -- Too much left for the Smiley!
--If possible, replace Spider Mastermind too
--Create 10-20 PLAYABLE/FINISHABLE levels
+-Redraw every texture
+-Redraw every USED patch
 -Score system -- 0% 
 -Buddies -- 10%
 
-##### Playable/Finishable levels currently
+##### Playable/"has EXIT" Smiley II levels currently
 
 MAP01
 MAP02
 MAP03
-MAP06
+MAP04
 XMAS01
 
-Unfinished levels:
+##### Unfinished levels:
 
-MAP04
+MAP05
 MAP21

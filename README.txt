@@ -6,7 +6,7 @@
 -ZDoom 2.8.1+
 -GZDoom 2.2.0+
 -Zandronum Alpha 3.0+
--GZDoom 1.0+ (In Menu set MipMapping to Off to avoid ugly textures when looking far away)
+-QZDoom 1.0+ (In Menu set MipMapping to Off to avoid ugly textures when looking far away)
 # Other:
 +Can be played with FREEDOOM
 +Can be played with Ultimate Doom (Basically DooM 1) (..though DOOM2.WAD is enforced)

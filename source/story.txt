@@ -1,0 +1,17 @@
+*These are extremely early, and WIP "story"; it may change, or be even completely discraded*
+
+Mr. Smiley II will offer a "story telling" which is mostly built on cancer. Yes, when I meant cancer, things like that cause cancer.
+
+Users will be asked If they wish to skip the cutscenes, or the whole beginning intro, however It will be cut into sequences, so the player won't have to
+go through the unskippable dialogue, and just go to the specific dialogue, If by any chance, he/she died somehow during the cutscenes.. ;)
+
+It's also worth mentioning that this story won't have any meaning at all. Of course, It will have a standard story, but everything built on it will be true cancer.
+Like childish humour, 1000 year old jokes that makes anyone puke and irritate (triggering), unexpected events, and so on.
+
+Of course, this will be DISABLED by default on MULTIPLAYER.
+It can be reenabled in the server via a cvar. (It doesn't exist yet, nor the ACS scripts which consists the stories)
+The "skippable" sequences will most likely will rely on the host of the server (or the first player who entered the server, who knows.)
+Due to limitations It will just be simply "played" as players can respawn without reloading the whole level (reloading a whole level results in reloading the ACS scripts too, d'uh.)
+
+ATM there aren't any story.
+I'll avoid putting REALLY offensive black humour (like involving Kurt Cobain from Nirvana, nobody likes that.)

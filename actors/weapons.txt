@@ -127,13 +127,13 @@ ACTOR SmileyShotgun : DoomWeapon replaces Shotgun
 	States
 	{
 	Ready:
-		SHTG A 1 A_WeaponReady
+		SHTG A 1 Offset(0,0) A_WeaponReady
 		Loop
 	Deselect:
-		SHTG A 1 A_Lower
+		SHTG A 1 Offset(0,0) A_Lower
 		Loop
 	Select:
-		SHTG A 1 A_Raise
+		SHTG A 1 Offset(0,0) A_Raise
 		Loop
 	Fire:
 		SHTG A 3
@@ -146,12 +146,11 @@ ACTOR SmileyShotgun : DoomWeapon replaces Shotgun
 		SHTG G 1
 		SHTG H 3
 		SHTG GFEDCB 2
-		SHTG A 1
 		SHTG A 7 A_ReFire
 		Goto Ready
 	Flash:
-		SHTF B 3 Bright A_Light2
-		SHTF A 2 Bright A_Light1
+		SHTF B 3 Offset(0, 0) Bright A_Light2
+		SHTF A 2 Offset(0, 0) Bright A_Light1
 		Goto LightDone
 	Spawn:
 		SHOT A -1

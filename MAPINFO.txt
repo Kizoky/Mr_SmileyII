@@ -38,6 +38,12 @@ episode E3M1
 	name="The Safari"
 }
 
+episode E4M1
+{
+	picname = "M_EPI4"
+	name="I Haz All The Dudes Hating On Me!!"
+}
+
 episode DEVMAP
 {
 	name="Development Map"

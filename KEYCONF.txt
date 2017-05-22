@@ -1,0 +1,3 @@
+clearplayerclasses
+addplayerclass MrSmiley
+addplayerclass UncleSmiley

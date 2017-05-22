@@ -60,10 +60,10 @@ ACTOR SmileySuperShotgun : DoomWeapon replaces SuperShotgun
   Inventory.PickupMessage "$GOTSHOTGUN2"
   Obituary "$OB_MPSSHOTGUN"
   Tag "$TAG_SUPERSHOTGUN"
-  Weapon.BobRangeX 1.4
-  Weapon.BobRangeY 0.4
-  Weapon.BobSpeed 1.5
-  Weapon.BobStyle InverseSmooth
+  //Weapon.BobRangeX 1.4
+  //Weapon.BobRangeY 0.4
+  //Weapon.BobSpeed 1.5
+  //Weapon.BobStyle InverseSmooth
   States
   {
   Ready:
@@ -96,10 +96,10 @@ ACTOR SmileySuperShotgun : DoomWeapon replaces SuperShotgun
 
 ACTOR SmileyBat : Fist
 {
-	Weapon.BobRangeX 1.2
-	Weapon.BobRangeY 0.6
-	Weapon.BobSpeed 1.6
-	Weapon.BobStyle InverseSmooth
+	//Weapon.BobRangeX 1.2
+	//Weapon.BobRangeY 0.6
+	//Weapon.BobSpeed 1.6
+	//Weapon.BobStyle InverseSmooth
 	States
 	{
 	Fire:
@@ -120,10 +120,10 @@ ACTOR SmileyShotgun : DoomWeapon replaces Shotgun
 	Obituary "$OB_MPSHOTGUN"
     Tag "$TAG_SHOTGUN"
 	Inventory.PickupMessage "$GOTSHOTGUN"
-	Weapon.BobRangeX 1.2
-	Weapon.BobRangeY 0.6
-	Weapon.BobSpeed 1.6
-	Weapon.BobStyle InverseSmooth
+	//Weapon.BobRangeX 1.2
+	//Weapon.BobRangeY 0.6
+	//Weapon.BobSpeed 1.6
+	//Weapon.BobStyle InverseSmooth
 	States
 	{
 	Ready:
@@ -168,10 +168,10 @@ ACTOR SmileyChaingun : DoomWeapon replaces Chaingun
 	Inventory.PickupMessage "$GOTCHAINGUN"
 	Obituary "$OB_MPCHAINGUN"
 	Tag "$TAG_CHAINGUN"
-	Weapon.BobRangeX 1.2
-	Weapon.BobRangeY 0.6
-	Weapon.BobSpeed 1.6
-	Weapon.BobStyle InverseSmooth
+	//Weapon.BobRangeX 1.2
+	//Weapon.BobRangeY 0.6
+	//Weapon.BobSpeed 1.6
+	//Weapon.BobStyle InverseSmooth
 	States
 	{
 	Ready:
@@ -222,10 +222,10 @@ ACTOR SmileyPistol : DoomWeapon replaces Pistol
 	+WEAPON.WIMPY_WEAPON
 	Tag "$TAG_PISTOL"
 	Inventory.PickupMessage "Ya got the..Pistol?"
-	Weapon.BobRangeX 0.4
-	Weapon.BobRangeY 1.0
-	Weapon.BobSpeed 1.6
-	Weapon.BobStyle InverseSmooth
+	//Weapon.BobRangeX 0.4
+	//Weapon.BobRangeY 1.0
+	//Weapon.BobSpeed 1.6
+	//Weapon.BobStyle InverseSmooth
 	States
 	{
 	Ready:
@@ -262,10 +262,10 @@ ACTOR SmileyChickenLauncher : DoomWeapon replaces RocketLauncher
 	+WEAPON.NOAUTOFIRE
 	Inventory.PickupMessage "$GOTLAUNCHER"
 	Tag "$TAG_ROCKETLAUNCHER"
-	Weapon.BobRangeX 1.2
-	Weapon.BobRangeY 0.6
-	Weapon.BobSpeed 1.6
-	Weapon.BobStyle InverseSmooth
+	//Weapon.BobRangeX 1.2
+	//Weapon.BobRangeY 0.6
+	//Weapon.BobSpeed 1.6
+	//Weapon.BobStyle InverseSmooth
 	States
 	{
 	Ready:
@@ -312,10 +312,10 @@ Actor SmileyGoodFetherBird : DoomWeapon replaces BFG9000
 	+WEAPON.NOAUTOFIRE
 	Inventory.PickupMessage "$GOTBFG9000"
 	Tag "$TAG_BFG9000"
-	Weapon.BobRangeX 1.2
-	Weapon.BobRangeY 0.6
-	Weapon.BobSpeed 1.6
-	Weapon.BobStyle InverseSmooth
+	//Weapon.BobRangeX 1.2
+	//Weapon.BobRangeY 0.6
+	//Weapon.BobSpeed 1.6
+	//Weapon.BobStyle InverseSmooth
 	States
 	{
 	Ready:
@@ -379,10 +379,10 @@ ACTOR PlasmaRing : DoomWeapon replaces PlasmaRifle
   Weapon.AmmoType "Cell"
   Inventory.PickupMessage "$GOTPLASMA"
   Tag "$TAG_PLASMARIFLE"
-  Weapon.BobRangeX 1.2
-  Weapon.BobRangeY 0.6
-  Weapon.BobSpeed 1.6
-  Weapon.BobStyle InverseSmooth
+  //Weapon.BobRangeX 1.2
+  //Weapon.BobRangeY 0.6
+  //Weapon.BobSpeed 1.6
+  //Weapon.BobStyle InverseSmooth
   States
   {
   Ready:

@@ -2,18 +2,8 @@
 # Current version: Beta v0.40
 # Multiplayer compatibility: Testing
 
-# Compatibility: ("+" means UP and newer)
--ZDoom 2.8.1+
--GZDoom 2.2.0+
--Zandronum Alpha 3.0+
--QZDoom 1.0+ (In Menu set MipMapping to Off to avoid ugly textures when looking far away)
-# Other:
-+Can be played with FREEDOOM
-+Can be played with Ultimate Doom (Basically DooM 1) (..though DOOM2.WAD is enforced)
-# Incompatible: (-*explanation*)
--Skulltag ALL versions - Skulltag is not updated anymore. Problem with UDMF format; Outdated DECORATE; Won't run.
--Zandronum 2.1.2 - Glitches and bugs due to outdated engine compared to Alpha 3.0; Use Alpha 3.0 instead.
--Non-ZDoom engine - No, not even the god himself can run this mod without ZDoom.
+# Primary source port: Zandronum 2.1.2
+
 |________________________________________________________|
 |This is the official git for Mr. Smiley Head's Safari II|
 |________________________________________________________|
@@ -25,7 +15,7 @@ ie.: "C:\Users\Administrator\Desktop\Mr_SmileyII\Mr_SmileyII.pk3"
 _________________________________________________________________
 Without building the pk3:
 
-Extract the .zip file to the desktop (or anywhere else), then drag the folder over the ZDoom.exe(or GZDoom.exe; or Zandronum.exe)
+Extract the .zip file to the desktop (or anywhere else), then drag the folder over the Zandronum.exe
 _________________________________________________________________
 
 The original Mr. Smiley Head's Safari levels are fully functional, even the animated intermission from Ultimate Doom

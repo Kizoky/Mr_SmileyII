@@ -1,6 +1,7 @@
 # DooM 3: Mr. Smiley Head's Safari II
 # Current version: Beta v0.40
 # Multiplayer compatibility: Testing
+# Current task: Redrawing the textures/patches, all original DOOM and DOOM II assets [81%]
 
 # Compatibility: ("+" means UP and newer)
 -ZDoom 2.8.1+

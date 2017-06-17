@@ -1,3 +1,4 @@
+ZANDRO_PREV3.0 stands for Zandronum Pre-version 3.0
 # DooM 3: Mr. Smiley Head's Safari II
 # Current version: Beta v0.40
 # Multiplayer compatibility: Testing

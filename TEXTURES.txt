@@ -642,11 +642,6 @@ Texture SHAWN2, 64, 128
 	Patch AG128_1, 0, 0
 }
 
-Texture SKY1, 256, 128
-{
-	Patch SKY1, 0, -8
-}
-
 Texture SLADPOIS, 64, 128
 {
 	Patch WLA128_1, 0, 0

@@ -1,17 +1,15 @@
-*These are extremely early, and WIP "story"; it may change, or be even completely discraded*
+Story?
 
-Mr. Smiley II will offer a "story telling" which is mostly built on cancer. Yes, when I meant cancer, things like that cause cancer.
+This one is the most trickiest of all, trying to tell a story in DOOM
+There are multiple problems with it, If I try to approach it it with Strife-style, not everyone will like the mod
+If the TC's gameplay will remain pure Vanilla Doom, and I add unskippable/skippable cutscenes it will be regarded just a shit mod that tries to be good, I don't want that.
 
-Users will be asked If they wish to skip the cutscenes, or the whole beginning intro, however It will be cut into sequences, so the player won't have to
-go through the unskippable dialogue, and just go to the specific dialogue, If by any chance, he/she died somehow during the cutscenes.. ;)
+ATM (2017.06.27) not every level is finished, this TC lacks playable levels, and therefore I still haven't added any ACS script which would involve "cutscenes"
 
-It's also worth mentioning that this story won't have any meaning at all. Of course, It will have a standard story, but everything built on it will be true cancer.
-Like childish humour, 1000 year old jokes that makes anyone puke and irritate (triggering), unexpected events, and so on.
+What would be the best then? Short cutscenes or actions.
 
-Of course, this will be DISABLED by default on MULTIPLAYER.
-It can be reenabled in the server via a cvar. (It doesn't exist yet, nor the ACS scripts which consists the stories)
-The "skippable" sequences will most likely will rely on the host of the server (or the first player who entered the server, who knows.)
-Due to limitations It will just be simply "played" as players can respawn without reloading the whole level (reloading a whole level results in reloading the ACS scripts too, d'uh.)
+Mr. Smiley II will have an intro, and it will be a flashback of Smiley Head fighting the invisible Giant Spider, then heading to a "portal", which he would end up in his very own home. He sleeps for 10 years, then he wakes up, the year would be then 2005.
+Everything after is a Mr. Smiley Head in a nutshell.
+This would be the basic story for the mod, but everything after comes would be just only gags, and maybe something that continues the story.
 
-ATM there aren't any story.
-I'll avoid putting REALLY offensive black humour (like involving Kurt Cobain from Nirvana, nobody likes that.)
+Rise of the Smiley!

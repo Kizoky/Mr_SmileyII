@@ -47,8 +47,30 @@ ACTOR UncleSmiley : DoomPlayer
 	Player.WeaponSlot 7, SmileyGoodFetherBird
 }
 
+ACTOR Emoley : DoomPlayer
+{
+	Species "Marines"
+	Player.DisplayName "Emoley"
+	Player.StartItem "IsEmoley", 1
+	Player.StartItem "Buddy", 1
+	Player.Face "EMO"
+	Player.Soundclass "UncleUncle"
+	Player.StartItem "SmileyPistol"
+	Player.StartItem "SmileyBat"
+	Player.StartItem "Clip", 75
+	Player.StartItem "Shell", 20
+	Player.WeaponSlot 1, SmileyBat, Chainsaw
+	Player.WeaponSlot 2, SmileyPistol
+	Player.WeaponSlot 3, SmileyShotgun, SmileySuperShotgun
+	Player.WeaponSlot 4, SmileyChaingun
+	Player.WeaponSlot 5, SmileyChickenLauncher
+	Player.WeaponSlot 6, PlasmaRing
+	Player.WeaponSlot 7, SmileyGoodFetherBird
+}
+
 actor IsSmileyHead: Boolprop {}
 actor IsUncleSmiley: Boolprop {}
+actor IsEmoley: Boolprop {}
 actor Buddy: Boolprop {}
 
 ACTOR SmileySuperShotgun : DoomWeapon replaces SuperShotgun

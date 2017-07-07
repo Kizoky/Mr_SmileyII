@@ -1,3 +1,4 @@
+# || These foes know only one villain, "The Smiley Head" who destroys everything in it's path, known as "The Safari".
 # DooM 3: Mr. Smiley Head's Safari II
 # Current version: Beta v0.40
 # Multiplayer compatibility: Testing

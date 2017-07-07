@@ -12,7 +12,7 @@ gameinfo
 	//menufontcolor_highlight = "GOLD"
 	//menufontcolor_selection = "GOLD"
 	//pausesign = "M_PAUSE"
-	playerclasses="MrSmiley","UncleSmiley"
+	playerclasses="MrSmiley","UncleSmiley","Emoley"
 }
 
 episode map01

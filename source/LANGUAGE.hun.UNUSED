@@ -1,0 +1,188 @@
+[hun default]
+OB_CACOHIT = "%o egy szem étellé vált.";
+OB_DEMONHIT = "%o-t megölelte egy Barney.";
+OB_SPECTREHIT = "%o molesztálva lett egy láthatatlan Barney által.";
+OB_ZOMBIE = "%o kapott egy táncot egy Michael Jackson klóntól.";
+OB_SHOTGUY = "%o megölte egy Szafari mániákus.";
+OB_SKULL = "%o szétlett PAKKolva.";
+OB_IMP = "%o halálra lett csikizve egy ürlény által.";
+OB_BARON = "%o erőtlen lett egy Kék Ranger által.";
+OB_BARONHIT = "%o halálra lett ütve egy Kék Ranger által.";
+OB_CYBORG = "%o alábecsülte Frosty erejét.";
+OB_BABY = "$o kinyírta egy nagyon-nem aranyos Hello Kitty.";
+OB_KNIGHTHIT = "%o meglett fogva, és kilett nyírva egy Piros Ranger által."
+OB_KNIGHT = "%o meghalt egy Piros Ranger üvege által."
+
+GOTMEGA = "Kaptál egy R-mer-t, ember!!";
+GOTHTHBONUS = "Kaptál egy Coca-Colát!!!!!!";
+GOTARMBONUS = "Kaptál egy Dodgers kupát!!!!";
+GOTBLUECARD = "Egy Kék kulcs. Igen! Igen!";
+GOTYELWCARD = "Egy Sárga kulcs. Ezaz!!";
+GOTREDCARD = "Egy Piros kulcs. HA! HA!";
+GOTBLUESKUL = "Egy Kék Boldog Kulcs!!";
+GOTYELWSKUL = "Egy Sárga Boldog Kulcs!!";
+GOTREDSKUL = "Egy Piros Boldog Kulcs!!";
+GOTSTIM = "Egy Kávés pohár.";
+GOTBERSERK = "Bézboz ütő!!";
+GOTMAP = "Egy Kincses térkép a környékről!!";
+GOTVISOR = "A mindentlátó szemüveg!!";
+GOTCLIP = "Egy Lőszer.";
+GOTCLIPBOX = "Egy doboznyi boldog töltény!!";
+GOTROCKET = "Egy Csirke!";
+GOTROCKBOX = "Egy doboznyi Csirkék!!";
+GOTCELL = "Boldog dolog!!";
+GOTCELLBOX = "Szuper Boldog Dolog!!";
+GOTSHELLS = "4db Sörétes töltény.";
+GOTSHELLBOX = "Egy doboznyi sörétes töltény.";
+GOTBACKPACK = "Egy boldog csomag tele boldog töltényekkel!!";
+GOTBFG9000 = "Egy JTM (Jó Toll Madár)!!";
+GOTCHAINGUN = "Egy MP69!";
+GOTCHAINSAW = "Egy Szmájli fogkefe!!";
+GOTLAUNCHER = "Egy Csirke Mester 2000!";
+GOTPLASMA = "Egy Célozz-és-pörköl!";
+STSTR_DQDON = "Boldogság mód ON!!!";
+STSTR_DQDOFF = "Boldogság mód OFF :(";
+STSTR_NCON = "Szellemes mód ON!";
+STSTR_NCOFF = "Szellemes mód OFF :(";
+STSTR_BEHOLDX = "Egy Gyurmi!!!";
+
+D_DEVSTR = "WTF are ya doing??.\n";
+D_CDROM = "Ya are stupid!!";
+PRESSKEY = "press a key, If ya dare.";
+PRESSYN = "press y or n, scrub.";
+LOADNET = "Ya can't load a game while in MP, idiot.";
+QLOADNET = "Ya can't quickload while in MP, idiot.";
+QSAVESPOT = "Quicksave first, ya idiot!!";
+SAVEDEAD = "Ya aren't even playing!!";
+QSPROMPT = "Quicksave n overwrite?\n\n'%s'?\n\npress y or n.";
+QLPROMPT = "Quickload the following?\n\n'%s'?\n\npress y or n.";
+NEWGAME = "Ya can't start a new game\nwhile in a network game, idiot!!\n\npress a key.";
+NIGHTMARE = "This skill level doesn't exist. huehuehuehuehue";
+SWSTRING = "Why bother with shareware, when this thing is free?";
+SECRETMESSAGE = "Ya found a secret!! Congratz!!";
+PD_BLUEO = "Ya need a blue key to activate this object";
+PD_REDO = "Ya need a red key to activate this object";
+PD_YELLOWO = "Ya need a yellow key to activate this object";
+PD_BLUEK = "Ya need a blue key to open this stupid door";
+PD_REDK = "Ya need a red key to open this idiot door";
+PD_YELLOWK = "Ya need a yellow key to open this retard door";
+PD_BLUECO = "Ya need a blue key to activate this object";
+PD_REDCO = "Ya need a red key to activate this object";
+PD_YELLOWCO = "Ya need a yellow happy key to activate this object";
+PD_BLUESO = "Ya need a blue happy key to activate this object";
+PD_REDSO = "Ya need a red happy key to activate this object";
+PD_YELLOWSO = "Ya need a yellow happy key to activate this object";
+
+STSTR_KFAADDED = "Got an arsenal of everything!! Ya dirty cheater!";
+STSTR_FAADDED = "Got an arsenal of.. almost everything!! Ya noob cheater!";
+STSTR_CHOPPERS = "I prefer an attack helicopter with a big ass minigun on it instead.";
+STSTR_CLEV = "Turbo Mega-Level Changer 3000 engaged!!\n";
+
+CC_ZOMBIE = "THE CLONE";
+CC_SHOTGUN = "WHO THE HELL IS HE?";
+CC_HEAVY = "UGH, GO AWAY";
+CC_IMP = "SILVER MONKEY";
+CC_DEMON = "HUGALOHIC SHITLORD";
+CC_LOST = "PACCING BULLSHIT";
+CC_CACO = "IVE GOT MY EYES ON YOU";
+CC_HELL = "IS THIS A DRESSUP?";
+CC_BARON = "YOU LOST YOUR SHITTY FRIEND";
+CC_ARACH = "SHOOTING STARS WITH HER SHITTY HANDS";
+CC_PAIN = "ANNOYING FUCKTARD";
+CC_REVEN = "ANOTHER ANNOYING FUCKTARD";
+CC_MANCU = "STOP THROWING SHIT AT ME";
+CC_ARCH = "MORE ANNOYING FUCKTARD!!";
+CC_SPIDER = "AND THIS FUCKER COMES";
+CC_CYBER = "AND THIS SHIT IS JUST FUCKED UP";
+CC_HERO = "AND YOU DON'T EVEN KNOW WHO IS HE";
+
+PD_BLUEC = "Ya need a blue key to open this door";
+PD_REDC = "Ya need a red key to open this door";
+PD_YELLOWC = "Ya need a yellow key to open this door";
+PD_BLUES = "Ya need a blue happy key to open this door";
+PD_REDS = "You need a red happy key to open this door";
+PD_YELLOWS = "You need a yellow happy key to open this door";
+PD_ANY = "Just get a key...";
+PD_ANYOBJ = "Just get a key...";
+PD_ALL3 = "Ya need all three keys to open this door";
+PD_ALL3O = "Ya need all three keys to activate this object";
+PD_ALL6 = "Ya need all six keys to open this door";
+PD_ALL6O = "Ya need all six keys to activate this object";
+PD_ALLKEYS = "Ya need all the keys";
+
+OB_SUICIDE = "%o suicides.";
+OB_FALLING = "%o fell too far.";
+OB_CRUSH = "%o was squished.";
+OB_EXIT = "%o tried to leave.";
+OB_WATER = "%o can't swim.";
+OB_SLIME = "%o was an idiot, and mutated.";
+OB_LAVA = "%o's mother didn't teached &h not to play in Chernobly. :))";
+OB_BARREL = "%o ate a lot of explosion.";
+OB_SPLASH = "%o stood in the wrong spot.";
+OB_R_SPLASH = "%o should have stood back.";
+OB_ROCKET = "%o should have stood back.";
+OB_KILLEDSELF = "%o idiot killed %hself.";
+
+OB_MONTELEFRAG = "%o was in a different dimension.";
+
+OB_DEFAULT = "%o died.";
+OB_MPDEFAULT = "%o was killed by %k.";
+OB_FRIENDLY1 = "%k mows down a teammate.";
+OB_FRIENDLY2 = "%k checks %p glasses.";
+OB_FRIENDLY3 = "%k gets a frag for the other team.";
+OB_FRIENDLY4 = "%k loses another idiot.";
+
+MNU_OPTIONS			= "OPTIONZ";
+MNU_GAMEFILES		= "GAME FILEZ";
+
+AM_MONSTERS			= "Monsterz:";
+AM_SECRETS			= "Secretz:";
+AM_ITEMS			= "Itemz:";
+
+//Copy & Paste from "Vanilla" DooM3
+
+IMPACT1 =
+		"Hey man, u think you're cool\n"
+		"now, huh? but guess wut! u suk!\n"
+		"u aint even seen the half of it!\n"
+		"mr. smiley heads got 2 mo' mishunz\n"
+		"2 go, dork. well, anywayz, we wood\n"
+		"like 2 thank u 4 playin doom3.\n"
+		"wei wu, mike tam, anthony ong, &\n"
+		"i(calvin wong) have put in over 6\n"
+		"months of wurk on this sh_t. we r\n"
+		"impact software, flying bear software,\n"
+		"& sparrowbird studios. now, here'z a\n"
+		"foto of mr sm, me, & mike on\n"
+		"vacation at las vegas...(look familiar?)..\n";		
+IMPACT2 =
+		"hey, good! ya' still suck though.\n"
+		"beat safari and you worck ass! we'd\n"
+		"like to take a moment to immortalize\n"
+		"some of our friends because they kept\n"
+		"asking 4 the release date of doom3 &\n"
+		"we kept delaying it, we feel they r\n"
+		"worthy to be recognized 4 their\n"
+		"patience.\n"
+		"	r frenz:\n"
+		"mike ngai, edwin lee, victor gonzales\n"
+		"sinoeun choup, james ly, josh wheeler\n"
+		"jonathan chang, and all of michaels\n"
+		"frenz. ok now, herez ending number 2\n"
+		"4 u 2 c. afterwards, play mission 3.\n"
+		"hav fun!\n";		
+IMPACT3 =
+		"u r awesome! game over, man! yup,\n"
+		"that's it! now smiley lives happily\n"
+		"ever after...not! doom is not over\n"
+		"yet(is it ever?)! doom4: the final\n"
+		"chapter will be released by impact in\n"
+		"october! hope ya had fun, and spread\n"
+		"this game around 2 all your friends\n"
+		"cuz we don't give a sh_t about the\n"
+		"damn cash! if you'd like to join\n"
+		"our yung hakerz teem, give comments,\n"
+		"or thank us 4 being born, call us\n"
+		"at either (818)284-5897 or\n"
+		"(213)728-7993(not on weekdayz).\n"
+		"	we rok!(but kant spell :)\n";

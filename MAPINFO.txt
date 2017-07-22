@@ -58,7 +58,7 @@ defaultmap //We don't want crouch and jumping for a while.
 {
 	nojump
 	nocrouch
-	sky1=SKY1
+	sky1=DSKY1
 }
 
 map TITLEMAP "They don't know what's behind that wall"

@@ -1238,7 +1238,7 @@ Texture DSKY1, 256, 128
 
 Texture DSKY2, 256, 128
 {
-	Patch SKY2, 0, 0
+	Patch DSKY2, 0, 0
 }
 
 Texture DSKY3, 256, 128

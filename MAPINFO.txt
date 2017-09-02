@@ -58,7 +58,8 @@ defaultmap //We don't want crouch and jumping for a while.
 {
 	nojump
 	nocrouch
-	sky1=SKY1
+	sky1=DSKY1
+	music=D_RUNRUN
 }
 
 map TITLEMAP "They don't know what's behind that wall"
@@ -72,6 +73,7 @@ map map01 "Deja vuuh??"
 	next=map02
 	par=120
 	music=D_E1M1
+	sky1=SKY1
 }
 
 map map02 "Ugly caztle!!!"
@@ -79,6 +81,7 @@ map map02 "Ugly caztle!!!"
 	next=map03
 	par=120
 	music=D_E1M2
+	sky1=SKY1
 }
 
 map map03 "Safari again??"
@@ -86,13 +89,23 @@ map map03 "Safari again??"
 	next=map04
 	par=120
 	music=D_E3M1
+	sky1=SKY1
 }
 
 map map04 "It's not a big one this time!!"
 {
-	next=map05
+	next=map06
 	par=120
 	music=D_POPC
+	sky1=SKY1
+}
+
+map map05 "the Laughing Smiley is Dangerous"
+{
+	next=map06
+	par=120
+	music=D_RUNRUN
+	sky1=SKY2
 }
 
 map map99 "ZOMG AN UGLY AND UNFINISHED LEVEL!!"

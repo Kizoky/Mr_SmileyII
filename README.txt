@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ZANDRO_PREV3.0 stands for Zandronum Pre-version 3.0
+=======
+# || These foes know only one villain, "The Smiley Head" who destroys everything in it's path, known as "The Safari".
+>>>>>>> master
 =======
 # || These foes know only one villain, "The Smiley Head" who destroys everything in it's path, known as "The Safari".
 >>>>>>> master
@@ -18,9 +22,13 @@ ZANDRO_PREV3.0 stands for Zandronum Pre-version 3.0
 |________________________________________________________|
 Building the pk3:
 
+Windows:
 After you downloaded the zip, don't forget to extract the folder, then run the BUILD.bat file in order to build the Mr_SmileyII.pk3 file
 The pk3 file will be placed where you ran the BUILD.bat file in the first place
 ie.: "C:\Users\Administrator\Desktop\Mr_SmileyII\Mr_SmileyII.pk3"
+
+Linux:
+Same as for Windows, but instead of build.bat, run the "build" file which will build the PK3 for you
 _________________________________________________________________
 Without building the pk3:
 

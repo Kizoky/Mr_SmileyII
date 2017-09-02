@@ -1,22 +1,12 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 ZANDRO_PREV3.0 stands for Zandronum Pre-version 3.0
 =======
 # || These foes know only one villain, "The Smiley Head" who destroys everything in it's path, known as "The Safari".
->>>>>>> master
-=======
-# || These foes know only one villain, "The Smiley Head" who destroys everything in it's path, known as "The Safari".
->>>>>>> master
 # DooM 3: Mr. Smiley Head's Safari II
 # Current version: Beta v0.40
 # Multiplayer compatibility: Testing
-# Current task: Redrawing the textures/patches, all original DOOM and DOOM II assets [81%]
-<<<<<<< HEAD
 
 # Primary source port: Zandronum 2.1.2
 =======
->>>>>>> master
-
 |________________________________________________________|
 |This is the official git for Mr. Smiley Head's Safari II|
 |________________________________________________________|

@@ -67,5 +67,5 @@ OptionMenu "OptionsMenu"
 	Command "Go to console",			"menuconsole"
 	StaticText " "
 	StaticText "Mr. Smiley Head's Safari II"
-	StaticText "Beta v6.9"
+	StaticText "Beta v0.49"
 }

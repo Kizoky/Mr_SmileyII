@@ -12,7 +12,7 @@ gameinfo
 	//menufontcolor_highlight = "GOLD"
 	//menufontcolor_selection = "GOLD"
 	//pausesign = "M_PAUSE"
-	playerclasses="MrSmiley","UncleSmiley","Emoley"
+	playerclasses="MrSmiley","UncleSmiley"
 }
 
 episode map01
@@ -94,7 +94,7 @@ map map03 "Safari again??"
 
 map map04 "It's not a big one this time!!"
 {
-	next=map05
+	next=map06
 	par=120
 	music=D_POPC
 	sky1=SKY1

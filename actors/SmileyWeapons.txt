@@ -73,8 +73,9 @@ actor IsUncleSmiley: Boolprop {}
 actor IsEmoley: Boolprop {}
 actor Buddy: Boolprop {}
 
-ACTOR SmileySuperShotgun : DoomWeapon replaces SuperShotgun
+ACTOR SmileySuperShotgun : Weapon replaces SuperShotgun
 {
+  Weapon.Kickback 100	
   Weapon.SelectionOrder 400
   Weapon.AmmoUse 2
   Weapon.AmmoGive 8
@@ -133,8 +134,9 @@ ACTOR SmileyBat : Fist
 	}
 }
 
-ACTOR SmileyShotgun : DoomWeapon replaces Shotgun
+ACTOR SmileyShotgun : Weapon replaces Shotgun
 {
+    Weapon.Kickback 100
     Weapon.SelectionOrder 1300
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 8
@@ -180,8 +182,9 @@ ACTOR SmileyShotgun : DoomWeapon replaces Shotgun
 	}
 }
 
-ACTOR SmileyChaingun : DoomWeapon replaces Chaingun
+ACTOR SmileyChaingun : Weapon replaces Chaingun
 {
+	Weapon.Kickback 100
 	Decal bulletchip
 	Weapon.SelectionOrder 700
     Weapon.AmmoUse 1
@@ -233,8 +236,9 @@ ACTOR SmileyChaingun : DoomWeapon replaces Chaingun
 	}
 }
 
-ACTOR SmileyPistol : DoomWeapon replaces Pistol
+ACTOR SmileyPistol : Weapon replaces Pistol
 {
+	Weapon.Kickback 100
 	Decal bulletchip
 	Weapon.SelectionOrder 1900
 	Weapon.AmmoUse 1
@@ -275,8 +279,9 @@ ACTOR SmileyPistol : DoomWeapon replaces Pistol
 	}
 }
 
-ACTOR SmileyChickenLauncher : DoomWeapon replaces RocketLauncher
+ACTOR SmileyChickenLauncher : Weapon replaces RocketLauncher
 {
+	Weapon.Kickback 100
 	Weapon.SelectionOrder 2500
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 2
@@ -324,8 +329,9 @@ ACTOR SmileyChickenLauncher : DoomWeapon replaces RocketLauncher
 	}
 }
 
-Actor SmileyGoodFetherBird : DoomWeapon replaces BFG9000
+Actor SmileyGoodFetherBird : Weapon replaces BFG9000
 {
+	Weapon.Kickback 100
 	Height 20
 	Weapon.SelectionOrder 2800
 	Weapon.AmmoUse 40
@@ -393,8 +399,9 @@ Actor SmileyGoodFetherBird : DoomWeapon replaces BFG9000
 	}
 }
 
-ACTOR PlasmaRing : DoomWeapon replaces PlasmaRifle
+ACTOR PlasmaRing : Weapon replaces PlasmaRifle
 {
+  Weapon.Kickback 100
   Weapon.SelectionOrder 100
   Weapon.AmmoUse 1
   Weapon.AmmoGive 40

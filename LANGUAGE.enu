@@ -139,6 +139,30 @@ AM_MONSTERS			= "Monsterz:";
 AM_SECRETS			= "Secretz:";
 AM_ITEMS			= "Itemz:";
 
+//quitmsgs
+QUITMSG = "It's either me, or the smiley.";
+QUITMSG1 = "I can still hear the footsteps of the Smiley.";
+QUITMSG2 = "Smiley x 3 = DISASTAH!!!111!";
+QUITMSG3 = "What's equal to Smiley? It needs more Safari.";
+QUITMSG4 = "There's nothing wrong with Smileyacation.";
+QUITMSG5 = "If you want a quick death, just say EMOJI.";
+QUITMSG6 = "Smiley smiling among all smileys.";
+QUITMSG7 = "Remember when metal sucked ass? Neither me.";
+QUITMSG8 = "Smiley's threat is squares. :)";
+QUITMSG9 = "Needs more yellow!!!11!1";
+QUITMSG10 = "Who needs you when I can rely on the Smiley?";
+QUITMSG11 = "Haha, got your ass smashed by the foes? :D";
+QUITMSG12 = "There's nothing wrong with Smiley, \n there's something wrong with your head.";
+QUITMSG13 = "What's Vista? Never heard of it.";
+QUITMSG14 = "ME's gonna do nothing bout 95 and 98.";
+QUITMSG15 = "2k killed every classic being.";
+QUITMSG16 = "What comes after 1999? 404.";
+QUITMSG17 = "The Squares hates the Smiley because of Uncle. UGH.";
+QUITMSG18 = "I've seen better playstyle. It doesn't exist.";
+QUITMSG19 = "Why Smiley's arms aren't yellow? No clue.";
+QUITMSG20 = "LSD is the answer to everything!";
+QUITMSG21 = "Uhh, there's something wrong with your Smiley!";
+
 //Copy & Paste from "Vanilla" DooM3
 
 IMPACT1 =

@@ -1,3 +1,7 @@
 clearplayerclasses
 addplayerclass MrSmiley
 addplayerclass UncleSmiley
+
+addkeysection "Mr. Smiley II: Gameplay" smileycmds
+
+addmenukey "Cutscene enabled" smiley_cutscene

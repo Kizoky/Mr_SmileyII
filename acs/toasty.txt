@@ -1,0 +1,21 @@
+//If you kill 5 enemies at once Toasty would appear
+
+#include "zcommon.acs"
+
+script SmileyScript1 OPEN
+{
+
+if (killCount > 4)
+{
+Delay(10);
+;;png add, slide to the right;;
+DSTOASTY.wav
+restart;
+}
+else
+{
+delay(5);
+restart;
+}
+
+}

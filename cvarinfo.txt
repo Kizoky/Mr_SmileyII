@@ -2,7 +2,6 @@
 //smiley_IsServer cvar will check if the mod is running on a server, so it will disable Single Player stuff that don't belong in Multiplayer
 server bool smiley_IsServer = false;
 user bool smiley_cutscene = true;
-user bool smiley_cutscene = true;
 user bool smiley_IntroSeen = false;
 user bool smiley_IntroSeenUncle = false;
 user bool smiley_IntroSeenEmoley = false;

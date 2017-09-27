@@ -1,0 +1,26 @@
+//At the end of each level the player will be scored. This idea is just for fun.
+//Planned: -Total obtainable points (5 points Zombieman, 10 points Shotgunguy, 15 points Chaingunguy, etc. etc.)
+//	   -Dev's score (basically, my own score. Just for fun)
+//	   -Dev's best time (Speedrunning on my own game?)
+//The following will impact the score: Everytime the player takes damage, it will lower the score, so not everyone will have the same score.
+//currently I don't know how will I implement this.
+
+script SmileyScript2 OPEN
+{
+
+if (scorepoint > 999)
+{
+Well done!
+Dev's score: Dev is a lazy pig.
+}
+else
+{
+	if (scorepoint > 2499)
+	{
+		Well done, peasant!
+		Dev's score: No idea.
+	}
+}
+}
+
+}

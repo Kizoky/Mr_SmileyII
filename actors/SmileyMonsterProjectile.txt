@@ -1,0 +1,188 @@
+//Projectile which Hello Kitty shoots
+ACTOR HelloKittyStar replaces ArachnotronPlasma
+{
+	Radius 13
+	Height 8
+	Speed 25
+	Damage 5
+	Projectile
+	+RANDOMIZE
+	RenderStyle Add 
+	Alpha 0.75
+	SeeSound "baby/attack"
+	DeathSound "baby/shotx"
+	Scale 1.9
+	States
+	{
+	Spawn:
+		STAR AB 5 Bright
+		Loop
+	Death:
+		APBX ABCDE 5 Bright
+		Stop
+	}
+}
+
+//Projectile which Red and Blue Ranger shoots
+ACTOR AlchBottle replaces BaronBall
+{
+  Radius 6
+  Height 16
+  Speed 15
+  FastSpeed 20
+  Damage 8
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  SeeSound "baron/attack"
+  DeathSound "baron/shotx"
+  Decal "BaronScorch"
+  States
+  {
+  Spawn:
+    BAL7 AB 4 Bright
+    Loop
+  Death:
+    BAL7 CDE 6 Bright
+    Stop
+  }
+}
+
+//MetalHead's black flames
+ACTOR MetalHeadFire
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  RenderStyle Add
+  Alpha 1
+  States
+  {
+  Spawn:
+    FIRE A 2 Bright A_StartFire
+    FIRE BAB 2 Bright A_Fire
+    FIRE C 2 Bright A_FireCrackle
+    FIRE BCBCDCDCDEDED 2 Bright A_Fire
+    FIRE E 2 Bright A_FireCrackle
+    FIRE FEFEFGHGHGH 2 Bright A_Fire
+    Stop
+  }
+}
+
+//The Big Eye's projectile, no pun intended
+ACTOR EyeBall
+{
+  Radius 6
+  Height 8
+  Speed 10
+  FastSpeed 20
+  Damage 5
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  SeeSound "caco/attack"
+  DeathSound "caco/shotx"
+  States
+  {
+  Spawn:
+    BAL2 AB 4 Bright
+    Loop
+  Death:
+    BAL2 CDE 6 Bright
+   Stop
+  }
+}
+
+//SmileyAlien projectile
+ACTOR AlienBall
+{
+  Radius 6
+  Height 8
+  Speed 10
+  FastSpeed 20
+  Damage 3
+  Projectile
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  SeeSound "imp/attack"
+  DeathSound "imp/shotx"
+  States
+  {
+  Spawn:
+    BAL1 AB 4 Bright
+    Loop
+  Death:
+    BAL1 CDE 6 Bright
+    Stop
+  }
+}
+
+//Mario's fireballs, HAHA, balls!
+ACTOR MarioBall
+{
+  Radius 6
+  Height 8
+  Speed 20
+  Damage 8
+  Projectile 
+  +RANDOMIZE
+  RenderStyle Add
+  Alpha 1
+  SeeSound "fatso/attack"
+  DeathSound "fatso/shotx"
+  States
+  {
+  Spawn:
+    MANF AB 4 Bright
+    Loop
+  Death:
+    MISL B 8 Bright
+    MISL C 6 Bright
+    MISL D 4 Bright
+    Stop
+  }
+}
+
+//SmileyNator's tracers, or whatever
+ACTOR SmileyHook
+{
+  Radius 11
+  Height 8
+  Speed 10
+  Damage 10
+  Projectile
+  +SEEKERMISSILE
+  +RANDOMIZE
+  SeeSound "skeleton/attack"
+  DeathSound "skeleton/tracex"
+  RenderStyle Add
+  States
+  {
+  Spawn:
+	FATB A 0 Bright A_CustomMissile("SmileyHookRail", 0, 0, 180)
+    FATB AB 2 Bright A_SeekerMissile(4,8) //angles between 0-90, need to test it
+    Loop
+  Death:
+    FBXP A 8 Bright
+    FBXP B 6 Bright
+    FBXP C 4 Bright
+    Stop
+  }
+}
+
+ACTOR SmileyHookRail
+{
+  +NOBLOCKMAP
+  +NOGRAVITY
+  +NOTELEPORT
+  RenderStyle Translucent 
+  Alpha 0.5
+  States
+  {	
+  Spawn:
+    PUFF ABABC 4
+    Stop
+  }
+}

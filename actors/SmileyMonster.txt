@@ -6,40 +6,69 @@
 //Smileynator(Revenant): Everything
 //SmileySpider(SpiderMastermind): Sounds
 
-ACTOR HelloKitty : Arachnotron replaces Arachnotron
+ACTOR HelloKitty replaces Arachnotron
 {
-	Scale 2.2
-}
-
-ACTOR HelloKittyStar replaces ArachnotronPlasma
-{
-	Radius 13
-	Height 8
-	Speed 25
-	Damage 5
-	Projectile
-	+RANDOMIZE
-	RenderStyle Add 
-	Alpha 0.75
-	SeeSound "baby/attack"
-	DeathSound "baby/shotx"
-	Scale 1.9
-	States
-	{
-	Spawn:
-		STAR AB 5 Bright
-		Loop
-	Death:
-		APBX ABCDE 5 Bright
-		Stop
-	}
+  Scale 2.2 //The pixel-style sprite I drew was small so I scaled it
+  Health 500
+  Radius 64
+  Height 64
+  Mass 600
+  Speed 12
+  PainChance 128
+  Monster
+  +FLOORCLIP
+  +BOSSDEATH
+  SeeSound "baby/sight"
+  PainSound "baby/pain"
+  DeathSound "baby/death"
+  ActiveSound "baby/active"
+  Obituary "$OB_BABY"
+  States
+  {
+  Spawn:
+    BSPI AB 10 A_Look
+    Loop
+  See:
+    BSPI A 20
+    BSPI A 3 A_BabyMetal
+    BSPI ABBCC 3 A_Chase
+    BSPI D 3 A_BabyMetal
+    BSPI DEEFF 3 A_Chase
+    Goto See+1
+  Missile:
+    BSPI A 20 Bright A_FaceTarget
+    BSPI G 4 Bright A_CustomMissile("HelloKittyStar",28)
+    BSPI H 4 Bright
+    BSPI H 1 Bright A_MonsterRefire(10,"See")
+    Goto Missile+1
+  Pain:
+    BSPI I 3
+    BSPI I 3 A_Pain
+    Goto See+1
+  Death:
+    BSPI J 20 A_Scream
+    BSPI K 7 A_NoBlocking
+    BSPI LMNO 7
+    BSPI P -1 A_BossDeath
+    Stop
+  Raise:
+    BSPI P 5
+    BSPI ONMLKJ 5
+    Goto See+1
+  }
 }
 //Using simple recoloring, makes the job easier than recoloring the sprites one by one
 ACTOR RedRanger replaces HellKnight
 {	
 	Health 500
-	-BOSSDEATH
-	DeathSound "redranger/death"
+	Radius 24
+	Height 64
+	Mass 1000
+	Speed 8
+	PainChance 50
+	Monster
+	+FLOORCLIP
+	DeathSound "redranger/death" //to indicate whether a Blue or a Red ranger was slain, Red Ranger's death sound is deeper
 	SeeSound "baron/sight"
 	PainSound "baron/pain"
 	ActiveSound "baron/active"
@@ -57,7 +86,7 @@ ACTOR RedRanger replaces HellKnight
 	Melee:
 	Missile:
 		BOSS EF 8 A_FaceTarget
-		BOSS G 8 A_BruisAttack
+		BOSS G 8 A_CustomComboAttack("BaronBall", 32, 10 * random(1, 8), "baron/melee")
 		Goto See
 	Pain:
 		BOSS H 2
@@ -753,7 +782,7 @@ ACTOR Smileynator replaces Revenant
   Missile:
     SKEL J 0 Bright A_FaceTarget
     SKEL J 10 Bright A_FaceTarget
-    SKEL K 10 A_SkelMissile
+    SKEL K 10 A_CustomMissile("SmileyHook",38)
     SKEL K 10 A_FaceTarget
     Goto See
   Pain:
@@ -802,7 +831,7 @@ ACTOR BlueRanger replaces BaronOfHell
   Melee:
   Missile:
     BOSS EF 8 A_FaceTarget
-    BOSS G 8 A_BruisAttack
+    BOSS G 8 A_CustomComboAttack("BaronBall", 32, 10 * random(1, 8), "baron/melee")
     Goto See
   Pain:
     BOSS H 2

@@ -1,6 +1,7 @@
 //decorate stuff from actors folder - ozy81
 #include "actors/SmileyMonster.txt"
 #include "actors/SmileyMonsterCustom.txt"
+#include "actors/SmileyMonsterProjectile.txt"
 #include "actors/SmileyWeapons.txt"
 //Brutal Doom AI
 //#include "actors/other/buddiescore.txt"

@@ -1,58 +1,6 @@
-ZANDRO_PREV3.0 stands for Zandronum Pre-version 3.0
-=======
-# || These foes know only one villain, "The Smiley Head" who destroys everything in it's path, known as "The Safari".
-# DooM 3: Mr. Smiley Head's Safari II
-# Current version: Beta v0.40
-# Multiplayer compatibility: Testing
+This is the Zandronum 2.1.2 version for Mr. Smiley II (2017. September 02)
+It's no longer updated, and will never be.
+Please use the latest version of Zandronum from here: https://zandronum.com/download
 
-# Primary source port: Zandronum 2.1.2
-=======
-|________________________________________________________|
-|This is the official git for Mr. Smiley Head's Safari II|
-|________________________________________________________|
-Building the pk3:
-
-Windows:
-After you downloaded the zip, don't forget to extract the folder, then run the BUILD.bat file in order to build the Mr_SmileyII.pk3 file
-The pk3 file will be placed where you ran the BUILD.bat file in the first place
-ie.: "C:\Users\Administrator\Desktop\Mr_SmileyII\Mr_SmileyII.pk3"
-
-Linux:
-Same as for Windows, but instead of build.bat, run the "build" file which will build the PK3 for you
-_________________________________________________________________
-Without building the pk3:
-
-Extract the .zip file to the desktop (or anywhere else), then drag the folder over the Zandronum.exe
-_________________________________________________________________
-
-The original Mr. Smiley Head's Safari levels are fully functional, even the animated intermission from Ultimate Doom
-
-Bugs:
--Some of the levels are using DooM II sky patches (1th episode, secret level)
--Missing patches on walls from various levels
-
-##### To do list:
-To present this mod as a full TC, we need to literally replace EVERYTHING in order to be "original"
-
--Replace Archvile with Metalhead -- 80%
--Replace Mancubus/Fatso with Cartman+Mario -- 0%
--Replace Revenant with Transformer -- 0%
--Replace Chaingunguy with ???
--Add sounds for replaced monsters (Pain Elemental)
--Redraw every texture
--Redraw every USED patch
--Score system -- 0% 
--Buddies -- 10%
-
-##### Playable/"has EXIT" Smiley II levels currently
-
-MAP01
-MAP02
-MAP03
-MAP04
-XMAS01
-
-##### Unfinished levels:
-
-MAP05
-MAP21
+For those who don't know, the only difference between Zandronum and ZDoom version is the weapon bobbing, nothing much.
+In the future, please use the ZDoom version If you use Zandronum!

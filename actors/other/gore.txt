@@ -1,0 +1,10 @@
+//Anyone that resembled the Smiley Heads were considered a traitor.
+ACTOR DeadYellowVarious replaces DeadMarine
+{
+  States
+  {
+  Spawn:
+    TNT1 A -1
+    Stop
+  }
+}

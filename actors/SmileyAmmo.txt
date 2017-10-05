@@ -1,0 +1,113 @@
+//Weapon ammo here.
+
+ACTOR Ring : Ammo replaces Cell
+{
+  Inventory.PickupMessage "$GOTCELL" // "Picked up an energy cell."
+  Inventory.Amount 20
+  Inventory.MaxAmount 300
+  Ammo.BackpackAmount 20
+  Ammo.BackpackMaxAmount 600
+  Inventory.Icon "CELLA0"
+  States
+  {
+  Spawn:
+    CELL A -1
+    Stop
+  }
+}
+
+ACTOR RingPack : Ring replaces CellPack
+{
+  Inventory.PickupMessage "$GOTCELLBOX" // "Picked up an energy cell pack."
+  Inventory.Amount 100
+  States
+  {
+  Spawn:
+    CELP A -1
+    Stop
+  }
+}
+
+ACTOR SmileyClip : Ammo replaces Clip
+{
+  Inventory.PickupMessage "$GOTCLIP" // "Picked up a clip."
+  Inventory.Amount 10
+  Inventory.MaxAmount 200
+  Ammo.BackpackAmount 10
+  Ammo.BackpackMaxAmount 400
+  Inventory.Icon "CLIPA0"
+  States
+  {
+  Spawn:
+    CLIP A -1
+    Stop
+  }
+}
+
+ACTOR SmileyClipBox : SmileyClip replaces ClipBox
+{
+  Inventory.PickupMessage "$GOTCLIPBOX" // "Picked up a box of bullets."
+  Inventory.Amount 50
+  States
+  {
+  Spawn:
+    AMMO A -1
+    Stop
+  }
+}
+
+ACTOR ChickenAmmo : Ammo replaces RocketAmmo
+{
+  Inventory.PickupMessage "$GOTROCKET" // "Picked up a rocket."
+  Inventory.Amount 1
+  Inventory.MaxAmount 50
+  Ammo.BackpackAmount 1
+  Ammo.BackpackMaxAmount 100
+  Inventory.Icon "ROCKA0"
+  States
+  {
+  Spawn:
+    ROCK A -1
+    Stop
+  }
+}
+
+ACTOR ChickenBox : ChickenAmmo replaces RocketBox
+{
+  Inventory.PickupMessage "$GOTROCKBOX" // "Picked up a box of rockets."
+  Inventory.Amount 5
+  States
+  {
+  Spawn:
+    BROK A -1
+    Stop
+  }
+}
+
+ACTOR SmileyShell : Ammo replaces Shell
+{
+  Inventory.PickupMessage "$GOTSHELLS" // "Picked up 4 shotgun shells."
+  Inventory.Amount 4
+  Inventory.MaxAmount 50
+  Ammo.BackpackAmount 4
+  Ammo.BackpackMaxAmount 100
+  Inventory.Icon "SHELA0"
+  States
+  {
+  Spawn:
+    SHEL A -1
+    Stop
+  }
+}
+
+ACTOR SmileyShellBox : SmileyShell replaces ShellBox
+{
+  Inventory.PickupMessage "$GOTSHELLBOX" // "Picked up a box of shotgun shells."
+  Inventory.Amount 20
+  States
+  {
+  Spawn:
+    SBOX A -1
+    Stop
+  }
+}

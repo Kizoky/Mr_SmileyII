@@ -8,6 +8,9 @@
 #include "actors/SmileyWeapons.txt"
 #include "actors/SmileyWeaponsExplosives.txt"
 
+//Emoley
+#include "actors/Smiley.EmoleyWeapons.txt"
+
 // ./actors/other/*.*
 #include "actors/other/gore.txt"
 

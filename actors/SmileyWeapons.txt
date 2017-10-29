@@ -1,6 +1,6 @@
 //An invisible inventory item to determine which character the player is playing.
 //It will be useful later on.
-actor Boolprop: Inventory
+actor Boolprop : Inventory
 {
     Inventory.MaxAmount 1
     +UNDROPPABLE
@@ -15,8 +15,8 @@ ACTOR MrSmiley : Doomplayer replaces Doomplayer
 	Player.StartItem "Buddy", 1
 	Player.StartItem "SmileyPistol"
 	Player.StartItem "SmileyBat"
-	Player.StartItem "Clip", 75
-	Player.StartItem "Shell", 20
+	Player.StartItem "SmileyClip", 75
+	Player.StartItem "SmileyShell", 20
 	Player.WeaponSlot 1, SmileyBat, Toothbrush
 	Player.WeaponSlot 2, SmileyPistol
 	Player.WeaponSlot 3, SmileyShotgun, SmileySuperShotgun
@@ -26,39 +26,18 @@ ACTOR MrSmiley : Doomplayer replaces Doomplayer
 	Player.WeaponSlot 7, SmileyGoodFetherBird
 }
 
-ACTOR UncleSmiley : DoomPlayer
-{
-	Species "Marines"
-	Player.DisplayName "Uncle Smiley"
-	Player.StartItem "IsUncleSmiley", 1
-	Player.StartItem "Buddy", 1
-	Player.Face "UNC"
-	Player.Soundclass "UncleUncle"
-	Player.StartItem "SmileyPistol"
-	Player.StartItem "SmileyBat"
-	Player.StartItem "Clip", 75
-	Player.StartItem "Shell", 20
-	Player.WeaponSlot 1, SmileyBat, Toothbrush
-	Player.WeaponSlot 2, SmileyPistol
-	Player.WeaponSlot 3, SmileyShotgun, SmileySuperShotgun
-	Player.WeaponSlot 4, SmileyChaingun
-	Player.WeaponSlot 5, SmileyChickenLauncher
-	Player.WeaponSlot 6, PlasmaRing
-	Player.WeaponSlot 7, SmileyGoodFetherBird
-}
+actor IsSmileyHead : Boolprop {}
+actor IsUncleSmiley : Boolprop {}
+actor IsEmoley : Boolprop {}
+actor Buddy : Boolprop {}
 
-actor IsSmileyHead: Boolprop {}
-actor IsUncleSmiley: Boolprop {}
-actor IsEmoley: Boolprop {}
-actor Buddy: Boolprop {}
-
-ACTOR SmileySuperShotgun : Weapon replaces SuperShotgun
+ACTOR SmileySuperShotgun : Weapon
 {
   Weapon.Kickback 100	
   Weapon.SelectionOrder 400
   Weapon.AmmoUse 2
   Weapon.AmmoGive 8
-  Weapon.AmmoType "Shell"
+  Weapon.AmmoType "SmileyShell"
   Inventory.PickupMessage "$GOTSHOTGUN2"
   Obituary "$OB_MPSSHOTGUN"
   Tag "$TAG_SUPERSHOTGUN"
@@ -113,13 +92,13 @@ ACTOR SmileyBat : Fist
 	}
 }
 
-ACTOR SmileyShotgun : Weapon replaces Shotgun
+ACTOR SmileyShotgun : Weapon
 {
     Weapon.Kickback 100
     Weapon.SelectionOrder 1300
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 8
-	Weapon.AmmoType "Shell"
+	Weapon.AmmoType "SmileyShell"
 	Obituary "$OB_MPSHOTGUN"
     Tag "$TAG_SHOTGUN"
 	Inventory.PickupMessage "$GOTSHOTGUN"
@@ -168,7 +147,7 @@ ACTOR SmileyChaingun : Weapon replaces Chaingun
 	Weapon.SelectionOrder 700
     Weapon.AmmoUse 1
     Weapon.AmmoGive 20
-    Weapon.AmmoType "Clip"
+    Weapon.AmmoType "SmileyClip"
 	Inventory.PickupMessage "$GOTCHAINGUN"
 	Obituary "$OB_MPCHAINGUN"
 	Tag "$TAG_CHAINGUN"
@@ -215,14 +194,14 @@ ACTOR SmileyChaingun : Weapon replaces Chaingun
 	}
 }
 
-ACTOR SmileyPistol : Weapon replaces Pistol
+ACTOR SmileyPistol : Weapon
 {
 	Weapon.Kickback 100
 	Decal bulletchip
 	Weapon.SelectionOrder 1900
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 20
-	Weapon.AmmoType "Clip"
+	Weapon.AmmoType "SmileyClip"
 	Obituary "$OB_MPPISTOL"
 	+WEAPON.WIMPY_WEAPON
 	Tag "$TAG_PISTOL"
@@ -258,13 +237,13 @@ ACTOR SmileyPistol : Weapon replaces Pistol
 	}
 }
 
-ACTOR SmileyChickenLauncher : Weapon replaces RocketLauncher
+ACTOR SmileyChickenLauncher : Weapon
 {
 	Weapon.Kickback 100
 	Weapon.SelectionOrder 2500
 	Weapon.AmmoUse 1
 	Weapon.AmmoGive 2
-	Weapon.AmmoType "RocketAmmo"
+	Weapon.AmmoType "ChickenAmmo"
 	+WEAPON.NOAUTOFIRE
 	Inventory.PickupMessage "$GOTLAUNCHER"
 	Tag "$TAG_ROCKETLAUNCHER"
@@ -315,7 +294,7 @@ Actor SmileyGoodFetherBird : Weapon replaces BFG9000
 	Weapon.SelectionOrder 2800
 	Weapon.AmmoUse 40
 	Weapon.AmmoGive 40
-	Weapon.AmmoType "Cell"
+	Weapon.AmmoType "Ring"
 	+WEAPON.NOAUTOFIRE
 	Inventory.PickupMessage "$GOTBFG9000"
 	Tag "$TAG_BFG9000"
@@ -378,13 +357,13 @@ Actor SmileyGoodFetherBird : Weapon replaces BFG9000
 	}
 }
 
-ACTOR PlasmaRing : Weapon replaces PlasmaRifle
+ACTOR PlasmaRing : Weapon
 {
   Weapon.Kickback 100
   Weapon.SelectionOrder 100
   Weapon.AmmoUse 1
   Weapon.AmmoGive 40
-  Weapon.AmmoType "Cell"
+  Weapon.AmmoType "Ring"
   Inventory.PickupMessage "$GOTPLASMA"
   Tag "$TAG_PLASMARIFLE"
   Weapon.BobRangeX 1.2
@@ -412,7 +391,7 @@ ACTOR PlasmaRing : Weapon replaces PlasmaRifle
   }
 }
 
-ACTOR Toothbrush : Weapon replaces Chainsaw
+ACTOR Toothbrush : Weapon
 {
   Weapon.Kickback 0
   Weapon.SelectionOrder 2200

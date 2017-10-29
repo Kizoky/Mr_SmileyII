@@ -7,9 +7,13 @@
 #include "actors/SmileyMonsterProjectile.txt"
 #include "actors/SmileyWeapons.txt"
 #include "actors/SmileyWeaponsExplosives.txt"
+#include "actors/Smiley.WeaponLogic.txt"
 
 //Emoley
 #include "actors/Smiley.EmoleyWeapons.txt"
+
+//Uncle
+#include "actors/Smiley.UncleWeapons.txt"
 
 // ./actors/other/*.*
 #include "actors/other/gore.txt"

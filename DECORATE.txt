@@ -17,7 +17,7 @@
 #include "actors/Smiley.EmoleyWeapons.txt"
 
 
-// ./actors/other/*.*
+// Replaced Gore actors, and new Gore actors
 #include "actors/other/gore.txt"
 
 //Brutal Doom AI

@@ -1,5 +1,5 @@
 //decorate stuff from actors folder - ozy81
-// Smiley stuff belongs here.
+// Smiley stuff belongs here. (Smiley Head PlayerPawn is in SmileyWeapons)
 #include "actors/SmileyAccessory.txt"
 #include "actors/SmileyAmmo.txt"
 #include "actors/SmileyMonster.txt"
@@ -9,11 +9,11 @@
 #include "actors/SmileyWeaponsExplosives.txt"
 #include "actors/Smiley.WeaponLogic.txt"
 
-//Uncle Smiley
+// Uncle Smiley
 #include "actors/Smiley.UncleWeapons.txt"
 
 
-//Emoley the Dark Mage
+// Emoley the Dark Mage
 #include "actors/Smiley.EmoleyWeapons.txt"
 
 

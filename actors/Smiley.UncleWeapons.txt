@@ -53,8 +53,9 @@ ACTOR UnclePistol : Weapon
 		UNCG A 5 A_ReFire
 		Goto Ready
 	Flash:
+		TNT1 A 0
 		TNT1 A 0 Bright A_Light2
-		UNCF A 1 Bright A_Light1
+		UNCF A 2 Bright A_Light1
 		Goto LightDone
 	Spawn:
 		PIST A -1

@@ -1,0 +1,55 @@
+class GreenRanger : RedRanger
+{
+	Default
+	{
+		Translation "199:202=112:114";
+	}
+}
+
+class PinkRanger : RedRanger
+{
+	Default
+	{
+		Translation "199:202=251:252";
+	}
+}
+
+class WhiteRanger : RedRanger
+{
+	Default
+	{
+		Translation "199:202=80:81";
+	}
+}
+
+class SilverRanger : RedRanger
+{
+	Default
+	{
+		Translation "199:202=90:92";
+	}
+}
+
+class YellowRanger : RedRanger
+{
+	Default
+	{
+		Translation "199:202=230:231";
+	}
+}
+
+class BrownRanger : RedRanger
+{
+	Default
+	{
+		Translation "199:202=220:222";
+	}
+}
+
+class BlackRanger : RedRanger
+{
+	Default
+	{
+		Translation "199:202=5:6";
+	}
+}

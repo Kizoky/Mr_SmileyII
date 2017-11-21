@@ -1,0 +1,121 @@
+// Gibbed marine -----------------------------------------------------------
+
+class GibbedSmiley : Actor replaces GibbedMarine
+{
+	States
+	{
+	Spawn:
+		PLAY W -1;
+		Stop;
+	}
+}
+
+// Gibbed marine (extra copy) ----------------------------------------------
+
+class GibbedSmileyExtra : GibbedSmiley replaces GibbedMarineExtra
+{
+}
+
+// Dead marine -------------------------------------------------------------
+
+class DeadSmiley : Actor replaces DeadMarine
+{
+	States
+	{
+	Spawn:
+		PLAY N -1;
+		Stop;
+	}
+}
+
+// Dead zombie man ---------------------------------------------------------
+
+class DeadMJClone : MJClone replaces DeadZombieMan
+{
+	Default
+	{
+		Skip_Super;
+		DropItem "None";
+	}
+	States
+	{
+	Spawn:
+		Goto Super::Death+4;
+	}
+}
+
+// Dead shotgun guy --------------------------------------------------------
+
+class DeadSafariGuy : SafariGuy replaces DeadShotgunGuy
+{
+	Default
+	{
+		Skip_Super;
+		DropItem "None";
+	}
+	States
+	{
+	Spawn:
+		Goto Super::Death+4;
+	}
+}
+
+// Dead imp ----------------------------------------------------------------
+
+class DeadSmileyAlien : SmileyAlien replaces DeadDoomImp
+{
+	Default
+	{
+		Skip_Super;
+	}
+	States
+	{
+	Spawn:
+		Goto Super::Death+4;
+	}
+}
+
+// Dead demon --------------------------------------------------------------
+
+class DeadBarney : Hugaholic replaces DeadDemon
+{
+	Default
+	{
+		Skip_Super;
+	}
+	States
+	{
+	Spawn:
+		Goto Super::Death+5;
+	}
+}
+
+// Dead cacodemon ----------------------------------------------------------
+
+class DeadBigEye : BigEye replaces DeadCacodemon
+{
+	Default
+	{
+		Skip_Super;
+	}
+	States
+	{
+	Spawn:
+		Goto Super::Death+5;
+	}
+}
+
+// Dead lost soul ----------------------------------------------------------
+
+class DeadPacc : Pacc replaces DeadLostSoul
+{
+	Default
+	{
+		Skip_Super;
+	}
+	States
+	{
+	Spawn:
+		Goto Super::Death+5;
+	}
+}

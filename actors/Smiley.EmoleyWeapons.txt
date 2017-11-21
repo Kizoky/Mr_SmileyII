@@ -11,8 +11,9 @@ ACTOR Emoley : DoomPlayer
 	Player.StartItem "SmileyBat"
 	Player.StartItem "Clip", 75
 	Player.StartItem "Shell", 20
+	Player.StartItem "Darkmana", 20
 	Player.WeaponSlot 1, SmileyBat, Toothbrush
-	Player.WeaponSlot 2, EmoleyPistol
+	Player.WeaponSlot 2, EmoleyPistol, Emostaff
 	Player.WeaponSlot 3, EmoleyShotgun, SmileySuperShotgun
 	Player.WeaponSlot 4, SmileyChaingun
 	Player.WeaponSlot 5, SmileyChickenLauncher
@@ -138,4 +139,214 @@ ACTOR EmoleyPistol : Weapon
 		PIST A -1
 		Stop
 	}
+}
+
+actor EmoStaffSelected : Boolprop {}
+
+ACTOR Emostaff : Weapon
+{
+   Inventory.PickupSound "misc/w_pkup" 
+   Weapon.AmmoGive 10 
+   Weapon.AmmoUse 1 
+   Weapon.AmmoUse2 5
+   Weapon.AmmoType "Darkmana"
+   Weapon.AmmoType2 "Darkmana"
+   Inventory.PickupSound "misc/w_pkup" 
+   Inventory.PickupMessage "You got the staff of the vile!"
+   States 
+   { 
+   Spawn: 
+      REVI H -1 
+      Loop
+   Ready:
+      REVI A 1 A_WeaponReady 
+      Loop
+   Deselect:
+      REVI A 1 A_Lower 
+      Loop
+   Select:
+      REVI A 1 A_Raise 
+      Loop 
+   Fire: 
+      REVI A 0 A_JumpIfNoAmmo(1) 
+      REVI B 1 
+      REVI C 1
+      REVI D 1
+      REVI E 1 //A_Playsound("weapons/vilesht2")
+	  //TNT1 A 0 A_GiveInventory("EmoStaffSelected", 1) //For monsters we are going to raise
+      REVI E 2 A_FireCustomMissile("Vilefake2", 0, 1, 0, 0)
+	  //TNT1 A 0 A_TakeInventory("EmoStaffSelected", 1)
+      REVI D 1 
+      REVI C 1
+      REVI B 1
+      REVI A 10
+      Goto Ready 
+   AltFire: 
+      REVI E 0 A_JumpIfNoAmmo(1) 
+      REVI E 0 //A_Playsound("weapons/vilesht1")
+      REVI E 0 A_FireCustomMissile("Vilefake", 0, 1, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 5, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 10, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 15, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 20, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 25, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 30, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 35, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 40, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 45, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 50, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 55, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 60, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 65, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 70, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 75, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 80, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 85, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 90, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 95, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 100, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 105, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 110, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 115, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 120, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 125, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 130, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 135, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 140, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 145, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 150, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 155, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 160, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 165, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 170, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 175, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 180, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 185, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 190, 0, 0, 0) 
+      REVI E 0 A_FireCustomMissile("Vilefake", 195, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 200, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 205, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 210, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 215, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 220, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 225, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 230, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 235, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 240, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 245, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 250, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 255, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 260, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 265, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 270, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 275, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 280, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 285, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 290, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 295, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 300, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 305, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 310, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 315, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 320, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 325, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 330, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 335, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 340, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 345, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 350, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 355, 0, 1, 0)
+      REVI E 0 A_FireCustomMissile("Vilefake", 360, 0, 1, 0)
+      REVI F 2
+      REVI G 2 
+      REVI F 2
+      REVI G 2 
+      REVI F 2
+      REVI G 2 
+      REVI F 2
+      REVI G 2 
+      REVI F 2
+      REVI G 2 
+      REVI F 2
+      REVI G 2 
+      REVI F 2
+      REVI G 2 
+      REVI F 2
+      REVI G 2 
+      REVI F 2
+      REVI G 2 
+      REVI F 2 
+      REVI G 2 
+      REVI F 2
+      REVI G 2 
+      REVI F 2 
+      REVI D 2 
+      REVI C 2
+      REVI B 2
+      REVI A 2
+      Goto Ready 
+   } 
+}
+
+ACTOR Vilefake2
+{
+   +FRIENDLY
+   +NOCLIP
+   Radius 50
+   Height 5
+   PROJECTILE
+   RENDERSTYLE NONE
+   Speed 7
+   States
+   {
+   Spawn:
+      PLAY AAAAA 6 A_VileChase
+      Stop
+   Death:
+      Play A 1
+      Stop
+   Heal:
+      Play A 1
+      Stop 
+   }
+}
+
+
+ACTOR Vilefake
+{
+   Speed 20
+   +FRIENDLY
+   +NOCLIP
+   Radius 50
+   Height 5
+   PROJECTILE
+   RENDERSTYLE NONE
+   States
+   {
+   Spawn:
+      PLAY AAAAAAAAAAAAAAA 8 A_VileChase
+      Stop
+   Death:
+      PLAY A 1
+      Stop
+   Heal:
+      Play A 1
+      Stop
+   }
+}
+
+ACTOR Darkmana : Ammo
+{
+   +FLOATBOB
+   Inventory.Amount 5
+   Inventory.MaxAmount 50
+   Ammo.BackpackAmount 10
+   Ammo.BackpackMaxAmount 100
+   //Inventory.Icon REVII0
+   States
+   {
+   Spawn:
+      REVI I -1
+      Stop
+   }
 }

@@ -1,0 +1,137 @@
+class StealthHelloKitty : HelloKitty replaces StealthArachnotron
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHBABY";
+	}
+}
+
+class StealthMetalhead : Metalhead replaces StealthArchvile
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHVILE";
+	}
+}
+
+class StealthRedRanger : RedRanger replaces StealthBaron
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHBARON";
+		HitObituary "$OB_STEALTHBARON";
+	}
+}
+
+class StealthBigEye : BigEye replaces StealthCacodemon
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHCACO";
+		HitObituary "$OB_STEALTHCACO";
+	}
+}
+
+class StealthGangster : Gangster replaces StealthChaingunguy
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHCHAINGUY";
+	}
+}
+
+class StealthHugaholic : Hugaholic replaces StealthDemon
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHDEMON";
+		HitObituary "$OB_STEALTHDEMON";
+	}
+}
+
+class StealthBlueRanger : BlueRanger replaces StealthHellKnight
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHKNIGHT";
+		HitObituary "$OB_STEALTHKNIGHT";
+	}
+}
+
+class StealthSmileyAlien : SmileyAlien replaces StealthDoomimp
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHIMP";
+		HitObituary "$OB_STEALTHIMP";
+	}
+}
+
+class StealthMario : Mario replaces StealthFatso
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHFATSO";
+	}
+}
+
+class StealthSmileynator : Smileynator replaces StealthRevenant
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHUNDEAD";
+		HitObituary "$OB_STEALTHUNDEAD";
+	}
+}
+
+class StealthSafariGuy : SafariGuy replaces StealthShotgunGuy
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHSHOTGUNGUY";
+	}
+}
+
+class StealthMJClone : MJClone replaces StealthZombieman
+{
+	Default
+	{
+		+STEALTH
+		RenderStyle "Translucent";
+		Alpha 0;
+		Obituary "$OB_STEALTHZOMBIE";
+	}
+}

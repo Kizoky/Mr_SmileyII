@@ -1,0 +1,473 @@
+// Tech lamp ---------------------------------------------------------------
+
+class SmTechLamp : Actor replaces TechLamp
+{
+	Default
+	{
+		Radius 16;
+		Height 80;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		TLMP ABCD 4 BRIGHT;
+		Loop;
+	}
+}
+
+// Tech lamp 2 -------------------------------------------------------------
+
+class SmTechLamp2 : Actor replaces TechLamp2
+{
+	Default
+	{
+		Radius 16;
+		Height 60;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		TLP2 ABCD 4 BRIGHT;
+		Loop;
+	}
+}
+
+// Column ------------------------------------------------------------------
+
+class SmColumn : Actor replaces Column
+{
+	Default
+	{
+		Radius 16;
+		Height 48;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		COLU A -1 BRIGHT;
+		Stop;
+	}
+}
+
+// Tall green column -------------------------------------------------------
+
+class SmTallGreenColumn : Actor replaces TallGreenColumn
+{
+	Default
+	{
+		Radius 16;
+		Height 52;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		COL1 A -1;
+		Stop;
+	}
+}
+
+// Short green column ------------------------------------------------------
+
+class SmShortGreenColumn : Actor replaces ShortGreenColumn
+{
+	Default
+	{
+		Radius 16;
+		Height 40;;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		COL2 A -1;
+		Stop;
+	}
+}
+
+// Tall red column ---------------------------------------------------------
+
+class SmTallRedColumn : Actor replaces TallRedColumn
+{
+	Default
+	{
+		Radius 16;
+		Height 52;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		COL3 A -1;
+		Stop;
+	}
+}
+
+// Short red column --------------------------------------------------------
+
+class SmShortRedColumn : Actor replaces ShortRedColumn
+{
+	Default
+	{
+		Radius 16;
+		Height 40;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		COL4 A -1;
+		Stop;
+	}
+}
+
+// Skull column ------------------------------------------------------------
+
+class SmSkullColumn : Actor replaces SkullColumn
+{
+	Default
+	{
+		Radius 16;
+		Height 40;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		COL6 A -1;
+		Stop;
+	}
+}
+
+// Heart column ------------------------------------------------------------
+
+class SmHeartColumn : Actor replaces HeartColumn
+{
+	Default
+	{
+		Radius 16;
+		Height 40;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		COL5 AB 14;
+		Loop;
+	}
+}
+
+// Evil eye ----------------------------------------------------------------
+
+class BlackEvilEye : Actor replaces EvilEye
+{
+	Default
+	{
+		Radius 16;
+		Height 54;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		CEYE ABCB 6 BRIGHT;
+		Loop;
+	}
+}
+
+// Floating skull ----------------------------------------------------------
+
+class SmFloatingSkull : Actor replaces FloatingSkull
+{
+	Default
+	{
+		Radius 16;
+		Height 26;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		FSKU ABC 6 BRIGHT;
+		Loop;
+	}
+}
+
+// Torch tree --------------------------------------------------------------
+
+class SmTorchTree : Actor replaces TorchTree
+{
+	Default
+	{
+		Radius 16;
+		Height 56;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		TRE1 A -1;
+		Stop;
+	}
+}
+
+// Blue torch --------------------------------------------------------------
+
+class SmBlueTorch : Actor replaces BlueTorch
+{
+	Default
+	{
+		Radius 16;
+		Height 68;;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		TBLU ABCD 4 BRIGHT;
+		Loop;
+	}
+}
+
+// Green torch -------------------------------------------------------------
+
+class SmGreenTorch : Actor replaces GreenTorch
+{
+	Default
+	{
+		Radius 16;
+		Height 68;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		TGRN ABCD 4 BRIGHT;
+		Loop;
+	}
+}
+
+// Red torch ---------------------------------------------------------------
+
+class SmRedTorch : Actor replaces RedTorch
+{
+	Default
+	{
+		Radius 16;
+		Height 68;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		TRED ABCD 4 BRIGHT;
+		Loop;
+	}
+}
+
+// Short blue torch --------------------------------------------------------
+
+class SmShortBlueTorch : Actor replaces ShortBlueTorch
+{
+	Default
+	{
+		Radius 16;
+		Height 37;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		SMBT ABCD 4 BRIGHT;
+		Loop;
+	}
+}
+
+// Short green torch -------------------------------------------------------
+
+class SmShortGreenTorch : Actor replaces ShortGreenTorch
+{
+	Default
+	{
+		Radius 16;
+		Height 37;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		SMGT ABCD 4 BRIGHT;
+		Loop;
+	}
+}
+
+// Short red torch ---------------------------------------------------------
+
+class SmShortRedTorch : Actor replaces ShortRedTorch
+{
+	Default
+	{
+		Radius 16;
+		Height 37;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		SMRT ABCD 4 BRIGHT;
+		Loop;
+	}
+}
+
+// Stalagtite --------------------------------------------------------------
+
+class SmStalagtite : Actor replaces Stalagtite
+{
+	Default
+	{
+		Radius 16;
+		Height 40;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		SMIT A -1;
+		Stop;
+	}
+}
+
+// Tech pillar -------------------------------------------------------------
+
+class SmTechPillar : Actor replaces TechPillar
+{
+	Default
+	{
+		Radius 16;
+		Height 128;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		ELEC A -1;
+		Stop;
+	}
+}
+
+// Candle stick ------------------------------------------------------------
+
+class SmCandlestick : Actor replaces Candlestick
+{
+	Default
+	{
+		Radius 20;
+		Height 14;
+		ProjectilePassHeight -16;
+	}
+	States
+	{
+	Spawn:
+		CAND A -1 BRIGHT;
+		Stop;
+	}
+}
+
+// Candelabra --------------------------------------------------------------
+
+class SmCandelabra : Actor replaces Candelabra
+{
+	Default
+	{
+		Radius 16;
+		Height 60;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		CBRA A -1 BRIGHT;
+		Stop;
+	}
+}
+
+// Big tree ----------------------------------------------------------------
+
+class SmBigTree : Actor replaces BigTree
+{
+	Default
+	{
+		Radius 32;
+		Height 108;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		TRE2 A -1;
+		Stop;
+	}
+}
+
+// Burning barrel ----------------------------------------------------------
+
+class SmBurningBarrel : Actor replaces BurningBarrel
+{
+	Default
+	{
+		Radius 16;
+		Height 32;
+		ProjectilePassHeight -16;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		FCAN ABC 4 BRIGHT;
+		Loop;
+	}
+}
+
+// Grey stalagmite (unused Doom sprite, definition taken from Skulltag -----
+
+class SmStalagmite : Actor replaces Stalagmite
+{
+	Default
+	{
+		Radius 16;
+		Height 48;
+		+SOLID
+	}
+	States
+	{
+	Spawn:
+		SMT2 A -1;
+		Stop;
+	}
+}
+

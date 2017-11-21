@@ -1,0 +1,269 @@
+//All player actors uses different weapons (mostly) so we had to do this
+
+class Boolprop : Inventory
+{
+	Default
+	{
+		Inventory.MaxAmount 1;
+		+Inventory.UNDROPPABLE;
+		-Inventory.INVBAR;
+	}
+}
+
+class IsSmileyHead : Boolprop {}
+class IsUncleSmiley : Boolprop {}
+class IsEmoley : Boolprop {}
+class Buddy : Boolprop {}
+
+class ChainsawPickup : CustomInventory replaces Chainsaw
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTCHAINSAW";
+		Inventory.PickupSound "misc/w_pkup";
+	}
+  States
+  {
+  Spawn:
+    CSAW A -1;
+    loop;
+	
+  Pickup:
+	TNT1 A 0 A_IfCheckWeapon;
+	stop;
+	
+  }
+}
+
+extend class ChainsawPickup
+{
+	action void A_IfCheckWeapon()
+	{
+		if (CheckInventory("IsSmileyHead", 1))
+		{
+			A_GiveInventory("Toothbrush", 1);
+		}
+		else
+			if (CheckInventory("IsUncleSmiley", 1))
+			{
+				A_GiveInventory("Toothbrush", 1);
+			}
+	}
+}
+
+class ShotgunPickup : CustomInventory replaces Shotgun
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTSHOTGUN";
+		Inventory.PickupSound "misc/w_pkup";
+	}
+  States
+  {
+  Spawn:
+    SHOT A 1;
+    loop;
+	
+  Pickup:
+	TNT1 A 0 A_IfCheckWeapon;
+	stop;
+	
+  }
+}
+
+extend class ShotgunPickup
+{
+	action void A_IfCheckWeapon()
+	{
+		if (CheckInventory("IsSmileyHead", 1))
+		{
+			A_GiveInventory("SmileyShotgun", 1);
+		}
+		else
+			if (CheckInventory("IsUncleSmiley", 1))
+			{
+				A_GiveInventory("UncleShotgun", 1);
+			}
+	}
+}
+
+
+class SuperShotgunPickup : CustomInventory replaces SuperShotgun
+{
+	Default
+	{	
+		Inventory.PickupMessage "$GOTSHOTGUN2";
+		Inventory.PickupSound "misc/w_pkup";
+	}
+  States
+  {
+  Spawn:
+    SGN2 A -1;
+    loop;
+	
+  Pickup:
+	TNT1 A 0 A_IfCheckWeapon;
+	stop;
+	
+  }
+}
+
+extend class SuperShotgunPickup
+{
+	action void A_IfCheckWeapon()
+	{
+		if (CheckInventory("IsSmileyHead", 1))
+		{
+			A_GiveInventory("SmileySuperShotgun", 1);
+		}
+		else
+			if (CheckInventory("IsUncleSmiley", 1))
+			{
+				A_GiveInventory("SmileySuperShotgun", 1);
+			}
+	}
+}
+
+class ChaingunPickup : CustomInventory replaces Chaingun
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTCHAINGUN";
+		Inventory.PickupSound "misc/w_pkup";
+	}
+  States
+  {
+  Spawn:
+    MGUN A -1;
+    loop;
+	
+  Pickup:
+	TNT1 A 0 A_IfCheckWeapon;
+	stop;
+	
+  }
+}
+
+extend class ChaingunPickup
+{
+	action void A_IfCheckWeapon()
+	{
+		if (CheckInventory("IsSmileyHead", 1))
+		{
+			A_GiveInventory("SmileyChaingun", 1);
+		}
+		else
+			if (CheckInventory("IsUncleSmiley", 1))
+			{
+				A_GiveInventory("SmileyChaingun", 1);
+			}
+	}
+}
+
+class RocketLauncherPickup : CustomInventory replaces RocketLauncher
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTLAUNCHER";
+		Inventory.PickupSound "misc/w_pkup";
+	}
+  States
+  {
+  Spawn:
+    LAUN A -1;
+    loop;
+	
+  Pickup:
+	TNT1 A 0 A_IfCheckWeapon;
+	stop;
+	
+  }
+}
+
+extend class RocketLauncherPickup
+{
+	action void A_IfCheckWeapon()
+	{
+		if (CheckInventory("IsSmileyHead", 1))
+		{
+			A_GiveInventory("SmileyChickenLauncher", 1);
+		}
+		else
+			if (CheckInventory("IsUncleSmiley", 1))
+			{
+				A_GiveInventory("SmileyChickenLauncher", 1);
+			}
+	}
+}
+
+
+class PlasmaRiflePickup : CustomInventory replaces PlasmaRifle
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTPLASMA";
+		Inventory.PickupSound "misc/w_pkup";
+	}
+  States
+  {
+  Spawn:
+    PLAS A -1;
+    loop;
+	
+  Pickup:
+	TNT1 A 0 A_IfCheckWeapon;
+	stop;
+	
+  }
+}
+
+extend class PlasmaRiflePickup
+{
+	action void A_IfCheckWeapon()
+	{
+		if (CheckInventory("IsSmileyHead", 1))
+		{
+			A_GiveInventory("PlasmaRing", 1);
+		}
+		else
+			if (CheckInventory("IsUncleSmiley", 1))
+			{
+				A_GiveInventory("PlasmaRing", 1);
+			}
+	}
+}
+
+class BFG9000Pickup : CustomInventory replaces BFG9000
+{
+	Default
+	{
+		Inventory.PickupMessage "$GOTBFG9000";
+		Inventory.PickupSound "misc/w_pkup";
+	}
+  States
+  {
+  Spawn:
+    BFUG A -1;
+    loop;
+	
+  Pickup:
+	TNT1 A 0 A_IfCheckWeapon;
+	stop;
+  }
+}
+
+extend class BFG9000Pickup
+{
+	action void A_IfCheckWeapon()
+	{
+		if (CheckInventory("IsSmileyHead", 1))
+		{
+			A_GiveInventory("SmileyGoodFetherBird", 1);
+		}
+		else
+			if (CheckInventory("IsUncleSmiley", 1))
+			{
+				A_GiveInventory("SmileyGoodFetherBird", 1);
+			}
+	}
+}

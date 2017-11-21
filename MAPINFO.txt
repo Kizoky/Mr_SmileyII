@@ -1,4 +1,6 @@
 //Many thanks to Ed!
+include "mapinfo/DoomED.txt"
+
 gameinfo
 {
 	border = 0,0,"b","b","b","b","b","b","b","b"

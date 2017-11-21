@@ -1,4 +1,4 @@
-class SmileyTitlePic : Actor replaces SmileyTitlePicDummy
+class SmileyTitlePic : Actor
 {
 	Default
 	{

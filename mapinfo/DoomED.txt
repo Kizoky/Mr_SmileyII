@@ -1,0 +1,68 @@
+//Regular Doom monsters
+DoomEdNums
+{
+  87 = none
+  88 = none
+  89 = none
+  888 = none
+  9037 = none
+  72 = none //Commander Keen
+  68 = HelloKitty
+  64 = Metalhead
+  3003 = BlueRanger
+  69 = RedRanger
+  3005 = BigEye
+  16 = Frosty
+  3002 = Hugaholic
+  58 = Rapeaholic
+  65 = Gangster
+  3001 = SmileyAlien
+  67 = Mario
+  3006 = Pacc
+  115 = RedGhost
+  66 = Smileynator
+  9 = SafariGuy
+  7 = SmileySpider
+  84 = SHead
+  3004 = MJClone
+  32766 = SmileyTitlePic
+}
+//Stealth Monsters
+DoomEdNums
+{
+  9050 = StealthHelloKitty
+  9051 = StealthMetalhead
+  9052 = StealthBlueRanger
+  9056 = StealthRedRanger
+  9053 = StealthBigEye
+  9055 = StealthHugaholic
+  9054 = StealthGangster
+  9057 = StealthSmileyAlien
+  9058 = StealthMario
+  9059 = StealthSmileynator
+  9060 = StealthSafariGuy
+  9061 = StealthMJClone
+}
+
+//Colored Power Rangers
+DoomEdNums
+{
+  32720 = GreenRanger
+  32721 = PinkRanger
+  32722 = WhiteRanger
+  32723 = SilverRanger
+  32724 = YellowRanger
+  32725 = BrownRanger
+  32726 = BlackRanger
+}
+
+DoomEdNums
+{
+  2005 = ChainsawPickup
+  2001 = ShotgunPickup
+  82 = SuperShotgunPickup
+  2002 = ChaingunPickup
+  2003 = RocketLauncherPickup
+  2004 = PlasmaRiflePickup
+  2006 = BFG9000Pickup
+}

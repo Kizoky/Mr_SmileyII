@@ -1,11 +1,5 @@
 //An invisible inventory item to determine which character the player is playing.
 //It will be useful later on.
-actor Boolprop : Inventory
-{
-    Inventory.MaxAmount 1
-    +UNDROPPABLE
-    -INVBAR
-}
 
 ACTOR MrSmiley : Doomplayer replaces Doomplayer
 {
@@ -25,11 +19,6 @@ ACTOR MrSmiley : Doomplayer replaces Doomplayer
 	Player.WeaponSlot 6, PlasmaRing
 	Player.WeaponSlot 7, SmileyGoodFetherBird
 }
-
-actor IsSmileyHead : Boolprop {}
-actor IsUncleSmiley : Boolprop {}
-actor IsEmoley : Boolprop {}
-actor Buddy : Boolprop {}
 
 ACTOR SmileySuperShotgun : Weapon
 {

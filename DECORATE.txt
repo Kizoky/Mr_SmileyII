@@ -1,20 +1,23 @@
 //decorate stuff from actors folder - ozy81
 // Smiley stuff belongs here. (Smiley Head PlayerPawn is in SmileyWeapons)
+// RIP Decorate ~11.21.2017
 //#include "actors/SmileyAccessory.txt"
 //#include "actors/SmileyAmmo.txt"
 //#include "actors/SmileyMonster.txt"
-#include "actors/SmileyMonsterCustom.txt"
+//#include "actors/SmileyMonsterCustom.txt"
 //#include "actors/SmileyMonsterProjectile.txt"
-#include "actors/SmileyWeapons.txt"
-#include "actors/SmileyWeaponsExplosives.txt"
-#include "actors/Smiley.WeaponLogic.txt"
+
+
+//#include "actors/SmileyWeapons.txt"
+//#include "actors/SmileyWeaponsExplosives.txt"
+//#include "actors/Smiley.WeaponLogic.txt"
 
 // Uncle Smiley
-#include "actors/Smiley.UncleWeapons.txt"
+//#include "actors/Smiley.UncleWeapons.txt"
 
 
 // Emoley the Dark Mage
-#include "actors/Smiley.EmoleyWeapons.txt"
+//#include "actors/Smiley.EmoleyWeapons.txt"
 
 
 // Replaced Gore actors, and new Gore actors

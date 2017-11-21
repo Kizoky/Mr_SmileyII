@@ -1,0 +1,150 @@
+class Emoley : DoomPlayer
+{
+	Default
+	{
+	Species "Marines";
+	Player.DisplayName "Emoley";
+	Player.StartItem "IsEmoley", 1;
+	Player.StartItem "Buddy", 1;
+	Player.Face "EMO";
+	Player.Soundclass "UncleUncle";
+	Player.StartItem "EmoleyPistol";
+	Player.StartItem "EmoleyShotgun";
+	Player.StartItem "SmileyBat";
+	Player.StartItem "Clip", 75;
+	Player.StartItem "Shell", 20;
+	Player.WeaponSlot 1, "SmileyBat", "Toothbrush";
+	Player.WeaponSlot 2, "EmoleyPistol", "Emostaff";
+	Player.WeaponSlot 3, "EmoleyShotgun", "SmileySuperShotgun";
+	Player.WeaponSlot 4, "SmileyChaingun";
+	Player.WeaponSlot 5, "SmileyChickenLauncher";
+	Player.WeaponSlot 6, "PlasmaRing";
+	Player.WeaponSlot 7, "SmileyGoodFetherBird";
+	}
+}
+
+class EmoleyShotgun : Weapon
+{
+	Default
+	{
+    	Weapon.Kickback 100;
+    	Weapon.SelectionOrder 1300;
+	Weapon.AmmoUse 4;
+	Weapon.AmmoGive 16;
+	Weapon.AmmoType "Shell";
+	Obituary "$OB_MPSHOTGUN";
+    	Tag "$TAG_SHOTGUN";
+	Inventory.PickupMessage "$GOTSHOTGUN";
+	Weapon.BobRangeX -0.98;
+	Weapon.BobRangeY 0.4;
+	Weapon.BobSpeed 1.6;
+	Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		EMO2 A 1 Offset(0,0) A_WeaponReady;
+		Loop;
+	Deselect:
+		EMO2 A 1 Offset(0,0) A_Lower;
+		Loop;
+	Select:
+		EMO2 A 1 Offset(0,0) A_Raise;
+		Loop;
+	Fire:
+                EMO2 A 1;
+		EMO2 A 3;
+		EMO2 A 5 A_FireShotgun;
+		EMO2 B 2 Offset(-12, 19);
+		EMO2 B 2 Offset(-23, 12);
+		EMO2 B 2 Offset(-46, 4);
+		EMO2 B 2 Offset(-69, -5);
+		EMO2 C 2 Offset(-69, -5);
+		EMO2 C 3 Offset(-80, -2);
+		EMO2 C 3 Offset(-94, 31);
+		EMO2 C 2 Offset(-83, 3);
+		EMO2 C 3 Offset(-69, -15);
+		EMO2 C 2 Offset(-53, -44);
+		EMO2 C 3 Offset(-69, -11);
+		EMO2 C 2 Offset(-84, 9);
+		EMO2 B 2 Offset(-108, 1);
+		EMO2 B 3 Offset(-91, 10);
+		EMO2 B 2 Offset(-69, 19);
+		EMO2 B 2 Offset(-43, 25);
+		EMO2 B 2 Offset(-25, 31);
+		EMO2 A 7 A_ReFire;
+		Goto Ready;
+	Flash:
+		SHTF B 3 Offset(0, 0) Bright A_Light2;
+		SHTF A 2 Offset(0, 0) Bright A_Light1;
+		Goto LightDone;
+	Spawn:
+		SHOT A -1;
+		Stop;
+	}
+}	
+class EmoleyPistol : Weapon
+{
+	Default
+	{
+	Weapon.Kickback 100;
+	Decal "bulletchip";
+	Weapon.SelectionOrder 1900;
+	Weapon.AmmoUse 1;
+	Weapon.AmmoGive 20;
+	Weapon.AmmoType "Clip";
+	Obituary "$OB_MPPISTOL";
+	+WEAPON.WIMPY_WEAPON;
+	Tag "$TAG_PISTOL";
+	Inventory.PickupMessage "Ya got the..Pistol?";
+	Weapon.BobRangeX 0.2;
+	Weapon.BobRangeY -0.8;
+	Weapon.BobSpeed 1.4;
+	Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		EMO1 A 1 A_WeaponReady;
+		Loop;
+	Deselect:
+		EMO1 A 1 A_Lower;
+		Loop;
+	Select:
+		EMO1 A 1 A_Raise;
+		Loop;
+	Fire:		
+		EMPP A 2 Offset(170, 67);
+		EMPP A 3 Offset(153, 57);
+		EMPP A 3 Offset(160, 48);
+		EMO1 B 3 Offset(157, 43);
+		EMO1 B 2 Offset(171, 39);
+		EMO1 B 2 Offset(181, 33);
+		EMO1 B 1 Offset(190, 29);
+		EMO1 C 3 Offset(193, 24);
+		EMO1 C 3 Offset(203, 34);
+		EMO1 C 2 Offset(204, 44);
+		EMO1 D 3 Offset(194, 43) A_FirePistol;
+		EMO1 D 2 Offset(182, 40) A_FirePistol;
+		EMO1 D 3 Offset(189, 33) A_FirePistol;
+		EMO1 D 2 Offset(195, 22) A_FirePistol;
+		EMO1 D 3 Offset(185, 32) A_FirePistol;
+		EMO1 D 2 Offset(187, 43) A_FirePistol;
+		EMO1 C 3 Offset(194, 28);
+		EMO1 C 2 Offset(208, 23) A_ReFire;
+		EMO1 C 2 Offset(220, 23);
+		EMO1 C 1 Offset(213, 31);
+		EMO1 B 2 Offset(225, 32);
+		EMO1 B 2 Offset(214, 44);
+		EMO1 B 2 Offset(200, 53);
+		EMPP A 1 Offset(174, 67);
+		Goto Ready;
+	Flash:
+		TNT1 A 0 Bright A_Light2;
+		TNT1 A 1 Bright A_Light1;
+		Goto LightDone;
+	Spawn:
+		PIST A -1;
+		Stop;
+	}
+}

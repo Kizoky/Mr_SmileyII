@@ -1,0 +1,121 @@
+class UncleSmiley : DoomPlayer
+{
+	Default
+	{
+		Species "Marines";
+		Player.DisplayName "Uncle Smiley";
+		Player.StartItem "IsUncleSmiley", 1;
+		Player.StartItem "Buddy", 1;
+		Player.Face "UNC";
+		Player.Soundclass "UncleUncle";
+		Player.StartItem "UnclePistol";
+		Player.StartItem "SmileyBat";
+		Player.StartItem "SmileyClip", 75;
+		Player.StartItem "SmileyShell", 20;
+		Player.WeaponSlot 1, "SmileyBat", "Toothbrush";
+		Player.WeaponSlot 2, "UnclePistol";
+		Player.WeaponSlot 3, "UncleShotgun", "SmileySuperShotgun";
+		Player.WeaponSlot 4, "SmileyChaingun";
+		Player.WeaponSlot 5, "SmileyChickenLauncher";
+		Player.WeaponSlot 6, "PlasmaRing";
+		Player.WeaponSlot 7, "SmileyGoodFetherBird";
+	}
+}
+
+class UnclePistol : Weapon
+{
+	Default
+	{
+	Weapon.Kickback 100;
+	Decal "bulletchip";
+	Weapon.SelectionOrder 1900;
+	Weapon.AmmoUse 1;
+	Weapon.AmmoGive 20;
+	Weapon.AmmoType "SmileyClip";
+	Obituary "$OB_MPPISTOL";
+	+WEAPON.WIMPY_WEAPON;
+	Tag "$TAG_PISTOL";
+	Inventory.PickupMessage "Ya got the..Pistol?";
+	Weapon.BobRangeX 0.2;
+	Weapon.BobRangeY -0.8;
+	Weapon.BobSpeed 1.4;
+	Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		UNCG A 1 A_WeaponReady;
+		Loop;
+	Deselect:
+		UNCG A 1 A_Lower;
+		Loop;
+	Select:
+		UNCG A 1 A_Raise;
+		Loop;
+	Fire:
+		UNCG A 4;
+		UNCG B 2 A_FirePistol;
+		UNCG CEDB 2;
+		UNCG A 5 A_ReFire;
+		Goto Ready;
+	Flash:
+		TNT1 A 0;
+		TNT1 A 0 Bright A_Light2;
+		UNCF A 2 Bright A_Light1;
+		Goto LightDone;
+	Spawn:
+		PIST A -1;
+		Stop;
+	}
+}
+
+class UncleShotgun : Weapon
+{
+	Default
+	{
+    Weapon.Kickback 100;
+    Weapon.SelectionOrder 1300;
+	Weapon.AmmoUse 1;
+	Weapon.AmmoGive 8;
+	Weapon.AmmoType "SmileyShell";
+	Obituary "$OB_MPSHOTGUN";
+    Tag "$TAG_SHOTGUN";
+	Inventory.PickupMessage "$GOTSHOTGUN";
+	Weapon.BobRangeX -0.98;
+	Weapon.BobRangeY 0.4;
+	Weapon.BobSpeed 1.6;
+	Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		UNC2 A 1 Offset(0,0) A_WeaponReady;
+		Loop;
+	Deselect:
+		UNC2 A 1 Offset(0,0) A_Lower;
+		Loop;
+	Select:
+		UNC2 A 1 Offset(0,0) A_Raise;
+		Loop;
+	Fire:
+		UNC2 A 3;
+		UNC2 A 5 A_FireShotgun;
+		UNC2 B 2;
+		UNC2 C 1;
+		UNC2 D 2;
+		UNC2 E 3;
+		UNC2 F 4;
+		UNC2 G 1;
+		UNC2 H 3;
+		UNC2 GFEDCB 2;
+		UNC2 A 7 A_ReFire;
+		Goto Ready;
+	Flash:
+		SHTF B 3 Offset(0, 0) Bright A_Light2;
+		SHTF A 2 Offset(0, 0) Bright A_Light1;
+		Goto LightDone;
+	Spawn:
+		SHOT A -1;
+		Stop;
+	}
+}

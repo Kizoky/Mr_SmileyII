@@ -1,2 +1,0 @@
-W28_6 & W28_7:
--They are placed over other W28_X gray textures which would end up very ugly.

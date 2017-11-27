@@ -1,6 +1,0 @@
-Textures that ends up here are currently being edited because of unforeseen consequences.
-
-Edit texture, check in-game
-|
-Ugly? ==> Reedit, try something else
-Good? ==> Removed from safe zone, texture is now final

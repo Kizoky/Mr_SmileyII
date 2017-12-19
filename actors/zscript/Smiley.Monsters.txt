@@ -1011,6 +1011,8 @@ class Gangster : SmileyActor replaces Chaingunguy
 		AttackSound "chainguy/attack";
 		Obituary "$OB_CHAINGUY";
 		Dropitem "Chaingun";
+		Translation "60:79=73:74","32:47=0:1","160:167=215:216","112:127=0:1","152:159=0:1","9:12=0:1","107:111=0:1";
+		//This is as far as I can translate him so his weapon isn't completely back
 	}
 	States
 	{

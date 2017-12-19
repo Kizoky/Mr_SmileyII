@@ -630,6 +630,7 @@ class Mario : SmileyActor replaces Fatso
 {
 	Default
 	{
+		Scale 2.0;
 		Health 600;
 		Radius 48;
 		Height 64;

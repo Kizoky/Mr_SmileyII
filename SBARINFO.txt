@@ -1,23 +1,23 @@
-statusbar fullscreen, fullscreenoffsets // Standard Doom Status bar // X Y
+statusbar fullscreen // Standard Doom Status bar // X Y
 {
 	//drawnumber 9, HUDFONT_DOOM, untranslated, Score, 117, 28; //soon...
 	
 	// Ammo
-	drawimage translatable "STFBANY", 15, 184;
-    drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, 50, 168;
+	drawimage translatable "STFBANY", 15, 169;
+    drawnumber 3, HUDFONT_DOOM, untranslated, ammo1, 50, 153;
 	// Health
-	drawimage translatable "STFBANY", 100, 184;
-	drawmugshot 5, 100, 183;
-    drawnumber 3, HUDFONT_DOOM, translatable, health, 135, 168;
+	drawimage translatable "STFBANY", 100, 169;
+	drawmugshot 5, 100, 168;
+    drawnumber 3, HUDFONT_DOOM, translatable, health, 135, 153;
 	// Armor
-	drawimage translatable "STFBANY", 250, 184;
-	drawnumber 3, HUDFONT_DOOM, untranslated, armor, 285, 168;
-	drawimage "ARM1A0", 267, 207;
+	drawimage translatable "STFBANY", 250, 169;
+	drawnumber 3, HUDFONT_DOOM, untranslated, armor, 285, 153;
+	drawimage "ARM1A0", 267, 193;
 	// Keys
-	drawimage translatable "STFBANY", 305, 184;	
-	drawswitchableimage keyslot 2 && 5, "nullimage", "STKEYS0", "STKEYS3", "STKEYS6", 326, 186;
-    drawswitchableimage keyslot 3 && 6, "nullimage", "STKEYS1", "STKEYS4", "STKEYS7", 326, 196;
-    drawswitchableimage keyslot 1 && 4, "nullimage", "STKEYS2", "STKEYS5", "STKEYS8", 326, 206;
+	drawimage translatable "STFBANY", 305, 169;	
+	drawswitchableimage keyslot 2 && 5, "nullimage", "STKEYS0", "STKEYS3", "STKEYS6", 326, 171;
+    drawswitchableimage keyslot 3 && 6, "nullimage", "STKEYS1", "STKEYS4", "STKEYS7", 326, 181;
+    drawswitchableimage keyslot 1 && 4, "nullimage", "STKEYS2", "STKEYS5", "STKEYS8", 326, 191;
 	
 	//Draws the pickup sprites for the following weapons IF selected
 	//Draws on the first STFBANY, where the ammo is placed too
@@ -25,51 +25,51 @@ statusbar fullscreen, fullscreenoffsets // Standard Doom Status bar // X Y
 	//1
 	IsSelected Toothbrush
 	{
-		drawimage "CSAWA0", 31, 207;
+		drawimage "CSAWA0", 31, 193;
 	}
 	IsSelected SmileyBat
 	{
-		drawimage "PSTRA0", 31, 204;
+		drawimage "PSTRA0", 31, 190;
 	}
 	
 	//2
 	IsSelected SmileyPistol, UnclePistol
 	{
-		drawimage "PISTA0", 26, 205;
+		drawimage "PISTA0", 26, 194;
 	}
 	
 	//3
 	IsSelected SmileyShotgun, UncleShotgun
 	{
-		drawimage "SHOTA0", 31, 209;
+		drawimage "SHOTA0", 31, 198;
 	}
 	IsSelected SmileySuperShotgun
 	{
-		drawimage "SGN2A0", 31, 207;
+		drawimage "SGN2A0", 31, 196;
 	}
 	
 	//4
 	IsSelected SmileyChaingun
 	{
-		drawimage "MGUNA0", 31, 207;
+		drawimage "MGUNA0", 31, 196;
 	}
 	
 	//5
 	IsSelected SmileyChickenLauncher
 	{
-		drawimage "LAUNA0", 31, 207;
+		drawimage "LAUNA0", 31, 196;
 	}
 	
 	//6
 	IsSelected PlasmaRing
 	{
-		drawimage "PLASA0", 31, 207;
+		drawimage "PLASA0", 31, 196;
 	}
 	
 	//7
 	IsSelected SmileyGoodFetherBird //Pickup sprite is too big, so we use the RocketAmmo sprite instead
 	{
-		drawimage "ROCKA0", 32, 213;
+		drawimage "ROCKA0", 32, 202;
 	}
 }
 

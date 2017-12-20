@@ -652,7 +652,7 @@ class Mario : SmileyActor replaces Fatso
 		FATT AB 15 A_Look;
 		Loop;
 	See:
-		FATT AABBCCDDEEFF 4 A_Chase;
+		FATT BCDEFEDC 6 A_Chase;
 		Loop;
 	Missile:
 		FATT G 20 A_MarioRaise;

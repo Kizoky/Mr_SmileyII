@@ -1,0 +1,17 @@
+//collecting examples of ZScript If hitting into an obstacle later on
+
+virtual void MagicAction()
+{
+    // actual code here
+}
+
+action void A_Magic()
+{
+    invoker.MagicAction();
+}
+--
+Spawn:
+    TNT1 A 1 NoDelay
+    {
+        Thing_ChangeTID(tid,65);
+    }

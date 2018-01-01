@@ -1,0 +1,25 @@
+[Mr. Smiley Head's Safari II]
+Credits:
+
+- Small trees & bushes
+Realm667
+
+=[Monster Sprites]=
+-Mario: Nintendo
+
+=[Weapon Sprites]=
+-Hexen & the ZDoom forum
+-Realm667 for the SSG sprites
+
+=[SFX]=
+-Mortal Kombat
+-Nintendo
+
+=[Mr. Smiley Head's Safari levels]=
+[Episode 4]
+-E4M1: Kizoky
+-E4M2: Suraku
+
+[Mr. Smiley II]
+-MAP01-MAP05: Kizoky
+-MAP06: Suraku

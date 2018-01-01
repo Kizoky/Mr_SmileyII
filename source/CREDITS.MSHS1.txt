@@ -1,0 +1,59 @@
+[Mr. Smiley Head's Safari 1]
+Credits:
+- Mr. Smiley Head('s Safari)
+Impact Software
+
+[Credits list according to(made by) funduke]
+=[Monster Sprites]=
+-Imp: The Weasle
+-Cacodemon: Unknown author name
+-Demon: Jody Melanson
+-Lost Soul: Bill Neisius
+-Zombieman: Toolord
+-Shotgunguy: [Impact Software]
+-Cyberdemon: [Impact Software]
+-Baron of Hell: [Impact Software]
+-Baron of Hell Projectile: Banished CPU (Jolt bottle)
+
+=[Weapon Sprites]=
+Every weapon were drawn by Impact Software, the remaining
+weapons that are still Impact's is the Chainsaw, Chaingun, and the BFG
+
+=[Mr. Smiley Head's Safari levels]=
+[Episode 1]
+-E1M1: Ian Suhrstedt
+-E1M2: Alex Siegel
+-E1M3: Nathan Kidney
+-E1M4: Dave Sawford
+-E1M5: David & Kathy Bruni
+-E1M6: Craig J. Dudle
+-E1M7: Norman Scott
+-E1M8: [Impact Software]
+-E1M9: Gt6523c
+
+[Episode 2]
+-E2M1: Tom Neff
+-E2M2: [id Software] (modified version of DOOM E1M1)
+-E2M3: David G. Shrock
+-E2M4: Steven L. Bareman
+-E2M5: (Unknown author name)
+-E2M6: Chris Richards
+-E2M7: Brian J. Jacobs
+-E2M8: [Impact Software]
+-E2M9: Seth Cohn
+
+[Episode 3]
+-E3M1: Kenneth S. Forte
+-E3M2: Tim Scott
+-E3M3: Emil Eisenhardt
+-E3M4: id Software (modified version of DOOM E3M1)
+-E3M5: Curtis Turner II
+-E3M6: Brian McKimens
+-E3M7: Yager921
+-E3M8: [Impact Software]
+-E3M9: Jeremy Drye
+
+==No new levels were replaced or added within these episodes,
+they are untouched.
+The only thing was changed was trying to fix the levels' problems where you can run into
+missing textures or patches. (and maybe trying to make them less "ugly")

@@ -1,6 +1,3 @@
-//An invisible inventory item to determine which character the player is playing.
-//It will be useful later on.
-
 class MrSmiley : DoomPlayer
 {
 	Default

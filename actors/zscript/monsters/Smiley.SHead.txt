@@ -1,0 +1,64 @@
+//===========================================================================
+//
+// SS Nazi // Smiley Head
+//
+//===========================================================================
+class SHead : SmileyActor replaces WolfensteinSS
+{
+	Default
+	{
+		Health 50;
+		Radius 20;
+		Height 56;
+		Speed 8;
+		PainChance 170;
+		Monster;
+		+FLOORCLIP
+		SeeSound "wolfss/sight";
+		PainSound "wolfss/pain";
+		DeathSound "wolfss/death";
+		ActiveSound "wolfss/active";
+		AttackSound "wolfss/attack";
+		Obituary "$OB_WOLFSS";
+		Dropitem "Clip";
+	}
+	States
+	{
+	Spawn:
+		SSWV AB 10 A_Look;
+		Loop;
+	See:
+		SSWV AABBCCDD 3 A_Chase;
+		Loop;
+	Missile:
+		SSWV E 10 A_FaceTarget;
+		SSWV F 10 A_FaceTarget;
+		SSWV G 4 BRIGHT A_GangAttack;
+		SSWV F 6 A_FaceTarget;
+		SSWV G 4 BRIGHT A_GangAttack;
+		SSWV F 1 A_CPosRefire;
+		Goto Missile+1;
+	Pain:
+		SSWV H 3;
+		SSWV H 3 A_Pain;
+		Goto See;
+	Death:
+		SSWV I 5;
+		SSWV J 5 A_Scream;
+		SSWV K 5 A_NoBlocking;
+		SSWV L 5;
+		SSWV M -1;
+		Stop;
+	XDeath:
+		SSWV N 5 ;
+		SSWV O 5 A_XScream;
+		SSWV P 5 A_NoBlocking;
+		SSWV QRSTU 5;
+		SSWV V -1;
+		Stop;
+	Raise:
+		SSWV M 5;
+		SSWV LKJI 5;
+		Goto See ;
+	}
+}

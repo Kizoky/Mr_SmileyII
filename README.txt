@@ -1,66 +1,48 @@
-# || These foes know only one villain, "The Smiley Head" who destroys everything in it's path, known as "The Safari".
-# DooM 3: Mr. Smiley Head's Safari II
-# Current version: Beta v0.40
-# Multiplayer compatibility: Testing
+# DooM 3: Mr. Smiley Head's Safari II official repository
+# Current version: Beta v0.50
 
-# Compatibility: ("+" means UP and newer)
--ZDoom 2.8.1+
--GZDoom 2.2.0+
--Zandronum Alpha 3.0+
--QZDoom 1.0+ (In Menu set MipMapping to Off to avoid ugly textures when looking far away)
+# Compatibility:
+ I tried making the mod compatible with older ZDoom versions, but after a while I completely changed my mind.
+ The mod requires GZDoom 3.2.4 or higher, using lower versions of GZDoom is not recommended due to exploits
+ 
 # Other:
 +Can be played with FREEDOOM
-+Can be played with Ultimate Doom (Basically DooM 1) (..though DOOM2.WAD is enforced)
-# Incompatible: (-*explanation*)
--Skulltag ALL versions - Skulltag is not updated anymore. Problem with UDMF format; Outdated DECORATE; Won't run.
--Zandronum 2.1.2 - Glitches and bugs due to outdated engine compared to Alpha 3.0; Use Alpha 3.0 instead.
--Non-ZDoom engine - No, not even the god himself can run this mod without ZDoom.
+-+It can be played with DOOM.WAD, but ATM it isn't supported, please use DOOM2.wad
+# Incompatible:
+-Skulltag
+-Zandronum
+-ZDoom 2.8.1 and lower, lower than GZDoom 3.2.0
 |________________________________________________________|
 |This is the official git for Mr. Smiley Head's Safari II|
 |________________________________________________________|
-Building the pk3:
-
-Windows:
+## Building the pk3:
+# Windows:
 After you downloaded the zip, don't forget to extract the folder, then run the BUILD.bat file in order to build the Mr_SmileyII.pk3 file
 The pk3 file will be placed where you ran the BUILD.bat file in the first place
 ie.: "C:\Users\Administrator\Desktop\Mr_SmileyII\Mr_SmileyII.pk3"
-
-Linux:
+# Unix:
 Same as for Windows, but instead of build.bat, run the "build" file which will build the PK3 for you
 _________________________________________________________________
-Without building the pk3:
+# Without building the pk3:
 
 Extract the .zip file to the desktop (or anywhere else), then drag the folder over the ZDoom.exe(or GZDoom.exe; or Zandronum.exe)
+(I don't know If this will work on non-Windows OSes)
 _________________________________________________________________
 
-The original Mr. Smiley Head's Safari levels are fully functional, even the animated intermission from Ultimate Doom
+# Features:
+-All Mr. Smiley Head's Safari 1 assets, including the intermission pictures, levels
+-Doom2 counterparts, new Doom2 levels, new monster behaviours, new sounds, completely redrawn textures and patches, new weapons
+-A new Safari? :)
+# Bugs:
+-You may see blank textures or patches in one of the levels when playing Episode 1 to Episode 3
+Please report bugs/suggestions/ideas to me either in Github, or in Discord: Kizoky#4900 (or you can even join my Discord server: https://discord.gg/SMzAEE2)
 
-Bugs:
--Some of the levels are using DooM II sky patches (1th episode, secret level)
--Missing patches on walls from various levels
+# Todo list:
+Archvile/Metalhead: do Death; Attack; Resurrect sprites | Sounds
+Fatso/Mario: do Attack sprites | Death sound
+Revenant/Smileynator: Need to find sprites | Need to find sounds
 
-##### To do list:
-To present this mod as a full TC, we need to literally replace EVERYTHING in order to be "original"
-
--Replace Archvile with Metalhead -- 80%
--Replace Mancubus/Fatso with Cartman+Mario -- 0%
--Replace Revenant with Transformer -- 0%
--Replace Chaingunguy with ???
--Add sounds for replaced monsters (Pain Elemental)
--Redraw every texture
--Redraw every USED patch
--Score system -- 0% 
--Buddies -- 10%
-
-##### Playable/"has EXIT" Smiley II levels currently
-
-MAP01
-MAP02
-MAP03
-MAP04
-XMAS01
-
-##### Unfinished levels:
-
-MAP05
-MAP21
+-Redraw the remaining Doom2 textures and patches
+-Redraw the remaining graphics
+-Replace unreplaced Doom sounds with stupid or classic sounds
+-Make more levels for D2 episode

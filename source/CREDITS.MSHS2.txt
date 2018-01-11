@@ -22,4 +22,4 @@ Realm667
 
 [Mr. Smiley II]
 -MAP01-MAP05: Kizoky
--MAP06: Suraku
+-MAP06: Suraku10

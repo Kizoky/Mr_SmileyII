@@ -316,20 +316,7 @@ extend class SmileyActor
 	
 	//=======================The Paccing Bullshit
 	
-	const DEFSKULLSPEED = 20;
-	
-	void A_PaccAttack(double skullspeed = DEFSKULLSPEED)
-	{
-		if (target == null) return;
 
-		if (skullspeed <= 0) skullspeed = DEFSKULLSPEED;
-
-		bSkullfly = true;
-		A_PlaySound(AttackSound, CHAN_VOICE);
-		A_FaceTarget();
-		VelFromAngle(skullspeed);
-		Vel.Z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, skullspeed);
-	}
 	
 	//===========================Red Ghost (aka. Pain Elemental)
 	
@@ -706,4 +693,20 @@ extend class SmileyActor
 		}
 	}
 	
+	void A_PaccAttack(double skullspeed = DEFSKULLSPEED)
+	{		
+		if (target == null) return;
+
+		if (skullspeed <= 0) skullspeed = DEFSKULLSPEED;
+		
+			bSkullfly = true;
+			A_PlaySound(AttackSound, CHAN_VOICE);
+			A_FaceTarget();
+		VelFromAngle(skullspeed);
+		Vel.Z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, skullspeed);
+	}
+	
 }
+
+
+

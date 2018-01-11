@@ -11,7 +11,7 @@ class Gangster : SmileyActor replaces Chaingunguy
 		Radius 20;
 		Height 56;
 		Mass 100;
-		Speed 8;
+		Speed 0;
 		PainChance 170;
 		Monster;
 		+FLOORCLIP

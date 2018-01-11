@@ -10,7 +10,7 @@ class MJClone : SmileyActor replaces Zombieman
 		Health 20;
 		Radius 20;
 		Height 56;
-		Speed 8;
+		Speed 10;
 		PainChance 200;
 		Monster;
 		+FLOORCLIP
@@ -28,11 +28,12 @@ class MJClone : SmileyActor replaces Zombieman
 		POSS AB 10 A_Look;
 		Loop;
 	See:
-		POSS AABBCCDD 4 A_Chase;
+		POSS AABBCCDD 3 A_Chase;
 		Loop;
 	Missile:
 		POSS E 10 A_FaceTarget;
-		POSS F 8 A_MJAttack;
+		POSS F 0 A_SmoothCriminal;
+		POSS F 6 A_MJAttack;
 		POSS E 8;
 		Goto See;
 	Pain:
@@ -57,5 +58,25 @@ class MJClone : SmileyActor replaces Zombieman
 		POSS K 5;
 		POSS JIH 5;
 		Goto See;
+	}
+}
+
+extend class MJClone
+{
+    void A_SmoothCriminal()
+	{
+		int LR = random(0,1); //do random number between 0 or 1
+		int mov = random(5,10);
+		if (LR == 0)
+		{
+			Thrust(mov, Angle - 90);
+		}
+		else
+		{
+			if (LR == 1)
+			{
+				Thrust(mov, Angle + 90);
+			}
+		}
 	}
 }

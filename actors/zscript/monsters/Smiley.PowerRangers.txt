@@ -37,8 +37,10 @@ class BlueRanger : SmileyActor replaces BaronOfHell
 		BOSS G 8 A_BruisAttack;
 		Goto See;
 	Pain:
-		BOSS H  2;
-		BOSS H  2 A_Pain;
+		BOSS H 2 A_Pain;
+		BOSS H 3 A_SetReflectiveInvulnerable;
+		BOSS PPP 16 A_CentaurDefend;
+		BOSS H 1 A_UnsetReflectiveInvulnerable;
 		Goto See;
 	Death:
 		BOSS I  8;

@@ -45,6 +45,7 @@ ListMenu "SkillMenu"
 	}
 }
 
+//Looks like GZDoom is ignoring it.
 OptionMenu "OptionsMenu"
 {
 	Title "OPTIONZ"
@@ -67,5 +68,7 @@ OptionMenu "OptionsMenu"
 	Command "Go to console",			"menuconsole"
 	StaticText " "
 	StaticText "Mr. Smiley Head's Safari II"
-	StaticText "Beta v0.49"
+	StaticText "Beta v0.51"
+	StaticText " "
+	StaticText "This mod is WIP since 2013.08"
 }

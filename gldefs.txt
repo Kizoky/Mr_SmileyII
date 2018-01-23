@@ -1,0 +1,215 @@
+//Yay, lightnings in Smiley!!11
+
+pulselight Cola
+{
+    color 1.0 0.0 0.0
+    size 25
+    secondarySize 30
+    interval 2.0
+	attenuate 1
+    offset 0 15 0
+}
+object Cola
+{
+    frame BON1 { light Cola }
+}
+
+//---------------------------- Armour Helmet
+pulselight ARMORBONUS
+{
+    color 0.0 0.0 1.0
+    size 20
+    secondarySize 26
+    interval 1.0
+	dontlightself 1
+	attenuate 1
+    offset 0 10 0
+}
+object DodgersCap
+{
+    frame BON2 { light ARMORBONUS }
+}
+
+//---------------------------- Blue Keys
+object BlueCard
+{
+    frame BKEY { light ARMORBONUS }
+}
+object BlueSmiley
+{
+    frame BSKU { light ARMORBONUS }
+}
+
+//---------------------------- Yellow Keys
+pulselight YELLOWKEY
+{
+    color 1.0 1.0 0.0
+    size 35
+    secondarySize 40
+    interval 2.0
+	attenuate 1
+    offset 0 10 0
+}
+
+object YellowCard
+{
+    frame YKEY { light YELLOWKEY }
+}
+
+object YellowSmiley
+{
+    frame YSKU { light YELLOWKEY }
+}
+
+//---------------------------- Red Keys
+pulselight REDKEY
+{
+    color 1.0 0.0 0.0
+    size 35
+    secondarySize 40
+    interval 2.0
+	attenuate 1
+    offset 0 10 0
+}
+
+object RedCard
+{
+    frame RKEY { light REDKEY }
+}
+
+object RedSmiley
+{
+    frame RSKU { light REDKEY }
+}
+
+//---------------------------- Green armour
+pointlight GREENARMOR1
+{
+    color 0.25 0.25 0.25
+    size 40
+	attenuate 1
+    offset 0 10 0
+}
+
+pointlight GREENARMOR2
+{
+    color 0.50 0.50 0.50
+    size 50
+	attenuate 1
+    offset 0 10 0
+}
+
+object Tshirt
+{
+    frame ARM1A { light GREENARMOR1 }
+    frame ARM1B { light GREENARMOR2 }
+}
+
+//---------------------------- Blue armour
+pointlight BLUEARMOR1
+{
+    color 0.25 0.25 0.25
+    size 40
+	attenuate 1
+    offset 0 10 0
+}
+
+pointlight BLUEARMOR2
+{
+    color 0.50 0.50 0.50
+    size 50
+	attenuate 1
+    offset 0 10 0
+}
+
+object Shoes
+{
+    frame ARM2A { light BLUEARMOR1 }
+    frame ARM2B { light BLUEARMOR2 }
+}
+
+// ----------------
+// -- Doom Items --
+// ----------------
+
+// Soul Sphere
+pulselight SmileyToungeSphere
+{
+    color 1.0 1.0 0.0
+    size 65
+    secondarySize 70
+    interval 2.0
+    offset 0 16 0
+	attenuate 1
+}
+
+object SmileyToungeSphere
+{
+    frame SOUL { light SOULSPHERE }
+}
+
+// Invulnerability Sphere
+pulselight INVULN
+{
+    color 1.0 1.0 0.0
+    size 60
+    secondarySize 63
+    interval 2.0
+    offset 0 16 0
+	attenuate 1
+}
+
+object SmileyChuckSphere
+{
+    frame PINV { light INVULN }
+}
+
+// Blur Sphere
+pointlight BLURSPHERE1
+{
+    color 1.0 1.0 0.0
+    size 60
+    offset 0 16 0
+	attenuate 1
+}
+
+pointlight BLURSPHERE2
+{
+    color 1.0 1.0 0.0
+    size 48
+    offset 0 16 0
+	attenuate 1
+}
+
+pointlight BLURSPHERE3
+{
+    color 1.0 1.0 0.0
+    size 36
+    offset 0 16 0
+	attenuate 1
+}
+
+pointlight BLURSPHERE4
+{
+    color 1.0 1.0 0.0
+    size 24
+    offset 0 16 0
+	attenuate 1
+}
+
+pointlight BLURSPHERE5
+{
+    color 1.0 1.0 0.0
+    size 12
+    offset 0 16 0
+	attenuate 1
+}
+
+object SmileyPekabooSphere
+{
+    frame PINS { light BLURSPHERE1 }
+    frame PINSA { light BLURSPHERE2 }
+    frame PINSB { light BLURSPHERE3 }
+    frame PINSC { light BLURSPHERE4 }
+    frame PINSD { light BLURSPHERE5 }
+}

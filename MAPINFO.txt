@@ -110,6 +110,14 @@ map map05 "the Laughing Smiley is Dangerous"
 	sky1=SKY2
 }
 
+map map08 "Much Obliged!"
+{
+	next=map06
+	par=120
+	music=D_RUNRUN
+	sky1=SKY2
+}
+
 map map99 "ZOMG AN UGLY AND UNFINISHED LEVEL!!"
 {
 	next=map03

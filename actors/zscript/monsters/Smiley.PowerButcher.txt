@@ -1,0 +1,142 @@
+//Scorpio or Pudge
+
+class PowerButcher : SmileyActor
+{
+	Default
+	{
+		Health 1250;
+		Radius 24;
+		Height 64;
+		Mass 1000;
+		Speed 11;
+		PainChance 50;
+		Monster;
+		+FLOORCLIP
+		+BOSSDEATH
+		SeeSound "baron/sight";
+		PainSound "baron/pain";
+		DeathSound "baron/death";
+		ActiveSound "baron/active";
+		Obituary "$OB_BARON";
+		HitObituary "$OB_BARONHIT";
+		Translation "199:202=5:6";
+	}
+	States
+	{
+	Spawn:
+		PBUT AB 10 A_Look ;
+		Loop;
+	See:
+		PBUT AABBCCDD 3 A_Chase;
+		Loop;
+	Melee:
+	Missile:
+		PBUT EF 8 A_FaceTarget;
+		PBUT G 8 A_ButcherAttack;
+		Goto See;
+	Pain:
+		PBUT H 2 A_Pain;
+		PBUT H 3 A_SetReflectiveInvulnerable;
+		PBUT PPP 16 A_CentaurDefend;
+		PBUT H 1 A_UnsetReflectiveInvulnerable;
+		Goto See;
+	Death:
+		PBUT I  8;
+		PBUT J  8 A_Scream;
+		PBUT K  8;
+		PBUT L  8 A_NoBlocking;
+		PBUT MN 8;
+		PBUT O -1 A_BossDeath;
+		Stop;
+	Raise:
+		PBUT O 8;
+		PBUT NMLKJI  8;
+		Goto See;
+	}
+}
+
+class Hook : SmileyActor
+{
+	int hookend;
+	Default
+	{
+		Speed 10;
+		Height 14;
+		Radius 10;
+		Projectile;
+		+STRIFEDAMAGE
+		Damage 2;
+		MaxStepHeight 4;
+		SeeSound "loremaster/chain";
+		ActiveSound "loremaster/swish";
+	}
+
+	States
+	{
+	Spawn:
+		OCLW A 2 A_HookChain;
+		Loop;
+	Death:
+		OCLW A 6 A_HookEnded;
+		Stop;
+	}
+	
+	override int DoSpecialDamage (Actor victim, int damage, Name damagetype)
+	{
+		
+		if (victim != NULL && target != NULL && !victim.bDontThrust)
+		{
+			Vector3 thrust = victim.Vec3To(target);
+			victim.Vel += thrust.Unit() * (255. * 50 / max(victim.Mass, 1));
+		}
+		return damage;
+	}
+	
+}
+
+class Hook2 : Actor
+{
+	Default
+	{
+		+NOBLOCKMAP
+		+NOGRAVITY
+	}
+	States
+	{
+	Spawn:
+		TEND A 20;
+		Stop;
+	}
+}
+
+extend class SmileyActor
+{
+	action void A_ButcherAttack()
+	{
+		if (target)
+		{
+			A_FaceTarget();
+			A_PlaySound("powerbutcher/getoverhere");
+			SpawnMissile(target, "Hook");
+			 //do nothing
+		}
+	}
+}
+
+extend class Hook
+{	
+	void A_HookChain ()
+	{
+		A_PlaySound ("loremaster/active", CHAN_BODY);
+		Spawn("Hook2", Pos, ALLOW_REPLACE);
+		Spawn("Hook2", Vec3Offset(-Vel.x/2., -Vel.y/2., -Vel.z/2.), ALLOW_REPLACE);
+		Spawn("Hook2", Vec3Offset(-Vel.x, -Vel.y, -Vel.z), ALLOW_REPLACE);
+		
+	}
+	
+	void A_HookEnded()
+	{
+		int HookEnd = 1;
+	}
+	
+}

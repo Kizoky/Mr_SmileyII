@@ -23,6 +23,7 @@ version "3.2"
 //---------- Stealth and Custom monsters
 #include "actors/zscript/Smiley.CustomMonsters.txt"
 #include "actors/zscript/Smiley.StealthMonsters.txt"
+#include "actors/zscript/monsters/Smiley.PowerButcher.txt"
 //---------- Player classes
 #include "actors/zscript/Smiley.Weapon.SmileyHead.txt"
 #include "actors/zscript/Smiley.Weapon.UncleSmiley.txt"

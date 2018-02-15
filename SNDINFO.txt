@@ -11,3 +11,6 @@ $playeralias           UncleUncle  male    *pain100        DSUNCPAIN
 $playeralias           UncleUncle  male    *pain75         *pain100
 $playeralias           UncleUncle  male    *pain50         *pain100
 $playeralias           UncleUncle  male    *pain25         *pain100
+
+//Power Butcher's hook taunt
+powerbutcher/getoverhere sounds/DSGETO.wav

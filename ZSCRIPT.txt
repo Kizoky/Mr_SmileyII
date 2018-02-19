@@ -42,4 +42,4 @@ version "3.2"
 #include "actors/zscript/Smiley.Decoration.Other.txt"
 #include "actors/zscript/Smiley.Decoration.txt"
 
-
+#include "actors/zscript/Smiley.Test.txt"

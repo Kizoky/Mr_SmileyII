@@ -57,7 +57,6 @@ class PowerButcher : SmileyActor
 
 class Hook : SmileyActor
 {
-	int hookend;
 	Default
 	{
 		Speed 10;
@@ -77,7 +76,7 @@ class Hook : SmileyActor
 		OCLW A 2 A_HookChain;
 		Loop;
 	Death:
-		OCLW A 6 A_HookEnded;
+		OCLW A 6;
 		Stop;
 	}
 	
@@ -94,7 +93,7 @@ class Hook : SmileyActor
 	
 }
 
-class Hook2 : Actor
+class Hook2 : SmileyActor
 {
 	Default
 	{
@@ -113,19 +112,19 @@ extend class SmileyActor
 {
 	action void A_ButcherAttack()
 	{
+	
+		int HookEnded = 1;
 		if (target)
 		{
+			HookEnded = 0;
 			A_FaceTarget();
 			A_PlaySound("powerbutcher/getoverhere");
 			SpawnMissile(target, "Hook");
 			 //do nothing
 		}
 	}
-}
-
-extend class Hook
-{	
-	void A_HookChain ()
+	
+	action void A_HookChain()
 	{
 		A_PlaySound ("loremaster/active", CHAN_BODY);
 		Spawn("Hook2", Pos, ALLOW_REPLACE);
@@ -134,9 +133,17 @@ extend class Hook
 		
 	}
 	
-	void A_HookEnded()
-	{
-		int HookEnd = 1;
-	}
-	
 }
+
+//extend class Hook
+//{	
+//	void A_HookChain ()
+//	{
+//		A_PlaySound ("loremaster/active", CHAN_BODY);
+//		Spawn("Hook2", Pos, ALLOW_REPLACE);
+//		Spawn("Hook2", Vec3Offset(-Vel.x/2., -Vel.y/2., -Vel.z/2.), ALLOW_REPLACE);
+//		Spawn("Hook2", Vec3Offset(-Vel.x, -Vel.y, -Vel.z), ALLOW_REPLACE);
+//		
+//	}
+//	
+//}

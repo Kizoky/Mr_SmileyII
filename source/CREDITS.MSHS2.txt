@@ -4,6 +4,9 @@ Credits:
 - Small trees & bushes
 Realm667
 
+-Nashgore
+nash
+
 =[Monster Sprites]=
 -Mario: Nintendo
 

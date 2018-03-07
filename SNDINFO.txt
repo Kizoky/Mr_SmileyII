@@ -14,3 +14,13 @@ $playeralias           UncleUncle  male    *pain25         *pain100
 
 //Power Butcher's hook taunt
 powerbutcher/getoverhere sounds/DSGETO.wav
+
+// nashgore's randomized blood splats!
+
+bloodsplat1 dsblud01
+bloodsplat2 dsblud02
+bloodsplat3 dsblud03
+
+$random bloodsplat { bloodsplat1 bloodsplat2 bloodsplat3 }
+$limit bloodsplat 1
+$volume bloodsplat 0.5

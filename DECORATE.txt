@@ -1,6 +1,9 @@
 //decorate stuff from actors folder - ozy81
 // Smiley stuff belongs here. (Smiley Head PlayerPawn is in SmileyWeapons)
 // RIP Decorate ~11.21.2017
+
+#include "actors/Nashgore.txt"
+
 //#include "actors/SmileyAccessory.txt"
 //#include "actors/SmileyAmmo.txt"
 //#include "actors/SmileyMonster.txt"

@@ -1,0 +1,449 @@
+//replaces all sounds with the soundfile "DSKENY"
+/****************************************************************************/
+/*																			*/
+/* DOOM SOUNDS																*/
+/*																			*/
+/****************************************************************************/
+
+// BOOM has pitch shifting equivalent to a range of 4. I never got to hear
+// Doom when it used pitch shifting, so I don't know if this is correct or not.
+$pitchshiftrange 4
+
+// This sound is never actually used. It's just defined here for
+// compatibility with DeHackEd patches that reference dsskldth.
+misc/unused			dsskldth	// Sounds just like dsoof
+
+//===========================================================================
+//
+// Doom-specific player sounds
+//
+//===========================================================================
+
+$playersound	player	male	*death		dspldeth
+$playersound	player	male	*xdeath		dspdiehi
+$playersound	player	male	*gibbed		sounds/DSKENY.wav
+$playersound	player	male	*pain100	sounds/DSKENY.wav
+$playersounddup	player	male	*pain75		*pain100
+$playersounddup	player	male	*pain50		*pain100
+$playersounddup	player	male	*pain25		*pain100
+$playersound	player	male	*grunt		sounds/DSKENY.wav
+$playersounddup	player	male	*land		*grunt
+$playersound	player	male	*jump		sounds/DSKENY.wav
+$playersound	player	male	*fist		sounds/DSKENY.wav
+$playersound	player	male	*usefail	sounds/DSKENY.wav
+$playersound	player	female	*death		dsfldeth
+$playersound	player	female	*xdeath		dsfdiehi
+$playersound	player	female	*gibbed		dsslop
+$playersound	player	female	*pain100	dsflpain
+$playersounddup	player	female	*pain75		*pain100
+$playersounddup	player	female	*pain50		*pain100
+$playersounddup	player	female	*pain25		*pain100
+$playersound	player	female	*grunt		dsfoof
+$playersounddup	player	female	*land		*grunt
+$playersound	player	female	*jump		dsfjump
+$playersound	player	female	*fist		dspunch
+$playersound	player	female	*usefail	dsfnoway
+
+$playersound	player	other	*death		dscldeth
+$playersound	player	other	*xdeath		dscdiehi
+$playersound	player	other	*gibbed		dsslop
+$playersound	player	other	*pain100	dsclpain
+$playersounddup	player	other	*pain75		*pain100
+$playersounddup	player	other	*pain50		*pain100
+$playersounddup	player	other	*pain25		*pain100
+$playersound	player	other	*grunt		dscoof
+$playersounddup	player	other	*land		*grunt
+$playersound	player	other	*jump		dscjump
+$playersound	player	other	*fist		dspunch
+$playersound	player	other	*usefail	dscnoway
+
+// Alternate names for some player sounds needed for ZDoom <= 1.22 compatibility
+//
+// If any sounds with these names are defined later, they will redefine
+// the corresponding player sounds instead. Likewise, if they are played,
+// they will play the corresponding player sound instead.
+
+$playercompat	player	male	*death		sounds/DSKENY.wav
+$playercompat	player	male	*death		sounds/DSKENY.wav
+$playercompat	player	male	*death		sounds/DSKENY.wav
+$playercompat	player	male	*death		sounds/DSKENY.wav
+$playercompat	player	male	*xdeath		sounds/DSKENY.wav
+$playercompat	player	male	*pain100	sounds/DSKENY.wav
+$playercompat	player	male	*pain100	sounds/DSKENY.wav
+$playercompat	player	male	*pain75		sounds/DSKENY.wav
+$playercompat	player	male	*pain75		sounds/DSKENY.wav
+$playercompat	player	male	*pain50		sounds/DSKENY.wav
+$playercompat	player	male	*pain50		sounds/DSKENY.wav
+$playercompat	player	male	*pain25		sounds/DSKENY.wav
+$playercompat	player	male	*pain25		sounds/DSKENY.wav
+$playercompat	player	male	*grunt		sounds/DSKENY.wav
+$playercompat	player	male	*land		sounds/DSKENY.wav
+$playercompat	player	male	*jump		sounds/DSKENY.wav
+$playercompat	player	male	*gibbed		sounds/DSKENY.wav
+$playercompat	player	male	*fist		sounds/DSKENY.wav
+
+$playercompat	player	female	*death		player/female/death1
+$playercompat	player	female	*death		player/female/death2
+$playercompat	player	female	*death		player/female/death3
+$playercompat	player	female	*death		player/female/death4
+$playercompat	player	female	*xdeath		player/female/xdeath1
+$playercompat	player	female	*pain100	player/female/pain100_1
+$playercompat	player	female	*pain100	player/female/pain100_2
+$playercompat	player	female	*pain75		player/female/pain75_1
+$playercompat	player	female	*pain75		player/female/pain75_2
+$playercompat	player	female	*pain50		player/female/pain50_1
+$playercompat	player	female	*pain50		player/female/pain50_2
+$playercompat	player	female	*pain25		player/female/pain25_1
+$playercompat	player	female	*pain25		player/female/pain25_2
+$playercompat	player	female	*grunt		player/female/grunt1
+$playercompat	player	female	*land		player/female/land1
+$playercompat	player	female	*jump		player/female/jump1
+$playercompat	player	female	*gibbed		player/female/gibbed
+$playercompat	player	female	*fist		player/female/fist
+
+$playercompat	player	other	*death		player/cyborg/death1
+$playercompat	player	other	*death		player/cyborg/death2
+$playercompat	player	other	*death		player/cyborg/death3
+$playercompat	player	other	*death		player/cyborg/death4
+$playercompat	player	other	*xdeath		player/cyborg/xdeath1
+$playercompat	player	other	*pain100	player/cyborg/pain100_1
+$playercompat	player	other	*pain100	player/cyborg/pain100_2
+$playercompat	player	other	*pain75		player/cyborg/pain75_1
+$playercompat	player	other	*pain75		player/cyborg/pain75_2
+$playercompat	player	other	*pain50		player/cyborg/pain50_1
+$playercompat	player	other	*pain50		player/cyborg/pain50_2
+$playercompat	player	other	*pain25		player/cyborg/pain25_1
+$playercompat	player	other	*pain25		player/cyborg/pain25_2
+$playercompat	player	other	*grunt		player/cyborg/grunt1
+$playercompat	player	other	*land		player/cyborg/land1
+$playercompat	player	other	*jump		player/cyborg/jump1
+$playercompat	player	other	*gibbed		player/cyborg/gibbed
+$playercompat	player	other	*fist		player/cyborg/fist
+
+//
+// Weapons
+//
+
+$pitchshiftrange 3
+weapons/sawup			sounds/DSKENY.wav
+weapons/sawidle			sounds/DSKENY.wav
+weapons/sawfull			sounds/DSKENY.wav
+weapons/sawhit			sounds/DSKENY.wav
+$pitchshiftrange 4
+
+weapons/pistol			sounds/DSKENY.wav
+weapons/shotgf			sounds/DSKENY.wav
+weapons/shotgr			sounds/DSKENY.wav
+weapons/sshotf			sounds/DSKENY.wav
+weapons/sshoto			sounds/DSKENY.wav
+weapons/sshotc			sounds/DSKENY.wav
+weapons/sshotl			sounds/DSKENY.wav
+weapons/chngun			sounds/DSKENY.wav
+weapons/rocklx			sounds/DSKENY.wav
+weapons/rocklf			sounds/DSKENY.wav
+weapons/plasmaf			sounds/DSKENY.wav
+weapons/plasmax			sounds/DSKENY.wav
+weapons/bfgf			sounds/DSKENY.wav
+weapons/bfgx			sounds/DSKENY.wav
+weapons/railgf			sounds/DSKENY.wav
+weapons/grbnce          sounds/DSKENY.wav
+weapons/grenlx			sounds/DSKENY.wav
+weapons/grenlf			sounds/DSKENY.wav
+
+// Problem: weapons/rocklx needs to be unlimited but
+// is also used for the MAP30 brain explosion.
+// This alias remaps to the original but has its own limit
+// attached so that it doesn't become too loud.
+$alias misc/brainexplode sounds/DSKENY.wav
+$limit misc/brainexplode 4
+
+$limit weapons/plasmaf 0
+$limit weapons/chngun 0
+$limit weapons/rocklf 0		// because normal running is almost as fast as a rocket
+$limit weapons/rocklx 0		// and the cyberdemon shoots 3 at once
+
+//===========================================================================
+//
+// MONSTER SOUNDS
+//
+//===========================================================================
+
+misc/gibbed			dsslop
+
+// Zombie man
+
+$random grunt/sight 		{ sounds/DSKENY.wav  sounds/DSKENY.wav  sounds/DSKENY.wav }
+$random grunt/death		{ sounds/DSKENY.wav  sounds/DSKENY.wav  sounds/DSKENY.wav }
+grunt/sight1			sounds/DSKENY.wav
+grunt/sight2			sounds/DSKENY.wav
+grunt/sight3			sounds/DSKENY.wav
+grunt/active			sounds/DSKENY.wav
+grunt/pain			sounds/DSKENY.wav
+grunt/death1			sounds/DSKENY.wav
+grunt/death2			sounds/DSKENY.wav
+grunt/death3			sounds/DSKENY.wav
+grunt/attack			sounds/DSKENY.wav
+
+// Shotgun guy
+
+$random shotguy/sight		{ sounds/DSKENY.wav  sounds/DSKENY.wav  sounds/DSKENY.wav }
+$random shotguy/death		{ sounds/DSKENY.wav  sounds/DSKENY.wav  sounds/DSKENY.wav }
+shotguy/sight1			sounds/DSKENY.wav
+shotguy/sight2			sounds/DSKENY.wav
+shotguy/sight3			sounds/DSKENY.wav
+shotguy/active			sounds/DSKENY.wav
+shotguy/pain			sounds/DSKENY.wav
+shotguy/death1			sounds/DSKENY.wav
+shotguy/death2			sounds/DSKENY.wav
+shotguy/death3			sounds/DSKENY.wav
+shotguy/attack			sounds/DSKENY.wav
+
+// Archvile
+
+vile/sight			sounds/DSKENY.wav
+vile/active			sounds/DSKENY.wav
+vile/pain			sounds/DSKENY.wav
+vile/death			sounds/DSKENY.wav
+vile/raise			sounds/DSKENY.wav
+vile/start			sounds/DSKENY.wav
+vile/stop			sounds/DSKENY.wav
+vile/firestrt			sounds/DSKENY.wav
+vile/firecrkl			sounds/DSKENY.wav
+
+// Revenant
+
+skeleton/sight			sounds/DSKENY.wav
+skeleton/active			sounds/DSKENY.wav
+skeleton/pain			sounds/DSKENY.wav
+skeleton/melee			sounds/DSKENY.wav
+skeleton/swing			sounds/DSKENY.wav
+skeleton/death			sounds/DSKENY.wav
+skeleton/attack			sounds/DSKENY.wav
+skeleton/tracex			sounds/DSKENY.wav
+
+// Fatso
+
+fatso/sight			sounds/DSKENY.wav
+fatso/active			sounds/DSKENY.wav
+fatso/pain			sounds/DSKENY.wav
+fatso/raiseguns			sounds/DSKENY.wav
+fatso/death			sounds/DSKENY.wav
+fatso/attack			sounds/DSKENY.wav
+fatso/shotx			sounds/DSKENY.wav
+
+// Chainguy
+
+$random chainguy/sight		{ sounds/DSKENY.wav  sounds/DSKENY.wav  sounds/DSKENY.wav }
+$random chainguy/death		{ sounds/DSKENY.wav  sounds/DSKENY.wav  sounds/DSKENY.wav }
+chainguy/sight1			sounds/DSKENY.wav
+chainguy/sight2			sounds/DSKENY.wav
+chainguy/sight3			sounds/DSKENY.wav
+chainguy/active			sounds/DSKENY.wav
+chainguy/pain			sounds/DSKENY.wav
+chainguy/death1			sounds/DSKENY.wav
+chainguy/death2			sounds/DSKENY.wav
+chainguy/death3			sounds/DSKENY.wav
+chainguy/attack			sounds/DSKENY.wav
+
+// Imp
+
+$random imp/sight		{ sounds/DSKENY.wav  sounds/DSKENY.wav }
+$random imp/death		{ sounds/DSKENY.wav  sounds/DSKENY.wav }
+imp/sight1			sounds/DSKENY.wav
+imp/sight2			sounds/DSKENY.wav
+imp/active			sounds/DSKENY.wav
+imp/pain			sounds/DSKENY.wav
+imp/melee			sounds/DSKENY.wav
+imp/death1			sounds/DSKENY.wav
+imp/death2			sounds/DSKENY.wav
+imp/attack			sounds/DSKENY.wav
+imp/shotx			sounds/DSKENY.wav
+
+// Demon
+
+demon/sight			sounds/DSKENY.wav
+demon/active			sounds/DSKENY.wav
+demon/pain			sounds/DSKENY.wav
+demon/melee			sounds/DSKENY.wav
+demon/death			sounds/DSKENY.wav
+$limit demon/melee 4
+
+// Spectre
+
+spectre/sight			sounds/DSKENY.wav
+spectre/active			sounds/DSKENY.wav
+spectre/pain			sounds/DSKENY.wav
+spectre/melee			sounds/DSKENY.wav
+spectre/death			sounds/DSKENY.wav
+
+// Cacodemon
+
+caco/sight			sounds/DSKENY.wav
+caco/active			sounds/DSKENY.wav
+caco/pain			sounds/DSKENY.wav
+caco/death			sounds/DSKENY.wav
+caco/attack			sounds/DSKENY.wav
+caco/shotx			sounds/DSKENY.wav
+
+// Baron of Hell
+
+baron/sight			sounds/DSKENY.wav
+baron/active			sounds/DSKENY.wav
+baron/pain			sounds/DSKENY.wav
+baron/melee			sounds/DSKENY.wav
+baron/death			sounds/DSKENY.wav
+baron/attack			sounds/DSKENY.wav
+baron/shotx			sounds/DSKENY.wav
+
+// Hell Knight
+
+knight/sight			sounds/DSKENY.wav
+knight/active			sounds/DSKENY.wav
+knight/pain			sounds/DSKENY.wav
+knight/death			sounds/DSKENY.wav
+
+// Lost Soul
+
+skull/active			sounds/DSKENY.wav
+skull/pain			sounds/DSKENY.wav
+skull/melee			sounds/DSKENY.wav
+skull/death			sounds/DSKENY.wav
+
+// Spider Mastermind
+
+spider/sight			sounds/DSKENY.wav
+spider/active			sounds/DSKENY.wav
+spider/pain			sounds/DSKENY.wav
+spider/attack			sounds/DSKENY.wav
+spider/death			sounds/DSKENY.wav
+spider/walk			sounds/DSKENY.wav
+
+// Arachnotron
+
+baby/sight			sounds/DSKENY.wav
+baby/active			sounds/DSKENY.wav
+baby/pain			sounds/DSKENY.wav
+baby/death			sounds/DSKENY.wav
+baby/walk			sounds/DSKENY.wav
+baby/attack			sounds/DSKENY.wav
+baby/shotx			sounds/DSKENY.wav
+
+$limit baby/attack 0
+
+// Cyber Demon
+
+cyber/sight			sounds/DSKENY.wav
+cyber/active			sounds/DSKENY.wav
+cyber/pain			sounds/DSKENY.wav
+cyber/death			sounds/DSKENY.wav
+cyber/hoof			sounds/DSKENY.wav
+
+// Pain Elemental
+
+pain/sight			sounds/DSKENY.wav
+pain/active			sounds/DSKENY.wav
+pain/pain			sounds/DSKENY.wav
+pain/death			sounds/DSKENY.wav
+
+// Wolfenstein SS
+
+wolfss/sight			sounds/DSKENY.wav
+wolfss/active			sounds/DSKENY.wav
+wolfss/pain			sounds/DSKENY.wav
+wolfss/death			sounds/DSKENY.wav
+wolfss/attack			sounds/DSKENY.wav
+
+// Commander Keen
+
+keen/pain			sounds/DSKENY.wav
+keen/death			sounds/DSKENY.wav
+
+// Boss Brain
+
+brain/sight			sounds/DSKENY.wav
+brain/pain			sounds/DSKENY.wav
+brain/death			sounds/DSKENY.wav
+brain/spit			sounds/DSKENY.wav
+brain/cube			sounds/DSKENY.wav
+brain/cubeboom			sounds/DSKENY.wav
+$alias brain/spawn		sounds/DSKENY.wav
+
+
+//============================================================================
+//
+// WORLD SOUNDS
+//
+//===========================================================================
+
+world/barrelx			sounds/DSKENY.wav
+
+world/drip			sounds/DSKENY.wav
+world/watersplash		sounds/DSKENY.wav
+world/sludgegloop		sounds/DSKENY.wav
+world/lavasizzle		sounds/DSKENY.wav
+
+//
+//
+// Platform Sounds
+//
+
+plats/pt1_strt			sounds/DSKENY.wav
+plats/pt1_stop			sounds/DSKENY.wav
+plats/pt1_mid			sounds/DSKENY.wav
+
+//
+// Door Sounds
+//
+
+doors/dr1_open			sounds/DSKENY.wav
+doors/dr1_clos			sounds/DSKENY.wav
+doors/dr2_open			sounds/DSKENY.wav
+doors/dr2_clos			sounds/DSKENY.wav
+
+//===========================================================================
+//
+// MISCELLANEOUS SOUNDS
+//
+//===========================================================================
+
+misc/secret			sounds/DSKENY.wav
+misc/w_pkup			sounds/DSKENY.wav		// Pickup weapon
+misc/p_pkup			sounds/DSKENY.wav	// Pickup powerup
+misc/i_pkup			sounds/DSKENY.wav	// Pickup item
+misc/k_pkup			sounds/DSKENY.wav	// Pickup key
+misc/spawn			sounds/DSKENY.wav		// Item respawn
+misc/chat			sounds/DSKENY.wav		// Doom 2 chat sound
+misc/chat2			sounds/DSKENY.wav		// Chat sound for everything else
+
+$limit misc/i_pkup		1
+$limit misc/k_pkup		1
+$limit misc/w_pkup		1
+$limit misc/p_pkup		1
+$pitchshift misc/i_pkup		0
+$pitchshift misc/k_pkup		0
+$pitchshift misc/chat2		0
+
+switches/normbutn		sounds/DSKENY.wav
+switches/exitbutn		sounds/DSKENY.wav
+
+misc/teleport			sounds/DSKENY.wav
+
+menu/activate			sounds/DSKENY.wav	// Activate a new menu
+menu/backup			sounds/DSKENY.wav	// Backup to previous menu
+menu/prompt			sounds/DSKENY.wav	// Activate a prompt "menu"
+menu/cursor			sounds/DSKENY.wav		// Move cursor up/down
+menu/change			sounds/DSKENY.wav	// Select new value for option
+menu/invalid			sounds/DSKENY.wav		// Menu not available
+menu/dismiss			sounds/DSKENY.wav	// Dismiss a prompt message
+menu/choose			sounds/DSKENY.wav	// Choose a menu item
+menu/clear			sounds/DSKENY.wav	// Close top menu
+
+$random menu/quit1 { player/male/death1 demon/pain grunt/pain misc/gibbed misc/teleport grunt/sight1 grunt/sight3 demon/melee }
+$random menu/quit2 { vile/active misc/p_pkup brain/cube misc/gibbed skeleton/swing knight/death baby/active demon/melee  }
+
+$alias				intermission/tick			weapons/pistol
+$alias				intermission/cooptotal		*death
+$alias				intermission/nextstage		weapons/rocklx
+$alias				intermission/paststats		weapons/shotgr
+$alias				intermission/pastcoopstats	weapons/shotgr
+$alias				intermission/pastdmstats	*gibbed

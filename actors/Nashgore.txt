@@ -35,8 +35,6 @@ Actor NashGore_Blood : Blood replaces Blood
 			TNT1 A 0
 			TNT1 A 0 A_SpawnItem("NashGore_DoomBlood", 0, 0, 0, 1)
 			TNT1 A 0 A_SpawnItemEx("NashGore_FlyingBlood", 0, 0, 0, FRandom(0.1, 6.0) * RandomPick(-1, 1), FRandom(0.1, 6.0) * RandomPick(-1, 1), FRandom(0.0, 6.0), 0, NASHGORE_BLOODFLAGS1, 64)
-			TNT1 AAAAA 0 A_SpawnItemEx("NashGore_SplatMaker", 0, 0, 0, FRandom(-5, 5), FRandom(-5, 5), FRandom(0, 5), Random(0, 360), NASHGORE_BLOODFLAGS2)
-			TNT1 AAAA 4 A_SpawnItemEx("NashGore_BloodSplasher", 0, 0, 0, FRandom(-2.0, 2.0), FRandom(-2.0, 2.0), FRandom(1.0, 2.0), Random(0, 360), NASHGORE_BLOODFLAGS1, 128)
 			Stop
 	}
 }
@@ -64,9 +62,6 @@ Actor NashGore_FlyingBlood : NashGore_BloodBase
 			Stop
 		Crash:
 			TNT1 A 0 A_PlaySound("bloodsplat")
-			TNT1 A 0 A_SpawnItem("NashGore_BloodSplash", 0, 0, 0, 1)
-			TNT1 A 0 A_SpawnItemEx("NashGore_BloodSpot", 0, 0, 0, 0, 0, 0, FRandom(0, 360), 7, 128)
-			TNT1 AAAAAAAAAA 1 A_SpawnItemEx("NashGore_BloodSplasher", 0, 0, 0, FRandom(-2.0, 2.0), FRandom(-2.0, 2.0), FRandom(1.0, 2.0), Random(0, 360), NASHGORE_BLOODFLAGS1, 150)
 			Stop
 	}
 }
@@ -102,7 +97,6 @@ Actor NashGore_BloodSplasher : NashGore_BloodBase
 			Loop
 		Crash:
 			TNT1 A 0 A_SpawnItem("NashGore_BloodSplash", 0, 0, 0, 1)
-			TNT1 A 0 A_SpawnItemEx("NashGore_BloodSpot", 0, 0, 0, 0, 0, 0, Random(0, 360), NASHGORE_BLOODFLAGS3, 200)
 			Stop
 	}
 }

@@ -37,10 +37,30 @@ class BlueRanger : SmileyActor replaces BaronOfHell
 		BOSS G 8 A_BruisAttack;
 		Goto See;
 	Pain:
+		TNT1 A 0 A_Jump(256,"NoReflect","Reflect","NoReflect2");
+		BOSS H 2 A_Pain;	
+		BOSS H 3;
+		BOSS PPP 16;
+		BOSS H 1;
+		Goto See;
+	Reflect:
+		//TNT1 A 0 A_Debug2();
 		BOSS H 2 A_Pain;
 		BOSS H 3 A_SetReflectiveInvulnerable;
 		BOSS PPP 16 A_CentaurDefend;
 		BOSS H 1 A_UnsetReflectiveInvulnerable;
+		Goto See;
+	NoReflect:
+		//TNT1 A 0 A_Debug();
+		BOSS H 2 A_Pain;
+		BOSS H 3;
+		BOSS H 1;
+		Goto See;
+	NoReflect2:
+		//TNT1 A 0 A_Debug3();
+		BOSS H 2 A_Pain;
+		BOSS H 3;
+		BOSS H 1;
 		Goto See;
 	Death:
 		BOSS I  8;
@@ -135,4 +155,23 @@ class RangerBottle : Actor
 		BAL7 CDE 6 BRIGHT;
 		Stop;
 	}
+}
+
+
+extend class BlueRanger
+{
+
+	action void A_Debug()
+	{
+		A_printbold("No Deflect");
+	}
+	action void A_Debug2()
+	{
+		A_printbold("Deflect");
+	}
+	action void A_Debug3()
+	{
+		A_printbold("No Deflect 2");
+	}
+
 }

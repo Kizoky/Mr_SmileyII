@@ -15,6 +15,10 @@ $playeralias           UncleUncle  male    *pain25         *pain100
 //Power Butcher's hook taunt
 powerbutcher/getoverhere sounds/DSGETO.wav
 
+//Barney's creepy transformation
+barney/transform sounds/DSTRANSF.wav
+
+
 // nashgore's randomized blood splats!
 
 bloodsplat1 dsblud01

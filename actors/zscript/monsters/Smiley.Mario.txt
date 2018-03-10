@@ -71,7 +71,7 @@ class MarioShot : Actor
 		+ZDOOMTRANS
 		RenderStyle "Add";
 		Alpha 1;
-		SeeSound "fatso/attack";
+		SeeSound "mario/attack";
 		DeathSound "fatso/shotx";
 	}
 	States

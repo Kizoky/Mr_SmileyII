@@ -18,6 +18,12 @@ powerbutcher/getoverhere sounds/DSGETO.wav
 //Barney's creepy transformation
 barney/transform sounds/DSTRANSF.wav
 
+//Mario
+
+mario/attack sounds/DSMARHI.wav
+
+
+
 
 // nashgore's randomized blood splats!
 

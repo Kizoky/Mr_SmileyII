@@ -43,7 +43,7 @@ class Metalhead : SmileyActor replaces Archvile
 		VILE P 20 BRIGHT;
 		Goto See;
 	Heal:
-		VILE [\] 10 BRIGHT;
+		VILE [][] 10 BRIGHT;
 		Goto See;
 	Pain:
 		VILE Q 5;

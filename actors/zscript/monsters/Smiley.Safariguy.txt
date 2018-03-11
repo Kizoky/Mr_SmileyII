@@ -55,6 +55,7 @@ class SafariGuy : SmileyActor replaces ShotgunGuy
 		SPOS U -1;
 		Stop;
 	Raise:
+		TNT1 A 0 A_Metalization();
 		SPOS L 5;
 		SPOS KJIH 5;
 		Goto See;

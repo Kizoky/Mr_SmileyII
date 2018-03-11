@@ -55,6 +55,7 @@ class MJClone : SmileyActor replaces Zombieman
 		POSS U -1;
 		Stop;
 	Raise:
+		TNT1 A 0 A_Metalization();
 		POSS K 5;
 		POSS JIH 5;
 		Goto See;

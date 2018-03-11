@@ -54,6 +54,7 @@ class HelloKitty : SmileyActor replaces Arachnotron
 		BSPI P -1 A_BossDeath;
 		Stop;
     Raise:
+		TNT1 A 0 A_Metalization();
 		BSPI P 5;
 		BSPI ONMLKJ 5;
 		Goto See+1;

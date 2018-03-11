@@ -71,6 +71,7 @@ class BlueRanger : SmileyActor replaces BaronOfHell
 		BOSS O -1 A_BossDeath;
 		Stop;
 	Raise:
+		TNT1 A 0 A_Metalization();
 		BOSS O 8;
 		BOSS NMLKJI  8;
 		Goto See;

@@ -226,7 +226,7 @@ class SmileyPistol : Weapon
 	States
 	{
 	Ready:
-		PIRE ABCCBA 3 A_WeaponReady;
+		PIRE ABCBBCBCBBCCBCBBABCABACABACABA 8 A_WeaponReady;
 		Loop;
 	Deselect:
 		PISG A 1 A_Lower;

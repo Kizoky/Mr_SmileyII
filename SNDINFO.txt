@@ -19,9 +19,11 @@ powerbutcher/getoverhere sounds/DSGETO.wav
 barney/transform sounds/DSTRANSF.wav
 
 //Mario
-
 mario/attack sounds/DSMARHI.wav
 
+//Metalhead
+
+vile/raise sounds/DSVILRV.wav
 
 
 

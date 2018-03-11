@@ -43,6 +43,7 @@ class Metalhead : SmileyActor replaces Archvile
 		VILE P 20 BRIGHT;
 		Goto See;
 	Heal:
+		//TNT1 A 0 A_PlaySound("metalhead/revive");
 		VILE [][] 10 BRIGHT;
 		Goto See;
 	Pain:

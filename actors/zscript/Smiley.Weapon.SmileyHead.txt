@@ -78,6 +78,9 @@ class SmileyBat : Fist
 	}
 	States
 	{
+	Ready:
+		PUFI BCDEEEDCB 13 A_WeaponReady;
+		Loop;
 	AltFire:
 		TNT1 A 0 A_SetReflectiveInvulnerable;
 		PUNG BCDEFGH 1;		

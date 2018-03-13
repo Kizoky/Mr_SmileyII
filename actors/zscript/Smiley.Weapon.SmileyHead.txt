@@ -79,7 +79,23 @@ class SmileyBat : Fist
 	States
 	{
 	Ready:
+		TNT1 A 0 A_Jump(256,"Idle","Idle2","Idle3");
 		PUFI BCDEEEDCB 13 A_WeaponReady;
+		Loop;
+	Idle:
+		PUFI BBCCBB 6 A_WeaponReady;
+		Goto Ready;
+	Idle2:
+		PUFI BCDDEEDDEEDC 8 A_WeaponReady;
+		Goto Ready;
+	Idle3:
+		PUFI BCDEEEDCB 13 A_WeaponReady;
+		Goto Ready;
+	Deselect:
+		PUFI A 1 A_Lower;
+		Loop;
+	Select:
+		PUFI A 1 A_Raise;
 		Loop;
 	AltFire:
 		TNT1 A 0 A_SetReflectiveInvulnerable;
@@ -119,7 +135,7 @@ class SmileyShotgun : Weapon
 	States
 	{
 	Ready:
-		SHTG A 1 Offset(0,0) A_WeaponReady;
+		SHID ABCDCB 9 A_WeaponReady;
 		Loop;
 	Deselect:
 		SHTG A 1 Offset(0,0) A_Lower;
@@ -171,7 +187,7 @@ class SmileyChaingun : Weapon
 	States
 	{
 	Ready:
-		CHGG A 1 A_WeaponReady;
+		CHIG ABCD 12 A_WeaponReady;
 		Loop;
    Deselect:
 		CHGG A 1 A_Lower;
@@ -273,8 +289,8 @@ class SmileyChickenLauncher : Weapon
 	}
 	States
 	{
-	Ready:
-		MISG A 1 A_WeaponReady;
+	Ready: //Well, whatever, this doesn't work.
+		MIID ABCDCB 9 A_WeaponReady;
 		Loop;
 	Deselect:
 		MISG A 1 A_Lower;
@@ -399,7 +415,7 @@ class PlasmaRing : Weapon
   States
   {
   Ready:
-    PLSG A 1 A_WeaponReady;
+    PLID ABCDCB 9 A_WeaponReady;
     Loop;
   Deselect:
     PLSG A 1 A_Lower;

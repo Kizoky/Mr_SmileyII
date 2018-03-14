@@ -40,7 +40,7 @@ class SmileySuperShotgun : Weapon
   States
   {
   Ready:
-    SHT2 A 1 A_WeaponReady;
+    XYID ABCDE 11 A_WeaponReady;
     Loop;
   Deselect:
     SHT2 A 1 A_Lower;
@@ -344,7 +344,7 @@ class SmileyGoodFetherBird : Weapon
 	States
 	{
 	Ready:
-		BFGG A 1 A_WeaponReady;
+		BFID ABCD 10 A_WeaponReady;
 		Loop;
 	Deselect:
 		BFGG A 1 A_Lower;

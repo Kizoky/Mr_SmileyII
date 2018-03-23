@@ -1,0 +1,28 @@
+Changes since v0.50:
+
+-Fix Smiley keys not being added to inventory
+-Total conversion to ZScript (Only nashgore uses DECORATE)
+-Added new key sprites
+-Added a fullscreen HUD
+-Added Cartoonized Chaingunguy(Gangster)
+-Replaced sounds 4d45a1c
+-Added pitch black sprites for SmileySpider (It's no longer uses original sprites)
+-Added SFX for SmileySpider
+-Separated credits list into 2
+-Corrected Suraku10's nickname
+-Monster AI changes (Gangster, MJClone, Blue Ranger, Barney)
+Gangster: They will stand still and not move an inch
+MJ Clone: They will strafe left or right while shooting
+Blue Ranger: Now they have a small chance to Deflect anything If they are in pain
+Barney: They have a small chance to turn into bigger monsters If their health is under 75
+-Finished Metalhead (Archvile)
+Metalheads will turn monsters into Black colour If they resurrected them
+-Finished Mario (Mancubus/Fatso)
+-Added bloodtrails (Nashgore --> credit: Nash)
+-Added Secondary fire for Baseball Bat (You can deflect projectiles If you can time it right)
+-Added gldefs (OpenGL lightings on items, powerups, and as such)
+-Updated Episodic graphics (This was done to ensure players won't be confused with Doom 2 levels)
+-Added Idling animations for all weapons (Expect Toothbrush, and the Right-sided sprites for Uncle)
+-Fixed getting stuck on MAP01
+-Added reflections to the DOOM 2 levels
+-Updated DEMOs

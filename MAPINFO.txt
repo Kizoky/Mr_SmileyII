@@ -14,29 +14,28 @@ gameinfo
 	//menufontcolor_highlight = "GOLD"
 	//menufontcolor_selection = "GOLD"
 	//pausesign = "M_PAUSE"
-	playerclasses="MrSmiley","UncleSmiley" //,"Emoley"
+	playerclasses="MrSmiley"//,"UncleSmiley" //,"Emoley"
 }
 
 episode map01
 {
-	picname = "M_DUM2"
-	name="Safari II"
+	name="BIZARRE ADVENTURES"
 }
 
 
-episode E1M1
+episode map02
 {
 	picname = "M_EPI1"
 	name="Smiley n the Suburban Slaughter.."
 }
 
-episode E2M1
+episode map03
 {
 	picname = "M_EPI2"
 	name="Where No Man Has Gone Before"
 }
 
-episode E3M1
+episode map04
 {
 	picname = "M_EPI3"
 	name="The Safari"
@@ -47,11 +46,6 @@ episode E3M1
 //	picname = "M_EPI4"
 //	name="I Haz All The Dudes Hating On Me!!"
 //}
-
-episode DEVMAP
-{
-	name="Development Map"
-}
 
 //episode XMAS01
 //{
@@ -72,11 +66,11 @@ map TITLEMAP "They don't know what's behind that wall"
 	totalinfighting
 }
 
-map map01 "Deja vuuh??"
+map map01 "Bizarre Adventures"
 {
 	next=map02
 	par=120
-	music=D_E1M1
+	music=D_RUNNIN
 	sky1=SKY1
 }
 
@@ -84,7 +78,7 @@ map map02 "Ugly caztle!!!"
 {
 	next=map03
 	par=120
-	music=D_E1M2
+	music=D_RUNNIN
 	sky1=SKY1
 }
 
@@ -92,7 +86,7 @@ map map03 "Safari again??"
 {
 	next=map04
 	par=120
-	music=D_E3M1
+	music=D_RUNNIN
 	sky1=SKY1
 }
 
@@ -100,7 +94,7 @@ map map04 "It's not a big one this time!!"
 {
 	next=map06
 	par=120
-	music=D_POPC
+	music=D_RUNNIN
 	sky1=SKY1
 }
 
@@ -131,7 +125,7 @@ map map99 "ZOMG AN UGLY AND UNFINISHED LEVEL!!"
 map E1M1 "Calvin ROX"
 {
 	next=E1M2
-	music=D_E1M1
+	music=D_RUNNIN
 	sky1=DSKY1
 	secretnext=E1M9
 	cluster=91
@@ -244,7 +238,7 @@ map E1M9 "CONGRATS, MAN!"
 map E2M1 "ANTHONY + NGA..."
 {
 	next=E2M2
-	music=D_E2M1
+	music=D_RUNNIN
 	sky1=DSKY2
 	cluster=92
 	par = 90
@@ -348,7 +342,7 @@ map E2M9 "THIS IS HOW WE DO IT.."
 map E3M1 "SAFARI"
 {
 	next=E3M2
-	music=D_E3M1
+	music=D_RUNNIN
 	sky1=DSKY3
 	cluster=93
 	par = 90

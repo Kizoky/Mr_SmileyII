@@ -1,0 +1,20 @@
+#library "smiley_acs"
+#include "zcommon.acs"
+
+global int 1:monstadeaths;
+
+script "ToastyChecker" OPEN
+{
+	if (monstadeaths > 5)
+	{
+		Print(s:"6 Deaths my boy! (it's working)");
+		PlaySound(0,"toasty");
+		monstadeahts = 0;
+	}
+	restart;
+}
+
+script "ToastyAdder" (void)
+{
+	monstadeaths++;
+}

@@ -1,5 +1,7 @@
 //Red Ranger's death scream
-redranger/death DSRDRNGR
+redranger/death sounds/DSRDRNGR.wav
+
+toasty sounds/DSTOAST.wav
 
 //Uncle Smiley
 //Here's an interesting note: The Soundclass name must be longer than 5 words, otherwise It won't work.

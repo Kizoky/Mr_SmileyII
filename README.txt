@@ -1,5 +1,5 @@
 # DooM 3: Mr. Smiley Head's Safari II official repository
-# Current version: Beta v0.50
+# Current version: Beta v0.52
 
 # Compatibility:
  I tried making the mod compatible with older ZDoom versions, but after a while I completely changed my mind.

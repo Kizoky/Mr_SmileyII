@@ -1,20 +1,26 @@
-#library "smiley_acs"
 #include "zcommon.acs"
 
 global int 1:monstadeaths;
 
+script "ToastyStart" OPEN
+{
+	Delay(1);
+	monstadeaths = 0;
+}
 script "ToastyChecker" OPEN
 {
+	Delay(75);
 	if (monstadeaths > 5)
 	{
 		Print(s:"6 Deaths my boy! (it's working)");
 		PlaySound(0,"toasty");
-		monstadeahts = 0;
+		monstadeaths = 0;
 	}
-	restart;
+	ACS_NamedExecute("ToastyChecker", 0);
 }
 
 script "ToastyAdder" (void)
 {
-	monstadeaths++;
+	Delay(1);
+	monstadeaths+1;
 }

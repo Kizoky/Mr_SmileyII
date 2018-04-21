@@ -1,5 +1,5 @@
 //Red Ranger's death scream
-redranger/death sounds/DSRDRNGR.wav
+redranger/death sounds/DSRDRNGR.ogg
 
 toasty sounds/DSTOAST.wav
 

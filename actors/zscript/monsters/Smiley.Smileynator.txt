@@ -28,14 +28,14 @@ class Smileynator : SmileyActor replaces Revenant
 	States
 	{
 	Spawn:
-		SKEL AB 10 A_Look;
+		SKEL AA 10 A_Look;
 		Loop;
 	See:
-		SKEL AABBCCDDEEFF 2 A_Chase;
+		SKEL AAAAAAAAAAAAA 2 A_Chase;
 		Loop;
 	Melee:
-		SKEL G 0 A_FaceTarget;
-		SKEL G 6 A_SmileynHitProg;
+		SKEL A 0 A_FaceTarget;
+		SKEL A 6 A_SmileynHitProg;
 		SKEL H 6 A_FaceTarget;
 		SKEL I 6 A_SmileynPunch;
 		Goto See;

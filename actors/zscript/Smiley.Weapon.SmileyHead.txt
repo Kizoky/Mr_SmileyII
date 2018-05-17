@@ -20,6 +20,26 @@ class MrSmiley : DoomPlayer
 	}
 }
 
+class SmileyWeapon : Weapon
+{
+	Default
+	{
+	}
+}
+
+//Check if the Player is playing as Uncle Smiley
+//This will mirror the weapon sprites, and it will save us some mbs!
+extend class SmileyWeapon
+{
+	action void A_CheckUncle()
+	{
+		if (self is "UncleSmiley")
+		{
+			A_OverlayFlags (0,6,true);
+		}
+	}
+}
+
 class SmileySuperShotgun : Weapon
 {
 	Default
@@ -433,7 +453,7 @@ class PlasmaRing : Weapon
   }
 }
 
-class Toothbrush : Weapon
+class Toothbrush : SmileyWeapon
 {
 	Default
 	{
@@ -455,6 +475,7 @@ class Toothbrush : Weapon
     SAWG C 1 A_Lower;
     Loop;
   Select:
+	TNT1 A 0 A_CheckUncle();
     SAWG C 1 A_Raise;
     Loop;
   Fire:

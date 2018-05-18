@@ -27,20 +27,22 @@ class SmileyWeapon : Weapon
 	}
 }
 
+
 //Check if the Player is playing as Uncle Smiley
 //This will mirror the weapon sprites, and it will save us some mbs!
 extend class SmileyWeapon
 {
 	action void A_CheckUncle()
 	{
-		if (self is "UncleSmiley")
+		if (CheckInventory("IsUncleSmiley", 1))
 		{
-			A_OverlayFlags (0,6,true);
+			A_OverlayFlags (1,PSPF_MIRROR,true);
+			A_OverlayFlags (1,PSPF_FLIP,true);
 		}
 	}
 }
 
-class SmileySuperShotgun : Weapon
+class SmileySuperShotgun : SmileyWeapon
 {
 	Default
 	{
@@ -60,15 +62,19 @@ class SmileySuperShotgun : Weapon
   States
   {
   Ready:
+	TNT1 A 0 A_CheckUncle();
     XYID ABCDE 11 A_WeaponReady;
     Loop;
   Deselect:
+	TNT1 A 0 A_CheckUncle();
     SHT2 A 1 A_Lower;
     Loop;
   Select:
+	TNT1 A 0 A_CheckUncle();
     SHT2 A 1 A_Raise;
     Loop;
   Fire:
+	TNT1 A 0 A_CheckUncle();
     SHT2 A 3;
     KIST A 5 A_FireShotgun2;
 	KIST B 1;
@@ -87,10 +93,16 @@ class SmileySuperShotgun : Weapon
   }
 }
 
-class SmileyBat : Fist
+class SmileyBat : SmileyWeapon
 {
 	Default
 	{
+	Weapon.SelectionOrder 3700;
+	Weapon.Kickback 100;
+	Obituary "$OB_MPFIST";
+	Tag "$TAG_FIST";
+	+WEAPON.WIMPY_WEAPON;
+	+WEAPON.MELEEWEAPON;
 	Weapon.BobRangeX 0.88;
 	Weapon.BobRangeY 0.32;
 	Weapon.BobSpeed 1.6;
@@ -99,25 +111,32 @@ class SmileyBat : Fist
 	States
 	{
 	Ready:
+		TNT1 A 0 A_CheckUncle();
 		TNT1 A 0 A_Jump(256,"Idle","Idle2","Idle3");
 		PUFI BCDEEEDCB 13 A_WeaponReady;
 		Loop;
 	Idle:
+		TNT1 A 0 A_CheckUncle();
 		PUFI BBCCBB 6 A_WeaponReady;
 		Goto Ready;
 	Idle2:
+		TNT1 A 0 A_CheckUncle();
 		PUFI BCDDEEDDEEDC 8 A_WeaponReady;
 		Goto Ready;
 	Idle3:
+		TNT1 A 0 A_CheckUncle();
 		PUFI BCDEEEDCB 13 A_WeaponReady;
 		Goto Ready;
 	Deselect:
+		TNT1 A 0 A_CheckUncle();
 		PUFI A 1 A_Lower;
 		Loop;
 	Select:
+		TNT1 A 0 A_CheckUncle();
 		PUFI A 1 A_Raise;
 		Loop;
 	AltFire:
+		TNT1 A 0 A_CheckUncle();
 		TNT1 A 0 A_SetReflectiveInvulnerable;
 		PUNG BCDEFGH 1;		
 		PUNG F 3 A_Punch;
@@ -127,6 +146,7 @@ class SmileyBat : Fist
 		PUNG CB 5;
 		Goto Ready;
 	Fire:
+		TNT1 A 0 A_CheckUncle();
 		PUNG BCDEFGH 1;		
 		PUNG F 3 A_Punch;
 		PUNG ED 2;
@@ -135,7 +155,7 @@ class SmileyBat : Fist
 	}
 }
 
-class SmileyShotgun : Weapon
+class SmileyShotgun : SmileyWeapon
 {
 	Default
 	{
@@ -155,15 +175,19 @@ class SmileyShotgun : Weapon
 	States
 	{
 	Ready:
+		TNT1 A 0 A_CheckUncle();
 		SHID ABCDCB 9 A_WeaponReady;
 		Loop;
 	Deselect:
+		TNT1 A 0 A_CheckUncle();
 		SHTG A 1 Offset(0,0) A_Lower;
 		Loop;
 	Select:
+		TNT1 A 0 A_CheckUncle();
 		SHTG A 1 Offset(0,0) A_Raise;
 		Loop;
 	Fire:
+		TNT1 A 0 A_CheckUncle();
 		SHTG A 3;
 		SHTG A 5 A_FireShotgun;
 		SHTG B 2;
@@ -177,6 +201,7 @@ class SmileyShotgun : Weapon
 		SHTG A 7 A_ReFire;
 		Goto Ready;
 	Flash:
+		TNT1 A 0 A_CheckUncle();
 		SHTF B 3 Offset(0, 0) Bright A_Light2;
 		SHTF A 2 Offset(0, 0) Bright A_Light1;
 		Goto LightDone;
@@ -186,7 +211,7 @@ class SmileyShotgun : Weapon
 	}
 }
 
-class SmileyChaingun : Weapon
+class SmileyChaingun : SmileyWeapon
 {
 	Default
 	{
@@ -207,15 +232,19 @@ class SmileyChaingun : Weapon
 	States
 	{
 	Ready:
+		TNT1 A 0 A_CheckUncle();
 		CHIG ABCD 12 A_WeaponReady;
 		Loop;
    Deselect:
+		TNT1 A 0 A_CheckUncle();
 		CHGG A 1 A_Lower;
 		Loop;
    Select:
+		TNT1 A 0 A_CheckUncle();
 		CHGG A 1 A_Raise;
 		Loop;
 	Fire:
+		TNT1 A 0 A_CheckUncle();
 		CHGG A 1 A_FireCGun;
 		CHGG BCD 1;
 		CHGG A 1 A_FireCGun;
@@ -227,6 +256,7 @@ class SmileyChaingun : Weapon
 		CHGG DDD 1 A_Weaponready;
 		Goto Ready;
 	Flash:
+		TNT1 A 0 A_CheckUncle();
 		TNT1 A 0;
 		TNT1 A 0 A_Jump(128,4);
 		CHGF A 1 Bright A_Light1;
@@ -243,7 +273,7 @@ class SmileyChaingun : Weapon
 	}
 }
 
-class SmileyPistol : Weapon
+class SmileyPistol : SmileyWeapon
 {
 	Default
 	{
@@ -265,24 +295,28 @@ class SmileyPistol : Weapon
 	States
 	{
 	Ready:
+		TNT1 A 0 A_CheckUncle();
 		PIRE ABCBBCBCBBCCBCBBABCABACABACABA 8 A_WeaponReady;
 		Loop;
 	Deselect:
+		TNT1 A 0 A_CheckUncle();
 		PISG A 1 A_Lower;
 		Loop;
 	Select:
+		TNT1 A 0 A_CheckUncle();
 		PISG A 1 A_Raise;
 		Loop;
 	Fire:
+		TNT1 A 0 A_CheckUncle();
 		PISG A 4;
 		PISG B 2 A_FirePistol;
 		PISG CEDB 2;
 		PISG A 5 A_ReFire;
 		Goto Ready;
-	Flash:
+	Flash:	
 		TNT1 A 0;
 		TNT1 A 0 Bright A_Light2;
-		PISF A 2 Bright A_Light1;
+		PISF A 2 Bright A_CheckUncle();
 		Goto LightDone;
 	Spawn:
 		PIST A -1;
@@ -290,7 +324,7 @@ class SmileyPistol : Weapon
 	}
 }
 
-class SmileyChickenLauncher : Weapon
+class SmileyChickenLauncher : SmileyWeapon
 {
 	Default
 	{
@@ -310,15 +344,19 @@ class SmileyChickenLauncher : Weapon
 	States
 	{
 	Ready: //Well, whatever, this doesn't work.
+		TNT1 A 0 A_CheckUncle();
 		MIID ABCDCB 9 A_WeaponReady;
 		Loop;
 	Deselect:
+		TNT1 A 0 A_CheckUncle();
 		MISG A 1 A_Lower;
 		Loop;
 	Select:
+		TNT1 A 0 A_CheckUncle();
 		MISG A 1 A_Raise;
 		Loop;
 	Fire:
+		TNT1 A 0 A_CheckUncle();
 		MISG A 2;
 		MISG A 4 A_GunFlash;
 		MISG B 2;
@@ -332,6 +370,7 @@ class SmileyChickenLauncher : Weapon
 		MISG A 0 A_ReFire;
 		Goto Ready;
 	Flash:
+		TNT1 A 0 A_CheckUncle();
 		MISF A 2 Bright A_Light1;
 		MISF BC 1 Bright;
 		MISF CD 1 Bright A_Light2;
@@ -343,7 +382,7 @@ class SmileyChickenLauncher : Weapon
 	}
 }
 
-class SmileyGoodFetherBird : Weapon
+class SmileyGoodFetherBird : SmileyWeapon
 {
 	Default
 	{
@@ -364,15 +403,19 @@ class SmileyGoodFetherBird : Weapon
 	States
 	{
 	Ready:
+		TNT1 A 0 A_CheckUncle();
 		BFID ABCD 10 A_WeaponReady;
 		Loop;
 	Deselect:
+		TNT1 A 0 A_CheckUncle();
 		BFGG A 1 A_Lower;
 		Loop;
 	Select:
+		TNT1 A 0 A_CheckUncle();
 		BFGG A 1 A_Raise;
 		Loop;
 	Fire:
+		TNT1 A 0 A_CheckUncle();
 		TNT1 A 0 A_BFGSound;
 		//BFGG ABCDAB 2
 		//BFGG ABCDAB 2 A_GunFlash
@@ -400,6 +443,7 @@ class SmileyGoodFetherBird : Weapon
 		BFGG E 3 Offset(2, 21) A_ReFire;
 		goto Ready;
 	Hold:
+		TNT1 A 0 A_CheckUncle();
 		MISG C 0 A_ZoomFactor(1);
 		BFGG A 1 A_BFGSound;
 		BFGG A 19;
@@ -416,7 +460,7 @@ class SmileyGoodFetherBird : Weapon
 	}
 }
 
-class PlasmaRing : Weapon
+class PlasmaRing : SmileyWeapon
 {
 	Default
 	{
@@ -435,15 +479,19 @@ class PlasmaRing : Weapon
   States
   {
   Ready:
+	TNT1 A 0 A_CheckUncle();
     PLID ABCDCB 9 A_WeaponReady;
     Loop;
   Deselect:
+	TNT1 A 0 A_CheckUncle();
     PLSG A 1 A_Lower;
     Loop;
   Select:
+	TNT1 A 0 A_CheckUncle();
     PLSG A 1 A_Raise;
     Loop;
   Fire:
+	TNT1 A 0 A_CheckUncle();
     PLSF ABAB 3 A_FireCustomMissile("PlasmaBall",0,1);
 	PLSG BA 6 A_ReFire;
     Goto Ready;
@@ -469,9 +517,11 @@ class Toothbrush : SmileyWeapon
   States
   {
   Ready:
+	TNT1 A 0 A_CheckUncle();
     SAWG CD 4 A_WeaponReady;
     Loop;
   Deselect:
+	TNT1 A 0 A_CheckUncle();
     SAWG C 1 A_Lower;
     Loop;
   Select:
@@ -479,6 +529,7 @@ class Toothbrush : SmileyWeapon
     SAWG C 1 A_Raise;
     Loop;
   Fire:
+	TNT1 A 0 A_CheckUncle();
     SAWG AB 4 A_Saw;
     SAWG B 0 A_ReFire;
     Goto Ready;

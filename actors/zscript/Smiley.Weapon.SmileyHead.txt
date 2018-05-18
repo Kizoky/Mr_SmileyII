@@ -38,6 +38,8 @@ extend class SmileyWeapon
 		{
 			A_OverlayFlags (1,PSPF_MIRROR,true);
 			A_OverlayFlags (1,PSPF_FLIP,true);
+			A_OverlayFlags (PSP_FLASH,PSPF_MIRROR,true);
+			A_OverlayFlags (PSP_FLASH,PSPF_FLIP,true);
 		}
 	}
 }

@@ -14,7 +14,7 @@ gameinfo
 	//menufontcolor_highlight = "GOLD"
 	//menufontcolor_selection = "GOLD"
 	//pausesign = "M_PAUSE"
-	playerclasses="MrSmiley","UncleSmiley" //,"Emoley"
+	playerclasses="MrSmiley","UncleSmiley","Emoley"
 }
 
 episode map01
@@ -479,21 +479,21 @@ clearskills
 skill 2ez
 {
    SpawnFilter = Easy
-   Name = "Smiley Adventures"
+   Name = "No match for me!"
    Key = "1"
 }
 
 skill normie
 {
    SpawnFilter = Normal
-   Name = "The Safari of the Smiley"
+   Name = "It's all about the Smiley"
    Key = "2"
 }
 
 skill wowowo
 {
    SpawnFilter = Hard
-   Name = "Smiley's Bad Vacation"
+   Name = "Extra-Gory"
    Key = "3"
 }
 
@@ -503,7 +503,7 @@ skill ohcr4p
    FastMonsters
    DamageFactor = 1.5
    Aggressiveness = 0.75
-   Name = "ABOMINATION"
-   MustConfirm = "Ya gonna need more than Smileys!"
+   Name = "Smiley Extermination"
+   MustConfirm = "Foes are incredibly pissed off at you!"
    Key = "4"
 }

@@ -114,30 +114,13 @@ class EmoleyPistol : Weapon
 		EMO1 A 1 A_Raise;
 		Loop;
 	Fire:		
-		EMPP A 2 Offset(170, 67);
-		EMPP A 3 Offset(153, 57);
-		EMPP A 3 Offset(160, 48);
-		EMO1 B 3 Offset(157, 43);
-		EMO1 B 2 Offset(171, 39);
-		EMO1 B 2 Offset(181, 33);
-		EMO1 B 1 Offset(190, 29);
-		EMO1 C 3 Offset(193, 24);
-		EMO1 C 3 Offset(203, 34);
-		EMO1 C 2 Offset(204, 44);
-		EMO1 D 3 Offset(194, 43) A_FirePistol;
-		EMO1 D 2 Offset(182, 40) A_FirePistol;
-		EMO1 D 3 Offset(189, 33) A_FirePistol;
-		EMO1 D 2 Offset(195, 22) A_FirePistol;
-		EMO1 D 3 Offset(185, 32) A_FirePistol;
-		EMO1 D 2 Offset(187, 43) A_FirePistol;
-		EMO1 C 3 Offset(194, 28);
-		EMO1 C 2 Offset(208, 23) A_ReFire;
-		EMO1 C 2 Offset(220, 23);
-		EMO1 C 1 Offset(213, 31);
-		EMO1 B 2 Offset(225, 32);
-		EMO1 B 2 Offset(214, 44);
-		EMO1 B 2 Offset(200, 53);
-		EMPP A 1 Offset(174, 67);
+		EMO1 D 3 Offset(129, 31) A_FirePistol;
+		EMO1 D 2 Offset(143, 6) A_FirePistol;
+		EMO1 D 2 Offset(135, 31) A_FirePistol;
+		EMO1 C 3 Offset(140, 39);
+		EMO1 C 2 Offset(124, 48);
+		EMO1 B 2 Offset(155, 51);
+		EMO1 B 2 Offset(164, 61);
 		Goto Ready;
 	Flash:
 		TNT1 A 0 Bright A_Light2;

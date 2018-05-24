@@ -82,7 +82,7 @@ extend class ShotgunPickup
 		else
 			if (CheckInventory("IsUncleSmiley", 1))
 			{
-				A_GiveInventory("UncleShotgun", 1);
+				A_GiveInventory("SmileyShotgun", 1);
 			}
 	}
 }

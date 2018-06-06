@@ -33,16 +33,13 @@ _________________________________________________________________
 -All Mr. Smiley Head's Safari 1 assets, including the intermission pictures, levels
 -Doom2 counterparts, new Doom2 levels, new monster behaviours, new sounds, completely redrawn textures and patches, new weapons
 -A new Safari? :)
-# Bugs:
--You may see blank textures or patches in one of the levels when playing Episode 1 to Episode 3
-Please report bugs/suggestions/ideas to me either in Github, or in Discord: Kizoky#4900 (or you can even join my Discord server: https://discord.gg/SMzAEE2)
+
+Please report bugs/suggestions/ideas to me in Github by creating a new issue
 
 # Todo list:
-Archvile/Metalhead: do Death; Attack; Resurrect sprites | Sounds
-Fatso/Mario: do Attack sprites | Death sound
-Revenant/Smileynator: Need to find sprites | Need to find sounds
+Revenant/Smileynator aka. Teletubbie: Pain+Death sprites, Attack+Idle+Pain sounds
 
 -Redraw the remaining Doom2 textures and patches
 -Redraw the remaining graphics
--Replace unreplaced Doom sounds with stupid or classic sounds
--Make more levels for D2 episode
+-Replace original Doom sounds with stupid or classic sounds
+-Make more levels for D2 counterpart

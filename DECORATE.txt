@@ -27,6 +27,6 @@
 //#include "actors/other/gore.txt"
 
 //Brutal Doom AI
-//#include "actors/other/buddiescore.txt"
-//#include "actors/other/buddies.txt"
-//#include "actors/other/genericbuddy.txt"
+#include "actors/other/buddiescore.txt"
+#include "actors/other/buddies.txt"
+#include "actors/other/genericbuddy.txt"

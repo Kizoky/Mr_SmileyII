@@ -1,20 +1,5 @@
 //All player actors uses different weapons (mostly) so we had to do this
 
-class Boolprop : Inventory
-{
-	Default
-	{
-		Inventory.MaxAmount 1;
-		+Inventory.UNDROPPABLE;
-		-Inventory.INVBAR;
-	}
-}
-
-class IsSmileyHead : Boolprop {}
-class IsUncleSmiley : Boolprop {}
-class IsEmoley : Boolprop {}
-class Buddy : Boolprop {}
-
 class ChainsawPickup : CustomInventory replaces Chainsaw
 {
 	Default

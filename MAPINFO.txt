@@ -17,7 +17,9 @@ gameinfo
 	playerclasses="MrSmiley","UncleSmiley","Emoley"
 }
 
-episode map01
+clearepisodes
+
+episode INTRO
 {
 	picname = "M_DUM2"
 	name="Safari II"
@@ -70,6 +72,14 @@ map TITLEMAP "They don't know what's behind that wall"
 {
 	music=D_FFL1
 	totalinfighting
+}
+
+map INTRO "XYZ years ago..."
+{
+	next=map01
+	par=120
+	music=D_1NTR0
+	sky1=SKY1
 }
 
 map map01 "Deja vuuh??"

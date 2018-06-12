@@ -5,7 +5,7 @@ DoomEdNums
   88 = none //BossBrain
   89 = none //BossEye
   888 = none //MBFHelperDog
-  9037 = none //BetaSkull
+  9037 = BossSpider //BetaSkull
   72 = none //Commander Keen
   68 = HelloKitty
   64 = Metalhead

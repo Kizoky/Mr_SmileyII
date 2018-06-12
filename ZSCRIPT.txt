@@ -20,6 +20,8 @@ version "3.2"
 #include "actors/zscript/monsters/Smiley.Smileynator.txt"
 #include "actors/zscript/monsters/Smiley.SHead.txt"
 #include "actors/zscript/monsters/Smiley.RandomHangers.txt"
+
+#include "actors/zscript/monsters/Smiley.BossSpider.txt"
 //---------- Stealth and Custom monsters
 #include "actors/zscript/Smiley.CustomMonsters.txt"
 #include "actors/zscript/Smiley.StealthMonsters.txt"

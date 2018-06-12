@@ -1,0 +1,86 @@
+//===========================================================================
+//
+// Spider boss // nuff said
+//
+//===========================================================================
+class BossSpider : SmileyActor
+{
+	Default
+	{
+		RenderStyle "OptFuzzy"; //Make her fuzzy like in hacked DOOM.EXE
+		Health 6000;
+		Radius 128;
+		Height 100;
+		Mass 1000;
+		Speed 18;
+		PainChance 40;
+		Monster;
+		+BOSS
+		+MISSILEMORE
+		+FLOORCLIP
+		+NORADIUSDMG
+		+DONTMORPH
+		+BOSSDEATH
+		SeeSound "spider/sight";
+		AttackSound "spider/attack";
+		PainSound "spider/pain";
+		DeathSound "spider/death";
+		ActiveSound "spider/active";
+		Obituary "$OB_SPIDER";
+	}
+	States
+	{
+	Spawn:
+		SPID AB 10 A_Look;
+		Loop;
+	See:
+		SPID A 3 A_Metal;
+		SPID ABB 3 A_Chase;
+		SPID C 3 A_Metal;
+		SPID CDD 3 A_Chase;
+		SPID E 3 A_Metal;
+		SPID EFF 3 A_Chase;
+		Loop;
+	Missile:
+		SPID A 20 BRIGHT A_FaceTarget;
+		SPID G 0 BRIGHT A_DanceDanceDance();
+		SPID G 4 BRIGHT A_SafariAttackUseAtkSound;
+		SPID H 0 BRIGHT A_DanceDanceDance();
+		SPID H 4 BRIGHT A_SafariAttackUseAtkSound;
+		SPID H 0 BRIGHT A_DanceDanceDance();
+		SPID H 1 BRIGHT A_SmileyRefire;
+		Goto Missile+1;
+	Pain:
+		SPID I 3;
+		SPID I 3 A_Pain;
+		Goto See;
+	Death:
+		TNT1 A 0 ACS_NamedExecute("BossEnd",0);
+		SPID J 20 A_Scream;
+		SPID K 10 A_NoBlocking;
+		SPID LMNOPQR 10;
+		SPID S 30;
+		SPID S -1 A_BossDeath;
+		Stop;
+	}
+}
+
+extend class BossSpider
+{
+    void A_DanceDanceDance()
+	{
+		int LR = random(0,1); //do random number between 0 or 1
+		int mov = random(5,10);
+		if (LR == 0)
+		{
+			Thrust(mov, Angle - 90);
+		}
+		else
+		{
+			if (LR == 1)
+			{
+				Thrust(mov, Angle + 90);
+			}
+		}
+	}
+}

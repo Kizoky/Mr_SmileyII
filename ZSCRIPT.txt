@@ -1,4 +1,4 @@
-version "3.4"
+version "3.2"
 
 //------------ All monster voids/actions were taken into a single actor due to limitations
 #include "actors/zscript/monsters/Smiley.MonsterCore.txt"

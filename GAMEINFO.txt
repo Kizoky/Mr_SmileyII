@@ -1,3 +1,3 @@
-STARTUPTITLE = "DOOM3: Mr. Smiley Head's Safari II"
+STARTUPTITLE = "Mr. Smiley Head's Dimension Trouble"
 IWAD = "DOOM2.WAD"
 STARTUPCOLORS = "FF FF 00", "00 00 00"

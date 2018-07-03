@@ -1,4 +1,5 @@
 //Yay, lightnings in Smiley!!11
+//Note: This file isn't being readed by the game because atm it doesn't support including :(
 
 pulselight Cola
 {

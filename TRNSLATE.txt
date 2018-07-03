@@ -1,4 +1,6 @@
 GreenDemon = "16:47=112:127", "169:191=152:159"
+//These are used by Metalhead whenever a monster is resurrected
+//Or just resurrected by anything ATM, It doesn't check who resurrected them because it's impossible
 Black = "60:79=73:74","32:47=0:1","160:167=215:216","112:127=0:1","152:159=0:1","9:12=0:1","107:111=0:1"
 MJBlack = "232:239=0:0", "13:15=0:0", "64:79=0:0", "1:15=0:0", "224:255=0:0", "128:159=0:0", "99:111=0:0", "0:0=0:0"
 SafariBlack = "112:127=0:0", "130:130=0:0"

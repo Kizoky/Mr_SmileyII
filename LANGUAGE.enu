@@ -1,17 +1,17 @@
 [enu default]
-OB_CACOHIT = "%o is now Eye-food.";
-OB_DEMONHIT = "%o was hugged by a Barney.";
-OB_SPECTREHIT = "%o was molested by an invisible Barney.";
-OB_ZOMBIE = "%o had a dance with a Michael Jackson clone.";
-OB_SHOTGUY = "%o has been killed by a Safari Maniac.";
-OB_SKULL = "%o was PACCED to death.";
-OB_IMP = "%o was tickled to death by an Alien.";
-OB_BARON = "%o was POWERED down by a Blue Ranger.";
-OB_BARONHIT = "%o was punched to death by a Blue Ranger.";
-OB_CYBORG = "%o understimated the power of the SnowMan.";
-OB_BABY = "$o was killed by a not-so cute Hello Kitty.";
-OB_KNIGHTHIT = "%o was catched and killed by a Red Ranger."
-OB_KNIGHT = "%o was killed by a Red Ranger's Bottle."
+OB_CACOHIT = "%o is now Eye-food!!";
+OB_DEMONHIT = "%o was brutally hugged by a Barney!!";
+OB_SPECTREHIT = "%o was molested by an invisible Barney!!";
+OB_ZOMBIE = "%o had a dance with a Michael Jackson clone!!";
+OB_SHOTGUY = "%o has been killed by a Safari Maniac!!";
+OB_SKULL = "%o was PACCED to death!! haha what a loser";
+OB_IMP = "%o was tickled to death by an Alien!!";
+OB_BARON = "%o was POWERED down by a Blue Ranger!!";
+OB_BARONHIT = "%o was punched to death by a Blue Ranger!!";
+OB_CYBORG = "%o understimated the power of Frosty!! haha";
+OB_BABY = "%o was killed by an annoying Hello Kitty!!";
+OB_KNIGHTHIT = "%o was catched and killed by a Red Ranger!!"
+OB_KNIGHT = "%o was killed by a Red Ranger's Bottle!! loser!!"
 
 GOTMEGA = "Ya got Some R-mer, man!!";
 GOTHTHBONUS = "Ya got a Coca-Cola!!!!!!";
@@ -75,7 +75,7 @@ PD_YELLOWSO = "Ya need a yellow happy key to activate this object";
 
 STSTR_KFAADDED = "Got an arsenal of everything!! Ya dirty cheater!";
 STSTR_FAADDED = "Got an arsenal of.. almost everything!! Ya noob cheater!";
-STSTR_CHOPPERS = "I prefer an attack helicopter with a big ass minigun on it instead.";
+STSTR_CHOPPERS = "After 5 years in development, hope it worth the wait!";
 STSTR_CLEV = "Turbo Mega-Level Changer 3000 engaged!!\n";
 
 CC_ZOMBIE = "THE CLONE";
@@ -110,20 +110,20 @@ PD_ALL6 = "Ya need all six keys to open this door";
 PD_ALL6O = "Ya need all six keys to activate this object";
 PD_ALLKEYS = "Ya need all the keys";
 
-OB_SUICIDE = "%o became an emo.";
-OB_FALLING = "%o fell too far.";
-OB_CRUSH = "%o was squished.";
-OB_EXIT = "%o tried to leave.";
+OB_SUICIDE = "%o became an emo, just the nonliving version of it!!";
+OB_FALLING = "%o slipped!!";
+OB_CRUSH = "%o became bloody mess haha!!";
+OB_EXIT = "%o tried to leave, what a loser!!";
 OB_WATER = "%o couldn't swim, boogus!!";
 OB_SLIME = "%o tried to swim like and idiot, and mutated!!";
-OB_LAVA = "%o's mother didn't told %h not to play in lava :))";
-OB_BARREL = "%o ate a lot of explosion.";
-OB_SPLASH = "%o stood in the wrong spot.";
-OB_R_SPLASH = "%o should have stood back.";
-OB_ROCKET = "%o should have stood back.";
-OB_KILLEDSELF = "%o idiot killed %hself.";
+OB_LAVA = "Hey %o, have you tried avoiding the lava??";
+OB_BARREL = "%o ate a lot of explosion!! haha";
+OB_SPLASH = "%o stood in the wrong spot. oops??";
+OB_R_SPLASH = "%o should have stood back. oops??";
+OB_ROCKET = "%o should have stood back. oops??";
+OB_KILLEDSELF = "%o idiot killed %hself. hahaha!!";
 
-OB_MONTELEFRAG = "%o was in a different dimension.";
+OB_MONTELEFRAG = "Hey %o, try moving a little bit faster next time haha!!";
 
 OB_DEFAULT = "%o died to something.";
 OB_MPDEFAULT = "%o was killed by %k.";
@@ -183,6 +183,6 @@ IMPACT3 =
 		"damn cash! if you'd like to join\n"
 		"our yung hakerz teem, give comments,\n"
 		"or thank us 4 being born, call us\n"
-		"at either (818)284-5897 or\n"
-		"(213)728-7993(not on weekdayz).\n"
+		"at either (XXX)XXX-XXXX or\n"
+		"(XXX)XXX-XXXX(not on weekdayz).\n"
 		"	we rok!(but kant spell :)\n";

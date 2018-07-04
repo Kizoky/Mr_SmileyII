@@ -1,0 +1,4 @@
+Sounds found here are not included with pk3 if built
+
+Uncertain/Unsure sound files which needs alternative:
+-DSSTNMOV

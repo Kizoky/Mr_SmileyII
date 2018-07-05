@@ -80,7 +80,7 @@ class HelloKittyStar : ArachnotronPlasma
 	States
 	{
 	Spawn:
-		APLS AB 5 BRIGHT;
+		STAR AB 5 BRIGHT;
 		Loop;
 	Death:
 		APBX ABCDE 5 BRIGHT;

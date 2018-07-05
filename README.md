@@ -9,9 +9,9 @@
 +Can be played with FREEDOOM
 -+It can be played with DOOM.WAD, but ATM it isn't supported, please use DOOM2.wad
 # Incompatible:
--Skulltag
--Zandronum
--ZDoom 2.8.1 and lower, lower than GZDoom 3.2.0
+- Skulltag
+- Zandronum
+- ZDoom 2.8.1 and lower, lower than GZDoom 3.2.0
 |________________________________________________________|
 |This is the official git for Mr. Smiley Head's Safari II|
 |________________________________________________________|
@@ -30,16 +30,16 @@ Extract the .zip file to the desktop (or anywhere else), then drag the folder ov
 _________________________________________________________________
 
 # Features:
--All Mr. Smiley Head's Safari 1 assets, including the intermission pictures, levels
--Doom2 counterparts, new Doom2 levels, new monster behaviours, new sounds, completely redrawn textures and patches, new weapons
--A new Safari? :)
+- All Mr. Smiley Head's Safari 1 assets, including the intermission pictures, levels
+- Doom2 counterparts, new Doom2 levels, new monster behaviours, new sounds, completely redrawn textures and patches, new weapons
+- A new Safari? :)
 
 Please report bugs/suggestions/ideas to me in Github by creating a new issue
 
 # Todo list:
 Revenant/Smileynator aka. Teletubbie: Pain+Death sprites, Attack+Idle+Pain sounds
 
--Redraw the remaining Doom2 textures and patches
--Redraw the remaining graphics
--Replace original Doom sounds with stupid or classic sounds
--Make more levels for D2 counterpart
+- Redraw the remaining Doom2 textures and patches
+- Redraw the remaining graphics
+- Replace original Doom sounds with stupid or classic sounds
+- Make more levels for D2 counterpart

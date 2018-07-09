@@ -26,3 +26,7 @@ nash
 [Mr. Smiley II]
 -MAP01-MAP05: Kizoky
 -MAP06: Suraku10
+
+[other]
+Ozymandias81 - Helping with Github stuff
+Suraku10 - Made few maps for Mr. Smiley

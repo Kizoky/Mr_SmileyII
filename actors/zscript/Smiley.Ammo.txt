@@ -170,4 +170,3 @@ class SmileyBackpack : BackpackItem replaces Backpack
 		Stop;
 	}
 }
-

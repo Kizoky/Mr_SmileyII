@@ -1,7 +1,78 @@
 #include "zcommon.acs"
 
-script "SmileyMonsterSpawner" (void)
+script "Who Am I" OPEN
 {
-	Delay(1);
-	monstadeaths+=1;
+	SetActivator(0, AAPTR_PLAYER1);
+	if (CheckInventory("IsSmileyHead")) { } else
+	if (CheckInventory("IsUncleSmiley")) { } else
+	if (CheckInventory("PaintGun"))
+	{
+		GiveInventory("IsSquare", 1);
+	}
+}
+
+script "Slot 1" (void)
+{
+	SetActivator(0, AAPTR_PLAYER1);
+	GiveInventory("Defibrillator", 1);
+	GiveInventory("ShotboltAmmo", 6);
+	GiveInventory("PaintAmmo", 6);
+	GiveInventory("OoziAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+}
+
+script "Slot 2" (void)
+{
+	SetActivator(0, AAPTR_PLAYER1);
+	GiveInventory("Shotbow", 1);
+	GiveInventory("ShotboltAmmo", 6);
+	GiveInventory("PaintAmmo", 6);
+	GiveInventory("OoziAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+}
+
+script "Slot 3" (void)
+{
+	SetActivator(0, AAPTR_PLAYER1);
+	GiveInventory("Shotbow", 1);
+	GiveInventory("ShotboltAmmo", 6);
+	GiveInventory("PaintAmmo", 6);
+	GiveInventory("OoziAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+}
+
+script "Slot 4" (void)
+{
+	SetActivator(0, AAPTR_PLAYER1);
+	GiveInventory("Shotbow", 1);
+	GiveInventory("ShotboltAmmo", 6);
+	GiveInventory("PaintAmmo", 6);
+	GiveInventory("OoziAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+}
+
+script "Slot 5" (void)
+{
+	SetActivator(0, AAPTR_PLAYER1);
+	GiveInventory("Shotbow", 1);
+	GiveInventory("ShotboltAmmo", 6);
+	GiveInventory("PaintAmmo", 6);
+	GiveInventory("OoziAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+}
+
+script "Slot 6" (void)
+{
+	SetActivator(0, AAPTR_PLAYER1);
+	GiveInventory("Shotbow", 1);
+	GiveInventory("ShotboltAmmo", 6);
+	GiveInventory("PaintAmmo", 6);
+	GiveInventory("OoziAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
+	GiveInventory("HellShellAmmo", 6);
 }

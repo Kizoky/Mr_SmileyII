@@ -30,3 +30,6 @@
 #include "actors/other/buddiescore.txt"
 #include "actors/other/buddies.txt"
 #include "actors/other/genericbuddy.txt"
+
+//Square
+#include "actors/Square.Cross.txt"

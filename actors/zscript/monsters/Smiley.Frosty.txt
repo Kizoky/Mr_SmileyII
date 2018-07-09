@@ -3,7 +3,7 @@
 // Cyberdemon // Frosty
 //
 //===========================================================================
-class Frosty : SmileyActor replaces Cyberdemon
+class Frosty : SmileyActor
 {
 	Default
 	{

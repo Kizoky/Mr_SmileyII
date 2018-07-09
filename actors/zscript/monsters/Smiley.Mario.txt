@@ -3,7 +3,7 @@
 // Mancubus // (Racist) Mario
 //
 //===========================================================================
-class Mario : SmileyActor replaces Fatso
+class Mario : SmileyActor
 {
 	Default
 	{

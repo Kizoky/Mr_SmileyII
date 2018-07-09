@@ -3,7 +3,7 @@
 // Lost Soul
 //
 //===========================================================================
-class Pacc : SmileyActor replaces LostSoul
+class Pacc : SmileyActor
 {
 	Default
 	{

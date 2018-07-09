@@ -3,7 +3,7 @@
 // Pain Elemental // Red Ghost
 //
 //===========================================================================
-class RedGhost : SmileyActor replaces PainElemental
+class RedGhost : SmileyActor
 {
 	Default
 	{

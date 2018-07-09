@@ -3,11 +3,11 @@
 // Spider boss // nuff said
 //
 //===========================================================================
-class SmileySpider : SmileyActor replaces SpiderMastermind
+class SmileySpider : SmileyActor
 {
 	Default
 	{
-		RenderStyle "OptFuzzy"; //Make her fuzzy like in hacked DOOM.EXE
+		RenderStyle "OptFuzzy";
 		Health 3000;
 		Radius 128;
 		Height 100;

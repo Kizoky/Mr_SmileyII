@@ -3,7 +3,7 @@
 // Imp // Alien
 //
 //===========================================================================
-class SmileyAlien : SmileyActor replaces Doomimp
+class SmileyAlien : SmileyActor
 {
 	Default
 	{

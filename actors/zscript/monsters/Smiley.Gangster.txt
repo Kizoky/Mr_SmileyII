@@ -3,7 +3,7 @@
 // Chaingunner // Gangster
 //
 //===========================================================================
-class Gangster : SmileyActor replaces Chaingunguy
+class Gangster : SmileyActor
 {
 	Default
 	{

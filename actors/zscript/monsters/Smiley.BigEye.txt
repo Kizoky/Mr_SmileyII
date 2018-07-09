@@ -3,7 +3,7 @@
 // Cacodemon // Big Eye
 //
 //===========================================================================
-class BigEye : SmileyActor replaces Cacodemon
+class BigEye : SmileyActor
 {
 	Default
 	{

@@ -3,7 +3,7 @@
 // Baron of Hell // Blue Ranger
 //
 //===========================================================================
-class BlueRanger : SmileyActor replaces BaronOfHell
+class BlueRanger : SmileyActor
 {
 	Default
 	{
@@ -83,7 +83,7 @@ class BlueRanger : SmileyActor replaces BaronOfHell
 // Hell Knight // Red Ranger
 //
 //===========================================================================
-class RedRanger : BlueRanger replaces HellKnight
+class RedRanger : BlueRanger
 {
 	Default
 	{

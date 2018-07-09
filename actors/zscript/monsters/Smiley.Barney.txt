@@ -3,7 +3,7 @@
 // Pink Demon // Barney | Hugaholic
 //
 //===========================================================================
-class Hugaholic : SmileyActor replaces Demon
+class Hugaholic : SmileyActor
 {
 	int Transformed;
 	Default

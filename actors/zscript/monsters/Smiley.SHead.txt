@@ -3,7 +3,7 @@
 // SS Nazi // Smiley Head
 //
 //===========================================================================
-class SHead : SmileyActor replaces WolfensteinSS
+class SHead : SmileyActor
 {
 	Default
 	{

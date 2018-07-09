@@ -46,3 +46,6 @@ version "3.2"
 
 #include "actors/zscript/Smiley.Test.txt"
 #include "actors/zscript/Smiley.ACSChecker.txt"
+
+//---------- Compatibility between other mods
+//#include "actors/zscript/compat/Smiley.EnemySpawner.txt"

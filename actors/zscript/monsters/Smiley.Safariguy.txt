@@ -3,7 +3,7 @@
 // Sergeant / Shotgun guy // Safari Guy
 //
 //===========================================================================
-class SafariGuy : SmileyActor replaces ShotgunGuy
+class SafariGuy : SmileyActor
 {
 	Default
 	{

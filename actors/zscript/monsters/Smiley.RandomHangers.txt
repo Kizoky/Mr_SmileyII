@@ -4,7 +4,7 @@
 // Later it needs multiple sprites and "monsters"
 //
 //===========================================================================
-class VariousHang : SmileyActor replaces CommanderKeen
+class VariousHang : SmileyActor
 {
 	Default
 	{

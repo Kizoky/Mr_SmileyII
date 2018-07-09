@@ -1,15 +1,7 @@
 #include "zcommon.acs"
 
-global int 1:monstadeaths;
-
-script "ToastyAdder" (void)
+script "SmileyMonsterSpawner" (void)
 {
 	Delay(1);
 	monstadeaths+=1;
-}
-
-script "ToastyChecker" OPEN
-{
-
-	
 }

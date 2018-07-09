@@ -3,7 +3,7 @@
 // Arachnotron // Hello Kitty
 //
 //===========================================================================
-class HelloKitty : SmileyActor replaces Arachnotron
+class HelloKitty : SmileyActor
 {
 
 	Default

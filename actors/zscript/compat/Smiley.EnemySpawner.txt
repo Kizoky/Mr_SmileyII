@@ -1,9 +1,9 @@
 //===========================================================================
 //
-// Zombie man // Michael Jackson Clone
+// Monsterspawner
 //
 //===========================================================================
-class MJClone : SmileyActor
+class SmileyMonsterThinker : SmileyActor
 {
 	Default
 	{
@@ -25,46 +25,13 @@ class MJClone : SmileyActor
 	States
 	{
 	Spawn:
-		POSS AB 10 A_Look;
-		Loop;
-	See:
-		POSS AABBCCDD 3 A_Chase;
-		Loop;
-	Missile:
-		POSS E 10 A_FaceTarget;
-		POSS F 0 A_SmoothCriminal;
-		POSS F 6 A_MJAttack;
-		POSS E 8;
-		Goto See;
-	Pain:
-		POSS G 3;
-		POSS G 3 A_Pain;
-		Goto See;
-	Death:
-		POSS H 5;
-		POSS I 5 A_Scream;
-		POSS J 5 A_NoBlocking;
-		POSS K 5;
-		POSS L -1;
-		Stop;
-	XDeath:
-		POSS M 5;
-		POSS N 5 A_XScream;
-		POSS O 5 A_NoBlocking;
-		POSS PQRST 5;
-		POSS U -1;
-		Stop;
-	Raise:
-		TNT1 A 0 A_Metalization();
-		POSS K 5;
-		POSS JIH 5;
-		Goto See;
+		TNT1 A 0 A_Decide();
 	}
 }
 
 extend class MJClone
 {
-    void A_SmoothCriminal()
+    void A_Decide()
 	{
 		int LR = random(0,1); //do random number between 0 or 1
 		int mov = random(5,10);

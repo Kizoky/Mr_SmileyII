@@ -3,7 +3,7 @@
 // Revenant // Transformers | Smileynator
 //
 //===========================================================================
-class Smileynator : SmileyActor replaces Revenant
+class Smileynator : SmileyActor
 {
 	Default
 	{

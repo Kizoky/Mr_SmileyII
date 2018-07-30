@@ -105,22 +105,24 @@ class EmoleyPistol : Weapon
 	States
 	{
 	Ready:
-		EMO1 A 1 A_WeaponReady;
+		CSAT A 1 A_WeaponReady;
 		Loop;
 	Deselect:
-		EMO1 A 1 A_Lower;
+		CSAT A 1 A_Lower;
 		Loop;
 	Select:
-		EMO1 A 1 A_Raise;
+		CSAT A 1 A_Raise;
 		Loop;
 	Fire:		
-		EMO1 D 3 Offset(129, 31) A_FirePistol;
-		EMO1 D 2 Offset(143, 6) A_FirePistol;
-		EMO1 D 2 Offset(135, 31) A_FirePistol;
-		EMO1 C 3 Offset(140, 39);
-		EMO1 C 2 Offset(124, 48);
-		EMO1 B 2 Offset(155, 51);
-		EMO1 B 2 Offset(164, 61);
+		//EMO1 D 3 Offset(129, 31) A_FirePistol;
+		//EMO1 D 2 Offset(143, 6) A_FirePistol;
+		//EMO1 D 2 Offset(135, 31) A_FirePistol;
+		//EMO1 C 3 Offset(140, 39);
+		//EMO1 C 2 Offset(124, 48);
+		//EMO1 B 2 Offset(155, 51);
+		//EMO1 B 2 Offset(164, 61);
+		CSAT A 1;
+		CSAT B 3 A_FirePistol;
 		Goto Ready;
 	Flash:
 		TNT1 A 0 Bright A_Light2;

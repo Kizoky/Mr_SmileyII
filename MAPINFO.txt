@@ -15,7 +15,7 @@ gameinfo
 	//menufontcolor_highlight = "GOLD"
 	//menufontcolor_selection = "GOLD"
 	//pausesign = "M_PAUSE"
-	playerclasses="MrSmiley","UncleSmiley","Emoley"
+	playerclasses="MrSmiley","UncleSmiley"//,"Emoley"
 }
 
 clearepisodes

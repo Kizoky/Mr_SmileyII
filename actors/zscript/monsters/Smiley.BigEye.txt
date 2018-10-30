@@ -41,6 +41,7 @@ class BigEye : SmileyActor
 		HEAD F 6;
 		Goto See;
 	Death:
+		TNT1 A 0 A_Mirrorize();
 		HEAD G 8;
 		HEAD H 8 A_Scream;
 		HEAD I 8;

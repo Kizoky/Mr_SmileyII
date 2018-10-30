@@ -45,6 +45,7 @@ class Mario : SmileyActor
 		FATT J 3 A_Pain;
 		Goto See;
     Death:
+		TNT1 A 0 A_Mirrorize();
 		FATT K 6;
 		FATT L 6 A_Scream;
 		FATT M 6 A_NoBlocking;

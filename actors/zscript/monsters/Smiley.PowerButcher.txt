@@ -41,6 +41,7 @@ class PowerButcher : SmileyActor
 		PBUT H 1 A_UnsetReflectiveInvulnerable;
 		Goto See;
 	Death:
+		TNT1 A 0 A_Mirrorize();
 		PBUT I  8;
 		PBUT J  8 A_Scream;
 		PBUT K  8;

@@ -722,6 +722,15 @@ extend class SmileyActor
 	   }
 	}
 	
+	action void A_Mirrorize()
+	{
+		int LR = random(0,1);
+		if (LR == 1)
+		{
+			bSPRITEFLIP = true;
+		}
+	}
+	
 }
 
 

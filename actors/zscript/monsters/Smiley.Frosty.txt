@@ -50,6 +50,7 @@ class Frosty : SmileyActor
 		CYBR G 10 A_Pain;
 		Goto See;
 	Death:
+		TNT1 A 0 A_Mirrorize();
 		CYBR H 10;
 		CYBR I 10 A_Scream;
 		CYBR JKL 10;

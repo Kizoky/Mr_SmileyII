@@ -40,6 +40,7 @@ class SmileyAlien : SmileyActor
 		TROO H 2 A_Pain;
 		Goto See;
 	Death:
+		TNT1 A 0 A_Mirrorize();
 		TROO I 8;
 		TROO J 8 A_Scream;
 		TROO K 6;
@@ -47,6 +48,7 @@ class SmileyAlien : SmileyActor
 		TROO M -1;
 		Stop;
 	XDeath:
+		TNT1 A 0 A_Mirrorize();
 		TROO N 5;
 		TROO O 5 A_XScream;
 		TROO P 5;

@@ -25,6 +25,7 @@ DoomEdNums
   7 = SmileySpider
   84 = SHead
   3004 = MJClone
+  32719 = PowerButcher
   32766 = SmileyTitlePic
 }
 //Stealth Monsters

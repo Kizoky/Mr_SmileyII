@@ -60,12 +60,12 @@ class Hook : SmileyActor
 {
 	Default
 	{
-		Speed 10;
+		Speed 20;
 		Height 14;
 		Radius 10;
 		Projectile;
 		+STRIFEDAMAGE
-		Damage 2;
+		Damage 10;
 		MaxStepHeight 4;
 		SeeSound "loremaster/chain";
 		ActiveSound "loremaster/swish";

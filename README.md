@@ -47,6 +47,3 @@ Without building the pk3:
 Extract the .zip file to the desktop (or anywhere else), then drag the folder over GZDoom.exe
 (I don't know If this will work on Unix systems)
 _________________________________________________________________
-
-Please report bugs/suggestions/ideas to me or to authors in Github by creating a new issue
-Or you can DM me on Discord: Kizoky#0375

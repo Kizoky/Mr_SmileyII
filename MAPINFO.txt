@@ -62,7 +62,6 @@ episode DEVMAP
 
 defaultmap //We don't want crouch and jumping for a while.
 {
-	nojump
 	nocrouch
 	sky1=DSKY1
 	music=D_RUNRUN

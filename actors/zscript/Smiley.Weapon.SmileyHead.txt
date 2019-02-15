@@ -20,13 +20,7 @@ class MrSmiley : DoomPlayer
 	}
 }
 
-class SmileyWeapon : Weapon
-{
-	Default
-	{
-	}
-}
-
+class SmileyWeapon : Weapon { }
 
 //Check if the Player is playing as Uncle Smiley
 //This will mirror the weapon sprites, and it will save us some mbs!

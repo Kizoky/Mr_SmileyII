@@ -6,7 +6,7 @@ DoomEdNums
   89 = none //BossEye
   888 = none //MBFHelperDog
   9037 = BossSpider //BetaSkull
-  72 = none //Commander Keen
+  72 = Jumpsphere //Commander Keen
   68 = HelloKitty
   64 = Metalhead
   3003 = BlueRanger

@@ -202,4 +202,40 @@ class BaseballBatIntensifies : CustomInventory replaces Berserk
 		Stop;
 	}
 }
+
+class Jumpsphere : CustomInventory
+{
+	Default
+	{
+		+COUNTITEM
+		+INVENTORY.ALWAYSPICKUP
+		+INVENTORY.ISHEALTH
+		+INVENTORY.ISARMOR
+		Inventory.PickupMessage "$GOTMSPHERE";
+		Inventory.PickupSound "misc/p_pkup";
+	}
+	States
+	{
+	Spawn:
+		MEGA ABCD 6 BRIGHT;
+		Loop;
+	Pickup:
+		TNT1 A 0 A_HugeJump();
+		Stop;
+	}
+}
+
+extend class Jumpsphere
+{
+	action void A_HugeJump()
+	{
+		PlayerPawn pp = PlayerPawn(Owner);
+		if (pp)
+		{
+			pp.JumpZ = 32.0;
+		}
+	
+	}
+
+}
 	

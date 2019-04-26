@@ -71,15 +71,10 @@ extend class MJClone
 		int LR = random(0,1); //do random number between 0 or 1
 		int mov = random(5,10);
 		if (LR == 0)
-		{
 			Thrust(mov, Angle - 90);
-		}
 		else
-		{
 			if (LR == 1)
-			{
 				Thrust(mov, Angle + 90);
-			}
-		}
+				
 	}
 }

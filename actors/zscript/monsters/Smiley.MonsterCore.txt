@@ -731,6 +731,11 @@ extend class SmileyActor
 		}
 	}
 	
+	action void A_UnMirrorize()
+	{
+		bSPRITEFLIP = false;
+	}
+	
 }
 
 

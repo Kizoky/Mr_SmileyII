@@ -65,6 +65,7 @@ class Hugaholic : SmileyActor
 		TNT1 A 0 A_Metalization();
 		SARG N 5;
 		SARG MLKJI 5;
+		TNT1 A 0 A_UnMirrorize();
 		Goto See;
 	}
 }

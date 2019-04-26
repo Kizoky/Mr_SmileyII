@@ -229,11 +229,18 @@ extend class Jumpsphere
 {
 	action void A_HugeJump()
 	{
-		PlayerPawn pp = PlayerPawn(Owner);
-		if (pp)
-		{
-			pp.JumpZ = 32.0;
-		}
+		let MS = MrSmiley(self);
+		let US = UncleSmiley(self);
+		let EM = Emoley(self);
+		
+		double Jump = 32.0;
+		
+		if (MS)
+			MS.JumpZ = Jump;
+		if (US)
+			US.JumpZ = Jump;
+		if (EM)
+			US.JumpZ = Jump;
 	
 	}
 

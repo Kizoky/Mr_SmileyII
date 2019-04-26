@@ -229,18 +229,12 @@ extend class Jumpsphere
 {
 	action void A_HugeJump()
 	{
-		let MS = MrSmiley(self);
-		let US = UncleSmiley(self);
-		let EM = Emoley(self);
+		let s = SmileyPlayer(self);
 		
 		double Jump = 32.0;
 		
-		if (MS)
-			MS.JumpZ = Jump;
-		if (US)
-			US.JumpZ = Jump;
-		if (EM)
-			US.JumpZ = Jump;
+		if (s)
+			s.JumpZ = Jump;
 	
 	}
 

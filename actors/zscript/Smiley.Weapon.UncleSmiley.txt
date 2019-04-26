@@ -1,4 +1,4 @@
-class UncleSmiley : DoomPlayer
+class UncleSmiley : SmileyPlayer
 {
 	Default
 	{

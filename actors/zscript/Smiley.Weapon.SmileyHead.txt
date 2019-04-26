@@ -1,4 +1,17 @@
-class MrSmiley : DoomPlayer
+class SmileyPlayer : PlayerPawn 
+{ 
+	override void Tick()
+	{
+		Super.Tick();
+		//assuming we'll never have Hexen hubs, if yes we need to find an another way
+		if (level.time == 5)
+			self.JumpZ = Default.JumpZ;
+	}
+
+
+}
+
+class MrSmiley : SmileyPlayer
 {
 	Default
 	{

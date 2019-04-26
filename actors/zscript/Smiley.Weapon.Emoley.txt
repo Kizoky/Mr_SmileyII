@@ -1,4 +1,4 @@
-class Emoley : DoomPlayer
+class Emoley : SmileyPlayer
 {
 	Default
 	{

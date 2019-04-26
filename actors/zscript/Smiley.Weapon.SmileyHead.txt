@@ -39,11 +39,13 @@ class SmileyWeapon : Weapon { }
 
 //Check if the Player is playing as Uncle Smiley
 //This will mirror the weapon sprites, and it will save us some mbs!
+
+//2019: There's now a lot easier way to do this, but I don't want to redo this from scratch
 extend class SmileyWeapon
 {
 	action void A_CheckUncle()
 	{
-		if (CheckInventory("IsUncleSmiley", 1))
+		if (self is 'UncleSmiley')
 		{
 			A_OverlayFlags (1,PSPF_MIRROR,true);
 			A_OverlayFlags (1,PSPF_FLIP,true);
@@ -54,7 +56,7 @@ extend class SmileyWeapon
 	
 	action void A_CheckHead()
 	{
-		if (CheckInventory("IsSmileyHead", 1))
+		if (self is 'MrSmiley')
 		{
 			A_OverlayFlags (1,PSPF_MIRROR,true);
 			A_OverlayFlags (1,PSPF_FLIP,true);

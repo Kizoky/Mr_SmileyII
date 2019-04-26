@@ -38,3 +38,5 @@ bloodsplat3 dsblud03
 $random bloodsplat { bloodsplat1 bloodsplat2 bloodsplat3 }
 $limit bloodsplat 1
 $volume bloodsplat 0.5
+
+mjclone/ow sounds/mjow.wav

@@ -40,3 +40,4 @@ $limit bloodsplat 1
 $volume bloodsplat 0.5
 
 mjclone/ow sounds/mjow.wav
+metalhead/resurrect sounds/RESURECT.wav

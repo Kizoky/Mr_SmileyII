@@ -59,8 +59,9 @@ class Gangster : SmileyActor
 		CPOS T -1;
 		Stop;
 	Raise:
+		TNT1 A 0 A_ResurrectSphere();
 		CPOS N 5;
-		CPOS MLKJIH 5;
+		CPOS MLKJIH 13;
 		TNT1 A 0 A_UnMirrorize();
 		Goto See;
 	}

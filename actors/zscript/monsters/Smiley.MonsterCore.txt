@@ -2,14 +2,71 @@
 //We extend stuff for this class so we don't have to extend it over and over time
 class SmileyActor : Actor
 {
+	//Actor Owner;
+}
+
+class ResurrectSphere : SmileyActor
+{
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		SetOrigin(pos+(0,0,9), TRUE);
+	
+	}
+	
 	Default
 	{
-		Monster;
+		Health 666;
+		Radius 15;
+		Height 10;
+		Speed 0;
+		PainChance 256;
+		//Monster;
+		-SOLID
+		-SHOOTABLE
+		+FLOAT
+		+NOGRAVITY
+		DropItem "None";
+		Scale 0.5;
+		RenderStyle "Translucent";
+		Alpha 0.5;
+	}
+	States
+	{
+		Spawn:
+			RESU ABCDEFGHIJKLMNOPQRST 3;
+			Stop;
+		See:
+			TNT1 A 1 A_Look;
+			Goto Spawn;
+		Pain:
+			Stop;
+		Death:
+			Stop;
+		Melee:
+			Stop;
+		Missile:
+			Stop;
 	}
 }
 
+
 extend class SmileyActor
 {
+	action void A_ResurrectSphere()
+	{
+		class<actor> Sphere = "ResurrectSphere";
+		Actor RSphere = spawn(Sphere, self.pos, ALLOW_REPLACE);
+		A_PlaySound("metalhead/resurrect",0);
+		//if (RSphere)
+		//{
+		//	let p = ResurrectSphere(RSphere);
+		//	p.Owner = self;
+		//}
+	}
+	
+	
 	action void A_KittyAttack()
 	{
 		if (target)

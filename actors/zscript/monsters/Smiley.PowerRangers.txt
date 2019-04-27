@@ -67,8 +67,9 @@ class BlueRanger : SmileyActor
 		Stop;
 	Raise:
 		TNT1 A 0 A_Metalization();
+		TNT1 A 0 A_ResurrectSphere();
 		BOSS O 8;
-		BOSS NMLKJI 8;
+		BOSS NMLKJI 13;
 		TNT1 A 0 A_UnMirrorize();
 		Goto See;
 	}

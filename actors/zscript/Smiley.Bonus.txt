@@ -203,6 +203,8 @@ class BaseballBatIntensifies : CustomInventory replaces Berserk
 	}
 }
 
+// Jumpshere - Increases Jump height until the next level change
+
 class Jumpsphere : CustomInventory
 {
 	Default

@@ -2,6 +2,8 @@
 //these are used for checking various stuff that will be present on the next level too
 //hence that's the reason we are using Fake inventories
 
+//For god's sake, never use these for ZScript
+
 class Boolprop : Inventory
 {
 	Default

@@ -59,11 +59,6 @@ extend class SmileyActor
 		class<actor> Sphere = "ResurrectSphere";
 		Actor RSphere = spawn(Sphere, self.pos, ALLOW_REPLACE);
 		A_PlaySound("metalhead/resurrect",0);
-		//if (RSphere)
-		//{
-		//	let p = ResurrectSphere(RSphere);
-		//	p.Owner = self;
-		//}
 	}
 	
 	
@@ -94,6 +89,39 @@ extend class SmileyActor
 		}
 			
 	}
+	
+	
+	action void A_Metalization()
+    {     
+       static const Class<Actor> metal_actors[] = { "MJClone", "Safariguy", "BlueRanger", "HelloKitty", "BigEye", "Hugaholic", "SmileyAlien", "Mario" };
+	   static const String metal_color[] = { "MJBlack", "SafariBlack", "PowerBlack", "KittyBlack", "EyeBlack", "BarneyBlack", "AlienBlack", "MarioBlack" };
+            
+       int size = metal_actors.Size();
+            
+	   for(int i = 0; i < size; i++)
+	   {
+			if (self is metal_actors[i] && !self.bFRIENDLY)
+		    {
+				A_SetTranslation (metal_color[i]);
+		    }
+	   }
+	}
+	
+	action void A_Mirrorize()
+	{
+		int LR = random(0,1);
+		if (LR == 1)
+		{
+			bSPRITEFLIP = true;
+		}
+	}
+	
+	action void A_UnMirrorize()
+	{
+		if (self.bSPRITEFLIP == true)
+			bSPRITEFLIP = false;
+	}
+	
 	
 	//===============Metalhead | Archvile
 	
@@ -761,36 +789,6 @@ extend class SmileyActor
 			A_FaceTarget();
 		VelFromAngle(skullspeed);
 		Vel.Z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, skullspeed);
-	}
-	
-	action void A_Metalization()
-    {     
-       static const Class<Actor> metal_actors[] = { "MJClone", "Safariguy", "BlueRanger", "HelloKitty", "BigEye", "Hugaholic", "SmileyAlien", "Mario" };
-	   static const String metal_color[] = { "MJBlack", "SafariBlack", "PowerBlack", "KittyBlack", "EyeBlack", "BarneyBlack", "AlienBlack", "MarioBlack" };
-            
-       int size = metal_actors.Size();
-            
-	   for(int i = 0; i < size; i++)
-	   {
-			if (self is metal_actors[i])
-		    {
-			  A_SetTranslation (metal_color[i]);
-		    }
-	   }
-	}
-	
-	action void A_Mirrorize()
-	{
-		int LR = random(0,1);
-		if (LR == 1)
-		{
-			bSPRITEFLIP = true;
-		}
-	}
-	
-	action void A_UnMirrorize()
-	{
-		bSPRITEFLIP = false;
 	}
 	
 }

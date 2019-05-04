@@ -2,7 +2,150 @@
 //We extend stuff for this class so we don't have to extend it over and over time
 class SmileyActor : Actor
 {
-	//Actor Owner;
+	bool iHaveBeenResurrected;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (!player)
+		{
+			if (iHaveBeenResurrected == true)
+			{
+				class<actor> Dark = "BlackFlame";
+				Actor DDark = spawn(Dark, self.pos, ALLOW_REPLACE);
+				
+				if (DDark)
+				{
+					let p = BlackFlame(DDark);
+					p.Owner = self;
+				}
+				
+				// Set this variable to false to prevent "continous spawning"
+				iHaveBeenResurrected = false;
+				
+			}
+		}
+		
+	}
+}
+
+class BlackFlame : SmileyActor
+{
+	Actor Owner;
+	bool FlameAdjusted;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (Owner)
+		{
+			if (Owner is 'MJClone')
+				SetOrigin(Owner.pos+(0,0,55), TRUE);
+			if ((Owner is 'Safariguy') || (Owner is 'Gangster') || (Owner is 'SmileyAlien'))
+				SetOrigin(Owner.pos+(0,0,45), TRUE);
+				
+			// Let's not forget that Barneys can transform
+			if ((Owner is 'Hugaholic') || (Owner is 'Rapeaholic'))
+			{
+				let p = Hugaholic(Owner);
+				
+				// Check if they can transform
+				if (p.canTransform != true)
+					SetOrigin(Owner.pos+(0,0,38), TRUE);
+				else
+				{
+					if (FlameAdjusted != true)
+					{
+						// Make the flame bigger
+						Scale.X = 0.25;
+						Scale.Y = Scale.X;
+						FlameAdjusted = true;
+					}
+					SetOrigin(Owner.pos+(0,0,48), TRUE);
+				}
+			}
+			
+			if ((Owner is 'RedRanger') || (Owner is 'BlueRanger'))
+				SetOrigin(Owner.pos+(0,0,57), TRUE);
+				
+			if (Owner is 'BigEye')
+			{
+					if (FlameAdjusted != true)
+					{
+						// Giant eye ball needs a bigger flame
+						Scale.X = 0.35;
+						Scale.Y = Scale.X;
+						FlameAdjusted = true;
+					}
+					
+				SetOrigin(Owner.pos+(0,0,24), TRUE);
+			}
+			
+			if (Owner is 'HelloKitty')
+			{
+				if (FlameAdjusted != true)
+				{
+					Scale.X = 0.25;
+					Scale.Y = Scale.X;
+					FlameAdjusted = true;
+				}
+				
+				SetOrigin(Owner.pos+(0,0,52), TRUE);
+			}
+			
+			if (Owner is 'Mario')
+			{
+				
+				if (FlameAdjusted != true)
+				{
+					Scale.X = 0.20;
+					Scale.Y = Scale.X;
+					FlameAdjusted = true;
+				}
+				SetOrigin(Owner.pos+(0,0,55), TRUE);
+			}
+			
+			if (Owner.bKILLED)
+				Destroy();
+		}
+	
+	}
+	
+	Default
+	{
+		Health 666;
+		Radius 15;
+		Height 10;
+		Speed 0;
+		PainChance 256;
+		//Monster;
+		-SOLID
+		-SHOOTABLE
+		+FLOAT
+		+NOGRAVITY
+		DropItem "None";
+		Scale 0.15;
+		RenderStyle "Translucent";
+		Alpha 0.88;
+	}
+	States
+	{
+		Spawn:
+			SIXX ABCD 3;
+			Loop;
+		See:
+			TNT1 A 1 A_Look;
+			Goto Spawn;
+		Pain:
+			Stop;
+		Death:
+			Stop;
+		Melee:
+			Stop;
+		Missile:
+			Stop;
+	}
 }
 
 class ResurrectSphere : SmileyActor
@@ -93,18 +236,21 @@ extend class SmileyActor
 	
 	action void A_Metalization()
     {     
-       static const Class<Actor> metal_actors[] = { "MJClone", "Safariguy", "BlueRanger", "HelloKitty", "BigEye", "Hugaholic", "SmileyAlien", "Mario" };
-	   static const String metal_color[] = { "MJBlack", "SafariBlack", "PowerBlack", "KittyBlack", "EyeBlack", "BarneyBlack", "AlienBlack", "MarioBlack" };
+       static const Class<Actor> metal_actors[] = { "MJClone", "Safariguy", "BlueRanger", "HelloKitty", "BigEye", "Hugaholic", "SmileyAlien", "Mario", "Gangster" };
+	   static const String metal_color[] = { "MJBlack", "SafariBlack", "PowerBlack", "KittyBlack", "EyeBlack", "BarneyBlack", "AlienBlack", "MarioBlack", "GangsterBlack" };
             
        int size = metal_actors.Size();
             
 	   for(int i = 0; i < size; i++)
 	   {
-			if (self is metal_actors[i] && !self.bFRIENDLY)
+			if (self is metal_actors[i]) // && !self.bFRIENDLY)
 		    {
 				A_SetTranslation (metal_color[i]);
 		    }
 	   }
+	   
+	   invoker.iHaveBeenResurrected = true;
+	   
 	}
 	
 	action void A_Mirrorize()

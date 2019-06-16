@@ -109,9 +109,15 @@ class TestKitty : SmileyActor
 class TestKitty2 : SmileyActor
 {
 	int done2;
+	override void Tick()
+	{
+		Super.Tick();
+		bSPRITEFLIP = TRUE;
+	
+	}
 	Default
 	{
-		Scale 0.1;
+		Scale 1;
 		Health 500;
 		Radius 64;
 		Height 64;

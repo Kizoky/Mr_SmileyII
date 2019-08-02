@@ -41,14 +41,12 @@ class BlueRanger : SmileyActor
 		{
 			int chance = random(0,100);
 			
-			if (chance > 50)
+			if (chance > 81)
 				SetStateLabel("Reflect");
 		
 		}
 		BOSS H 2 A_Pain;	
 		BOSS H 3;
-		BOSS PPP 16;
-		BOSS H 1;
 		Goto See;
 	Reflect:
 		BOSS H 2 A_Pain;
@@ -157,23 +155,4 @@ class RangerBottle : Actor
 		BAL7 CDE 6 BRIGHT;
 		Stop;
 	}
-}
-
-
-extend class BlueRanger
-{
-
-	action void A_Debug()
-	{
-		A_printbold("No Deflect");
-	}
-	action void A_Debug2()
-	{
-		A_printbold("Deflect");
-	}
-	action void A_Debug3()
-	{
-		A_printbold("No Deflect 2");
-	}
-
 }

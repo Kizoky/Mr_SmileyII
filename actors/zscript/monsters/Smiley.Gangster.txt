@@ -11,8 +11,8 @@ class Gangster : SmileyActor
 		Radius 20;
 		Height 56;
 		Mass 100;
-		Speed 0;
-		PainChance 170;
+		Speed 12;
+		PainChance 120;
 		Monster;
 		+FLOORCLIP
 		SeeSound "chainguy/sight";

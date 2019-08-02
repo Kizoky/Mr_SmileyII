@@ -1,6 +1,0 @@
-Every monster will be randomized according to it's category/skill.
-This can be turned off, and is OFF by default.
-
-For example.:
-
-Zombieman category: MJ Clone; Tough MJ Clone; Brutal MJ; etc..

@@ -1,2 +1,0 @@
-//The script checks whether the player is playing on the highest difficulty, and If yes, if it detects any suspicious moves it will make your life a miserable.
-//If you just slam the enter you will play with the normal difficulty, although it makes no difference as I haven't tweaked all difficulties.

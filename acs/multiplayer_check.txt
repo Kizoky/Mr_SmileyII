@@ -1,8 +1,0 @@
-//We need to make sure if it's not running on a server so we can enable cutscenes.
-//This will check regularly so If 2 players are online it will disable it.
-
-script Smiley_Engage open
-{
-	smiley_IsServer = false;
-	
-}

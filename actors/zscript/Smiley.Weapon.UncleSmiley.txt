@@ -4,8 +4,6 @@ class UncleSmiley : SmileyPlayer
 	{
 		Species "Marines";
 		Player.DisplayName "Uncle Smiley";
-		Player.StartItem "IsUncleSmiley", 1;
-		Player.StartItem "Buddy", 1;
 		Player.Face "UNC";
 		Player.Soundclass "UncleUncle";
 		Player.StartItem "SmileyPistol";

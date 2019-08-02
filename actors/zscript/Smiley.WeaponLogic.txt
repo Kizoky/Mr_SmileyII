@@ -24,20 +24,8 @@ extend class ChainsawPickup
 {
 	action void A_IfCheckWeapon()
 	{
-		if (CheckInventory("IsSmileyHead", 1))
-		{
+		if (self is 'MrSmiley' || self is 'UncleSmiley')
 			A_GiveInventory("Toothbrush", 1);
-		}
-		else
-			if (CheckInventory("IsUncleSmiley", 1))
-			{
-				A_GiveInventory("Toothbrush", 1);
-			}
-			else
-				if (CheckInventory("IsSquare",1))
-				{
-					ACS_NamedExecute("Who Am I",0);
-				}
 	}
 }
 
@@ -65,20 +53,8 @@ extend class ShotgunPickup
 {
 	action void A_IfCheckWeapon()
 	{
-		if (CheckInventory("IsSquare",1))
-				{
-					ACS_NamedExecute("Slot 2",0);
-				}
-				else
-		if (CheckInventory("IsSmileyHead", 1))
-		{
+		if (self is 'MrSmiley' || self is 'UncleSmiley')
 			A_GiveInventory("SmileyShotgun", 1);
-		}
-		else
-			if (CheckInventory("IsUncleSmiley", 1))
-			{
-				A_GiveInventory("SmileyShotgun", 1);
-			}
 	}
 }
 
@@ -107,20 +83,8 @@ extend class SuperShotgunPickup
 {
 	action void A_IfCheckWeapon()
 	{
-		if (CheckInventory("IsSmileyHead", 1))
-		{
+		if (self is 'MrSmiley' || self is 'UncleSmiley')
 			A_GiveInventory("SmileySuperShotgun", 1);
-		}
-		else
-			if (CheckInventory("IsUncleSmiley", 1))
-			{
-				A_GiveInventory("SmileySuperShotgun", 1);
-			}
-			else
-				if (CheckInventory("IsSquare",1))
-				{
-					ACS_NamedExecute("Slot 3",0);
-				}
 	}
 }
 
@@ -148,20 +112,8 @@ extend class ChaingunPickup
 {
 	action void A_IfCheckWeapon()
 	{
-		if (CheckInventory("IsSmileyHead", 1))
-		{
+		if (self is 'MrSmiley' || self is 'UncleSmiley')
 			A_GiveInventory("SmileyChaingun", 1);
-		}
-		else
-			if (CheckInventory("IsUncleSmiley", 1))
-			{
-				A_GiveInventory("SmileyChaingun", 1);
-			}
-			else
-				if (CheckInventory("IsSquare",1))
-				{
-					ACS_NamedExecute("Slot 4",0);
-				}
 	}
 }
 
@@ -189,20 +141,8 @@ extend class RocketLauncherPickup
 {
 	action void A_IfCheckWeapon()
 	{
-		if (CheckInventory("IsSmileyHead", 1))
-		{
+		if (self is 'MrSmiley' || self is 'UncleSmiley')
 			A_GiveInventory("SmileyChickenLauncher", 1);
-		}
-		else
-			if (CheckInventory("IsUncleSmiley", 1))
-			{
-				A_GiveInventory("SmileyChickenLauncher", 1);
-			}
-			else
-				if (CheckInventory("IsSquare",1))
-				{
-					ACS_NamedExecute("Slot 5",0);
-				}
 	}
 }
 
@@ -231,20 +171,8 @@ extend class PlasmaRiflePickup
 {
 	action void A_IfCheckWeapon()
 	{
-		if (CheckInventory("IsSmileyHead", 1))
-		{
+		if (self is 'MrSmiley' || self is 'UncleSmiley')
 			A_GiveInventory("PlasmaRing", 1);
-		}
-		else
-			if (CheckInventory("IsUncleSmiley", 1))
-			{
-				A_GiveInventory("PlasmaRing", 1);
-			}
-			else
-				if (CheckInventory("IsSquare",1))
-				{
-					ACS_NamedExecute("Slot 6",0);
-				}
 
 	}
 }
@@ -272,14 +200,7 @@ extend class BFG9000Pickup
 {
 	action void A_IfCheckWeapon()
 	{
-		if (CheckInventory("IsSmileyHead", 1))
-		{
+		if (self is 'MrSmiley' || self is 'UncleSmiley')
 			A_GiveInventory("SmileyGoodFetherBird", 1);
-		}
-		else
-			if (CheckInventory("IsUncleSmiley", 1))
-			{
-				A_GiveInventory("SmileyGoodFetherBird", 1);
-			}
 	}
 }

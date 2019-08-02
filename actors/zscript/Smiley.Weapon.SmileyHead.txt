@@ -1,26 +1,9 @@
-class SmileyPlayer : PlayerPawn 
-{ 
-	override void Tick()
-	{
-		Super.Tick();
-		if ( !player || (player.mo != self) ) return;
-		
-		//assuming we'll never have Hexen hubs, if yes we need to find an another way
-		if (level.time == 5)
-			self.JumpZ = Default.JumpZ;
-	}
-
-
-}
-
 class MrSmiley : SmileyPlayer
 {
 	Default
 	{
 		Species "Marines";
 		Player.DisplayName "Mr. Smiley Head";
-		Player.StartItem "IsSmileyHead", 1;
-		Player.StartItem "Buddy", 1;
 		Player.StartItem "SmileyPistol";
 		Player.StartItem "SmileyBat";
 		Player.StartItem "SmileyClip", 75;

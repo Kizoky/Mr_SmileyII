@@ -233,10 +233,11 @@ extend class Jumpsphere
 	{
 		let s = SmileyPlayer(self);
 		
-		double Jump = 32.0;
-		
-		if (s)
-			s.JumpZ = Jump;
+		if (s && s != null)
+		{
+			s.JumpZ = 32.0;
+			s.JumpSphereSavedLevel = level.mapname;
+		}
 	
 	}
 

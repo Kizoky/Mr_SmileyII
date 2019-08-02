@@ -4,8 +4,6 @@ class Emoley : SmileyPlayer
 	{
 	Species "Marines";
 	Player.DisplayName "Emoley";
-	Player.StartItem "IsEmoley", 1;
-	Player.StartItem "Buddy", 1;
 	Player.Face "EMO";
 	Player.Soundclass "UncleUncle";
 	Player.StartItem "EmoleyPistol";

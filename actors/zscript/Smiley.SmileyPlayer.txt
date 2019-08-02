@@ -1,0 +1,13 @@
+class SmileyPlayer : PlayerPawn 
+{
+	string JumpSphereSavedLevel;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if ( !player || (player.mo != self) ) return;
+		
+		if (!(level.mapname ~== JumpSphereSavedLevel))
+			self.JumpZ = Default.JumpZ;
+	}
+}

@@ -1,0 +1,20 @@
+class MrSmiley : SmileyPlayer
+{
+	Default
+	{
+		Species "Marines";
+		Player.DisplayName "Mr. Smiley Head";
+		Player.StartItem "SmileyPistol";
+		Player.StartItem "SmileyBat";
+		Player.StartItem "SmileyClip", 75;
+		Player.StartItem "SmileyShell", 20;
+		Player.WeaponSlot 1, "SmileyBat", "Toothbrush";
+		Player.WeaponSlot 2, "SmileyPistol";
+		Player.WeaponSlot 3, "SmileyShotgun", "SmileySuperShotgun";
+		Player.WeaponSlot 4, "SmileyChaingun";
+		Player.WeaponSlot 5, "SmileyChickenLauncher";
+		Player.WeaponSlot 6, "PlasmaRing";
+		Player.WeaponSlot 7, "SmileyGoodFetherBird";
+		Player.SoundClass "player";
+	}
+}

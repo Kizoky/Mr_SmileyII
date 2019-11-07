@@ -1,0 +1,124 @@
+class SmileyGoodFetherBird : SmileyWeapon
+{
+	Default
+	{
+		Weapon.Kickback 100;
+		Height 20;
+		Weapon.SelectionOrder 2800;
+		Weapon.AmmoUse 40;
+		Weapon.AmmoGive 40;
+		Weapon.AmmoType "Ring";
+		+WEAPON.NOAUTOFIRE;
+		Inventory.PickupMessage "$GOTBFG9000";
+		Tag "$TAG_BFG9000";
+		Weapon.BobRangeX 1.2;
+		Weapon.BobRangeY 0.6;
+		Weapon.BobSpeed 1.6;
+		Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		TNT1 A 0 A_CheckUncle();
+		BFID ABCD 10 A_WeaponReady;
+		Loop;
+	Deselect:
+		TNT1 A 0 A_CheckUncle();
+		BFGG A 1 A_Lower;
+		Loop;
+	Select:
+		TNT1 A 0 A_CheckUncle();
+		BFGG A 1 A_Raise;
+		Loop;
+	Fire:
+		TNT1 A 0 A_CheckUncle();
+		TNT1 A 0 A_BFGSound;
+		//BFGG ABCDAB 2
+		//BFGG ABCDAB 2 A_GunFlash
+		//BFGG EFG 4
+		//SHTG A 0 A_Recoil(5)
+		//BFGG H 4 A_FireBFG
+		//BFGG I 1 A_ReFire
+		//BFGG J 4 A_ReFire
+		BFGG A 2;
+		BFGG A 2 Offset(-10, 7);
+		BFGG A 2 Offset(3, 7);
+		BFGG A 2 Offset(-11, 16);
+		BFGG A 2 Offset(14, 14) A_GunFlash;
+		BFGG E 2 Offset(1, 20);
+		BFGG E 2 Offset(-14, 16);
+		BFGG E 2 Offset(16, 16);
+		BFGG E 3 Offset(-12, 10);
+		BFGG E 2 Offset(1, 20);
+		BFGG E 2 Offset(-14, 16);
+		BFGG E 2 Offset(16, 16);
+		BFGG E 3 Offset(-12, 10);
+		BFGG E 3 Offset(18, 12) A_FireBFG;
+		BFGG E 3 Offset(3, 24);
+		BFGG E 3 Offset(3, 4) A_ReFire;
+		BFGG E 3 Offset(2, 21) A_ReFire;
+		goto Ready;
+	Hold:
+		TNT1 A 0 A_CheckUncle();
+		MISG C 0 A_ZoomFactor(1);
+		BFGG A 1 A_BFGSound;
+		BFGG A 19;
+		BFGG B 2 A_GunFlash;
+		BFGG A 8;
+		SHTG A 0 A_Recoil(5);
+		BFGG B 10 A_FireBFG;
+		BFGG B 1 A_ReFire;
+		BFGG B 19 A_ReFire;
+		goto Ready;
+	Spawn:
+		BFUG A -1;
+		Stop;
+	}
+}
+
+//BFGBall
+class EggBall : Actor replaces BFGBall
+{
+	Default
+	{
+	Radius 13;
+	Height 8;
+	Speed 25;
+	Damage 100;
+	Projectile;
+	+RANDOMIZE;
+	RenderStyle "Add";
+	Alpha 0.75;
+	DeathSound "weapons/bfgx";
+	Obituary "$OB_MPBFG_BOOM";
+	}
+  States
+  {
+  Spawn:
+    BFS1 AB 4 Bright;
+    Loop;
+  Death:
+    BFE1 AB 8 Bright;
+    BFE1 C 8 Bright A_BFGSpray;
+    BFE1 DEF 8 Bright;
+    Stop;
+  }
+}
+
+class EggExtra : Actor replaces BFGExtra
+{
+	Default
+	{
+	+NOBLOCKMAP;
+	+NOGRAVITY;
+	RenderStyle "Add";
+	Alpha 0.75;
+	DamageType "BFGSplash";
+	}
+  States
+  {
+  Spawn:
+    BFE2 ABCD 8 Bright;
+    Stop;
+  }
+}

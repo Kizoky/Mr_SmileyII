@@ -8,11 +8,11 @@ toasty sounds/DSTOAST.wav
 //..I hate bugs. Also, it is case sensitive.
 DSUNCDETH sounds/DSUNCDETH.wav
 DSUNCPAIN sounds/DSUNCPAIN.wav
-$playeralias           UncleUncle  male    *death          DSUNCDETH
-$playeralias           UncleUncle  male    *pain100        DSUNCPAIN
-$playeralias           UncleUncle  male    *pain75         *pain100
-$playeralias           UncleUncle  male    *pain50         *pain100
-$playeralias           UncleUncle  male    *pain25         *pain100
+$playeralias UncleUncle male *death DSUNCDETH
+$playeralias UncleUncle male *pain100 DSUNCPAIN
+$playeralias UncleUncle male *pain75 *pain100
+$playeralias UncleUncle male *pain50 *pain100
+$playeralias UncleUncle male *pain25 *pain100
 
 //Power Butcher's hook taunt
 powerbutcher/getoverhere sounds/DSGETO.wav

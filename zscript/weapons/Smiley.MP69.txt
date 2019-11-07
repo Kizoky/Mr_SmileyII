@@ -1,0 +1,63 @@
+//Yes.... this is the weapon's name.
+
+class SmileyChaingun : SmileyWeapon
+{
+	Default
+	{
+		Weapon.Kickback 100;
+		Decal "bulletchip";
+		Weapon.SelectionOrder 700;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 20;
+		Weapon.AmmoType "SmileyClip";
+		Inventory.PickupMessage "$GOTCHAINGUN";
+		Obituary "$OB_MPCHAINGUN";
+		Tag "$TAG_CHAINGUN";
+		Weapon.BobRangeX 1.2;
+		Weapon.BobRangeY 0.6;
+		Weapon.BobSpeed 1.6;
+		Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		TNT1 A 0 A_CheckUncle();
+		CHIG ABCD 12 A_WeaponReady;
+		Loop;
+   Deselect:
+		TNT1 A 0 A_CheckUncle();
+		CHGG A 1 A_Lower;
+		Loop;
+   Select:
+		TNT1 A 0 A_CheckUncle();
+		CHGG A 1 A_Raise;
+		Loop;
+	Fire:
+		TNT1 A 0 A_CheckUncle();
+		CHGG A 1 A_FireCGun;
+		CHGG BCD 1;
+		CHGG A 1 A_FireCGun;
+		CHGG BCD 1;
+		CHGG B 0 A_ReFire;
+		CHGG A 1 A_Weaponready;
+		CHGG BB 1 A_Weaponready;
+		CHGG CCC 1 A_Weaponready;
+		CHGG DDD 1 A_Weaponready;
+		Goto Ready;
+	Flash:
+		TNT1 A 0 A_CheckUncle();
+		TNT1 A 0;
+		TNT1 A 0 A_Jump(128,4);
+		CHGF A 1 Bright A_Light1;
+		CHGF B 1 Bright A_Light2;
+		TNT1 A 2 A_Light1;
+		Goto LightDone;
+		CHGF CE 1 Bright A_Light1;
+		CHGF DF 1 Bright A_Light2;
+		TNT1 A 2 A_Light1;
+		Goto LightDone;
+	Spawn:
+		MGUN A -1;
+		Stop;
+	}
+}

@@ -1,0 +1,78 @@
+class SmileyShotgun : SmileyWeapon
+{
+	Default
+	{
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 1300;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 8;
+		Weapon.AmmoType "SmileyShell";
+		Obituary "$OB_MPSHOTGUN";
+		Tag "$TAG_SHOTGUN";
+		Inventory.PickupMessage "$GOTSHOTGUN";
+		Weapon.BobRangeX -0.98;
+		Weapon.BobRangeY 0.4;
+		Weapon.BobSpeed 1.6;
+		Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		TNT1 A 0 A_CheckUncle();
+		SHID ABCDCB 9 A_WeaponReady;
+		Loop;
+	Deselect:
+		TNT1 A 0 A_CheckUncle();
+		SHTG A 1 Offset(0,0) A_Lower;
+		Loop;
+	Select:
+		TNT1 A 0 A_CheckUncle();
+		SHTG A 1 Offset(0,0) A_Raise;
+		Loop;
+	Fire:
+		SHTG A 3;
+		SHTG A 5 A_FireShotgun;
+		SHTG B 2 Offset(-8, 64);
+		SHTG B 2 Offset(-21, 54);
+		SHTG B 1 Offset(-40, 41);
+		SHTG D 2 Offset(-45, 36);
+		SHTG D 1 Offset(-63, 25);
+		SHTG E 1 Offset(-80, 27);
+		SHTG F 2 Offset(-72, 14);
+		SHTG G 1 Offset(-87, 31);
+		SHTG G 1 Offset(-82, 56);
+		SHTG H 1 Offset(-77, 64);
+		SHTG H 1 Offset(-66, 106);
+		SHTG G 1 Offset(-71, 25);
+		SHTG G 2 Offset(-58, 12);
+		SHTG F 1 Offset(-34, 33);
+		SHTG E 2 Offset(-40, 43);
+		SHTG E 1 Offset(-24, 54);
+		SHTG E 2 Offset(-7, 63);
+		SHTG D 1 Offset(4, 61);
+		SHTG B 2 Offset(5, 62);
+		SHTG A 1 Offset(0, 32);
+			
+		//TNT1 A 0 A_CheckUncle();
+		//SHTG A 3;
+		//SHTG A 5 A_FireShotgun;
+		//SHTG B 2;
+		//SHTG C 1;
+		//SHTG D 2;
+		//SHTG E 3;
+		//SHTG F 4;
+		//SHTG G 1;
+		//SHTG H 3;
+		//SHTG GFEDCB 2;
+		//SHTG A 7 A_ReFire;
+		Goto Ready;
+	Flash:
+		TNT1 A 0 A_CheckUncle();
+		SHTF B 3 Offset(0, 0) Bright A_Light2;
+		SHTF A 2 Offset(0, 0) Bright A_Light1;
+		Goto LightDone;
+	Spawn:
+		SHOT A -1;
+		Stop;
+	}
+}

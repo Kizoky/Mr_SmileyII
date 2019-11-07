@@ -1,0 +1,61 @@
+class SmileyBat : SmileyWeapon
+{
+	Default
+	{
+	Weapon.SelectionOrder 3700;
+	Weapon.Kickback 100;
+	Obituary "$OB_MPFIST";
+	Tag "$TAG_FIST";
+	+WEAPON.WIMPY_WEAPON;
+	+WEAPON.MELEEWEAPON;
+	Weapon.BobRangeX 0.88;
+	Weapon.BobRangeY 0.32;
+	Weapon.BobSpeed 1.6;
+	Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		TNT1 A 0 A_CheckUncle();
+		TNT1 A 0 A_Jump(256,"Idle","Idle2","Idle3");
+		PUFI BCDEEEDCB 13 A_WeaponReady;
+		Loop;
+	Idle:
+		TNT1 A 0 A_CheckUncle();
+		PUFI BBCCBB 6 A_WeaponReady;
+		Goto Ready;
+	Idle2:
+		TNT1 A 0 A_CheckUncle();
+		PUFI BCDDEEDDEEDC 8 A_WeaponReady;
+		Goto Ready;
+	Idle3:
+		TNT1 A 0 A_CheckUncle();
+		PUFI BCDEEEDCB 13 A_WeaponReady;
+		Goto Ready;
+	Deselect:
+		TNT1 A 0 A_CheckUncle();
+		PUFI A 1 A_Lower;
+		Loop;
+	Select:
+		TNT1 A 0 A_CheckUncle();
+		PUFI A 1 A_Raise;
+		Loop;
+	AltFire:
+		TNT1 A 0 A_CheckUncle();
+		TNT1 A 0 A_SetReflectiveInvulnerable;
+		PUNG BCDEFGH 1;		
+		PUNG F 3 A_Punch;
+		PUNG E 1;
+		TNT1 A 0 A_UnSetReflectiveInvulnerable;
+		PUNG D 1;
+		PUNG CB 5;
+		Goto Ready;
+	Fire:
+		TNT1 A 0 A_CheckUncle();
+		PUNG BCDEFGH 1;		
+		PUNG F 3 A_Punch;
+		PUNG ED 2;
+		PUNG CB 3 A_ReFire;
+		Goto Ready;
+	}
+}

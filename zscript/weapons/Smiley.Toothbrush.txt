@@ -1,0 +1,37 @@
+class Toothbrush : SmileyWeapon
+{
+	Default
+	{
+		Weapon.Kickback 0;
+		Weapon.SelectionOrder 2200;
+		Weapon.UpSound "weapons/sawup";
+		Weapon.ReadySound "weapons/sawidle";
+		Inventory.PickupMessage "$GOTCHAINSAW";
+		Obituary "$OB_MPCHAINSAW";
+		Tag "$TAG_CHAINSAW";
+		+WEAPON.MELEEWEAPON;
+	}
+  States
+  {
+  Ready:
+	TNT1 A 0 A_CheckUncle();
+    SAWG CD 4 A_WeaponReady;
+    Loop;
+  Deselect:
+	TNT1 A 0 A_CheckUncle();
+    SAWG C 1 A_Lower;
+    Loop;
+  Select:
+	TNT1 A 0 A_CheckUncle();
+    SAWG C 1 A_Raise;
+    Loop;
+  Fire:
+	TNT1 A 0 A_CheckUncle();
+    SAWG AB 4 A_Saw;
+    SAWG B 0 A_ReFire;
+    Goto Ready;
+  Spawn:
+    CSAW A -1;
+    Stop;
+  }
+}

@@ -1,0 +1,94 @@
+class PlasmaRing : SmileyWeapon
+{
+	Default
+	{
+		Weapon.Kickback 100;
+		Weapon.SelectionOrder 100;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 40;
+		Weapon.AmmoType "Ring";
+		Inventory.PickupMessage "$GOTPLASMA";
+		Tag "$TAG_PLASMARIFLE";
+		Weapon.BobRangeX 1.2;
+		Weapon.BobRangeY 0.6;
+		Weapon.BobSpeed 1.6;
+		Weapon.BobStyle "InverseSmooth";
+  }
+  States
+  {
+  Ready:
+	TNT1 A 0 A_CheckHead();
+    PLID ABCDCB 9 A_WeaponReady;
+    Loop;
+  Deselect:
+	TNT1 A 0 A_CheckHead();
+    PLID A 1 A_Lower;
+    Loop;
+  Select:
+	TNT1 A 0 A_CheckHead();
+    PLID A 1 A_Raise;
+    Loop;
+  Fire:
+	TNT1 A 0 A_CheckHead();
+	PLSG A 2 Offset(52, 164);
+	PLSG B 2 Offset(59, 155);
+	PLSG B 2 Offset(45, 148);
+	PLSG B 2 Offset(24, 137);
+	PLSF A 2 Offset(133, 122);
+	PLSF A 2 Offset(123, 115);
+	Goto Hold;
+  Hold:
+	PLSF A 2 Offset(112, 104) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF B 2 Offset(111, 103) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF A 2 Offset(106, 107) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF B 2 Offset(122, 103) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF A 2 Offset(107, 110) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF B 2 Offset(104, 102) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF A 2 Offset(108, 108) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF B 2 Offset(112, 101) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF A 2 Offset(102, 108) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF B 2 Offset(116, 102) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	Goto Hold;
+  HoldEnd:
+	PLSF A 2 Offset(104, 109);
+	PLSF A 2 Offset(107, 108);
+	PLSF A 2 Offset(111, 118);
+	PLSF A 1 Offset(120, 119);
+	PLSF A 1 Offset(132, 124);
+	PLSF A 1 Offset(147, 127);
+	PLSG B 1 Offset(37, 140);
+	PLSG B 1 Offset(52, 153);
+	PLSG B 1 Offset(63, 161);
+    Goto Ready;
+  Spawn:
+    PLAS A -1;
+    Stop;
+  }
+}
+
+class RingBall : Actor
+{
+	Default
+	{
+	Radius 13;
+	Height 8;
+	Speed 25;
+	Damage 5;
+	Projectile;
+	+RANDOMIZE;
+	RenderStyle "Add";
+	Alpha 0.75;
+	SeeSound "weapons/plasmaf";
+	DeathSound "weapons/plasmax";
+	Obituary "$OB_MPPLASMARIFLE";
+	}
+  States
+  {
+  Spawn:
+    PLSS AB 6 Bright;
+    Loop;
+  Death:
+    PLSE ABCDE 4 Bright;
+    Stop;
+  }
+}

@@ -522,11 +522,11 @@ class PlasmaRing : SmileyWeapon
     Loop;
   Deselect:
 	TNT1 A 0 A_CheckHead();
-    PLSG A 1 A_Lower;
+    PLID A 1 A_Lower;
     Loop;
   Select:
 	TNT1 A 0 A_CheckHead();
-    PLSG A 1 A_Raise;
+    PLID A 1 A_Raise;
     Loop;
   Fire:
 	TNT1 A 0 A_CheckHead();

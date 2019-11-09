@@ -13,7 +13,14 @@ class PlasmaRing : SmileyWeapon
 		Weapon.BobRangeY 0.6;
 		Weapon.BobSpeed 1.6;
 		Weapon.BobStyle "InverseSmooth";
-  }
+	}
+	
+	override void Tick()
+	{
+	
+	}
+	
+	
   States
   {
   Ready:
@@ -38,16 +45,16 @@ class PlasmaRing : SmileyWeapon
 	PLSF A 2 Offset(123, 115);
 	Goto Hold;
   Hold:
-	PLSF A 2 Offset(112, 104) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
-	PLSF B 2 Offset(111, 103) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
-	PLSF A 2 Offset(106, 107) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
-	PLSF B 2 Offset(122, 103) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
-	PLSF A 2 Offset(107, 110) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
-	PLSF B 2 Offset(104, 102) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
-	PLSF A 2 Offset(108, 108) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
-	PLSF B 2 Offset(112, 101) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
-	PLSF A 2 Offset(102, 108) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
-	PLSF B 2 Offset(116, 102) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); return ResolveState (null);}
+	PLSF A 2 Offset(112, 104) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } return ResolveState (null);}
+	PLSF B 2 Offset(111, 103) Bright { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); A_Light2(); return ResolveState (null);}
+	PLSF A 2 Offset(106, 107) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } return ResolveState (null);}
+	PLSF B 2 Offset(122, 103) Bright { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); A_Light2(); return ResolveState (null);}
+	PLSF A 2 Offset(107, 110) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } return ResolveState (null);}
+	PLSF B 2 Offset(104, 102) Bright { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); A_Light2(); return ResolveState (null);}
+	PLSF A 2 Offset(108, 108) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } return ResolveState (null);}
+	PLSF B 2 Offset(112, 101) Bright { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); A_Light2(); return ResolveState (null);}
+	PLSF A 2 Offset(102, 108) { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } return ResolveState (null);}
+	PLSF B 2 Offset(116, 102) Bright { if (!(player.cmd.buttons & BT_ATTACK)) { return ResolveState ("HoldEnd"); } A_FireCustomMissile("PlasmaBall",0,1); A_Light2(); return ResolveState (null);}
 	Goto Hold;
   HoldEnd:
 	PLSF A 2 Offset(104, 109);
@@ -66,21 +73,162 @@ class PlasmaRing : SmileyWeapon
   }
 }
 
+class BluePlasmaRing : custominventory
+{
+	statelabel nextstate;
+	
+   default
+   {
+      Inventory.Amount 1;
+      inventory.maxamount 750;
+      +INVENTORY.ALWAYSPICKUP;
+      +INVENTORY.AUTOACTIVATE;
+   }
+   
+   states
+   {   
+      use:
+         TNT1 A 0
+         {
+            statelabel initstate = "remove";
+            let ownr = SmileyPlayer(invoker.owner);
+			
+            if (ownr)                           
+            {
+               initstate = "startoverlay";
+            }
+			
+			return resolvestate(initstate);
+         }
+         stop;
+      
+      remove:
+         stop;
+      
+      startoverlay:
+         TNT1 A 0
+         {
+			int layer = -2;
+			A_OverLay(layer,"plasmaready");
+			A_OverlayFlags(layer,PSPF_ADDBOB,true);
+         }
+         wait;
+         
+      plasmaready:
+		PLLL B 4 Offset(85, 200);
+		PLLL B 1 Offset(85, 195);
+		PLLL B 1 Offset(85, 190);
+		PLLL B 1 Offset(85, 185);
+		PLLL B 1 Offset(85, 180);
+		PLLL B 1 Offset(85, 175);
+		PLLL B 1 Offset(85, 170);
+		PLLL B 1 Offset(85, 165);
+		PLLL B 1 Offset(85, 160);
+		PLLL B 1 Offset(85, 155);
+		PLLL B 1 Offset(85, 150);
+		PLLL B 1 Offset(85, 145);
+		PLLL B 1 Offset(85, 140);
+		goto Ready;
+	  Ready: //Heartattack incoming
+		PLLL B 8 Offset(85, 141) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(81, 143) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(84, 146) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(85, 142) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(82, 144) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(84, 141) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		loop;
+	  Deselect:
+		PLLL B 1 Offset(85, 140);
+		PLLL B 1 Offset(85, 145);
+		PLLL B 1 Offset(85, 150);
+		PLLL B 1 Offset(85, 155);
+		PLLL B 1 Offset(85, 160);
+		PLLL B 1 Offset(85, 165);
+		PLLL B 1 Offset(85, 170);
+		PLLL B 1 Offset(85, 175);
+		PLLL B 1 Offset(85, 180);
+		PLLL B 1 Offset(85, 185);
+		PLLL B 1 Offset(85, 190);
+		PLLL B 1 Offset(85, 195);
+		PLLL B 1 Offset(85, 200);
+		Goto CheckPlasmaRing;
+	  CheckPlasmaRing:
+		PLLL B 1 Offset(85, 200)
+		{
+			let smiley = SmileyPlayer(invoker.owner);
+			let ring = smiley.FindInventory("PlasmaRing");
+			
+			if (smiley.Player.ReadyWeapon == ring) return ResolveState ("plasmaready");
+			
+			return ResolveState (null);
+		}
+		Loop;
+      shoot:
+		TNT1 A 0
+		{
+			let smiley = SmileyPlayer(invoker.owner);
+			let ring = smiley.FindInventory("PlasmaRing");
+			
+			if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect");
+			
+			return ResolveState (null);
+		}
+		PLLL B 2 Offset(85, 141);
+		PLLL B 2 Offset(73, 139);
+		PLLL B 2 Offset(56, 136);
+		PLLL C 2 Offset(167, 105);
+		PLLL C 2 Offset(162, 104);
+		PLLL C 2 Offset(148, 103);
+		TNT1 A 0
+		{
+			let smiley = SmileyPlayer(invoker.owner);
+			let ring = smiley.FindInventory("PlasmaRing");
+			
+			if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect");
+			
+			return ResolveState (null);
+		}
+		goto shootLoop;
+	shootLoop:
+		PLLL D 2 Offset(132, 72) Bright { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); A_FireCustomMissile("plasmaball"); return ResolveState (null); }
+		PLLL C 2 Offset(120, 106) { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); return ResolveState (null); }
+		PLLL D 2 Offset(103, 74) Bright { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); A_FireCustomMissile("plasmaball"); return ResolveState (null); }
+		PLLL C 2 Offset(123, 115) { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); return ResolveState (null); }
+		PLLL D 2 Offset(106, 82) Bright { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); A_FireCustomMissile("plasmaball"); return ResolveState (null); }
+		PLLL C 2 Offset(140, 103) { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); return ResolveState (null); }
+		PLLL D 2 Offset(125, 72) Bright { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); A_FireCustomMissile("plasmaball"); return ResolveState (null); }
+		PLLL C 2 Offset(119, 104) { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); return ResolveState (null); }
+		Loop;
+	shootEnd:
+		PLLL C 2 Offset(125, 107);
+		PLLL C 2 Offset(137, 109);
+		PLLL B 2 Offset(31, 138);
+		PLLL B 2 Offset(47, 143);
+		PLLL B 2 Offset(71, 147);
+		Goto Ready;
+      
+      Spawn:
+         TNT1 A -1;
+         Stop;
+   }
+
+}
+
 class RingBall : Actor
 {
 	Default
 	{
-	Radius 13;
-	Height 8;
-	Speed 25;
-	Damage 5;
-	Projectile;
-	+RANDOMIZE;
-	RenderStyle "Add";
-	Alpha 0.75;
-	SeeSound "weapons/plasmaf";
-	DeathSound "weapons/plasmax";
-	Obituary "$OB_MPPLASMARIFLE";
+		Radius 13;
+		Height 8;
+		Speed 25;
+		Damage 5;
+		Projectile;
+		+RANDOMIZE;
+		RenderStyle "Add";
+		Alpha 0.75;
+		SeeSound "weapons/plasmaf";
+		DeathSound "weapons/plasmax";
+		Obituary "$OB_MPPLASMARIFLE";
 	}
   States
   {

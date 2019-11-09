@@ -31,7 +31,7 @@ class SmileyShotgun : SmileyWeapon
 		Loop;
 	Fire:
 		SHTG A 3;
-		SHTG A 5 A_FireShotgun;
+		SHTG Z 5 Bright A_FireShotgun;
 		SHTG B 2 Offset(-8, 64);
 		SHTG B 2 Offset(-21, 54);
 		SHTG B 1 Offset(-40, 41);

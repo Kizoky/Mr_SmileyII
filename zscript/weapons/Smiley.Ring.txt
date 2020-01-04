@@ -96,22 +96,30 @@ class BluePlasmaRing : custominventory
    {   
       use:
          TNT1 A 1 {
-			let psp = player.FindPSprite(-100);
-			if (psp) {
+        let psp = player.FindPSprite(-100);
+        if (psp) {
             A_ClearOverlays(-100,-100);
-			psp.bFLIP = true;
-			psp.bMIRROR = true;
             return ResolveState(null);
         }
         else {
-            int layer = -2;
-            A_OverLay(layer,"plasmaready");
-            A_OverlayFlags (layer,PSPF_FLIP|PSPF_MIRROR,true);
-            A_OverlayFlags(layer,PSPF_ADDBOB,true);
-            return ResolveState("OverlayReady");
+				int layer = -100;
+				A_OverLay(layer,"plasmaready");
+				let ovr = player.FindPSprite(layer);
+				if (ovr) 
+				{
+					ovr.bADDBOB = true;
+					
+					if (self is 'UncleSmiley')
+					{
+						ovr.bFLIP = true;
+						ovr.bMIRROR = true;
+					}
+					return ResolveState("OverlayReady");
+				}
+				return ResolveState(null);
 			}
 		}
-         stop;
+		stop;
       OverlayReady:
 		TNT1 A 1;
 		loop;

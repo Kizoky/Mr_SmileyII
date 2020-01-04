@@ -17,7 +17,8 @@ class PlasmaRing : SmileyWeapon
 	
 	override void Tick()
 	{
-	
+		if (owner && owner.player.readyweapon)
+        owner.player.WeaponState |= WF_WEAPONBOBBING;
 	}
 	
 	
@@ -77,6 +78,12 @@ class BluePlasmaRing : custominventory
 {
 	statelabel nextstate;
 	
+	override void Tick()
+	{
+		Super.Tick();
+	
+	}
+	
    default
    {
       Inventory.Amount 1;
@@ -88,32 +95,26 @@ class BluePlasmaRing : custominventory
    states
    {   
       use:
-         TNT1 A 0
-         {
-            statelabel initstate = "remove";
-            let ownr = SmileyPlayer(invoker.owner);
-			
-            if (ownr)                           
-            {
-               initstate = "startoverlay";
-            }
-			
-			return resolvestate(initstate);
-         }
+         TNT1 A 1 {
+			let psp = player.FindPSprite(-100);
+			if (psp) {
+            A_ClearOverlays(-100,-100);
+			psp.bFLIP = true;
+			psp.bMIRROR = true;
+            return ResolveState(null);
+        }
+        else {
+            int layer = -2;
+            A_OverLay(layer,"plasmaready");
+            A_OverlayFlags (layer,PSPF_FLIP|PSPF_MIRROR,true);
+            A_OverlayFlags(layer,PSPF_ADDBOB,true);
+            return ResolveState("OverlayReady");
+			}
+		}
          stop;
-      
-      remove:
-         stop;
-      
-      startoverlay:
-         TNT1 A 0
-         {
-			int layer = -2;
-			A_OverLay(layer,"plasmaready");
-			A_OverlayFlags(layer,PSPF_ADDBOB,true);
-         }
-         wait;
-         
+      OverlayReady:
+		TNT1 A 1;
+		loop;
       plasmaready:
 		PLLL B 4 Offset(85, 200);
 		PLLL B 1 Offset(85, 195);

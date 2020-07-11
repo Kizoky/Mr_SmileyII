@@ -49,6 +49,7 @@ class SmileyStatusBar : BaseStatusBar
 
 		DrawBarKeys();
 		DrawBarAmmo();
+		DrawAllyStatus();
 		
 		if (deathmatch || teamplay)
 		{
@@ -83,6 +84,22 @@ class SmileyStatusBar : BaseStatusBar
 		
 	}
 	
+	protected virtual void DrawAllyStatus()
+	{
+		// Draws Either Smiley Head's or Uncle Smiley's (or Emoley's) status if playing on Easy difficulty
+		// or got a cellphone
+
+		SmileyPlayer SmileyPlaya = SmileyPlayer(CPlayer.mo);
+
+		if (SmileyPlaya)
+		{
+
+
+		}
+
+
+	}
+
 	protected virtual void DrawBarKeys()
 	{
 		bool locks[6];

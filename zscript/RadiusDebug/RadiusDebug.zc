@@ -1,0 +1,159 @@
+// RadiusDebug
+// A debugging utility that lets you draw a model representation of an Actor's radius
+// Written by Nash Muhandes
+
+class RadiusDebug : Actor
+{
+	Default
+	{
+		Radius 1;
+		Height 1;
+		//RenderStyle "STYLE_Translucent";
+		//Alpha 0.4;
+		+NOINTERACTION
+	}
+
+	Actor AttachTo;
+
+	static void Enable(Actor me, bool disable = false)
+	{
+		if (me)
+		{
+			if (!disable)
+			{
+				me.A_GiveInventory("RadiusDebugMe", 1);
+			}
+			else
+			{
+				me.A_TakeInventory("RadiusDebugMe", 0x7FFFFFFF);
+			}
+		}
+	}
+
+	static void Disable(Actor me)
+	{
+		Enable(me, true);
+	}
+
+	override void Tick(void)
+	{
+		if (AttachTo)
+		{
+			// Calling A_SetSize every tic might be expensive
+			// But since this is a debugging utility, I am not
+			// going to bother to optimize this.
+			A_SetSize(AttachTo.Radius, AttachTo.Height, false);
+			Scale.X = double(Radius) * 2;
+			Scale.Y = double(Height) * level.pixelstretch;
+			SetOrigin(AttachTo.Pos, true);
+		}
+		else
+		{
+			Destroy();
+		}
+
+		Super.Tick();
+	}
+
+	States
+	{
+	Spawn:
+		0000 A -1 BRIGHT;
+		Stop;
+	}
+}
+
+class RadiusDebugMe : CustomInventory
+{
+	Default
+	{
+		Inventory.MaxAmount 1;
+		+INVENTORY.UNDROPPABLE
+		+INVENTORY.UNTOSSABLE
+		+INVENTORY.AUTOACTIVATE
+	}
+
+	Actor cube;
+
+	override void Tick(void)
+	{
+		if (!cube)
+		{
+			cube = Spawn("RadiusDebug", Owner.Pos, NO_REPLACE);
+		}
+
+		if (cube)
+		{
+			RadiusDebug(cube).AttachTo = Owner;
+		}
+
+		Super.Tick();
+	}
+
+	States
+	{
+	Use:
+		TNT1 A 0;
+		Fail;
+	Pickup:
+		TNT1 A 0
+		{
+			return true;
+		}
+		Stop;
+	}
+}
+
+
+class RadiusDebugHandler : EventHandler
+{
+    override void WorldTick()
+    {
+        CVar which = CVar.FindCVar('radiusDebug');
+
+        let it = ThinkerIterator.Create("RadiusDebug", Thinker.STAT_Default);
+        Actor mo;
+        while (mo = RadiusDebug(it.Next()))
+        {
+            mo.Destroy();
+        }
+
+        it = ThinkerIterator.Create("Actor", Thinker.STAT_Default); // Note: STAT_Default means we skip players
+		
+        while (mo = Actor(it.Next()))
+        {
+            if (Inventory(mo) && Inventory(mo).owner || RadiusDebug(mo)) continue;
+			
+			let cube = RadiusDebug(Actor.Spawn("RadiusDebug", mo.pos));
+			if(which)
+			{
+				switch(which.GetInt())
+				{
+					default:
+					case 0:
+							cube.Destroy();
+							break;
+					case 1: 
+						if (mo.bIsMonster)
+							cube.attachTo = mo;
+							break;
+					case 2: 
+						if (Inventory(mo))
+							cube.attachTo = mo;
+							break;
+					case 3: 
+						if (mo.bSolid)
+							cube.attachTo = mo;
+							break;
+					case 4: 
+						if (mo.bShootable)
+							cube.attachTo = mo;
+							break;
+					case 5:
+							cube.attachTo = mo;
+							break;
+				}
+			}
+        }
+    }
+}

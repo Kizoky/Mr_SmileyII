@@ -1,76 +1,92 @@
-/*
+ListMenu "SkillMenu"
+{
+Position 160, 44
+centermenu
+}
+
+ListMenu "EpisodeMenu"
+{
+	Position 160, 44
+	centermenu
+}
+
+ListMenu "PlayerclassMenu"
+{
+	Position 160, 44
+	centermenu
+}
+
+OptionValue "Debugoption"
+{
+    0, "None"
+    1, "Monsters"
+    2, "Pickups"
+	3, "Solids"
+	4, "Shootables"
+	5, "All"
+}
+
 LISTMENU "MainMenu"
-{	
-	IfGame(Doom, Chex)
+{
+	IfGame(Doom, Chex, Strife, Hexen, Heretic)
 	{
-		StaticPatch 94, 2, "M_DOOM"
+		LineSpacing 16	// This must account for some single-graphic replacements, so it cannot be widened
+		StaticPatch 100, 17, "M_DOOM"
 		Position 97, 72
 		IfOption(ReadThis)
 		{
 			Position 97, 64
 		}
 	}
-	IfGame(Doom, Strife, Chex)
+
+	IfGame(Doom, Strife, Chex, Hexen, Heretic)
 	{
-		Font "DoomFont", "Red"
-		TextItem "New Game", "n", "PlayerclassMenu"
-		ifOption(SwapMenu)
-		{
-			TextItem "Load Game", "l", "LoadGameMenu"
-			TextItem "Save Game", "s", "SaveGameMenu"
-			TextItem "Optionz","o", "OptionsMenu"
-		}
-		else
-		{
-			TextItem "Optionz","o", "OptionsMenu"
-			TextItem "Load Game", "l", "LoadGameMenu"
-			TextItem "Save Game", "s", "SaveGameMenu"
-		}
-		TextItem "Quit", "q", "QuitMenu"
+		TextItem "Safari", "n", "PlayerclassMenu"
+		TextItem "Mod Settings", "n", "SmileyOptionMenu"
+		TextItem "HUD Debugging", "n", "XYOffsetMenu"
+		TextItem "Load Game", "l", "LoadGameMenu", 0
+		TextItem "Save Game", "s", "SaveGameMenu",0
+		TextItem "Options","o", "OptionsMenu", 0
+		TextItem "Quit", "q", "QuitMenu", 0
 	}
 }
 
-ListMenu "SkillMenu"
+OptionMenu "SmileyOptionMenu"
 {
-
-	IfGame(Doom, Chex)
-	{
-		Font "DoomFont", "Red"
-		StaticText 96, 14, "New Game"
-	}
-	IfGame(Doom, Strife, Chex)
-	{
-		Font "DoomFont", "Red"
-		StaticText 54, 38, "How are ya feeling today?"
-		Position 48, 63
-	}
+	Title "Mr. Smiley Head's Safari II mod settings"
+	StaticText ""
+	
+	StaticText "Debug Settings", "Gold"
+	StaticText "Displays a box around actors", "White"
+	StaticText "based on Height and Weight, depending on the setting (in realtime)", "White"
+	Option "Radius Debug", "radiusDebug", "Debugoption"
+	StaticText ""
 }
 
-//Looks like GZDoom is ignoring it.
-OptionMenu "OptionsMenu"
+OptionMenu "XYOffsetMenu"
 {
-	Title "OPTIONZ"
-	Submenu "Customize Controls",		"CustomizeControls"
-	Submenu "Mouse optionz",			"MouseOptions"
-	Submenu "Joystick optionz",			"JoystickOptions"
-	StaticText " "
-	Submenu "Player Setup",				"PlayerMenu"
-	Submenu "Gameplay Optionz",			"GameplayOptions"
-	Submenu "Compatibility Optionz",	"CompatibilityOptions"
-	Submenu "Automap Optionz",			"AutomapOptions"
-	Submenu "HUD Optionz",				"HUDOptions"
-	Submenu "Miscellaneous Optionz",	"MiscOptions"
-	Submenu "Sound Optionz",			"SoundOptions"
-	Submenu "Display Optionz",			"VideoOptions"
-	Submenu "Set video mode",			"VideoModeMenu"
-	StaticText " "
-	SafeCommand "Reset to defaults",	"reset2defaults"
-	SafeCommand	"Reset to last saved",	"reset2saved"
-	Command "Go to console",			"menuconsole"
-	StaticText " "
-	StaticText "Mr. Smiley Head's Safari II"
-	StaticText "Beta v0.51"
-	StaticText " "
-	StaticText "This mod is WIP since 2013.08"
+	StaticText "HUD element XY", "Gold"
+	StaticText ""
+	StaticText "Used for setting HUD elements on the screen", "White"
+	StaticText "Nothing will happen on the screen", White
+	Slider "Width:", "smileyUI_X", -300, 600, 1
+	Slider "Height:", "smileyUI_Y", -300, 600, 1
+	StaticText ""
+	Slider "Width: 5x", "smileyUI_X", -1000, 1000, 5
+	Slider "Height: 5x", "smileyUI_Y", -1000, 1000, 5
+	StaticText ""
+	StaticText ""
+	StaticText "Scaling", "White"
+	Slider "Scale X: 1x", "smileyUI_scaleX", -300, 600, 1
+	Slider "Scale Y: 1x", "smileyUI_scaleY", -300, 600, 1
+	StaticText ""
+	Slider "Scale X: 0.1x", "smileyUI_scaleX", -300, 600, 0.1
+	Slider "Scale Y: 0.1x", "smileyUI_scaleY", -300, 600, 0.1
 }
-*/
+
+AddOptionMenu "OptionsMenu"
+{
+	StaticText " "
+	Submenu "Mr. Smiley 2 Options", "SmileyOptionMenu"
+	Submenu "Offset Devmenu", "XYOffsetMenu"
+}

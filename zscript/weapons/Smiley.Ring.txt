@@ -77,27 +77,79 @@ class PlasmaRing : SmileyWeapon replaces PlasmaRifle
 class BluePlasmaRing : custominventory
 {
 	statelabel nextstate;
+	state ddeselect;
+	int deselectwep;
 	
 	override void Tick()
 	{
 		Super.Tick();
 	}
 
-	/*
-	action state CheckDeath()
+	override void PostBeginPlay () 
 	{
-		if (owner.player && owner.player.Health <= 0)
+  		super.PostBeginPlay();
+  		ddeselect = FindState("Deselect");
+  		deselectwep = 140;
+	}
+
+	override void DoEffect() 
+	{
+	  super.DoEffect();
+	  if (!owner.bKILLED)
+	    return;
+
+	  let ring = owner.player.FindPsprite(-100);
+	  if (ring && !ring.curstate.InStateSequence(ddeselect))
+	    ring.SetState(ddeselect);
+	}
+
+	virtual void ReadyCheck()
+	{
+		if (!owner) return;
+
+		let ringp = owner.player.FindPsprite(-100);
+
+		if (ringp && owner)
 		{
-			let weap = player.ReadyWeapon;
-    		let psp = player.FindPSprite(-100);
+			if (owner.player.cmd.buttons & BT_ALTATTACK && !ringp.curstate.InStateSequence(FindState("shoot")))
+			{
+				if ((countinv("Ring") <= 0)) return;
 
-    		if (weap && psp && psp.CurState.InStateSequence(weap.FindState("Ready"))
-      			return ResolveState("Deselect");
+				ringp.SetState(FindState("shoot"));
+			}
 
-    		return ResolveState(null);
+			let ring = owner.FindInventory("PlasmaRing");
+			if (owner.Player.ReadyWeapon != ring)
+			{
+				ringp.SetState(FindState("Deselect"));
+			}
+
 		}
 	}
-	*/
+
+	virtual void ShootCheck()
+	{
+		let ring = owner.FindInventory("PlasmaRing");
+		let ringp = owner.player.FindPsprite(-100);
+			
+		if (owner.Player.ReadyWeapon != ring)
+		{
+			ringp.SetState(FindState("Deselect"));
+		}
+	}
+
+	action void ShootLoopCheck()
+	{
+		let ring = invoker.owner.FindInventory("PlasmaRing");
+		let ringp = invoker.owner.player.FindPsprite(-100);
+
+		if (!(invoker.owner.player.cmd.buttons & BT_ALTATTACK) || 
+			  invoker.owner.Player.ReadyWeapon != ring || 
+			  invoker.owner.bKILLED ||
+			  ((countinv("Ring") <= 0)))
+			ringp.SetState(FindState("shootEnd"));
+
+	}
 
    default
    {
@@ -153,75 +205,66 @@ class BluePlasmaRing : custominventory
 		PLLL B 1 Offset(85, 145);
 		PLLL B 1 Offset(85, 140);
 		goto Ready;
-	  Ready: //Heartattack incoming
-		PLLL B 8 Offset(85, 141) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(81, 143) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(84, 146) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(85, 142) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(82, 144) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(84, 141) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+	  Ready:
+		PLLL B 3
+		{
+			invoker.ReadyCheck();
+
+			int x, y;
+			bool anim = random[an](0,1);
+
+			if (anim)
+			{
+				x = random[xx](84,86);
+				y = random[yy](139,142);
+
+				A_OverlayOffset(-100,x,y);
+			}
+		}
 		loop;
 	  Deselect:
-		PLLL B 1 Offset(85, 140);
-		PLLL B 1 Offset(85, 145);
-		PLLL B 1 Offset(85, 150);
-		PLLL B 1 Offset(85, 155);
-		PLLL B 1 Offset(85, 160);
-		PLLL B 1 Offset(85, 165);
-		PLLL B 1 Offset(85, 170);
-		PLLL B 1 Offset(85, 175);
-		PLLL B 1 Offset(85, 180);
-		PLLL B 1 Offset(85, 185);
-		PLLL B 1 Offset(85, 190);
-		PLLL B 1 Offset(85, 195);
-		PLLL B 1 Offset(85, 200);
-		Goto CheckPlasmaRing;
-	  CheckPlasmaRing:
-		PLLL B 1 Offset(85, 200)
+		PLLL B 1
 		{
-			let smiley = SmileyPlayer(invoker.owner);
-			let ring = smiley.FindInventory("PlasmaRing");
-			
-			if (smiley.Player.ReadyWeapon == ring) return ResolveState ("plasmaready");
-			
-			return ResolveState (null);
+			A_OverlayOffset(-100,85,invoker.deselectwep);
+			invoker.deselectwep += 5;
+
+			if (invoker.deselectwep >= 220)
+				return ResolveState("stay");
+
+			return ResolveState(null);
 		}
 		Loop;
+	  stay:
+	  	PLLL B 1
+	  	{
+	  		let ring = invoker.owner.FindInventory("PlasmaRing");
+
+	  		if (invoker.owner.Player.ReadyWeapon == ring && !invoker.owner.bKILLED)
+	  		{
+	  			invoker.deselectwep = 140;
+	  			return ResolveState("plasmaready");
+	  		}
+
+	  		return ResolveState(null);
+	  	}
+	  	Loop;
       shoot:
-		TNT1 A 0
-		{
-			let smiley = SmileyPlayer(invoker.owner);
-			let ring = smiley.FindInventory("PlasmaRing");
-			
-			if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect");
-			
-			return ResolveState (null);
-		}
-		PLLL B 2 Offset(85, 141);
-		PLLL B 2 Offset(73, 139);
-		PLLL B 2 Offset(56, 136);
-		PLLL C 2 Offset(167, 105);
-		PLLL C 2 Offset(162, 104);
-		PLLL C 2 Offset(148, 103);
-		TNT1 A 0
-		{
-			let smiley = SmileyPlayer(invoker.owner);
-			let ring = smiley.FindInventory("PlasmaRing");
-			
-			if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect");
-			
-			return ResolveState (null);
-		}
+		PLLL B 2 Offset(85, 141)  { invoker.ShootCheck(); }
+		PLLL B 2 Offset(73, 139)  { invoker.ShootCheck(); }
+		PLLL B 2 Offset(56, 136)  { invoker.ShootCheck(); }
+		PLLL C 2 Offset(167, 105) { invoker.ShootCheck(); }
+		PLLL C 2 Offset(162, 104) { invoker.ShootCheck(); }
+		PLLL C 2 Offset(148, 103) { invoker.ShootCheck(); }
 		goto shootLoop;
 	shootLoop:
-		PLLL D 2 Offset(132, 72) Bright { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); A_FireCustomMissile("plasmaball"); return ResolveState (null); }
-		PLLL C 2 Offset(120, 106) { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); return ResolveState (null); }
-		PLLL D 2 Offset(103, 74) Bright { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); A_FireCustomMissile("plasmaball"); return ResolveState (null); }
-		PLLL C 2 Offset(123, 115) { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); return ResolveState (null); }
-		PLLL D 2 Offset(106, 82) Bright { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); A_FireCustomMissile("plasmaball"); return ResolveState (null); }
-		PLLL C 2 Offset(140, 103) { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); return ResolveState (null); }
-		PLLL D 2 Offset(125, 72) Bright { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); A_FireCustomMissile("plasmaball"); return ResolveState (null); }
-		PLLL C 2 Offset(119, 104) { if (!(player.cmd.buttons & BT_ALTATTACK)) return ResolveState ("shootEnd"); return ResolveState (null); }
+		PLLL D 2 Offset(132, 72) Bright { invoker.ShootLoopCheck(); A_FireCustomMissile("plasmaball"); }
+		PLLL C 2 Offset(120, 106) 		{ invoker.ShootLoopCheck(); }
+		PLLL D 2 Offset(103, 74) Bright { invoker.ShootLoopCheck(); A_FireCustomMissile("plasmaball"); }
+		PLLL C 2 Offset(123, 115) 		{ invoker.ShootLoopCheck(); }
+		PLLL D 2 Offset(106, 82) Bright { invoker.ShootLoopCheck(); A_FireCustomMissile("plasmaball"); }
+		PLLL C 2 Offset(140, 103) 		{ invoker.ShootLoopCheck(); }
+		PLLL D 2 Offset(125, 72) Bright { invoker.ShootLoopCheck(); A_FireCustomMissile("plasmaball"); }
+		PLLL C 2 Offset(119, 104) 		{ invoker.ShootLoopCheck(); }
 		Loop;
 	shootEnd:
 		PLLL C 2 Offset(125, 107);

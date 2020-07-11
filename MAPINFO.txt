@@ -16,6 +16,7 @@ gameinfo
 	//menufontcolor_selection = "GOLD"
 	//pausesign = "M_PAUSE"
 	playerclasses="MrSmiley","UncleSmiley", "Emoley"
+	statusbarclass = "SmileyStatusBar"
 }
 
 clearepisodes

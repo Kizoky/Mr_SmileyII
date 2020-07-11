@@ -2,6 +2,8 @@ version "3.2"
 
 #include "zscript/Smiley.Nashgore.txt"
 
+#include "zscript/Smiley.HUD.txt"
+
 //------------ All monster functions were taken into a single actor due to limitations (which was a stupid idea ~2019)
 #include "zscript/monsters/Smiley.MonsterCore.txt"
 //------------ Monsters

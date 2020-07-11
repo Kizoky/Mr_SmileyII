@@ -57,13 +57,14 @@ DoomEdNums
   32726 = BlackRanger
 }
 
+
 DoomEdNums
 {
-  2005 = ChainsawPickup
-  2001 = ShotgunPickup
-  82 = SuperShotgunPickup
-  2002 = ChaingunPickup
-  2003 = RocketLauncherPickup
-  2004 = PlasmaRiflePickup
-  2006 = BFG9000Pickup
+  2005 = Toothbrush
+  2001 = SmileyShotgun
+  82 = SmileySuperShotgun
+  2002 = SmileyChaingun
+  2003 = SmileyChickenLauncher
+  2004 = PlasmaRing
+  2006 = SmileyGoodFetherBird
 }

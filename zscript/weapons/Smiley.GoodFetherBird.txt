@@ -1,4 +1,4 @@
-class SmileyGoodFetherBird : SmileyWeapon
+class SmileyGoodFetherBird : SmileyWeapon replaces BFG9000
 {
 	Default
 	{

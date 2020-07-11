@@ -1,6 +1,6 @@
 //Yes.... this is the weapon's name.
 
-class SmileyChaingun : SmileyWeapon
+class SmileyChaingun : SmileyWeapon replaces Chaingun
 {
 	Default
 	{

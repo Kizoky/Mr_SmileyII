@@ -1,4 +1,4 @@
-class SmileyChickenLauncher : SmileyWeapon
+class SmileyChickenLauncher : SmileyWeapon replaces RocketLauncher
 {
 	Default
 	{

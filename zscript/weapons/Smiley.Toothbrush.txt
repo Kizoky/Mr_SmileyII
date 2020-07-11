@@ -1,4 +1,4 @@
-class Toothbrush : SmileyWeapon
+class Toothbrush : SmileyWeapon replaces Chainsaw
 {
 	Default
 	{

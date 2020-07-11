@@ -1,4 +1,4 @@
-class SmileySuperShotgun : SmileyWeapon
+class SmileySuperShotgun : SmileyWeapon replaces SuperShotgun
 {
 	Default
 	{

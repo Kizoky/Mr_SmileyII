@@ -32,7 +32,7 @@ version "3.2"
 #include "zscript/Smiley.Weapon.SmileyHead.txt"
 #include "zscript/Smiley.Weapon.UncleSmiley.txt"
 #include "zscript/Smiley.Weapon.Emoley.txt"
-#include "zscript/Smiley.WeaponLogic.txt"
+//#include "zscript/Smiley.WeaponLogic.txt"
 //---------- Weapons
 #include "zscript/weapons/Smiley.BaseballBat.txt"
 #include "zscript/weapons/Smiley.ChickenLauncher.txt"

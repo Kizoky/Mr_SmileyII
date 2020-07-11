@@ -1,4 +1,4 @@
-class PlasmaRing : SmileyWeapon
+class PlasmaRing : SmileyWeapon replaces PlasmaRifle
 {
 	Default
 	{
@@ -81,9 +81,24 @@ class BluePlasmaRing : custominventory
 	override void Tick()
 	{
 		Super.Tick();
-	
 	}
-	
+
+	/*
+	action state CheckDeath()
+	{
+		if (owner.player && owner.player.Health <= 0)
+		{
+			let weap = player.ReadyWeapon;
+    		let psp = player.FindPSprite(-100);
+
+    		if (weap && psp && psp.CurState.InStateSequence(weap.FindState("Ready"))
+      			return ResolveState("Deselect");
+
+    		return ResolveState(null);
+		}
+	}
+	*/
+
    default
    {
       Inventory.Amount 1;
@@ -139,12 +154,12 @@ class BluePlasmaRing : custominventory
 		PLLL B 1 Offset(85, 140);
 		goto Ready;
 	  Ready: //Heartattack incoming
-		PLLL B 8 Offset(85, 141) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(81, 143) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(84, 146) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(85, 142) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(82, 144) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
-		PLLL B 8 Offset(84, 141) { if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(85, 141) { invoker.CheckDeath(); if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(81, 143) { invoker.CheckDeath(); if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(84, 146) { invoker.CheckDeath(); if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(85, 142) { invoker.CheckDeath(); if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(82, 144) { invoker.CheckDeath(); if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
+		PLLL B 8 Offset(84, 141) { invoker.CheckDeath(); if (player.cmd.buttons & BT_ALTATTACK) return ResolveState ("shoot"); let smiley = SmileyPlayer(invoker.owner); let ring = smiley.FindInventory("PlasmaRing"); if (smiley.Player.ReadyWeapon != ring) return ResolveState ("Deselect"); return ResolveState (null); }
 		loop;
 	  Deselect:
 		PLLL B 1 Offset(85, 140);

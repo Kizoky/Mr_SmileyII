@@ -118,32 +118,28 @@ class SmileyStatusBar : BaseStatusBar
 			if (AllyHealth != CPlayer.Health)
 			{
 				if (CPlayer.Health > AllyHealth)
-				{
-					AllyHealth = CPlayer.Health;
-				}
+					AllyHealth = CPlayer.Health; // Gained Health, do not update frames
 				else
 				{
+					// Health was reduced!
+
 					AllyHealth = CPlayer.Health;
-					AllyDMGDelay = level.time + 35;
+
+					// Only do DMG Frame delay if the health is more than or equal to 1
+					if (CPlayer.Health >= 1)
+						AllyDMGDelay = level.time + 35;
 
 					if (SmileyPlaya.Player.Attacker)
 					{
 						double badguyangle = SmileyPlaya.AngleTo(SmileyPlaya.Player.Attacker);
 						double diffang = SmileyPlaya.DeltaAngle(SmileyPlaya.angle, badguyangle);	
 
-						if (diffang < 45.)
-						{
-							// right
+						if (diffang < 45.) // right
 							AllyDMGDir = 2;
-						}
-						else if (diffang > .45)
-						{
-							// left
+						else if (diffang > .45) // left							
 							AllyDMGDir = 0;
-						}
 
-						// I dunno if this is exactly like in Doom's source code
-						if (diffang < 25 && diffang > -25)
+						if (diffang < 25 && diffang > -25) // face forward
 							AllyDMGDir = 1;
 					}
 					else
@@ -172,6 +168,8 @@ class SmileyStatusBar : BaseStatusBar
 						DrawImage(string.Format("%sST3%i",SmileyAllyType,AllyMugshotIdleRND), (10, 136), DI_ITEM_OFFSETS);
 					if (CPlayer.Health <= 19 && CPlayer.Health >= 1)
 						DrawImage(string.Format("%sST4%i",SmileyAllyType,AllyMugshotIdleRND), (10, 136), DI_ITEM_OFFSETS);
+					if (CPlayer.Health <= 0)
+						DrawImage(string.Format("%sDEAD0",SmileyAllyType,AllyMugshotIdleRND), (10, 136), DI_ITEM_OFFSETS);
 
 				}
 				else
@@ -179,6 +177,7 @@ class SmileyStatusBar : BaseStatusBar
 					switch (AllyDMGDir)
 					{
 						case 0:
+						// Face left
 							if (CPlayer.Health >= 80)
 								DrawImage(string.Format("%sTL00",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
 							if (CPlayer.Health <= 79 && CPlayer.Health >= 60)
@@ -191,6 +190,7 @@ class SmileyStatusBar : BaseStatusBar
 								DrawImage(string.Format("%sTL40",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
 							break;
 						case 1:
+						// Face forward
 							if (CPlayer.Health >= 80)
 								DrawImage(string.Format("%sKILL0",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
 							if (CPlayer.Health <= 79 && CPlayer.Health >= 60)
@@ -203,6 +203,7 @@ class SmileyStatusBar : BaseStatusBar
 								DrawImage(string.Format("%sKILL4",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
 							break;
 						case 2:
+						// Face right
 							if (CPlayer.Health >= 80)
 								DrawImage(string.Format("%sTR00",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
 							if (CPlayer.Health <= 79 && CPlayer.Health >= 60)

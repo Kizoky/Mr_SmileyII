@@ -1,0 +1,1 @@
+gzdoom -file $(pwd) +map map01

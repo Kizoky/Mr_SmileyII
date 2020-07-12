@@ -7,6 +7,8 @@ class SmileyStatusBar : BaseStatusBar
 
 	int AllyHealth, AllyMugshotIdleTime, AllyMugshotIdleRND;
 	int AllyDMGDir, AllyDMGDelay;
+
+	string CurrentLevel;
 	
 
 	override void Init()
@@ -21,6 +23,8 @@ class SmileyStatusBar : BaseStatusBar
 		mIndexFont = HUDFont.Create(fnt, fnt.GetCharWidth("0"), Mono_CellLeft);
 		mAmountFont = HUDFont.Create("INDEXFONT");
 		diparms = InventoryBarState.Create();
+
+		CurrentLevel = level.mapname;
 	}
 
 	override void Draw (int state, double TicFrac)
@@ -111,6 +115,14 @@ class SmileyStatusBar : BaseStatusBar
 		if (SmileyPlaya) //todo also check for Ally pointer
 		{
 			DrawImage("STFBANY", (10, 137), DI_ITEM_OFFSETS|DI_TRANSLATABLE);
+
+			// after a level change it breaks the HUD
+			if (CurrentLevel != level.mapname)
+			{
+				AllyDMGDelay = 0;
+				AllyMugshotIdleTime = 0;
+				CurrentLevel = level.mapname;
+			}
 
 			// NOTE: Before you raise your eyebrows, I temporarily check for Player's health for now to ensure it is working
 			// This secondary mugshot will display your Ally's and I thought it would be kinda cool

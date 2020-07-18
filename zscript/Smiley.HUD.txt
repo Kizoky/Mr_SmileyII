@@ -111,22 +111,33 @@ class SmileyStatusBar : BaseStatusBar
 		int scaleY2 = (scaleYcvar.GetInt());
 
 		string SmileyAllyType = "STF";
-
-		if (SmileyPlaya) //todo also check for Ally pointer
+		string mugshotImage;
+		
+		DrawImage("STFBANY", (10, 137), DI_ITEM_OFFSETS|DI_TRANSLATABLE);
+		
+		// after a level change it breaks the HUD
+		if (CurrentLevel != level.mapname)
 		{
-			DrawImage("STFBANY", (10, 137), DI_ITEM_OFFSETS|DI_TRANSLATABLE);
-
-			// after a level change it breaks the HUD
-			if (CurrentLevel != level.mapname)
+			AllyDMGDelay = 0;
+			AllyMugshotIdleTime = 0;
+			CurrentLevel = level.mapname;
+		}
+		
+		if (SmileyPlaya)
+		{
+			static const int MugshotDamageLevels[] = {
+					80, 60, 40, 20, 1
+			};
+	
+			int mugshotDamageState = 0;
+			for (int i = 0; i < MugshotDamageLevels.Size (); i++)
 			{
-				AllyDMGDelay = 0;
-				AllyMugshotIdleTime = 0;
-				CurrentLevel = level.mapname;
+				if (CPlayer.Health <= MugshotDamageLevels [i])
+				{
+					mugshotDamageState = i;
+				}
 			}
-
-			// NOTE: Before you raise your eyebrows, I temporarily check for Player's health for now to ensure it is working
-			// This secondary mugshot will display your Ally's and I thought it would be kinda cool
-
+			
 			if (AllyHealth != CPlayer.Health)
 			{
 				if (CPlayer.Health > AllyHealth)
@@ -134,109 +145,72 @@ class SmileyStatusBar : BaseStatusBar
 				else
 				{
 					// Health was reduced!
-
+	
 					AllyHealth = CPlayer.Health;
-
+	
 					// Only do DMG Frame delay if the health is more than or equal to 1
 					if (CPlayer.Health >= 1)
-						AllyDMGDelay = level.time + 35;
-
+						AllyDMGDelay = level.time + 40;
+	
 					if (SmileyPlaya.Player.Attacker)
 					{
 						double badguyangle = SmileyPlaya.AngleTo(SmileyPlaya.Player.Attacker);
 						double diffang = SmileyPlaya.DeltaAngle(SmileyPlaya.angle, badguyangle);	
-
+	
 						if (diffang < 45.) // right
 							AllyDMGDir = 2;
 						else if (diffang > .45) // left							
 							AllyDMGDir = 0;
-
+	
 						if (diffang < 25 && diffang > -25) // face forward
 							AllyDMGDir = 1;
 					}
 					else
 						AllyDMGDir = 1;
 				}
+			}
+			
+			if (CPlayer.Health <= 0)
+			{
+				mugshotImage = string.Format("%sDEAD0", SmileyAllyType);
+			}
+			else if (AllyDMGDelay < level.time)
+			{		
+				// Randomize the frames on the Mugshot
+				if (AllyMugshotIdleTime < level.time)
+				{
+					AllyMugshotIdleTime = level.time + random[amsit](17, 35);
+					AllyMugshotIdleRND = random[mir](0, 2);
+				}
+	
+				mugshotImage = string.Format("%sST%i%i", SmileyAllyType, mugshotDamageState, AllyMugshotIdleRND);
 				
 			}
 			else
 			{
-				if (AllyDMGDelay < level.time)
+				switch (AllyDMGDir)
 				{
-					// Randomize the frames on the Mugshot
-					if (AllyMugshotIdleTime < level.time)
-					{
-						AllyMugshotIdleTime = level.time + random[amsit](17,35);
-						AllyMugshotIdleRND = random[mir](0,2);
-					}
-
-					if (CPlayer.Health >= 80)
-						DrawImage(string.Format("%sST0%i",SmileyAllyType,AllyMugshotIdleRND), (10, 136), DI_ITEM_OFFSETS);
-					if (CPlayer.Health <= 79 && CPlayer.Health >= 60)
-						DrawImage(string.Format("%sST1%i",SmileyAllyType,AllyMugshotIdleRND), (10, 136), DI_ITEM_OFFSETS);
-					if (CPlayer.Health <= 59 && CPlayer.Health >= 40)
-						DrawImage(string.Format("%sST2%i",SmileyAllyType,AllyMugshotIdleRND), (10, 136), DI_ITEM_OFFSETS);
-					if (CPlayer.Health <= 39 && CPlayer.Health >= 20)
-						DrawImage(string.Format("%sST3%i",SmileyAllyType,AllyMugshotIdleRND), (10, 136), DI_ITEM_OFFSETS);
-					if (CPlayer.Health <= 19 && CPlayer.Health >= 1)
-						DrawImage(string.Format("%sST4%i",SmileyAllyType,AllyMugshotIdleRND), (10, 136), DI_ITEM_OFFSETS);
-					if (CPlayer.Health <= 0)
-						DrawImage(string.Format("%sDEAD0",SmileyAllyType,AllyMugshotIdleRND), (10, 136), DI_ITEM_OFFSETS);
-
-				}
-				else
-				{
-					switch (AllyDMGDir)
-					{
-						case 0:
-						// Face left
-							if (CPlayer.Health >= 80)
-								DrawImage(string.Format("%sTL00",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 79 && CPlayer.Health >= 60)
-								DrawImage(string.Format("%sTL10",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 59 && CPlayer.Health >= 40)
-								DrawImage(string.Format("%sTL20",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 39 && CPlayer.Health >= 20)
-								DrawImage(string.Format("%sTL30",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 19 && CPlayer.Health >= 1)
-								DrawImage(string.Format("%sTL40",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							break;
-						case 1:
-						// Face forward
-							if (CPlayer.Health >= 80)
-								DrawImage(string.Format("%sKILL0",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 79 && CPlayer.Health >= 60)
-								DrawImage(string.Format("%sKILL1",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 59 && CPlayer.Health >= 40)
-								DrawImage(string.Format("%sKILL2",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 39 && CPlayer.Health >= 20)
-								DrawImage(string.Format("%sKILL3",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 19 && CPlayer.Health >= 1)
-								DrawImage(string.Format("%sKILL4",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							break;
-						case 2:
-						// Face right
-							if (CPlayer.Health >= 80)
-								DrawImage(string.Format("%sTR00",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 79 && CPlayer.Health >= 60)
-								DrawImage(string.Format("%sTR10",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 59 && CPlayer.Health >= 40)
-								DrawImage(string.Format("%sTR20",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 39 && CPlayer.Health >= 20)
-								DrawImage(string.Format("%sTR30",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							if (CPlayer.Health <= 19 && CPlayer.Health >= 1)
-								DrawImage(string.Format("%sTR40",SmileyAllyType), (10, 136), DI_ITEM_OFFSETS);
-							break;
-						default:
-							break;
-					}
+					case 0:
+					// Face left
+						mugshotImage = string.Format("%sTL%i0", SmileyAllyType, mugshotDamageState);
+						break;
+					case 1:
+					// Face forward
+						mugshotImage = string.Format("%sKILL%i", SmileyAllyType, mugshotDamageState);
+						break;
+					case 2:
+					// Face right
+						mugshotImage = string.Format("%sTR%i0", SmileyAllyType, mugshotDamageState);
+						break;
+					default:
+						break;
 				}
 			}
-
+	
+			DrawImage(mugshotImage, (10, 136), DI_ITEM_OFFSETS);
+	
 			DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (extraX2, extraY2), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_UNTRANSLATED, 0.6, -1, 4, (0.35,0.35));
 		}
-
-
 	}
 
 	protected virtual void DrawBarKeys()

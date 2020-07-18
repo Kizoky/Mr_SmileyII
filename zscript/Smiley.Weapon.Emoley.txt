@@ -46,7 +46,7 @@ class Smileapocal : Weapon
 		EMO1 A 1 A_WeaponReady;
 		Loop;
 	Deselect:
-		EMO1 A 1 A_Lower;
+		EMO1 A 1 { A_StartSound("emoley/smileapocal1", CHAN_BODY); A_Lower(); }
 		Loop;
 	Select:
 		EMO1 A 1 A_Raise;
@@ -74,6 +74,7 @@ class Smileapocal : Weapon
 					{
 						LineData.HitActor.bFRIENDLY = true;
 						Console.Printf("Got an actor called %s", LineData.HitActor.GetClassName());
+						A_StartSound("emoley/smileapocal1", CHAN_BODY);
 					}
 				}
 				SetPlayerProperty(0,0,PROP_FROZEN);

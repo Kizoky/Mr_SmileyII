@@ -5,7 +5,7 @@ The theme of this mod is random, it has Power Rangers, Barneys, dead Doomguy, st
 Goal is to somewhat keep that 90s feeling, when at that time was considered famous, nowadays it is forgotten in the shadows.
 
 # Official Discord server
-https://discord.gg/nDeQvFS
+https://discord.gg/XAQ9UCK
 
 # Features:
 - Completely redrawn textures (inspired by MS-PAINT Doom)

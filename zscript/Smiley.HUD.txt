@@ -176,7 +176,7 @@ class SmileyStatusBar : BaseStatusBar
 			}
 			else if (AllyDMGDelay < level.time)
 			{		
-				// Randomize the frames on the Mugshot
+				// Randomize the frames on the Mugshot.
 				if (AllyMugshotIdleTime < level.time)
 				{
 					AllyMugshotIdleTime = level.time + random[amsit](17, 35);

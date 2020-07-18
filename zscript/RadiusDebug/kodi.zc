@@ -1,0 +1,51 @@
+// This is a LineTrace debugger made by kodi
+
+Class VectorBeam : actor
+{
+	int LifeTime;
+	default
+	{
+		Renderstyle "Stencil";
+		StencilColor "FF5a36";
+		+NOINTERACTION;
+		+NOBLOCKMAP;
+		
+	}
+	Override void PostBeginPlay()
+	{
+		self.pitch += 90.0;
+		super.PostBeginPlay();
+	}
+	
+	static vector2 AnglesFromVec3 (vector3 vec)
+	{
+		Vector3 vecUnit = vec.unit();
+		double angle = atan2(vecUnit.y, vecUnit.x);
+		double pitch = asin(-vecUnit.z);
+		return (angle,pitch);
+	}
+	
+	static void SpawnVectorBeam (vector3 startpos, vector3 endpos, double width, color col, int time)
+	{
+		let a = VectorBeam(Spawn("VectorBeam", StartPos, NO_REPLACE));
+		if(a)
+		{
+			vector3 dif = startpos - endpos;
+			vector2 angs = AnglesFromVec3(dif);
+			a.angle = angs.x;
+			a.pitch = angs.y;
+			a.scale.y = (startpos-endpos).length();
+			a.scale.x = width;
+			a.LifeTime = time;
+			a.SetShade(col);
+		}
+	}
+	
+	states
+	{
+		Spawn:
+		TNT1 A 0;
+		MODL A 1 BRIGHT A_SetTics(LifeTime);
+		stop;
+	}
+}

@@ -1,0 +1,61 @@
+EmoleyPain50a sounds/Emoley/hurt_1.wav
+EmoleyPain50b sounds/Emoley/hurt_2.wav
+
+emoley/cheat1 sounds/Emoley/cheat_1.wav
+emoley/cheat2 sounds/Emoley/cheat_2.wav
+emoley/cheat3 sounds/Emoley/cheat_3.wav
+
+emoley/convertfail1 sounds/Emoley/convertfail_1.wav
+emoley/convertfail2 sounds/Emoley/convertfail_2.wav
+
+emoley/darkenergy1 sounds/Emoley/darkenergy_1.wav
+emoley/darkenergy2 sounds/Emoley/darkenergy_2.wav
+
+emoley/deny1 sounds/Emoley/denied_1.wav
+emoley/deny2 sounds/Emoley/denied_2.wav
+emoley/denytoomuch sounds/Emoley/denied2many.wav
+
+emoley/bigenemydead1 sounds/Emoley/hardenemykilled_1.wav
+emoley/bigenemydead2 sounds/Emoley/hardenemykilled_2.wav
+emoley/bigenemydead3 sounds/Emoley/hardenemykilled_3.wav
+emoley/bigenemydead4 sounds/Emoley/hardenemykilled_4.wav
+
+emoley/idle1 sounds/Emoley/idle_1.wav
+emoley/idle2 sounds/Emoley/idle_2.wav
+emoley/idle3 sounds/Emoley/idle_3.wav
+emoley/idle4 sounds/Emoley/idle_4.wav
+
+emoley/lowammo1 sounds/Emoley/lowammo_1_wav
+emoley/lowammo2 sounds/Emoley/lowammo_2.wav
+
+emoley/lowhealth1 sounds/Emoley/lowhealth_1.wav
+emoley/lowhealth2 sounds/Emoley/lowhealth_2.wav
+
+emoley/miniondead1 sounds/Emoley/minionsdead_1.wav
+emoley/miniondead2 sounds/Emoley/minionsdead_2.wav
+emoley/miniondead3 sounds/Emoley/minionsdead_3.wav
+
+emoley/possession sounds/Emoley/possession_1.wav
+
+emoley/savemock sounds/Emoley/save2many_1.wav
+
+emoley/saved4later1 sounds/Emoley/saved4later_1.wav
+emoley/saved4later2 sounds/Emoley/saved4later_2.wav
+
+emoley/smileapocal1 sounds/Emoley/smileapocal_1.wav
+emoley/smileapocal2 sounds/Emoley/smileapocal_2.wav
+
+emoley/smilegenerator1 sounds/Emoley/smilegenerator_1.wav
+emoley/smilegenerator2 sounds/Emoley/smilegenerator_2.wav
+
+emoley/sweetdarkness1 sounds/Emoley/sweetdarkness_1.wav
+emoley/sweetdarkness2 sounds/Emoley/sweetdarkness_2.wav
+
+emoley/zerosmile1 sounds/Emoley/zerosmile.wav
+emoley/zerosmile2 sounds/Emoley/zerosmile_2.wav
+
+$playeralias Emoleyy male *death UncleDeath
+$playeralias Emoleyy male *pain100 EmoleyPain50a
+$playeralias Emoleyy male *pain75 EmoleyPain50a
+$playeralias Emoleyy male *pain50 EmoleyPain50b
+$playeralias Emoleyy male *pain25 EmoleyPain50b

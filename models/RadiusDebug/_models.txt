@@ -7,3 +7,13 @@ Model RadiusDebug
 	AngleOffset 90
 	FrameIndex 0000 A 0 0
 }
+
+model "VectorBeam"
+{
+	Path "models/RadiusDebug"
+	model 0 "1mubeam.md3"
+	skin 0 "wt.png"
+	scale 1.0 1.0 1.2
+	USEACTORPITCH
+	FrameIndex MODL A 0 0
+}

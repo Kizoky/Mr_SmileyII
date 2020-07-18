@@ -5,19 +5,92 @@ class Emoley : SmileyPlayer
 	Species "Marines";
 	Player.DisplayName "Emoley";
 	Player.Face "EMO";
-	Player.Soundclass "UncleUncle";
-	Player.StartItem "EmoleyPistol";
+	Player.Soundclass "Emoleyy";
+	Player.StartItem "Smileapocal";
 	Player.StartItem "EmoleyShotgun";
 	Player.StartItem "SmileyBat";
 	Player.StartItem "Clip", 75;
 	Player.StartItem "Shell", 20;
 	Player.WeaponSlot 1, "SmileyBat", "Toothbrush";
-	Player.WeaponSlot 2, "EmoleyPistol", "Emostaff";
+	Player.WeaponSlot 2, "Smileapocal", "Emostaff";
 	Player.WeaponSlot 3, "EmoleyShotgun", "SmileySuperShotgun";
 	Player.WeaponSlot 4, "SmileyChaingun";
 	Player.WeaponSlot 5, "SmileyChickenLauncher";
 	Player.WeaponSlot 6, "PlasmaRing";
 	Player.WeaponSlot 7, "SmileyGoodFetherBird";
+	}
+}
+
+class Smileapocal : Weapon
+{
+	Default
+	{
+		Weapon.Kickback 100;
+		Decal "bulletchip";
+		Weapon.SelectionOrder 1900;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 20;
+		Weapon.AmmoType "Clip";
+		Obituary "$OB_MPPISTOL";
+		+WEAPON.WIMPY_WEAPON;
+		Tag "$TAG_PISTOL";
+		Inventory.PickupMessage "Ya got the..Pistol?";
+		Weapon.BobRangeX 0.2;
+		Weapon.BobRangeY -0.8;
+		Weapon.BobSpeed 1.4;
+		Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		EMO1 A 1 A_WeaponReady;
+		Loop;
+	Deselect:
+		EMO1 A 1 A_Lower;
+		Loop;
+	Select:
+		EMO1 A 1 A_Raise;
+		Loop;
+	Fire:		
+		EMO1 D 3 Offset(150,50)
+		{
+			SetPlayerProperty(0,1,PROP_FROZEN);
+		}
+		Goto FireLoop;
+	FireLoop:
+		EMO1 D 1 Offset(145,55)
+		{
+			SetPlayerProperty(0,1,PROP_FROZEN);
+			
+			FLineTraceData lineData;
+			LineTrace(angle,1000,pitch, offsetz: height-25, data: LineData);
+			VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "00a2e8", 2);
+			if (!(player.cmd.buttons & BT_ATTACK))
+			{
+				VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "ffffff", 2);
+				if (LineData.HitType == TRACE_HitActor)
+				{
+					if (LineData.HitActor && !LineData.HitActor.bKILLED && !LineData.HitActor.bFRIENDLY)
+					{
+						LineData.HitActor.bFRIENDLY = true;
+						Console.Printf("Got an actor called %s", LineData.HitActor.GetClassName());
+					}
+				}
+				SetPlayerProperty(0,0,PROP_FROZEN);
+				return ResolveState ("Ready");
+			}
+				
+			return ResolveState (null);
+			
+		}
+		Loop;
+	Flash:
+		TNT1 A 0 Bright A_Light2;
+		TNT1 A 1 Bright A_Light1;
+		Goto LightDone;
+	Spawn:
+		PIST A -1;
+		Stop;
 	}
 }
 
@@ -81,53 +154,3 @@ class EmoleyShotgun : Weapon
 		Stop;
 	}
 }	
-class EmoleyPistol : Weapon
-{
-	Default
-	{
-	Weapon.Kickback 100;
-	Decal "bulletchip";
-	Weapon.SelectionOrder 1900;
-	Weapon.AmmoUse 1;
-	Weapon.AmmoGive 20;
-	Weapon.AmmoType "Clip";
-	Obituary "$OB_MPPISTOL";
-	+WEAPON.WIMPY_WEAPON;
-	Tag "$TAG_PISTOL";
-	Inventory.PickupMessage "Ya got the..Pistol?";
-	Weapon.BobRangeX 0.2;
-	Weapon.BobRangeY -0.8;
-	Weapon.BobSpeed 1.4;
-	Weapon.BobStyle "InverseSmooth";
-	}
-	States
-	{
-	Ready:
-		CSAT A 1 A_WeaponReady;
-		Loop;
-	Deselect:
-		CSAT A 1 A_Lower;
-		Loop;
-	Select:
-		CSAT A 1 A_Raise;
-		Loop;
-	Fire:		
-		//EMO1 D 3 Offset(129, 31) A_FirePistol;
-		//EMO1 D 2 Offset(143, 6) A_FirePistol;
-		//EMO1 D 2 Offset(135, 31) A_FirePistol;
-		//EMO1 C 3 Offset(140, 39);
-		//EMO1 C 2 Offset(124, 48);
-		//EMO1 B 2 Offset(155, 51);
-		//EMO1 B 2 Offset(164, 61);
-		CSAT A 1;
-		CSAT B 3 A_FirePistol;
-		Goto Ready;
-	Flash:
-		TNT1 A 0 Bright A_Light2;
-		TNT1 A 1 Bright A_Light1;
-		Goto LightDone;
-	Spawn:
-		PIST A -1;
-		Stop;
-	}
-}

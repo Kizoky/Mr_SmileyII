@@ -45,7 +45,13 @@ class SmileyStatusBar : BaseStatusBar
 
 	protected void DrawMainBar (double TicFrac)
 	{
-		DrawImage("STBAR", (0, 168), DI_ITEM_OFFSETS);
+		if (CPlayer.mo is 'Emoley')
+		{
+			DrawImage("EMOBAR", (0, 168), DI_ITEM_OFFSETS);
+		}
+		else
+			DrawImage("STBAR", (0, 168), DI_ITEM_OFFSETS);
+		
 		DrawImage("STTPRCNT", (90, 171), DI_ITEM_OFFSETS);
 		DrawImage("STTPRCNT", (221, 171), DI_ITEM_OFFSETS);
 		

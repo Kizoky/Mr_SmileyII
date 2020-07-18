@@ -9,8 +9,8 @@ class Emoley : SmileyPlayer
 	Player.StartItem "Smileapocal";
 	Player.StartItem "EmoleyShotgun";
 	Player.StartItem "SmileyBat";
-	Player.StartItem "Clip", 75;
-	Player.StartItem "Shell", 20;
+	Player.StartItem "EmoleyMana", 100;
+	//Player.StartItem "Shell", 20;
 	Player.WeaponSlot 1, "SmileyBat", "Toothbrush";
 	Player.WeaponSlot 2, "Smileapocal", "Emostaff";
 	Player.WeaponSlot 3, "EmoleyShotgun", "SmileySuperShotgun";
@@ -21,8 +21,42 @@ class Emoley : SmileyPlayer
 	}
 }
 
+class EmoleyMana : Ammo
+{
+	Default
+	{
+		Inventory.PickupMessage "Picked up a mana for Emoley.";
+		Inventory.Amount 10;
+		Inventory.MaxAmount 500;
+		Ammo.BackpackAmount 10;
+		Ammo.BackpackMaxAmount 750;
+		Inventory.Icon "CLIPA0";
+		Tag "$AMMO_CLIP";
+	}
+	States
+	{
+	Spawn:
+		CLIP A -1;
+		Stop;
+	}
+}
+
 class Smileapocal : Weapon
 {
+	double BeforeAddMana;
+	override void Tick()
+	{
+		Super.Tick();
+		if (!owner) return;
+		
+		BeforeAddMana += 0.1;
+		if (BeforeAddMana >= 1)
+		{
+			owner.A_GiveInventory("EmoleyMana",1);
+			BeforeAddMana = 0;
+		}
+	
+	}
 	Default
 	{
 		Weapon.Kickback 100;
@@ -30,7 +64,7 @@ class Smileapocal : Weapon
 		Weapon.SelectionOrder 1900;
 		Weapon.AmmoUse 1;
 		Weapon.AmmoGive 20;
-		Weapon.AmmoType "Clip";
+		Weapon.AmmoType "EmoleyMana";
 		Obituary "$OB_MPPISTOL";
 		+WEAPON.WIMPY_WEAPON;
 		Tag "$TAG_PISTOL";
@@ -51,7 +85,18 @@ class Smileapocal : Weapon
 	Select:
 		EMO1 A 1 A_Raise;
 		Loop;
-	Fire:		
+	Fire:
+		TNT1 A 0
+		{
+			if (CountInv("EmoleyMana") < 50)
+			{
+				A_StartSound("emoley/nomana", CHAN_WEAPON);
+				return resolveState("Ready");
+			}
+				
+			return resolveState(null);
+		
+		}
 		EMO1 D 3 Offset(150,50)
 		{
 			SetPlayerProperty(0,1,PROP_FROZEN);
@@ -74,7 +119,11 @@ class Smileapocal : Weapon
 					{
 						LineData.HitActor.bFRIENDLY = true;
 						Console.Printf("Got an actor called %s", LineData.HitActor.GetClassName());
-						A_StartSound("emoley/smileapocal1", CHAN_BODY);
+						LineData.HitActor.A_StartSound("emoley/convertedunit", CHAN_BODY);
+						A_StartSound("emoley/convertedunit", CHAN_WEAPON);
+						
+						
+						self.A_TakeInventory("EmoleyMana",25);
 					}
 				}
 				SetPlayerProperty(0,0,PROP_FROZEN);

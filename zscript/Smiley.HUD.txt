@@ -245,7 +245,22 @@ class SmileyStatusBar : BaseStatusBar
 	
 	protected virtual void DrawBarAmmo()
 	{
-		if (CPlayer.Mo is 'Emoley') return;
+		if (CPlayer.Mo is 'Emoley')
+		{
+			int amt1, maxamt;
+			[amt1, maxamt] = GetAmount("EmoleyMana");
+			DrawString(mIndexFont, FormatNumber(amt1, 3), (314, 173), DI_TEXT_ALIGN_RIGHT);
+			
+			[amt1, maxamt] = GetAmount("EmoleyEnergy");
+			DrawString(mIndexFont, FormatNumber(amt1, 3), (314, 179), DI_TEXT_ALIGN_RIGHT);
+			
+			
+			
+			[amt1, maxamt] = GetAmount("EmoleyMinions");
+			DrawString(mIndexFont, FormatNumber(amt1, 3), (314, 191), DI_TEXT_ALIGN_RIGHT);
+			
+			return;
+		}
 
 		int amt1, maxamt;
 		[amt1, maxamt] = GetAmount("SmileyClip");

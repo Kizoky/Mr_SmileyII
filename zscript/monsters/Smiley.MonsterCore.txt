@@ -3,6 +3,7 @@
 class SmileyActor : Actor
 {
 	bool iHaveBeenResurrected, EmoleyAlly;
+	actor MyMaster;
 	
 	override void Tick()
 	{

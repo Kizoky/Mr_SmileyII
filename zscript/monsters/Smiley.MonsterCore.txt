@@ -2,7 +2,7 @@
 //We extend stuff for this class so we don't have to extend it over and over time
 class SmileyActor : Actor
 {
-	bool iHaveBeenResurrected;
+	bool iHaveBeenResurrected, EmoleyAlly;
 	
 	override void Tick()
 	{

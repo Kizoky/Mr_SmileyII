@@ -68,6 +68,20 @@ flickerlight ROCKET_X3
 	attenuate 1
 }
 
+flickerlight EMOMANA
+{
+	color 0 0.57 0.99
+	size 25
+	secondarySize 33
+	chance 0.5
+	attenuate 1
+}
+
+object EmoleyMana
+{
+	frame EMOMA { light EMOMANA }
+}
+
 object ChickenR
 {
     frame MISLA { light CHICKENROCKET    }

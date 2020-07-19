@@ -3,6 +3,7 @@ version "3.2"
 #include "zscript/Smiley.Nashgore.txt"
 
 #include "zscript/Smiley.HUD.txt"
+#include "zscript/Smiley.EventHandler.txt"
 
 #include "zscript/RadiusDebug/RadiusDebug.zc"
 #include "zscript/RadiusDebug/kodi.zc"

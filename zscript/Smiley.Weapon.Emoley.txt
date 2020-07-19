@@ -9,7 +9,7 @@ class Emoley : SmileyPlayer
 	Player.StartItem "Smileapocal";
 	Player.StartItem "EmoleyShotgun";
 	Player.StartItem "SmileyBat";
-	Player.StartItem "EmoleyMana", 100;
+	Player.StartItem "EmoleyMana", 150;
 	//Player.StartItem "Shell", 20;
 	Player.WeaponSlot 1, "SmileyBat", "Toothbrush";
 	Player.WeaponSlot 2, "Smileapocal", "Emostaff";
@@ -26,17 +26,20 @@ class EmoleyMana : Ammo
 	Default
 	{
 		Inventory.PickupMessage "Picked up a mana for Emoley.";
-		Inventory.Amount 10;
+		Inventory.Amount 1;
 		Inventory.MaxAmount 500;
-		Ammo.BackpackAmount 10;
+		Ammo.BackpackAmount 5;
 		Ammo.BackpackMaxAmount 750;
-		Inventory.Icon "CLIPA0";
+		Inventory.Icon "EMOMA0";
 		Tag "$AMMO_CLIP";
+		Scale 1.2;
+		+FLOATBOB
+		+NOGRAVITY
 	}
 	States
 	{
 	Spawn:
-		CLIP A -1;
+		EMOM A -1;
 		Stop;
 	}
 }
@@ -224,7 +227,8 @@ class Smileapocal : Weapon
 				{
 					if (LineData.HitActor && !LineData.HitActor.bKILLED && !LineData.HitActor.bFRIENDLY && LineData.HitActor.bISMONSTER)
 					{
-						if (CountInv("EmoleyMana") < LineData.HitActor.Health)
+						// If enemy has too much health do not attempt to convert
+						if (CountInv("EmoleyMana") < LineData.HitActor.Health / 1.5)
 						{
 							Console.Printf("Enemy has too much health to convert!!");
 							A_StartSound("emoley/nomana", CHAN_WEAPON);
@@ -233,9 +237,14 @@ class Smileapocal : Weapon
 						}
 						
 						LineData.HitActor.bFRIENDLY = true;
-						//Console.Printf("Got an actor called %s", LineData.HitActor.GetClassName());
 						LineData.HitActor.A_StartSound("emoley/convertedunit", CHAN_BODY);
 						A_StartSound("emoley/convertedunit", CHAN_WEAPON);
+						
+						let ally = SmileyActor(LineData.HitActor);
+						if (ally)
+						{
+							ally.EmoleyAlly = true;
+						}
 						
 						actor flame = spawn("EmoleyFlame", LineData.HitActor.pos);
 						if (flame)

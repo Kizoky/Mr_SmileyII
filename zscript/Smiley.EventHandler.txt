@@ -1,0 +1,68 @@
+class SmileyCoreHandler : EventHandler 
+{
+	override void WorldTick()
+	{
+		let player = players[consoleplayer].mo;
+	}
+
+   override void NetworkProcess (ConsoleEvent e)
+   {
+	/*
+      if (e.Name ~== "Kicking")
+	  {
+			PostalDude p = PostalDude(players[e.Player].mo);
+			PlayerInfo player = players [e.Player];
+			
+			if (!p || !p.PlayerData) return;
+			
+			if (p.bKILLED) return;
+			if (p.SuicideCamera) return;
+			
+			//Console.Printf("Q pressed (Mighty Foot Engaged)");
+			if (p)
+				p.Kick = true;
+	  }
+	 */
+   }
+   
+   override void PlayerEntered (PlayerEvent e)
+   {
+		PlayerPawn n = PlayerPawn(players[e.PlayerNumber].mo);
+   }
+   
+   override void WorldThingSpawned (Worldevent e)
+   {
+		let SpawnedThing = e.Thing;
+   }
+	
+	override void WorldThingDied(WorldEvent e)
+	{	
+		if (e.Inflictor && e.Thing)
+		{
+			let player = players[consoleplayer].mo;
+			
+			if (e.Thing != Player)
+			{
+				//Is there a way to maybe get the killer and not the target?
+				if (e.Thing.target is 'SmileyActor' && !(e.Thing.target is 'SmileyPlayer'))
+				{
+					if (Player != null)
+					{
+						let pa = SmileyActor(e.Thing.target);
+						if (pa && pa.EmoleyAlly)
+						{
+							int i = 0;
+							while (i < e.Thing.Default.Health / 2.5)
+							{
+								pa.spawn("EmoleyMana", e.Thing.pos+(random[x](-25,25),random[y](-25,25),5));
+								i++;
+							}
+						}
+					}
+				}
+			}
+			//else if (e.Thing == PostalDude(e.Inflictor))
+			//	Console.Printf("Player suicided!");
+		}
+	}
+}

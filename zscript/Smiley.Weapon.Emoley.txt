@@ -41,6 +41,124 @@ class EmoleyMana : Ammo
 	}
 }
 
+class EmoleyFlame : SmileyActor
+{
+	Actor Owner;
+	bool FlameAdjusted;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (Owner)
+		{
+			if (Owner is 'MJClone')
+				SetOrigin(Owner.pos+(0,0,55), TRUE);
+			if ((Owner is 'Safariguy') || (Owner is 'Gangster') || (Owner is 'SmileyAlien'))
+				SetOrigin(Owner.pos+(0,0,45), TRUE);
+				
+			// Let's not forget that Barneys can transform
+			if ((Owner is 'Hugaholic') || (Owner is 'Rapeaholic'))
+			{
+				let p = Hugaholic(Owner);
+				
+				// Check if they can transform
+				if (p.canTransform != true)
+					SetOrigin(Owner.pos+(0,0,38), TRUE);
+				else
+				{
+					if (FlameAdjusted != true)
+					{
+						// Make the flame bigger
+						Scale.X = 0.25;
+						Scale.Y = Scale.X;
+						FlameAdjusted = true;
+					}
+					SetOrigin(Owner.pos+(0,0,48), TRUE);
+				}
+			}
+			
+			if ((Owner is 'RedRanger') || (Owner is 'BlueRanger'))
+				SetOrigin(Owner.pos+(0,0,57), TRUE);
+				
+			if (Owner is 'BigEye')
+			{
+					if (FlameAdjusted != true)
+					{
+						// Giant eye ball needs a bigger flame
+						Scale.X = 0.35;
+						Scale.Y = Scale.X;
+						FlameAdjusted = true;
+					}
+					
+				SetOrigin(Owner.pos+(0,0,24), TRUE);
+			}
+			
+			if (Owner is 'HelloKitty')
+			{
+				if (FlameAdjusted != true)
+				{
+					Scale.X = 0.25;
+					Scale.Y = Scale.X;
+					FlameAdjusted = true;
+				}
+				
+				SetOrigin(Owner.pos+(0,0,52), TRUE);
+			}
+			
+			if (Owner is 'Mario')
+			{
+				
+				if (FlameAdjusted != true)
+				{
+					Scale.X = 0.20;
+					Scale.Y = Scale.X;
+					FlameAdjusted = true;
+				}
+				SetOrigin(Owner.pos+(0,0,55), TRUE);
+			}
+			
+			if (Owner.bKILLED)
+				Destroy();
+		}
+	
+	}
+	
+	Default
+	{
+		Health 666;
+		Radius 15;
+		Height 10;
+		Speed 0;
+		PainChance 256;
+		//Monster;
+		-SOLID
+		-SHOOTABLE
+		+FLOAT
+		+NOGRAVITY
+		DropItem "None";
+		Scale 0.15;
+		RenderStyle "Translucent";
+		Alpha 0.88;
+	}
+	States
+	{
+		Spawn:
+			SIXZ ABCD 3;
+			Loop;
+		See:
+			TNT1 A 1 A_Look;
+			Goto Spawn;
+		Pain:
+			Stop;
+		Death:
+			Stop;
+		Melee:
+			Stop;
+		Missile:
+			Stop;
+	}
+}
+
 class Smileapocal : Weapon
 {
 	double BeforeAddMana;
@@ -122,6 +240,15 @@ class Smileapocal : Weapon
 						LineData.HitActor.A_StartSound("emoley/convertedunit", CHAN_BODY);
 						A_StartSound("emoley/convertedunit", CHAN_WEAPON);
 						
+						actor flame = spawn("EmoleyFlame", LineData.HitActor.pos);
+						if (flame)
+						{
+							let a = EmoleyFlame(flame);
+							if (a)
+							{
+								a.owner = LineData.HitActor;
+							}
+						}
 						
 						self.A_TakeInventory("EmoleyMana",25);
 					}

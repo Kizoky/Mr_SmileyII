@@ -140,7 +140,7 @@ class SmileyStatusBar : BaseStatusBar
 			{
 				if (CPlayer.Health <= MugshotDamageLevels [i])
 				{
-					mugshotDamageState = i;
+					mugshotDamageState = i+1;
 				}
 			}
 			

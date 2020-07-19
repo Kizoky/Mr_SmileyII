@@ -168,7 +168,7 @@ class Smileapocal : Weapon
 		if (!owner) return;
 		
 		BeforeAddMana += 0.1;
-		if (BeforeAddMana >= 1)
+		if (BeforeAddMana >= 1.5)
 		{
 			owner.A_GiveInventory("EmoleyMana",1);
 			BeforeAddMana = 0;
@@ -204,17 +204,6 @@ class Smileapocal : Weapon
 		EMO1 A 1 A_Raise;
 		Loop;
 	Fire:
-		TNT1 A 0
-		{
-			if (CountInv("EmoleyMana") < 50)
-			{
-				A_StartSound("emoley/nomana", CHAN_WEAPON);
-				return resolveState("Ready");
-			}
-				
-			return resolveState(null);
-		
-		}
 		EMO1 D 3 Offset(150,50)
 		{
 			SetPlayerProperty(0,1,PROP_FROZEN);
@@ -233,10 +222,18 @@ class Smileapocal : Weapon
 				VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "ffffff", 2);
 				if (LineData.HitType == TRACE_HitActor)
 				{
-					if (LineData.HitActor && !LineData.HitActor.bKILLED && !LineData.HitActor.bFRIENDLY)
+					if (LineData.HitActor && !LineData.HitActor.bKILLED && !LineData.HitActor.bFRIENDLY && LineData.HitActor.bISMONSTER)
 					{
+						if (CountInv("EmoleyMana") < LineData.HitActor.Health)
+						{
+							Console.Printf("Enemy has too much health to convert!!");
+							A_StartSound("emoley/nomana", CHAN_WEAPON);
+							SetPlayerProperty(0,0,PROP_FROZEN);
+							return resolveState("Ready");
+						}
+						
 						LineData.HitActor.bFRIENDLY = true;
-						Console.Printf("Got an actor called %s", LineData.HitActor.GetClassName());
+						//Console.Printf("Got an actor called %s", LineData.HitActor.GetClassName());
 						LineData.HitActor.A_StartSound("emoley/convertedunit", CHAN_BODY);
 						A_StartSound("emoley/convertedunit", CHAN_WEAPON);
 						
@@ -250,7 +247,7 @@ class Smileapocal : Weapon
 							}
 						}
 						
-						self.A_TakeInventory("EmoleyMana",25);
+						self.A_TakeInventory("EmoleyMana",LineData.HitActor.Health);
 					}
 				}
 				SetPlayerProperty(0,0,PROP_FROZEN);

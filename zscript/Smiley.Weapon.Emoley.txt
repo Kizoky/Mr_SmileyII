@@ -221,7 +221,7 @@ class EmoleyFlame : SmileyActor
 
 class Smileapocal : Weapon
 {
-	double BeforeAddMana;
+	double BeforeAddMana, OffsetFinish;
 	override void Tick()
 	{
 		Super.Tick();
@@ -255,24 +255,31 @@ class Smileapocal : Weapon
 	States
 	{
 	Ready:
-		EMO1 A 1 A_WeaponReady;
+		EMO1 AAA 1
+		{
+			A_WeaponReady();
+			//self.A_WeaponOffset(frandom(1,2), frandom(1,2), WOF_INTERPOLATE);
+		}
 		Loop;
 	Deselect:
-		EMO1 A 1 { A_StartSound("emoley/smileapocal1", CHAN_BODY); A_Lower(); }
+		EMO1 A 1 { A_Lower(); }
 		Loop;
 	Select:
-		EMO1 A 1 A_Raise;
+        EMO1 A 1 A_Raise();
 		Loop;
 	Fire:
-		EMO1 D 3 Offset(150,50)
+		EMO1 D 0 Offset(121,23)
 		{
 			SetPlayerProperty(0,1,PROP_FROZEN);
+			//self.A_WeaponOffset(145, 55, WOF_INTERPOLATE);
 		}
 		Goto FireLoop;
 	FireLoop:
-		EMO1 D 1 Offset(145,55)
+		EMO1 D 1
 		{
 			SetPlayerProperty(0,1,PROP_FROZEN);
+			
+			self.A_WeaponOffset(frandom(129,131), frandom(51,53), WOF_INTERPOLATE);
 			
 			FLineTraceData lineData;
 			LineTrace(angle,1000,pitch, offsetz: height-25, data: LineData);
@@ -290,7 +297,7 @@ class Smileapocal : Weapon
 							Console.Printf("Enemy has too much health to convert!!");
 							A_StartSound("emoley/nomana", CHAN_WEAPON);
 							SetPlayerProperty(0,0,PROP_FROZEN);
-							return resolveState("Ready");
+							return resolveState("FireEndFail");
 						}
 						
 						LineData.HitActor.bFRIENDLY = true;
@@ -316,16 +323,49 @@ class Smileapocal : Weapon
 						
 						self.A_GiveInventory("EmoleyMinions",1);
 						self.A_TakeInventory("EmoleyMana",LineData.HitActor.Health);
+						SetPlayerProperty(0,0,PROP_FROZEN);
+						return resolveState("FireEnd");
 					}
 				}
 				SetPlayerProperty(0,0,PROP_FROZEN);
-				return ResolveState ("Ready");
+				return ResolveState ("FireEndFail");
 			}
 				
 			return ResolveState (null);
 			
 		}
 		Loop;
+	FireEnd:
+		EMO1 B 2 A_WeaponOffset(165, 59, WOF_INTERPOLATE);
+		EMO1 B 2 A_WeaponOffset(151, 47, WOF_INTERPOLATE);
+		EMO1 B 1 A_WeaponOffset(136, 33, WOF_INTERPOLATE);
+		EMO1 B 1 A_WeaponOffset(142, 28, WOF_INTERPOLATE);
+		EMO1 C 1 A_WeaponOffset(119, 14, WOF_INTERPOLATE);
+		EMO1 C 1 A_WeaponOffset(141, 9, WOF_INTERPOLATE);
+		EMO1 C 2 A_WeaponOffset(155, 8, WOF_INTERPOLATE);
+		EMO1 C 2 A_WeaponOffset(167, 18, WOF_INTERPOLATE);
+		EMO1 C 1 A_WeaponOffset(179, 34, WOF_INTERPOLATE);
+		EMO1 C 1 A_WeaponOffset(186, 49, WOF_INTERPOLATE);
+		EMO1 B 1 A_WeaponOffset(208, 57, WOF_INTERPOLATE);
+		EMO1 B 1 A_WeaponOffset(209, 79, WOF_INTERPOLATE);
+		EMO1 B 1 A_WeaponOffset(208, 98, WOF_INTERPOLATE);
+		EMO1 B 1 A_WeaponOffset(209, 123, WOF_INTERPOLATE);
+		EMO1 B 1 A_WeaponOffset(210, 142, WOF_INTERPOLATE);
+		Goto Ready;
+	FireEndFail:
+		TNT1 A 0 { invoker.OffsetFinish = 0; }
+		EMO1 CCCCCCCCCCCCCCCC 1
+		{
+			invoker.OffsetFinish += 7;
+			self.A_WeaponOffset(145-invoker.OffsetFinish/2, 55+invoker.OffsetFinish, WOF_INTERPOLATE);
+		}
+		TNT1 A 0 { invoker.OffsetFinish = 0; }
+		EMO1 AAAAAAAA 1
+		{
+			invoker.OffsetFinish += 8.5;
+			self.A_WeaponOffset(100-invoker.OffsetFinish, 110-invoker.OffsetFinish, WOF_INTERPOLATE);
+		}
+		Goto Ready;
 	Flash:
 		TNT1 A 0 Bright A_Light2;
 		TNT1 A 1 Bright A_Light1;

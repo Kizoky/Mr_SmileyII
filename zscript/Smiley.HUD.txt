@@ -119,8 +119,6 @@ class SmileyStatusBar : BaseStatusBar
 		string SmileyAllyType = "STF";
 		string mugshotImage;
 		
-		DrawImage("STFBANY", (10, 137), DI_ITEM_OFFSETS|DI_TRANSLATABLE);
-		
 		// after a level change it breaks the HUD
 		if (CurrentLevel != level.mapname)
 		{
@@ -129,8 +127,12 @@ class SmileyStatusBar : BaseStatusBar
 			CurrentLevel = level.mapname;
 		}
 		
-		if (SmileyPlaya)
+		if (SmileyPlaya && SmileyPlaya.MyFollower)
 		{
+			DrawImage("STFBANY", (10, 137), DI_ITEM_OFFSETS|DI_TRANSLATABLE);
+			
+			let follower = SmileyFollower(SmileyPlaya.MyFollower);
+			
 			static const int MugshotDamageLevels[] = {
 					80, 60, 40, 20, 1
 			};
@@ -138,30 +140,30 @@ class SmileyStatusBar : BaseStatusBar
 			int mugshotDamageState = 0;
 			for (int i = 0; i < MugshotDamageLevels.Size (); i++)
 			{
-				if (CPlayer.Health <= MugshotDamageLevels [i])
+				if (follower.Health <= MugshotDamageLevels [i])
 				{
 					mugshotDamageState = i+1;
 				}
 			}
 			
-			if (AllyHealth != CPlayer.Health)
+			if (AllyHealth != follower.Health)
 			{
-				if (CPlayer.Health > AllyHealth)
-					AllyHealth = CPlayer.Health; // Gained Health, do not update frames
+				if (follower.Health > AllyHealth)
+					AllyHealth = follower.Health; // Gained Health, do not update frames
 				else
 				{
 					// Health was reduced!
 	
-					AllyHealth = CPlayer.Health;
+					AllyHealth = follower.Health;
 	
 					// Only do DMG Frame delay if the health is more than or equal to 1
-					if (CPlayer.Health >= 1)
+					if (follower.Health >= 1)
 						AllyDMGDelay = level.time + 40;
 	
-					if (SmileyPlaya.Player.Attacker)
+					if (follower.attacker)
 					{
-						double badguyangle = SmileyPlaya.AngleTo(SmileyPlaya.Player.Attacker);
-						double diffang = SmileyPlaya.DeltaAngle(SmileyPlaya.angle, badguyangle);	
+						double badguyangle = follower.AngleTo(follower.attacker);
+						double diffang = follower.DeltaAngle(follower.angle, badguyangle);	
 	
 						if (diffang < 45.) // right
 							AllyDMGDir = 2;
@@ -176,7 +178,7 @@ class SmileyStatusBar : BaseStatusBar
 				}
 			}
 			
-			if (CPlayer.Health <= 0)
+			if (follower.Health <= 0)
 			{
 				mugshotImage = string.Format("%sDEAD0", SmileyAllyType);
 			}
@@ -215,7 +217,7 @@ class SmileyStatusBar : BaseStatusBar
 	
 			DrawImage(mugshotImage, (10, 136), DI_ITEM_OFFSETS);
 	
-			DrawString(mHUDFont, FormatNumber(CPlayer.health, 3), (extraX2, extraY2), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_UNTRANSLATED, 0.6, -1, 4, (0.35,0.35));
+			DrawString(mHUDFont, FormatNumber(follower.health, 3), (21, 137), DI_TEXT_ALIGN_LEFT|DI_NOSHADOW, Font.CR_UNTRANSLATED, 0.6, -1, 4, (0.35,0.35));
 		}
 	}
 

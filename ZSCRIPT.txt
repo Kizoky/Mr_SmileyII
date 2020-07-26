@@ -4,6 +4,7 @@ version "3.2"
 
 #include "zscript/Smiley.HUD.txt"
 #include "zscript/Smiley.EventHandler.txt"
+#include "zscript/Smiley.FollowerAI.txt"
 
 #include "zscript/RadiusDebug/RadiusDebug.zc"
 #include "zscript/RadiusDebug/kodi.zc"

@@ -1,0 +1,208 @@
+class SmileyFollower : Actor 
+{
+	actor MyPlayer, attacker;
+	string SmileyType;
+	
+	int CountdownToDeath;
+	bool CertainDeath;
+	
+	virtual void SearchForPlayer()
+	{
+		if (MyPlayer) return;
+		
+		BlockThingsIterator it = BlockThingsIterator.Create (self, 1024); // 1024
+		
+		while (it.Next ()) 
+		{
+			let next = it.Thing;
+			
+			if (!CheckSight (next, SF_SeePastShootableLines)) // Not in sight
+				continue;
+			
+			if (next is 'SmileyPlayer')
+			{
+				MyPlayer = next;
+				let a = SmileyPlayer(next);
+				if (a)
+				{
+					if (a.MyFollower) return;
+					
+					a.MyFollower = self;
+					SetStateLabel("See");
+				}
+			}
+		}
+	}
+	
+	int TimeBeforeRandomTurn, TimeProbablyGotStuck;
+	virtual void A_FollowerChase()
+	{
+		if (target && target.bKILLED || target is 'SmileyPlayer')
+		{
+			target = null;
+			return;
+		}
+		
+		// Follow our player
+		if (!target && MyPlayer)
+		{
+			if (Distance3D(MyPlayer) > 100)
+			{
+				vector2 PlayerPos = (MyPlayer.pos.x,MyPlayer.pos.y);
+				if (CheckSight (MyPlayer, SF_SeePastShootableLines) && CheckMove(PlayerPos))
+				{
+					Angle = AngleTo(MyPlayer);
+					A_Recoil(-1.75);
+				}
+				else
+				{
+					if (TimeProbablyGotStuck == 0)
+					{
+						TimeProbablyGotStuck = level.time + 35 * 10;
+					}
+					else if (level.time > TimeProbablyGotStuck)
+					{
+						SetOrigin(MyPlayer.pos+(0,0,50), TRUE);
+						spawn("teleportfog", pos);
+						TimeProbablyGotStuck = 0;
+					}
+					
+					
+					A_Recoil(-1.75);
+					int oldDir = moveDir;
+					moveDir = (8 * AngleTo(MyPlayer, true) / 360) % 8;
+					if (!TryWalk())
+					{
+						moveDir = oldDir;
+						if(!TryWalk())
+						{
+							for (int i = 1; i <= 4; ++i)
+							{
+								moveDir = (oldDir + i) % 8;
+								if (TryWalk())
+									break;
+				
+								moveDir = (oldDir - i) % 8;
+								if (TryWalk())
+									break;
+							}
+						}
+					}
+				
+					// Face movement direction
+					angle = 360 * moveDir / 8;
+					if (angle > 180)
+						angle -= 360;
+				}
+			}
+			else
+			{
+				TimeProbablyGotStuck = 0;
+				// random angle during staying in one place
+				if (level.time > TimeBeforeRandomTurn)
+				{
+					angle += random(0,360);
+					TimeBeforeRandomTurn = level.time + 35 * 4;
+				}
+			}
+		
+		}
+	
+	}
+	
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if (source)
+		{
+			attacker = source;
+		}
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (bKILLED && MyPlayer && CountdownToDeath != 0 && level.time > CountdownToDeath)
+		{
+			let a = SmileyPlayer(MyPlayer);
+			a.MyFollower = null;
+			spawn("TeleportFog",pos);
+			Console.Printf("A dead follower has been teleported into it's dimension back...");
+			Destroy();
+		}
+	}
+
+	Default
+	{
+		Speed 1;
+		Health 100;
+		Radius 16;
+		Height 56;
+		Mass 100;
+		PainChance 255;
+		MONSTER;
+		+FRIENDLY;
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 0 SearchForPlayer();
+		PLAY AAABBB 4;
+		Loop;
+	See:
+		PLAY AABBCCDD 4 A_FollowerChase();
+		Loop;
+	Missile:
+		PLAY E 12;
+		Goto Spawn;
+	Melee:
+		PLAY F 6 BRIGHT;
+		Goto Missile;
+	Pain:
+		PLAY G 4;
+		PLAY G 4 A_Pain;
+		Goto Spawn;
+	Death:
+		PLAY H 0 A_PlayerSkinCheck("AltSkinDeath");
+	Death1:
+		TNT1 A 0
+		{
+			CountdownToDeath = level.time + 35 * 5;
+		}
+		PLAY H 10;
+		PLAY I 10 A_PlayerScream;
+		PLAY J 10 A_NoBlocking;
+		PLAY KLM 10;
+		PLAY N -1;
+		Stop;
+	XDeath:
+		PLAY O 0 A_PlayerSkinCheck("AltSkinXDeath");
+	XDeath1:
+		TNT1 A 0
+		{
+			CountdownToDeath = level.time + 35 * 5;
+		}
+		PLAY O 5;
+		PLAY P 5 A_XScream;
+		PLAY Q 5 A_NoBlocking;
+		PLAY RSTUV 5;
+		PLAY W -1;
+		Stop;
+	AltSkinDeath:
+		PLAY H 6;
+		PLAY I 6 A_PlayerScream;
+		PLAY JK 6;
+		PLAY L 6 A_NoBlocking;
+		PLAY MNO 6;
+		PLAY P -1;
+		Stop;
+	AltSkinXDeath:
+		PLAY Q 5 A_PlayerScream;
+		PLAY R 0 A_NoBlocking;
+		PLAY R 5 A_SkullPop;
+		PLAY STUVWX 5;
+		PLAY Y -1;
+		Stop;
+	}
+}

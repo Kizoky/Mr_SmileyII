@@ -163,6 +163,23 @@ class SmileyFollower : Actor
 			{
 				angle = AngleTo(target, true);
 				
+				FLineTraceData lineData;
+				LineTrace(angle,MISSILERANGE,0, offsetz: height-20, data: LineData);
+				
+				if (LineData.HitType == TRACE_HitActor)
+				{
+					if (LineData.HitActor is 'SmileyPlayer')
+					{
+						int mov = random(5,8);
+						bool LR = random(0,1);
+						if (LR)
+							Thrust(mov, Angle + 90);
+						else
+							Thrust(mov, Angle - 90);
+						return;
+					}
+				}
+				
 				double bangle = angle;
 				double slope = AimLineAttack(bangle, MISSILERANGE);
 			

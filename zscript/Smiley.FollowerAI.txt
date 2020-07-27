@@ -2,6 +2,7 @@ class SmileyFollower : Actor
 {
 	actor MyPlayer, attacker;
 	string SmileyType, SmileyName, AllyWeapon;
+	int SmileyTypeNumeric;
 	bool gotType;
 	
 	int CountdownToDeath;
@@ -90,6 +91,7 @@ class SmileyFollower : Actor
 		if (target && target.bKILLED || target is 'SmileyPlayer')
 		{
 			target = null;
+			TimeProbablyGotStuck = 0;
 			return;
 		}
 		
@@ -239,7 +241,45 @@ class SmileyFollower : Actor
 			attacker = source;
 		}
 		
+		if (Health > damage)
+		{
+			switch(SmileyTypeNumeric)
+			{
+				default:
+					Console.Printf("Do you have a mugshot for Ally?");
+					break;
+				case 0: //Mr. Smiley
+					A_StartSound("player/male/pain100_1", CHAN_VOICE);
+					break;
+				case 1: //Uncle Smiley
+					A_StartSound("UnclePain", CHAN_VOICE);
+					break;
+				case 2: //Emoley
+					A_StartSound("EmoleyPain50a", CHAN_VOICE);
+					break;
+			}
+		}
+		
 		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+	
+	virtual void A_AllyScream()
+	{
+		switch(SmileyTypeNumeric)
+		{
+			default:
+				Console.Printf("Do you have a mugshot for Ally?");
+				break;
+			case 0: //Mr. Smiley
+				A_StartSound("player/male/death1", CHAN_VOICE);
+				break;
+			case 1: //Uncle Smiley
+				A_StartSound("UncleDeath", CHAN_VOICE);
+				break;
+			case 2: //Emoley
+				A_StartSound("UncleDeath", CHAN_VOICE);
+				break;
+		}
 	}
 	
 	override void Tick()
@@ -257,6 +297,7 @@ class SmileyFollower : Actor
 				{
 					SmileyType = SmileyList[i];
 					gotType = true;
+					SmileyTypeNumeric = i;
 					break;
 				}
 				
@@ -317,7 +358,7 @@ class SmileyFollower : Actor
 		Goto See;
 	Pain:
 		PLAY G 4;
-		PLAY G 4 A_Pain;
+		PLAY G 4;
 		Goto See;
 	Death:
 		PLAY H 0 A_PlayerSkinCheck("AltSkinDeath");
@@ -327,7 +368,7 @@ class SmileyFollower : Actor
 			CountdownToDeath = level.time + 35 * 5;
 		}
 		PLAY H 10;
-		PLAY I 10 A_PlayerScream;
+		PLAY I 10 A_AllyScream;
 		PLAY J 10 A_NoBlocking;
 		PLAY KLM 10;
 		PLAY N -1;
@@ -347,14 +388,14 @@ class SmileyFollower : Actor
 		Stop;
 	AltSkinDeath:
 		PLAY H 6;
-		PLAY I 6 A_PlayerScream;
+		PLAY I 6 A_AllyScream;
 		PLAY JK 6;
 		PLAY L 6 A_NoBlocking;
 		PLAY MNO 6;
 		PLAY P -1;
 		Stop;
 	AltSkinXDeath:
-		PLAY Q 5 A_PlayerScream;
+		PLAY Q 5 A_AllyScream;
 		PLAY R 0 A_NoBlocking;
 		PLAY R 5 A_SkullPop;
 		PLAY STUVWX 5;

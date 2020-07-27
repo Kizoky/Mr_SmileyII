@@ -34,6 +34,14 @@ class SmileyFollower : Actor
 		}
 	}
 	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		spawn("Teleportfog",pos);
+	
+	}
+	
 	virtual void A_MovementChase(actor targ)
 	{
 		int oldDir = moveDir;
@@ -131,40 +139,50 @@ class SmileyFollower : Actor
 				return;
 			}
 			
+			FLineTraceData lineData;
+			
+			A_MovementChase(target);
+			
 			if (InStateSequence(target.CurState, target.ResolveState("Missile")))
 			{
-				//oh shit!!
-				int mov = random(5,8);
-				bool LR = random(0,1);
-				//if (LR)
-					Thrust(mov, Angle + 90);
-				//else
-				//	Thrust(mov, Angle - 90);
+				bool HitWall;
+				int ThrustValue = 7;
+				
+				LineTrace(angle+90,150,0, offsetz: 5, data: LineData);
+				if (LineData.HitType == TRACE_HitActor || LineData.HitType == TRACE_HitWall)
+				{
+					Console.Printf("hit into a wall plus");
+					Thrust(ThrustValue, Angle - 90);
+					HitWall = true;
+				}
+				
+				LineTrace(angle-90,150,0, offsetz: 5, data: LineData);
+				if (LineData.HitType == TRACE_HitActor || LineData.HitType == TRACE_HitWall)
+				{
+					Console.Printf("hit into a wall minus");
+					Thrust(ThrustValue, Angle + 90);
+					HitWall = true;
+				}
+				
+				if (!HitWall)
+				{
+					Thrust(ThrustValue, Angle + 90);
+				}
+				
+				
 			}
 			
-			/*
-			bool LR = random(0,1);
-			int mov = random(2,5);
-			if (LR)
-				Thrust(mov, Angle - 90);
-			else
-				Thrust(mov, Angle + 90);
-			*/
-			
 			// Closing in or closing out
-			if (Distance3D(target) > 300)
+			if (Distance3D(target) > 150)
 				A_Recoil(-3);
 			else
 				A_Recoil(3);
-				
-			A_MovementChase(target);
 			
-			if (random[chanceshoot](0,255) < 90)
+			if (random[chanceshoot]() < 50)
 			{
 				angle = AngleTo(target, true);
 				
-				FLineTraceData lineData;
-				LineTrace(angle,MISSILERANGE,0, offsetz: height-20, data: LineData);
+				LineTrace(angle,1000,0, offsetz: 5, data: LineData);
 				
 				if (LineData.HitType == TRACE_HitActor)
 				{

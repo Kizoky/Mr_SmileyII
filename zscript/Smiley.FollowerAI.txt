@@ -1,7 +1,8 @@
 class SmileyFollower : Actor 
 {
 	actor MyPlayer, attacker;
-	string SmileyType;
+	string SmileyType, SmileyName, AllyWeapon;
+	bool gotType;
 	
 	int CountdownToDeath;
 	bool CertainDeath;
@@ -34,12 +35,25 @@ class SmileyFollower : Actor
 		}
 	}
 	
+	static const string SmileyList[] =
+	{
+		"STF", // Smiley Head
+		"UNC", // Uncle Smiley
+		"EMO" // Emoley
+	};
+	
+	static const string SmileyListName[] =
+	{ // Uses actual PlayerClass names
+		"MrSmiley",
+		"UncleSmiley",
+		"Emoley"
+	};
+	
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
-		
+		SearchForPlayer();
 		spawn("Teleportfog",pos);
-	
 	}
 	
 	virtual void A_MovementChase(actor targ)
@@ -143,17 +157,18 @@ class SmileyFollower : Actor
 			
 			A_MovementChase(target);
 			
+			// Let's check if we can move right or left, is there a better way to do this?
 			if (InStateSequence(target.CurState, target.ResolveState("Missile")))
 			{
-				bool HitWall;
-				int ThrustValue = 7;
+				bool HitWall1, HitWall2;
+				int ThrustValue = 10;
 				
 				LineTrace(angle+90,150,0, offsetz: 5, data: LineData);
 				if (LineData.HitType == TRACE_HitActor || LineData.HitType == TRACE_HitWall)
 				{
 					Console.Printf("hit into a wall plus");
 					Thrust(ThrustValue, Angle - 90);
-					HitWall = true;
+					HitWall1 = true;
 				}
 				
 				LineTrace(angle-90,150,0, offsetz: 5, data: LineData);
@@ -161,10 +176,11 @@ class SmileyFollower : Actor
 				{
 					Console.Printf("hit into a wall minus");
 					Thrust(ThrustValue, Angle + 90);
-					HitWall = true;
+					HitWall2 = true;
 				}
 				
-				if (!HitWall)
+				// Not fool proof, they will still sometimes run into a projectile unfortunately
+				if (!HitWall1 && !HitWall2)
 				{
 					Thrust(ThrustValue, Angle + 90);
 				}
@@ -178,7 +194,7 @@ class SmileyFollower : Actor
 			else
 				A_Recoil(3);
 			
-			if (random[chanceshoot]() < 50)
+			if (random[chanceshoot]() < 50 && !(InStateSequence(CurState, ResolveState("Missile"))))
 			{
 				angle = AngleTo(target, true);
 				
@@ -229,6 +245,28 @@ class SmileyFollower : Actor
 	override void Tick()
 	{
 		Super.Tick();
+		
+		if (MyPlayer && !gotType)
+		{
+			string PlayerClass = MyPlayer.GetClassName();
+			int rng = random(0,2);
+			int i = 0;
+			while (i < SmileyList.Size())
+			{
+				if (PlayerClass != SmileyListName[i] && rng == i)
+				{
+					SmileyType = SmileyList[i];
+					gotType = true;
+					break;
+				}
+				
+				if (PlayerClass ~== SmileyListName[i] && rng == i)
+					break;
+				
+				i++;
+			}
+		}
+		
 		if (bKILLED && MyPlayer && CountdownToDeath != 0 && level.time > CountdownToDeath)
 		{
 			let a = SmileyPlayer(MyPlayer);
@@ -266,14 +304,13 @@ class SmileyFollower : Actor
 	States
 	{
 	Spawn:
-		TNT1 A 0 SearchForPlayer();
 		PLAY AAABBB 4;
 		Loop;
 	See:
 		PLAY ABCD 4 A_FollowerChase();
 		Loop;
 	Missile:
-		PLAY E 12;
+		PLAY E 28;
 		Goto See;
 	Melee:
 		PLAY F 6 BRIGHT;

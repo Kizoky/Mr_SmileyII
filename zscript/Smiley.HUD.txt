@@ -116,7 +116,6 @@ class SmileyStatusBar : BaseStatusBar
 		cvar scaleYcvar = cvar.findcvar("smileyUI_scaleY");
 		int scaleY2 = (scaleYcvar.GetInt());
 
-		string SmileyAllyType = "STF";
 		string mugshotImage;
 		
 		// after a level change it breaks the HUD
@@ -129,9 +128,12 @@ class SmileyStatusBar : BaseStatusBar
 		
 		if (SmileyPlaya && SmileyPlaya.MyFollower)
 		{
+			let follower = SmileyFollower(SmileyPlaya.MyFollower);
+			string SmileyAllyType = follower.SmileyType;
+			
 			DrawImage("STFBANY", (10, 137), DI_ITEM_OFFSETS|DI_TRANSLATABLE);
 			
-			let follower = SmileyFollower(SmileyPlaya.MyFollower);
+			
 			
 			static const int MugshotDamageLevels[] = {
 					80, 60, 40, 20, 1

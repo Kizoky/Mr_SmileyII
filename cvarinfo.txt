@@ -4,3 +4,32 @@ user int smileyUI_Y = 0;
 
 user int smileyUI_scaleX = 0;
 user int smileyUI_scaleY = 0;
+
+user bool ws_disablefire = false;
+user bool ws_bobonly = false;
+user bool ws_nobobsway = false;
+
+user bool ws_vertextend = false;
+user bool ws_extendready = false;
+user bool ws_inversevert = false;
+user bool ws_crouchinversevert = false;
+user float ws_vertscale = 0.5;
+user float ws_crouchvertscale = 1;
+
+user bool ws_swayhinverse = false;
+user bool ws_swayhcumulative = false;
+user float ws_swayhcrouchscale = 1;
+user float ws_swayhscale = 0.5;
+user float ws_swayhspeed = 4;
+user float ws_swayhaccuracy = 0.5;
+
+user bool ws_swayvinverse = false;
+user bool ws_swayvcumulative = false;
+user float ws_swayvcrouchscale = 1;
+user float ws_swayvscale = 0.5;
+user float ws_swayvspeed = 4;
+user float ws_swayvaccuracy = 0.5;
+
+user bool ws_nohmove = true;
+user bool ws_novmove = true;
+user bool ws_nofmove = true;

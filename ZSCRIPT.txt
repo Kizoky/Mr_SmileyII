@@ -64,3 +64,5 @@ version "3.2"
 #include "zscript/decoration/Smiley.Decoration.txt"
 
 #include "zscript/Smiley.Test.txt"
+
+#include "zscript/sway/sway.txt"

@@ -101,6 +101,9 @@ class SwayManager : Thinker
 			if (!playerInGame[i] || !players[i].mo)
 				continue;
 			
+			let Smiley = SmileyPlayer(players[i].mo);
+			if (Smiley && Smiley.initFallAnim) return;
+			
 			if (!players[i].ReadyWeapon)
 			{
 				prevAngle[i] = players[i].mo.angle;

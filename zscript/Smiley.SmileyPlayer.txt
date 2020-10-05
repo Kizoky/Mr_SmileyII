@@ -4,13 +4,87 @@ class SmileyPlayer : PlayerPawn
 	statelabel wepstate;
 	actor MyFollower;
 	
+	bool Flying, initFallAnim, reverse, stats;
+	double TimeBeforeFallAnim, oldy;
+	
+	double bottom;
+	
+	double animvalue, highestheight;
 	override void Tick()
 	{
 		Super.Tick();
 		if ( !player || (player.mo != self) ) return;
 		
+		if (pos.z > floorz)
+		{
+			Flying = true;
+			if (pos.z > highestheight)
+				highestheight = pos.z;
+		}
+		else if (pos.z ~== floorz)
+		{
+			if (Flying)
+			{
+				Flying = false;
+				initFallAnim = true;
+			}
+		}
+		
+		
+		if (initFallAnim && !Flying)
+		{
+			let psp = player.GetPSPrite(PSP_WEAPON);
+			
+			if (!stats)
+			{
+				oldy = psp.y;
+				bottom = psp.y;
+				stats = true;			
+			}
+			
+			int oldx = psp.x;
+			//Console.Printf("Highestheight: %f", highestheight);
+			if (!reverse)
+			{	
+				animvalue += highestheight / 25.;
+				psp.y = oldy + animvalue;
+				if (animvalue > highestheight / 10.)
+				{
+					//Console.Printf("animvalue: %f > %f highestheight",animvalue, highestheight);
+					//Console.Printf("oldy: %d", oldy);
+					reverse = true;
+					
+				}
+			}
+			else
+			{
+				oldy -= 1;
+				A_WeaponOffset(oldx, oldy, WOF_INTERPOLATE);
+				Console.Printf("%f | %d", bottom, oldy);
+				
+				if (bottom-5 > oldy)
+				{
+					Console.Printf("done");
+					initFallAnim = false;
+					reverse = false;
+					animvalue = 0;
+					psp.y = oldy;
+					highestheight = 0;
+					oldy = 0;
+					bottom = 0;
+					stats = false;
+				}
+			}
+			
+		}
+		
 		if (!(level.mapname ~== JumpSphereSavedLevel))
 			self.JumpZ = Default.JumpZ;
+	}
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
 	}
 
 	Default

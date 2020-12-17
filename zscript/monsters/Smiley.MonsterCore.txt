@@ -151,12 +151,28 @@ class BlackFlame : SmileyActor
 
 class ResurrectSphere : SmileyActor
 {
+	actor Owner;
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
 		
 		SetOrigin(pos+(0,0,9), TRUE);
-	
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+
+		if (owner)
+		{
+			if (owner is 'Emoley')
+			{
+				SetOrigin(owner.pos+(9,9,9), TRUE);
+			}
+
+			SetOrigin(owner.pos, TRUE);
+		}
+
 	}
 	
 	Default
@@ -202,6 +218,10 @@ extend class SmileyActor
 	{
 		class<actor> Sphere = "ResurrectSphere";
 		Actor RSphere = spawn(Sphere, self.pos, ALLOW_REPLACE);
+		let RRSphere = ResurrectSphere(RSphere);
+		if (RRSphere)
+			RRSphere.Owner = self;
+
 		A_PlaySound("metalhead/resurrect",0);
 	}
 	

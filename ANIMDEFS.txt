@@ -1,0 +1,23 @@
+texture optional res21
+	pic res20 tics 3
+	pic res0 tics 3
+	pic res1 tics 3
+	pic res2 tics 3
+	pic res3 tics 3
+	pic res4 tics 3
+	pic res5 tics 3
+	pic res6 tics 3
+	pic res7 tics 3
+	pic res8 tics 3
+	pic res9 tics 3
+	pic res10 tics 3
+	pic res11 tics 3
+	pic res12 tics 3
+	pic res13 tics 3
+	pic res14 tics 3
+	pic res15 tics 3
+	pic res16 tics 3
+	pic res17 tics 3
+	pic res18 tics 3
+	pic res19 tics 3
+	pic res20 tics 3

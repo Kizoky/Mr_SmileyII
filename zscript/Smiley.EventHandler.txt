@@ -23,6 +23,19 @@ class SmileyCoreHandler : EventHandler
 				p.Kick = true;
 	  }
 	 */
+
+		if (e.Name ~== "ResurrectHUDDone")
+		{
+			let player = players[e.Player].mo;
+			if (player)
+			{
+				let SmileyP = Emoley(player);
+				if (SmileyP)
+				{
+					SmileyP.SelfResurrectHUD = false;
+				}
+			}
+		}
    }
    
    override void PlayerEntered (PlayerEvent e)

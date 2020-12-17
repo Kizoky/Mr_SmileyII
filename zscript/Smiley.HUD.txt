@@ -8,8 +8,10 @@ class SmileyStatusBar : BaseStatusBar
 	int AllyHealth, AllyMugshotIdleTime, AllyMugshotIdleRND;
 	int AllyDMGDir, AllyDMGDelay;
 
-	string CurrentLevel;
-	
+	string CurrentLevel, SphereImage;
+	bool ResurrectHUDSide;
+	int ResurrectHUDCount, ResurrectHUDFrames;
+	TextureID sphereTex;
 
 	override void Init()
 	{
@@ -30,7 +32,6 @@ class SmileyStatusBar : BaseStatusBar
 	override void Draw (int state, double TicFrac)
 	{
 		Super.Draw (state, TicFrac);
-
 		if (state == HUD_StatusBar)
 		{
 			BeginStatusBar();
@@ -63,6 +64,7 @@ class SmileyStatusBar : BaseStatusBar
 		DrawBarKeys();
 		DrawBarAmmo();
 		DrawAllyStatus();
+		DrawEmoleyStuff();
 		
 		if (deathmatch || teamplay)
 		{
@@ -97,13 +99,8 @@ class SmileyStatusBar : BaseStatusBar
 		
 	}
 	
-	protected virtual void DrawAllyStatus()
+	virtual void DrawEmoleyStuff()
 	{
-		// Draws Either Smiley Head's or Uncle Smiley's (or Emoley's) mugshot if playing on Easy difficulty
-		// or got a cellphone
-
-		SmileyPlayer SmileyPlaya = SmileyPlayer(CPlayer.mo);
-
 		cvar extraXcvar = cvar.findcvar("smileyUI_X");
 		int extraX2 = (extraXcvar.GetInt ());
 		
@@ -115,6 +112,64 @@ class SmileyStatusBar : BaseStatusBar
 		
 		cvar scaleYcvar = cvar.findcvar("smileyUI_scaleY");
 		int scaleY2 = (scaleYcvar.GetInt());
+
+		Emoley SmileyPlaya = Emoley(CPlayer.mo);
+		
+
+		if (SmileyPlaya && SmileyPlaya.SelfResurrectHUD && !ResurrectHUDSide)
+		{
+			ResurrectHUDSide = true;
+			
+			// We can't modify Player variables from the HUD, sadly
+			EventHandler.SendNetworkEvent("ResurrectHUDDone");
+		}
+
+		if (SmileyPlaya && !SmileyPlaya.SelfResurrectHUD && ResurrectHUDSide)
+		{
+			// HUD Count is used as a counter for frame pic
+			// HUD Frames is used as Tics
+			// SphereImage is string formatted to res*HUD Count number here*
+			// and lastly sphereTex is used for Screen.DrawTexture
+			if (ResurrectHUDCount < 20)
+			{
+				ResurrectHUDFrames++;
+
+				if (ResurrectHUDFrames == 5)
+				{
+					ResurrectHUDCount++;
+					SphereImage = String.Format("res%i", ResurrectHUDCount);
+					ResurrectHUDFrames = 0;
+				}
+
+				// This actually scales with resolution, good thing to have
+				sphereTex = TexMan.CheckForTexture(SphereImage, TexMan.Type_Any);
+				vector2 texsize;
+				vector2 pos = (950,936);
+				[texsize.x, texsize.y] = TexMan.GetSize(sphereTex);            
+				Screen.DrawTexture(sphereTex, false, pos.x, pos.y,
+				    DTA_VirtualWidthF, 1920,
+				    DTA_VirtualHeightF, 1080,
+				    DTA_KeepRatio, true,
+				    DTA_DestWidth, int(texsize.x+900),
+				    DTA_DestHeight, int(texsize.y+900),
+					DTA_Alpha, 0.66
+				);
+			}
+			else
+			{
+				ResurrectHUDCount = 0;
+				ResurrectHUDFrames = 0;
+				ResurrectHUDSide = false;
+			}
+		}
+	}
+
+	protected virtual void DrawAllyStatus()
+	{
+		// Draws Either Smiley Head's or Uncle Smiley's (or Emoley's) mugshot if playing on Easy difficulty
+		// or got a cellphone
+
+		SmileyPlayer SmileyPlaya = SmileyPlayer(CPlayer.mo);
 
 		string mugshotImage;
 		

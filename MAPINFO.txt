@@ -17,7 +17,7 @@ gameinfo
 	//pausesign = "M_PAUSE"
 	playerclasses="MrSmiley","UncleSmiley", "Emoley"
 	statusbarclass = "SmileyStatusBar"
-	AddEventHandlers = "RadiusDebugHandler", "SmileyCoreHandler", "SwayHandler"
+	AddEventHandlers = "RadiusDebugHandler", "SmileyCoreHandler"
 }
 
 clearepisodes

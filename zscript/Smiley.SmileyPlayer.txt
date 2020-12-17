@@ -1,8 +1,7 @@
 class SmileyPlayer : PlayerPawn 
 {
 	string JumpSphereSavedLevel;
-	statelabel wepstate;
-	actor MyFollower;
+	actor MyFollower, MyTarget;
 	
 	override void Tick()
 	{

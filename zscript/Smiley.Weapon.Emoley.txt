@@ -48,7 +48,7 @@ class EmoleyMinions : Ammo
 {
 	Default
 	{
-		Inventory.PickupMessage "You can't do this.";
+		Inventory.PickupMessage "Keep your nose clean, or I'll clean it for you!";
 		Inventory.Amount 1;
 		Inventory.MaxAmount 99999;
 		Ammo.BackpackAmount 0;
@@ -233,8 +233,78 @@ class Smileapocal : Weapon
 			owner.A_GiveInventory("EmoleyMana",1);
 			BeforeAddMana = 0;
 		}
-	
 	}
+
+	action State TryConvert()
+	{
+		self.A_WeaponOffset(frandom(129,131), frandom(51,53), WOF_INTERPOLATE);
+
+		FLineTraceData lineData;
+		LineTrace(angle,1000,pitch, offsetz: height-25, data: LineData);
+		VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "00a2e8", 2);
+
+		if (LineData.HitType == TRACE_HitActor && 
+			LineData.HitActor && 
+			!LineData.HitActor.bKILLED && 
+			!LineData.HitActor.bFRIENDLY && 
+			LineData.HitActor.bISMONSTER)
+		{
+			int requirement = (LineData.HitActor.Health / 1.5) - CountInv("EmoleyMana");
+
+			bool YesNoConv = (CountInv("EmoleyMana") < LineData.HitActor.Health / 1.5) ? true : false;
+			string req = YesNoConv ? String.Format("Required mana: %d", requirement) : "Monster is convertable!";
+			A_Print(req);
+		}
+
+		// Player is still firing, don't let the below execute
+		if (player.cmd.buttons & BT_ATTACK) return ResolveState (null);
+
+		VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "ffffff", 2);
+		if (LineData.HitType == TRACE_HitActor)
+		{
+			if (LineData.HitActor && 
+				!LineData.HitActor.bKILLED && 
+				!LineData.HitActor.bFRIENDLY && 
+				LineData.HitActor.bISMONSTER)
+			{
+				// If enemy has too much health do not attempt to convert
+				if (CountInv("EmoleyMana") < LineData.HitActor.Health / 1.5)
+				{
+					A_StartSound("emoley/nomana", CHAN_WEAPON);
+					return resolveState("FireEndFail");
+				}
+				
+				LineData.HitActor.bFRIENDLY = true;
+				LineData.HitActor.A_StartSound("emoley/convertedunit", CHAN_BODY);
+				A_StartSound("emoley/convertedunit", CHAN_WEAPON);
+				
+				let ally = SmileyActor(LineData.HitActor);
+				if (ally)
+				{
+					ally.EmoleyAlly = true;
+					ally.MyMaster = self;
+				}
+				
+				actor flame = spawn("EmoleyFlame", LineData.HitActor.pos);
+				if (flame)
+				{
+					let a = EmoleyFlame(flame);
+					if (a)
+					{
+						a.owner = LineData.HitActor;
+					}
+				}
+				
+				self.A_GiveInventory("EmoleyMinions",1);
+				self.A_TakeInventory("EmoleyMana",LineData.HitActor.Health);
+				return resolveState("FireEnd");
+			}
+		}
+
+		return ResolveState ("FireEndFail");
+		return ResolveState (null);
+	}
+
 	Default
 	{
 		Weapon.Kickback 100;
@@ -270,70 +340,12 @@ class Smileapocal : Weapon
 	Fire:
 		EMO1 D 0 Offset(121,23)
 		{
-			SetPlayerProperty(0,1,PROP_FROZEN);
+			//SetPlayerProperty(0,1,PROP_FROZEN);
 			//self.A_WeaponOffset(145, 55, WOF_INTERPOLATE);
 		}
 		Goto FireLoop;
 	FireLoop:
-		EMO1 D 1
-		{
-			SetPlayerProperty(0,1,PROP_FROZEN);
-			
-			self.A_WeaponOffset(frandom(129,131), frandom(51,53), WOF_INTERPOLATE);
-			
-			FLineTraceData lineData;
-			LineTrace(angle,1000,pitch, offsetz: height-25, data: LineData);
-			VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "00a2e8", 2);
-			if (!(player.cmd.buttons & BT_ATTACK))
-			{
-				VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "ffffff", 2);
-				if (LineData.HitType == TRACE_HitActor)
-				{
-					if (LineData.HitActor && !LineData.HitActor.bKILLED && !LineData.HitActor.bFRIENDLY && LineData.HitActor.bISMONSTER)
-					{
-						// If enemy has too much health do not attempt to convert
-						if (CountInv("EmoleyMana") < LineData.HitActor.Health / 1.5)
-						{
-							Console.Printf("Enemy has too much health to convert!!");
-							A_StartSound("emoley/nomana", CHAN_WEAPON);
-							SetPlayerProperty(0,0,PROP_FROZEN);
-							return resolveState("FireEndFail");
-						}
-						
-						LineData.HitActor.bFRIENDLY = true;
-						LineData.HitActor.A_StartSound("emoley/convertedunit", CHAN_BODY);
-						A_StartSound("emoley/convertedunit", CHAN_WEAPON);
-						
-						let ally = SmileyActor(LineData.HitActor);
-						if (ally)
-						{
-							ally.EmoleyAlly = true;
-							ally.MyMaster = self;
-						}
-						
-						actor flame = spawn("EmoleyFlame", LineData.HitActor.pos);
-						if (flame)
-						{
-							let a = EmoleyFlame(flame);
-							if (a)
-							{
-								a.owner = LineData.HitActor;
-							}
-						}
-						
-						self.A_GiveInventory("EmoleyMinions",1);
-						self.A_TakeInventory("EmoleyMana",LineData.HitActor.Health);
-						SetPlayerProperty(0,0,PROP_FROZEN);
-						return resolveState("FireEnd");
-					}
-				}
-				SetPlayerProperty(0,0,PROP_FROZEN);
-				return ResolveState ("FireEndFail");
-			}
-				
-			return ResolveState (null);
-			
-		}
+		EMO1 D 1 TryConvert();
 		Loop;
 	FireEnd:
 		EMO1 B 2 A_WeaponOffset(165, 59, WOF_INTERPOLATE);

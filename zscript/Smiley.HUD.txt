@@ -115,6 +115,10 @@ class SmileyStatusBar : BaseStatusBar
 
 		Emoley SmileyPlaya = Emoley(CPlayer.mo);
 		
+		if (!Emoley) return;
+
+		int LivesLeft = SmileyPlaya.Lives;
+		DrawString(mIndexFont, FormatNumber(LivesLeft, 1), (extraX2, extraY2), DI_TEXT_ALIGN_RIGHT);
 
 		if (SmileyPlaya && SmileyPlaya.SelfResurrectHUD && !ResurrectHUDSide)
 		{
@@ -187,8 +191,6 @@ class SmileyStatusBar : BaseStatusBar
 			string SmileyAllyType = follower.SmileyType;
 			
 			DrawImage("STFBANY", (10, 137), DI_ITEM_OFFSETS|DI_TRANSLATABLE);
-			
-			
 			
 			static const int MugshotDamageLevels[] = {
 					80, 60, 40, 20, 1

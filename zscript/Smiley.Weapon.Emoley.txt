@@ -6,22 +6,25 @@ class Emoley : SmileyPlayer
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
-		Lives = 3;
+		Lives = 1;
 	}
 
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
 	{
-		if (health - damage <= 0 && Lives+1 > 0)
+		if (health - damage <= 0 && Lives > 0)
 		{
 			A_SetHealth(100);
 			A_StartSound("metalhead/resurrect", CHAN_BODY);
+
+			/*
 			string livesystem;
 			if (Lives == 0)
 				livesystem = "You have no lives left, becareful!";
 			else
 				livesystem = String.Format("Lives left: %d", lives);
-			
 			A_Print(livesystem);
+			*/
+
 			lives--;
 			SelfResurrectHUD = true;
 			return Super.DamageMobj(inflictor,source,0,mod,flags,angle);
@@ -128,24 +131,29 @@ class EmoleyFlame : SmileyActor
 	override void Tick()
 	{
 		Super.Tick();
+
 		if (Owner)
 		{
 			if (Owner is 'MJClone')
 				SetOrigin(Owner.pos+(0,0,55), TRUE);
-			if ((Owner is 'Safariguy') || (Owner is 'Gangster') || (Owner is 'SmileyAlien'))
+			
+			if ((Owner is 'Safariguy') || 
+				(Owner is 'Gangster') || 
+				(Owner is 'SmileyAlien'))
 				SetOrigin(Owner.pos+(0,0,45), TRUE);
 				
 			// Let's not forget that Barneys can transform
-			if ((Owner is 'Hugaholic') || (Owner is 'Rapeaholic'))
+			if ((Owner is 'Hugaholic') || 
+				(Owner is 'Rapeaholic'))
 			{
 				let p = Hugaholic(Owner);
 				
 				// Check if they can transform
-				if (p.canTransform != true)
+				if (!p.canTransform)
 					SetOrigin(Owner.pos+(0,0,38), TRUE);
 				else
 				{
-					if (FlameAdjusted != true)
+					if (!FlameAdjusted)
 					{
 						// Make the flame bigger
 						Scale.X = 0.25;
@@ -156,12 +164,13 @@ class EmoleyFlame : SmileyActor
 				}
 			}
 			
-			if ((Owner is 'RedRanger') || (Owner is 'BlueRanger'))
+			if ((Owner is 'RedRanger') || 
+				(Owner is 'BlueRanger'))
 				SetOrigin(Owner.pos+(0,0,57), TRUE);
 				
 			if (Owner is 'BigEye')
 			{
-					if (FlameAdjusted != true)
+					if (!FlameAdjusted)
 					{
 						// Giant eye ball needs a bigger flame
 						Scale.X = 0.35;
@@ -174,7 +183,7 @@ class EmoleyFlame : SmileyActor
 			
 			if (Owner is 'HelloKitty')
 			{
-				if (FlameAdjusted != true)
+				if (!FlameAdjusted)
 				{
 					Scale.X = 0.25;
 					Scale.Y = Scale.X;
@@ -187,7 +196,7 @@ class EmoleyFlame : SmileyActor
 			if (Owner is 'Mario')
 			{
 				
-				if (FlameAdjusted != true)
+				if (!FlameAdjusted)
 				{
 					Scale.X = 0.20;
 					Scale.Y = Scale.X;
@@ -195,6 +204,9 @@ class EmoleyFlame : SmileyActor
 				}
 				SetOrigin(Owner.pos+(0,0,55), TRUE);
 			}
+
+			if (!(Owner is 'SmileyActor'))
+				SetOrigin(Owner.pos+(0,0,55), TRUE);
 			
 			if (Owner.bKILLED)
 			{
@@ -362,7 +374,7 @@ class Smileapocal : Weapon
 		}
 		Loop;
 	Deselect:
-		EMO1 A 1 { A_Lower(); }
+		EMO1 A 1 A_Lower();
 		Loop;
 	Select:
         EMO1 A 1 A_Raise();

@@ -64,3 +64,8 @@ version "4.3"
 #include "zscript/decoration/Smiley.Decoration.txt"
 
 #include "zscript/Smiley.Test.txt"
+
+#include "zscript/libeye/projector.txt"
+#include "zscript/libeye/projector gl.txt"
+#include "zscript/libeye/projector planar.txt"
+#include "zscript/libeye/viewport.txt"

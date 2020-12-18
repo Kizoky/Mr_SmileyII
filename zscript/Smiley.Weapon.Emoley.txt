@@ -3,10 +3,17 @@ class Emoley : SmileyPlayer
 	int Lives;
 	bool SelfResurrectHUD;
 
+	actor SmileapocalTarget;
+
 	override void PostBeginPlay()
 	{
 		Super.PostBeginPlay();
 		Lives = 1;
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
 	}
 
 	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
@@ -285,21 +292,27 @@ class Smileapocal : Weapon
 		LineTrace(angle,1000,pitch, offsetz: height-25, data: LineData);
 		VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "00a2e8", 2);
 
+		let Emoleyy = Emoley(invoker.owner);
+
 		if (LineData.HitType == TRACE_HitActor && 
 			LineData.HitActor && 
 			!LineData.HitActor.bKILLED && 
 			!LineData.HitActor.bFRIENDLY && 
 			LineData.HitActor.bISMONSTER)
 		{
-			int requirement = (LineData.HitActor.Health / 1.5) - CountInv("EmoleyMana");
+			//int requirement = (LineData.HitActor.Health / 1.5) - CountInv("EmoleyMana");
 
-			bool YesNoConv = (CountInv("EmoleyMana") < LineData.HitActor.Health / 1.5) ? true : false;
-			string req = YesNoConv ? String.Format("Required mana: %d", requirement) : "Monster is convertable!";
-			A_Print(req);
+			//bool YesNoConv = (CountInv("EmoleyMana") < LineData.HitActor.Health / 1.5) ? true : false;
+			//string req = YesNoConv ? String.Format("Required mana: %d", requirement) : "Monster is convertable!";
+			//A_Print(req);
+
+			Emoleyy.SmileapocalTarget = LineData.HitActor;
 		}
 
 		// Player is still firing, don't let the below execute
 		if (player.cmd.buttons & BT_ATTACK) return ResolveState (null);
+
+		Emoleyy.SmileapocalTarget = null;
 
 		VectorBeam.SpawnVectorBeam(Self.pos + (0,0,height-20), LineData.HitLocation, 2.0, "ffffff", 2);
 		if (LineData.HitType == TRACE_HitActor)

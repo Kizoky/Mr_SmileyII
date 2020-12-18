@@ -115,7 +115,7 @@ class SmileyStatusBar : BaseStatusBar
 
 		Emoley SmileyPlaya = Emoley(CPlayer.mo);
 		
-		if (!Emoley) return;
+		if (!SmileyPlaya) return;
 
 		int LivesLeft = SmileyPlaya.Lives;
 		DrawString(mIndexFont, FormatNumber(LivesLeft, 1), (extraX2, extraY2), DI_TEXT_ALIGN_RIGHT);

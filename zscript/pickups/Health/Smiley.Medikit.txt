@@ -1,0 +1,17 @@
+// Medikit -----------------------------------------------------------------
+
+class SmileyPlus : Health replaces Medikit
+{
+	Default
+	{
+		Inventory.Amount 25;
+		Inventory.PickupMessage "$GOTMEDIKIT";
+		Health.LowMessage 25, "$GOTMEDINEED";
+	}
+	States
+	{
+	Spawn:
+		MEDI A -1;
+		Stop;
+	}
+}

@@ -1,9 +1,9 @@
 [Mr. Smiley Head's Safari 1]
 Credits:
-- Mr. Smiley Head('s Safari)
+- Mr. Smiley Head's Safari
 Impact Software
 
-[Credits list according to(made by) funduke]
+[Credits list according to funduke]
 =[Monster Sprites]=
 -Imp: The Weasle
 -Cacodemon: Unknown author name
@@ -17,7 +17,7 @@ Impact Software
 
 =[Weapon Sprites]=
 Every weapon were drawn by Impact Software, the remaining
-weapons that are still Impact's is the Chainsaw, Chaingun, and the BFG
+weapons that are still Impact's are the Chainsaw, Chaingun, and the BFG
 
 =[Mr. Smiley Head's Safari levels]=
 [Episode 1]

@@ -33,7 +33,7 @@ class Pacc : SmileyActor
 		Loop;
 	Missile:
 		SKUL C 10 BRIGHT A_FaceTarget;
-		SKUL D 4 BRIGHT A_PaccAttack;
+		SKUL D 4 BRIGHT A_PaccAttack();
 		SKUL CD 4 BRIGHT;
 		Goto Missile+2;
 	Pain:
@@ -41,7 +41,7 @@ class Pacc : SmileyActor
 		SKUL E 3 BRIGHT A_Pain;
 		Goto See;
 	Death:
-		TNT1 A 0 A_Mirrorize();
+		SKUL F 0 A_Mirrorize();
 		SKUL F 6 BRIGHT;
 		SKUL G 6 BRIGHT A_Scream;
 		SKUL H 6 BRIGHT;
@@ -54,44 +54,17 @@ class Pacc : SmileyActor
 
 extend class Pacc
 {
-    void A_Wakka()
-	{
-		int AttORSpit = random(0,1); //do random number between 0 or 1
-		if (AttORSpit == 0)
-		{
-			A_PaccAttack();
-		}
-		else
-		{
-			if (AttORSpit == 1)
-			{
-				A_PaccAttack2();
-			}
-		}
-	}
-		const DEFSKULLSPEED = 20;
+	const DEFSKULLSPEED = 20;
 	
-	void A_PaccAttack2(double skullspeed = DEFSKULLSPEED)
-	{
-		int AttORSpit = random(0,1);
-		
+	void A_PaccAttack(double skullspeed = DEFSKULLSPEED)
+	{		
 		if (target == null) return;
 
 		if (skullspeed <= 0) skullspeed = DEFSKULLSPEED;
 		
-		if (AttORSpit == 0)
-		{
-			bSkullfly = true;
-			A_PlaySound(AttackSound, CHAN_VOICE);
-			A_FaceTarget();
-		}
-		else
-		{
-			if (AttORSpit == 1)
-			{
-				A_EyeAttack();
-			}
-		}
+		bSkullfly = true;
+		A_StartSound(AttackSound, CHAN_VOICE);
+		A_FaceTarget();
 		VelFromAngle(skullspeed);
 		Vel.Z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, skullspeed);
 	}

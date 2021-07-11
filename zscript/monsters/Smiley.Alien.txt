@@ -5,6 +5,26 @@
 //===========================================================================
 class SmileyAlien : SmileyActor
 {
+	void A_AlienAttack()
+	{
+		let targ = target;
+		if (targ)
+		{
+			if (CheckMeleeRange())
+			{
+				int damage = random[pr_troopattack](1, 8) * 3;
+				A_StartSound ("imp/melee", CHAN_WEAPON);
+				int newdam = targ.DamageMobj (self, self, damage, "Melee");
+				targ.TraceBleed (newdam > 0 ? newdam : damage, self);
+			}
+			else
+			{
+				// launch a missile
+				SpawnMissile (targ, "SmileyAlienBall");
+			}
+		}
+	}
+	
 	Default
 	{
 		Health 60;
@@ -40,7 +60,7 @@ class SmileyAlien : SmileyActor
 		TROO H 2 A_Pain;
 		Goto See;
 	Death:
-		TNT1 A 0 A_Mirrorize();
+		TROO I 0 A_Mirrorize();
 		TROO I 8;
 		TROO J 8 A_Scream;
 		TROO K 6;
@@ -48,7 +68,7 @@ class SmileyAlien : SmileyActor
 		TROO M -1;
 		Stop;
 	XDeath:
-		TNT1 A 0 A_Mirrorize();
+		TROO N 0 A_Mirrorize();
 		TROO N 5;
 		TROO O 5 A_XScream;
 		TROO P 5;
@@ -57,11 +77,11 @@ class SmileyAlien : SmileyActor
 		TROO U -1;
 		Stop;
 	Raise:
-		TNT1 A 0 A_Metalization();
-		TNT1 A 0 A_ResurrectSphere();
+		TROO M 0 A_Metalization();
+		TROO M 0 A_ResurrectSphere();
 		TROO ML 8;
 		TROO KJI 14;
-		TNT1 A 0 A_UnMirrorize();
+		TROO I 0 A_UnMirrorize();
 		Goto See;
 	}
 }

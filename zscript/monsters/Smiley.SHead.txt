@@ -33,9 +33,9 @@ class SHead : SmileyActor
 	Missile:
 		SSWV E 10 A_FaceTarget;
 		SSWV F 10 A_FaceTarget;
-		SSWV G 4 BRIGHT A_GangAttack;
+		//SSWV G 4 BRIGHT A_GangAttack;
 		SSWV F 6 A_FaceTarget;
-		SSWV G 4 BRIGHT A_GangAttack;
+		//SSWV G 4 BRIGHT A_GangAttack;
 		SSWV F 1 A_CPosRefire;
 		Goto Missile+1;
 	Pain:

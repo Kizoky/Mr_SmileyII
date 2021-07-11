@@ -1,0 +1,16 @@
+// Stimpack -----------------------------------------------------------------
+
+class Coffee : Health replaces Stimpack
+{
+	Default
+	{
+		Inventory.Amount 10;
+		Inventory.PickupMessage "$GOTSTIM";
+	}
+	States
+	{
+	Spawn:
+		STIM A -1;
+		Stop;
+	}
+}

@@ -11,11 +11,42 @@ class Hugaholic : SmileyActor
 	{
 		Super.PostBeginPlay();
 		
-		int chance = random(1,2);
+		bool transf = random[transform](0,1);
 		
-		if (chance == 2)
+		if (transf)
 			canTransform = true;
+	}
 	
+	void A_HugAttack()
+	{
+		let targ = target;
+		if (targ && CheckMeleeRange())
+		{
+			int damage = random[pr_sargattack](1, 10) * 4;
+			int newdam = targ.DamageMobj (self, self, damage, "Melee");
+			targ.TraceBleed (newdam > 0 ? newdam : damage, self);
+		}
+	}
+	
+	void A_PrepareYourself()
+	{
+		if (canTransform)
+		{
+			if (!Transformed)
+			{
+				if (self.Health < 120)
+				{
+					A_StartSound("barney/transform", CHAN_VOICE);
+					Speed = 20;
+					A_SetRadius(50);
+					Height = 67;
+					Scale.X = 1.3;
+					Scale.Y = Scale.X;
+					Health =+ 125;
+					Transformed = true;
+				}
+			}
+		}
 	}
 	
 	Default
@@ -41,19 +72,19 @@ class Hugaholic : SmileyActor
 		SARG AB 10 A_Look;
 		Loop;
 	See:
-		TNT1 A 0 A_PrepareYourself();
 		SARG AABBCCDD 2 Fast A_Chase;
 		Loop;
 	Melee:
 		SARG EF 8 Fast A_FaceTarget;
-		SARG G 8 Fast A_RapeAttack;
+		SARG G 8 Fast A_HugAttack;
 		Goto See;
 	Pain:
+		SARG H 0 A_PrepareYourself();
 		SARG H 2 Fast;
 		SARG H 2 Fast A_Pain;
 		Goto See;
 	Death:
-		TNT1 A 0 A_Mirrorize();
+		SARG I 0 A_Mirrorize();
 		SARG I 8;
 		SARG J 8 A_Scream;
 		SARG K 4;
@@ -62,21 +93,21 @@ class Hugaholic : SmileyActor
 		SARG N -1;
 		Stop;
 	Raise:
-		TNT1 A 0 A_Metalization();
-		TNT1 A 0 A_ResurrectSphere();
+		SARG N 0 A_Metalization();
+		SARG N 0 A_ResurrectSphere();
 		SARG N 5;
 		SARG MLKJI 13;
-		TNT1 A 0 A_UnMirrorize();
+		SARG I 0 A_UnMirrorize();
 		Goto See;
 	}
 }
 
 //===========================================================================
 //
-// Spectre // Rape version of Barney
+// Spectre // Silent version of Barney
 //
 //===========================================================================
-class Rapeaholic : Hugaholic replaces Spectre
+class SilentHug : Hugaholic replaces Spectre
 {
 	Default
 	{
@@ -90,35 +121,4 @@ class Rapeaholic : Hugaholic replaces Spectre
 		ActiveSound "spectre/active";
 		HitObituary "$OB_SPECTREHIT";
 	}
-}
-
-extend class Hugaholic
-{
-	action void A_PrepareYourself()
-	{
-	
-		if (invoker.canTransform == true)
-		{
-				if (invoker.Transformed != true)
-				{
-					if (self.Health < 120)
-					{
-						if (self.Speed != 20)
-						{
-							//A_printbold("Transformed");
-							A_PlaySound("barney/transform");
-							self.Speed = 20;
-							self.Radius == 50;
-							self.Height = 67;
-							self.Scale.X = 1.3;
-							self.Scale.Y = self.Scale.X;
-							self.Health =+ 125;
-							invoker.Transformed = true;
-						}
-					}
-				}
-		}
-	}
-
-
 }

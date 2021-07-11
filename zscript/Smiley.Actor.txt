@@ -1,0 +1,155 @@
+
+// Default Actor for every Mr. Smiley II monsters
+class SmileyActor : Actor
+{
+	bool iHaveBeenResurrected, EmoleyAlly;
+	actor MyMaster;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		
+		if (bKILLED || player) return;
+		
+		if (iHaveBeenResurrected)
+		{
+			class<actor> Dark = "BlackFlame";
+			Actor DDark = spawn(Dark, self.pos, ALLOW_REPLACE);
+			
+			if (DDark)
+			{
+				let p = BlackFlame(DDark);
+				if (p)
+				{
+					p.Owner = self;
+					iHaveBeenResurrected = false;
+				}
+			}
+		}
+		
+	}
+}
+
+extend class SmileyActor
+{
+	void A_ResurrectSphere()
+	{
+		class<actor> Sphere = "ResurrectSphere";
+		Actor RSphere = spawn(Sphere, self.pos, ALLOW_REPLACE);
+		
+		let RRSphere = ResurrectSphere(RSphere);
+		if (RRSphere)
+			RRSphere.Owner = self;
+
+		A_StartSound("metalhead/resurrect", CHAN_AUTO);
+	}
+	
+	void A_Metalization()
+    {     
+		static const Class<Actor> metal_actors[] = 
+		{ 
+			"MJClone", 
+			"Safariguy", 
+			"BlueRanger", 
+			"HelloKitty", 
+			"BigEye", 
+			"Hugaholic", 
+			"SmileyAlien", 
+			"Mario", 
+			"Gangster" 
+		};
+
+		static const String metal_color[] = 
+		{ 
+			"MJBlack", 
+			"SafariBlack", 
+			"PowerBlack", 
+			"KittyBlack", 
+			"EyeBlack", 
+			"BarneyBlack", 
+			"AlienBlack", 
+			"MarioBlack", 
+			"GangsterBlack" 
+		};
+		
+		for (uint i = 0; i < metal_actors.Size(); i++)
+		{
+			if (self is metal_actors[i])
+		    {
+				A_SetTranslation(metal_color[i]);
+				iHaveBeenResurrected = true;
+				break;
+		    }
+		}
+	}
+	
+	void A_Mirrorize()
+	{
+		bool mirrorize = random[mirror](0,1);
+		if (mirrorize)
+		{
+			bSPRITEFLIP = true;
+		}
+	}
+	
+	void A_UnMirrorize()
+	{
+		if (self.bSPRITEFLIP)
+			bSPRITEFLIP = false;
+	}
+	
+	// Used by Spider Mastermind(SpiderSmiley) and CyberDemon(Frosty)
+	void A_Metal() 
+	{
+		A_StartSound("spider/walk", CHAN_BODY, 1, false, ATTN_IDLE);
+		A_Chase();
+	}
+	
+	//======================Safari Guy & Smiley Spider & Hello Kitty
+	
+	private void A_SafariAttackInternal()
+	{
+		if (target)
+		{
+			A_FaceTarget();
+			double bangle = angle;
+			double slope = AimLineAttack(bangle, MISSILERANGE);
+		
+			for (int i=0 ; i<3 ; i++)
+			{
+				double ang = bangle + Random2[SPosAttack]() * (22.5/256);
+				int damage = Random[SPosAttack](1, 5) * 3;
+				LineAttack(ang, MISSILERANGE, slope, damage, "Hitscan", "Bulletpuff");
+			}
+		}
+    }
+	
+	void A_SafariAttackUseAtkSound()
+	{
+		if (target)
+		{
+			A_StartSound(AttackSound, CHAN_WEAPON);
+			A_SafariAttackInternal();
+		}
+	}
+	
+	void A_SmileyRefire()
+	{
+		// keep firing unless target got out of sight
+		A_FaceTarget();
+		if (Random[CPosRefire](0, 255) >= 10)
+		{
+			if (!target
+				|| HitFriend()
+				|| target.health <= 0
+				|| !CheckSight(target, SF_SEEPASTBLOCKEVERYTHING|SF_SEEPASTSHOOTABLELINES))
+			{
+				SetState(SeeState);
+			}
+		}
+	}
+	
+}
+
+
+

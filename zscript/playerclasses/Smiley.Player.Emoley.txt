@@ -1,0 +1,168 @@
+class Emoley : SmileyPlayer
+{
+	int Lives;
+	bool SelfResurrectHUD;
+
+	actor SmileapocalTarget;
+
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		Lives = 1;
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+	}
+
+	override int DamageMobj(Actor inflictor, Actor source, int damage, Name mod, int flags, double angle)
+	{
+		if (health - damage <= 0 && Lives > 0)
+		{
+			A_SetHealth(100);
+			A_StartSound("metalhead/resurrect", CHAN_BODY);
+
+			/*
+			string livesystem;
+			if (Lives == 0)
+				livesystem = "You have no lives left, becareful!";
+			else
+				livesystem = String.Format("Lives left: %d", lives);
+			A_Print(livesystem);
+			*/
+
+			lives--;
+			SelfResurrectHUD = true;
+			return Super.DamageMobj(inflictor,source,0,mod,flags,angle);
+		}
+		
+		return Super.DamageMobj(inflictor,source,damage,mod,flags,angle);
+	}
+
+	Default
+	{
+		Species "Marines";
+		Player.DisplayName "Emoley";
+		Player.Face "EMO";
+		Player.Soundclass "Emoleyy";
+		Player.StartItem "Smileapocal";
+		Player.StartItem "SmileGenerator";
+		Player.StartItem "SmileyBat";
+		Player.StartItem "EmoleyMana", 150;
+		//Player.StartItem "Shell", 20;
+		//Player.WeaponSlot 1, "SmileyBat", "Toothbrush";
+		Player.WeaponSlot 2, "Smileapocal";
+		Player.WeaponSlot 3, "SmileGenerator";
+		//Player.WeaponSlot 4, "SmileyChaingun";
+		//Player.WeaponSlot 5, "SmileyChickenLauncher";
+		//Player.WeaponSlot 6, "PlasmaRing";
+		//Player.WeaponSlot 7, "SmileyGoodFetherBird";
+	}
+}
+
+class EmoleyMana : Ammo
+{
+	Default
+	{
+		Inventory.PickupMessage "Picked up a mana.";
+		Inventory.Amount 1;
+		Inventory.MaxAmount 500;
+		Ammo.BackpackAmount 100;
+		Ammo.BackpackMaxAmount 750;
+		Inventory.Icon "EMOMA0";
+		Tag "$AMMO_CLIP";
+		Scale 1.2;
+		+FLOATBOB
+		+NOGRAVITY
+	}
+	States
+	{
+	Spawn:
+		EMOM A -1;
+		Stop;
+	}
+}
+
+class EmoleyMinions : Ammo
+{
+	Default
+	{
+		Inventory.PickupMessage "Keep your nose clean, or I'll clean it for you!";
+		Inventory.Amount 1;
+		Inventory.MaxAmount 99999;
+		Ammo.BackpackAmount 0;
+		Ammo.BackpackMaxAmount 99999;
+		Inventory.Icon "EMOMA0";
+		Tag "$AMMO_CLIP";
+		Scale 1.2;
+		+FLOATBOB
+		+NOGRAVITY
+	}
+	States
+	{
+	Spawn:
+		EMOM A -1;
+		Stop;
+	}
+}
+
+class EmoleyEnergy : Ammo
+{
+	Default
+	{
+		Inventory.PickupMessage "Picked up energy.";
+		Inventory.Amount 1;
+		Inventory.MaxAmount 500;
+		Ammo.BackpackAmount 100;
+		Ammo.BackpackMaxAmount 750;
+		Inventory.Icon "EMOMA0";
+		Tag "$AMMO_CLIP";
+		Scale 1.2;
+		+FLOATBOB
+		+NOGRAVITY
+	}
+	States
+	{
+	Spawn:
+		EMOM A -1;
+		Stop;
+	}
+}
+
+class SmileGenerator : Weapon
+{
+	Default
+	{
+    	Weapon.Kickback 100;
+    	Weapon.SelectionOrder 1300;
+		Weapon.AmmoUse 1;
+		Weapon.AmmoGive 1;
+		Weapon.AmmoType "EmoleyEnergy";
+		Obituary "$OB_MPSHOTGUN";
+		Tag "$TAG_SHOTGUN";
+		Inventory.PickupMessage "$GOTSHOTGUN";
+		Weapon.BobRangeX -0.98;
+		Weapon.BobRangeY 0.4;
+		Weapon.BobSpeed 1.6;
+		Weapon.BobStyle "InverseSmooth";
+	}
+	States
+	{
+	Ready:
+		EMO3 A 1 Offset(0,0) A_WeaponReady;
+		Loop;
+	Deselect:
+		EMO3 A 1 Offset(0,0) A_Lower;
+		Loop;
+	Select:
+		EMO3 A 1 Offset(0,0) A_Raise;
+		Loop;
+	Fire:
+		EMO3 A 1;
+		Goto Ready;
+	Spawn:
+		SHOT A -1;
+		Stop;
+	}
+}	

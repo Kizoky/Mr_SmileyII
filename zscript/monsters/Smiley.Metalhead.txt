@@ -43,7 +43,7 @@ class Metalhead : SmileyActor
 		VILE P 20 BRIGHT;
 		Goto See;
 	Heal:
-		//TNT1 A 0 A_PlaySound("metalhead/revive");
+		//TNT1 A 0 A_StartSound("metalhead/revive");
 		VILE [][] 10 BRIGHT;
 		Goto See;
 	Pain:
@@ -51,7 +51,7 @@ class Metalhead : SmileyActor
 		VILE Q 5 A_Pain;
 		Goto See;
 	Death:
-		TNT1 A 0 A_Mirrorize();
+		VILE Q 0 Mirrorize();
 		VILE Q 7;
 		VILE R 7 A_Scream;
 		VILE S 7 A_NoBlocking;
@@ -79,5 +79,83 @@ class MetalFire : Actor
 		FIRE E 2 BRIGHT  A_FireCrackle;
 		FIRE FEFEFGHGHGH 2 BRIGHT  A_Fire;
 		Stop;
+	}
+}
+
+extend class Metalhead
+{
+	void A_MetalStart()
+	{
+		A_StartSound ("vile/start", CHAN_VOICE);
+	}
+	
+	void A_MetalTarget(class<Actor> fire = "MetalFire")
+	{
+		if (target)
+		{
+			A_FaceTarget ();
+
+			Actor fog = Spawn (fire, target.Pos, ALLOW_REPLACE);
+			if (fog != null)
+			{
+				tracer = fog;
+				fog.target = self;
+				fog.tracer = self.target;
+				fog.A_Fire(0);
+			}
+		}
+	}
+	
+	void A_MetalAttack(sound snd = "vile/stop", int initialdmg = 20, int blastdmg = 70, int blastradius = 70, double thrust = 1.0, name damagetype = "Fire", int flags = 0)
+	{
+		Actor targ = target;
+		if (targ)
+		{
+			A_FaceTarget();
+			if (!CheckSight(targ, 0)) return;
+			A_StartSound(snd, CHAN_WEAPON);
+			int newdam = targ.DamageMobj (self, self, initialdmg, (flags & VAF_DMGTYPEAPPLYTODIRECT)? damagetype : 'none');
+
+			targ.TraceBleed (newdam > 0 ? newdam : initialdmg, self);
+			
+			Actor fire = tracer;
+			if (fire)
+			{
+				// move the fire between the vile and the player
+				fire.SetOrigin(targ.Vec3Angle(-24., angle, 0), true);
+				fire.A_Explode(blastdmg, blastradius, XF_NOSPLASH, false, 0, 0, 0, "BulletPuff", damagetype);
+			}
+			if (!targ.bDontThrust)
+			{
+				targ.Vel.z = thrust * 1000 / max(1, targ.Mass);
+			}
+		}
+	}
+	
+	void A_StartFire()
+	{
+		A_StartSound ("vile/firestrt", CHAN_BODY);
+		A_Fire();
+	}
+	
+	//
+	// A_Fire
+	// Keep fire in front of player unless out of sight
+	//
+	void A_Fire(double spawnheight = 0)
+	{
+		Actor dest = tracer;
+		if (!dest || !target) return;
+				
+		// don't move it if the vile lost sight
+		if (!target.CheckSight (dest, 0) ) return;
+
+		SetOrigin(dest.Vec3Angle(24, dest.angle, spawnheight), true);
+	}
+	
+	void A_FireCrackle()
+	{
+		A_StartSound ("vile/firecrkl", CHAN_BODY);
+		A_Fire();
 	}
 }

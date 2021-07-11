@@ -50,7 +50,7 @@ class Smileynator : SmileyActor
 		SKEL L 5 A_Pain;
 		Goto See;
 	Death:
-		TNT1 A 0 A_Mirrorize();
+		SKEL L 0 A_Mirrorize();
 		SKEL LM 7;
 		SKEL N 7 A_Scream;
 		SKEL O 7 A_NoBlocking;
@@ -58,11 +58,11 @@ class Smileynator : SmileyActor
 		SKEL Q -1;
 		Stop;
 	Raise:
-		TNT1 A 0 A_Metalization();
-		TNT1 A 0 A_ResurrectSphere();
+		SKEL Q 0 A_Metalization();
+		SKEL Q 0 A_ResurrectSphere();
 		SKEL Q 5;
 		SKEL PONML 15;
-		TNT1 A 0 A_UnMirrorize();
+		SKEL L 0 A_UnMirrorize();
 		Goto See;
 	}
 }
@@ -112,5 +112,125 @@ class SmileynatorTracerSmoke : Actor
 	Spawn:
 		PUFF ABABC 4;
 		Stop;
+	}
+}
+
+extend class Smileynator
+{
+	void A_SmileynMissile()
+	{
+		if (target == null) return;
+		A_FaceTarget();
+		AddZ(16);
+		Actor missile = SpawnMissile(target, "SmileynatorTracer");
+		AddZ(-16);
+		if (missile != null)
+		{
+			missile.SetOrigin(missile.Vec3Offset(missile.Vel.X, missile.Vel.Y, 0.), false);
+			missile.tracer = target;
+		}
+	}
+
+	void A_SmileynHitProg()
+	{
+		if (target == null) return;
+		A_FaceTarget();
+		A_StartSound("skeleton/swing", CHAN_WEAPON);
+	}
+
+	void A_SmileynPunch()
+	{
+		let targ = target;
+		if (targ == null) return;
+		A_FaceTarget();
+		
+		if (CheckMeleeRange ())
+		{
+			int damage = random[SkelFist](1, 10) * 6;
+			A_StartSound("skeleton/melee", CHAN_WEAPON);
+			int newdam = targ.DamageMobj (self, self, damage, 'Melee');
+			targ.TraceBleed (newdam > 0 ? newdam : damage, self);
+		}
+	}
+
+	void A_Tracer2(double traceang = 19.6875)
+	{
+		double dist;
+		double slope;
+		Actor dest;
+				
+		// adjust direction
+		dest = tracer;
+		
+		if (!dest || dest.health <= 0 || Speed == 0 || !CanSeek(dest))
+			return;
+	
+		// change angle 	
+		double exact = AngleTo(dest);
+		double diff = deltaangle(angle, exact);
+
+		if (diff < 0)
+		{
+			angle -= traceang;
+			if (deltaangle(angle, exact) > 0)
+				angle = exact;
+		}
+		else if (diff > 0)
+		{
+			angle += traceang;
+			if (deltaangle(angle, exact) < 0.)
+				angle = exact;
+		}
+
+		VelFromAngle();
+
+		if (!bFloorHugger && !bCeilingHugger)
+		{
+			// change slope
+			dist = DistanceBySpeed(dest, Speed);
+
+			if (dest.Height >= 56.)
+			{
+				slope = (dest.pos.z + 40. - pos.z) / dist;
+			}
+			else
+			{
+				slope = (dest.pos.z + Height*(2./3) - pos.z) / dist;
+			}
+
+			if (slope < Vel.Z)
+				Vel.Z -= 1. / 8;
+			else
+				Vel.Z += 1. / 8;
+		}
+	}
+	
+	void A_Tracer()
+	{
+		// killough 1/18/98: this is why some missiles do not have smoke
+		// and some do. Also, internal demos start at random gametics, thus
+		// the bug in which revenants cause internal demos to go out of sync.
+		//
+		// killough 3/6/98: fix revenant internal demo bug by subtracting
+		// levelstarttic from gametic:
+		//
+		// [RH] level.time is always 0-based, so nothing special to do here.
+
+		if (level.time & 3)	return;
+	
+		// spawn a puff of smoke behind the rocket
+		SpawnPuff ("BulletPuff", pos, angle, angle, 3);
+		Actor smoke = Spawn ("SmileynatorTracerSmoke", Vec3Offset(-Vel.X, -Vel.Y, 0.), ALLOW_REPLACE);
+	
+		if (smoke != null)
+		{
+			smoke.Vel.Z = 1.;
+			smoke.tics -= random[Tracer](0, 3);
+			if (smoke.tics < 1)
+				smoke.tics = 1;
+		}
+
+		// The rest of this function was identical with Strife's version, except for the angle being used.
+		A_Tracer2(16.875);
 	}
 }

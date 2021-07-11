@@ -1,0 +1,61 @@
+class ResurrectSphere : SmileyActor
+{
+	actor Owner;
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		
+		SetOrigin(pos+(0,0,9), TRUE);
+	}
+
+	override void Tick()
+	{
+		Super.Tick();
+
+		if (owner)
+		{
+			if (owner is 'Emoley')
+			{
+				SetOrigin(owner.pos+(9,9,9), TRUE);
+			}
+
+			SetOrigin(owner.pos, TRUE);
+		}
+
+	}
+	
+	Default
+	{
+		Health 666;
+		Radius 15;
+		Height 10;
+		Speed 0;
+		PainChance 256;
+		//Monster;
+		-SOLID
+		-SHOOTABLE
+		+FLOAT
+		+NOGRAVITY
+		DropItem "None";
+		Scale 0.5;
+		RenderStyle "Translucent";
+		Alpha 0.5;
+	}
+	States
+	{
+		Spawn:
+			RESU ABCDEFGHIJKLMNOPQRST 3;
+			Stop;
+		See:
+			TNT1 A 1 A_Look;
+			Goto Spawn;
+		Pain:
+			Stop;
+		Death:
+			Stop;
+		Melee:
+			Stop;
+		Missile:
+			Stop;
+	}
+}

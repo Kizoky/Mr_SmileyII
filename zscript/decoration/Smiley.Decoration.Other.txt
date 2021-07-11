@@ -3,7 +3,7 @@ class SmileyTitlePic : Actor
 	Default
 	{
 		Scale 0.8;
-		Obituary "%o was an idiot and got killed by a harmless decoration.";
+		Obituary "%o got killed by a harmless decoration.";
 	}
 	States
 	{

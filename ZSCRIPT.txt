@@ -1,17 +1,23 @@
 version "4.3"
 
-#include "zscript/Smiley.Nashgore.txt"
-
-#include "zscript/Smiley.HUD.txt"
+#include "zscript/UI/Smiley.HUD.txt"
 #include "zscript/Smiley.EventHandler.txt"
 #include "zscript/Smiley.FollowerAI.txt"
 
-#include "zscript/RadiusDebug/RadiusDebug.zc"
-#include "zscript/RadiusDebug/kodi.zc"
+//------------------- Borrowed code
+#include "zscript/borrowedcode/Smiley.Nashgore.txt"
 
-//------------ All monster functions were taken into a single actor due to limitations (which was a stupid idea ~2019)
-#include "zscript/monsters/Smiley.MonsterCore.txt"
+#include "zscript/borrowedcode/RadiusDebug/RadiusDebug.zc"
+#include "zscript/borrowedcode/RadiusDebug/kodi.zc"
+
+#include "zscript/borrowedcode/libeye/projector.txt"
+#include "zscript/borrowedcode/libeye/projector gl.txt"
+#include "zscript/borrowedcode/libeye/projector planar.txt"
+#include "zscript/borrowedcode/libeye/viewport.txt"
+
 //------------ Monsters
+#include "zscript/Smiley.Actor.txt"
+
 #include "zscript/monsters/Smiley.MJClone.txt"
 #include "zscript/monsters/Smiley.Safariguy.txt"
 #include "zscript/monsters/Smiley.Gangster.txt"
@@ -29,17 +35,21 @@ version "4.3"
 #include "zscript/monsters/Smiley.Smileynator.txt"
 #include "zscript/monsters/Smiley.SHead.txt"
 #include "zscript/monsters/Smiley.RandomHangers.txt"
+
 //---------- Stealth and Custom monsters
-#include "zscript/monsters/Smiley.BossSpider.txt"
+#include "zscript/monsters/smiley2/Smiley.BossSpider.txt"
 #include "zscript/monsters/smiley2/Smiley.CustomMonsters.txt"
-#include "zscript/monsters/Smiley.StealthMonsters.txt"
-#include "zscript/monsters/Smiley.PowerButcher.txt"
+#include "zscript/monsters/smiley2/Smiley.StealthMonsters.txt"
+#include "zscript/monsters/smiley2/Smiley.PowerButcher.txt"
+
 //---------- Player classes
 #include "zscript/Smiley.SmileyPlayer.txt"
-#include "zscript/Smiley.Weapon.SmileyHead.txt"
-#include "zscript/Smiley.Weapon.UncleSmiley.txt"
-#include "zscript/Smiley.Weapon.Emoley.txt"
-//#include "zscript/Smiley.WeaponLogic.txt"
+
+#include "zscript/playerclasses/Smiley.Player.SmileyHead.txt"
+#include "zscript/playerclasses/Smiley.Player.UncleSmiley.txt"
+#include "zscript/playerclasses/Smiley.Player.Emoley.txt"
+//#include "zscript/playerclasses/Smiley.WeaponLogic.txt"
+
 //---------- Weapons
 #include "zscript/weapons/Smiley.BaseballBat.txt"
 #include "zscript/weapons/Smiley.ChickenLauncher.txt"
@@ -51,21 +61,30 @@ version "4.3"
 #include "zscript/weapons/Smiley.SmileyWeapon.txt"
 #include "zscript/weapons/Smiley.SuperShotgun.txt"
 #include "zscript/weapons/Smiley.Toothbrush.txt"
+// \\\\\\\\\ Emoley
+#include "zscript/weapons/Emoley/Smiley.Smileapocal.txt"
+
 //---------- Pickups
-#include "zscript/Smiley.Ammo.txt"
-#include "zscript/Smiley.Armor.txt"
-#include "zscript/Smiley.Bonus.txt"
-#include "zscript/Smiley.Health.txt"
-#include "zscript/Smiley.Keys.txt"
+#include "zscript/pickups/Ammo/Smiley.Ammo.txt"
+#include "zscript/pickups/Armor/Smiley.Armor.txt"
+
+// || Health || \\
+#include "zscript/pickups/Health/Smiley.Coffee.txt"
+#include "zscript/pickups/Health/Smiley.Cola.txt"
+#include "zscript/pickups/Health/Smiley.Medikit.txt"
+
+#include "zscript/pickups/Keys/Smiley.Keys.txt"
+#include "zscript/pickups/Powerup/Smiley.Powerup.txt"
+
 //---------- Decorations
 #include "zscript/decoration/Smiley.Decoration.DeadEntities.txt"
 #include "zscript/decoration/Smiley.Decoration.Gore.txt"
 #include "zscript/decoration/Smiley.Decoration.Other.txt"
 #include "zscript/decoration/Smiley.Decoration.txt"
 
-#include "zscript/Smiley.Test.txt"
+//---------- Misc
+#include "zscript/misc/Smiley.BlackFlame.txt"
+#include "zscript/misc/Smiley.EmoleyFlame.txt"
+#include "zscript/misc/Smiley.ResurrectSphere.txt"
 
-#include "zscript/libeye/projector.txt"
-#include "zscript/libeye/projector gl.txt"
-#include "zscript/libeye/projector planar.txt"
-#include "zscript/libeye/viewport.txt"
+//#include "zscript/Smiley.Test.txt"

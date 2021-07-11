@@ -6,6 +6,24 @@
 //===========================================================================
 class VariousHang : SmileyActor
 {
+	void A_VariousDie(int doortag = 666)
+	{
+		A_NoBlocking(false);
+
+		// scan the remaining thinkers to see if all Keens are dead
+		ThinkerIterator it = ThinkerIterator.Create(GetClass());
+		Actor mo;
+		while (mo = Actor(it.Next(true)))
+		{
+			if (mo.health > 0 && mo != self)
+			{
+				// other Keen not dead
+				return;
+			}
+		}
+		Door_Open(doortag, 16);
+	}
+	
 	Default
 	{
 		Health 100;

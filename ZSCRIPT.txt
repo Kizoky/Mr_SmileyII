@@ -15,6 +15,8 @@ version "4.3"
 #include "zscript/borrowedcode/libeye/projector planar.txt"
 #include "zscript/borrowedcode/libeye/viewport.txt"
 
+#include "zscript/borrowedcode/sway/sway.txt"
+
 //------------ Monsters
 #include "zscript/Smiley.Actor.txt"
 

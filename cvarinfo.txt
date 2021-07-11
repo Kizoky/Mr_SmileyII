@@ -5,31 +5,32 @@ user int smileyUI_Y = 0;
 user int smileyUI_scaleX = 0;
 user int smileyUI_scaleY = 0;
 
-user bool ws_disablefire = false;
-user bool ws_bobonly = false;
-user bool ws_nobobsway = false;
+// Boondorl's Sway
+user bool smws_disablefire = false;
+user bool smws_bobonly = false;
+user bool smws_nobobsway = false;
 
-user bool ws_vertextend = false;
-user bool ws_extendready = false;
-user bool ws_inversevert = false;
-user bool ws_crouchinversevert = false;
-user float ws_vertscale = 0.5;
-user float ws_crouchvertscale = 1;
+user bool smws_vertextend = false;
+user bool smws_extendready = false;
+user bool smws_inversevert = false;
+user bool smws_crouchinversevert = false;
+user float smws_vertscale = 0.20;
+user float smws_crouchvertscale = 1;
 
-user bool ws_swayhinverse = false;
-user bool ws_swayhcumulative = false;
-user float ws_swayhcrouchscale = 1;
-user float ws_swayhscale = 0.5;
-user float ws_swayhspeed = 4;
-user float ws_swayhaccuracy = 0.5;
+user bool smws_swayhinverse = false;
+user bool smws_swayhcumulative = false;
+user float smws_swayhscale = 0.32;
+user float smws_swayhcrouchscale = 1;
+user float smws_swayhspeed = 1.50;
+user float smws_swayhaccuracy = 0;
 
-user bool ws_swayvinverse = false;
-user bool ws_swayvcumulative = false;
-user float ws_swayvcrouchscale = 1;
-user float ws_swayvscale = 0.5;
-user float ws_swayvspeed = 4;
-user float ws_swayvaccuracy = 0.5;
+user bool smws_swayvinverse = false;
+user bool smws_swayvcumulative = false;
+user float smws_swayvscale = 0.27;
+user float smws_swayvcrouchscale = 1;
+user float smws_swayvspeed = 1.50;
+user float smws_swayvaccuracy = 0;
 
-user bool ws_nohmove = true;
-user bool ws_novmove = true;
-user bool ws_nofmove = true;
+user bool smws_nohmove = true;
+user bool smws_novmove = true;
+user bool smws_nofmove = true;

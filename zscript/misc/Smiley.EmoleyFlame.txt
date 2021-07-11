@@ -19,7 +19,7 @@ class EmoleyFlame : SmileyActor
 				
 			// Let's not forget that Barneys can transform
 			if ((Owner is 'Hugaholic') || 
-				(Owner is 'Rapeaholic'))
+				(Owner is 'SilentHug'))
 			{
 				let p = Hugaholic(Owner);
 				

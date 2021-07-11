@@ -38,7 +38,7 @@ version "4.3"
 
 //---------- Stealth and Custom monsters
 #include "zscript/monsters/smiley2/Smiley.BossSpider.txt"
-#include "zscript/monsters/smiley2/Smiley.CustomMonsters.txt"
+#include "zscript/monsters/smiley2/Smiley.ColoredRangers.txt"
 #include "zscript/monsters/smiley2/Smiley.StealthMonsters.txt"
 #include "zscript/monsters/smiley2/Smiley.PowerButcher.txt"
 

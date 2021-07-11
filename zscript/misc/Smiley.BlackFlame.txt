@@ -14,7 +14,7 @@ class BlackFlame : SmileyActor
 				SetOrigin(Owner.pos+(0,0,45), TRUE);
 				
 			// Let's not forget that Barneys can transform
-			if ((Owner is 'Hugaholic') || (Owner is 'Rapeaholic'))
+			if ((Owner is 'SilentHug') || (Owner is 'SilentHug'))
 			{
 				let p = Hugaholic(Owner);
 				

@@ -107,18 +107,18 @@ extend class Mario
 	// Doesn't look like it.
 	//
 	
-	void A_MarioAttack(int version)
+	void A_MarioAttack(int ver)
 	{
 		class<Actor> spawntype = "MarioShot";
 		
-		if (version == 1 || version == 2)
+		if (ver == 1 || ver == 2)
 		{
 			if (target)
 			{
 				A_FaceTarget();
 				
 				// Change direction  to ...
-				if (version == 1)
+				if (ver == 1)
 					Angle += FATSPREAD;
 				else
 					Angle -= FATSPREAD;
@@ -127,7 +127,7 @@ extend class Mario
 				Actor missile = SpawnMissile (target, spawntype);
 				if (missile)
 				{
-					if (version == 1)
+					if (ver == 1)
 						missile.Angle += FATSPREAD;
 					else
 						missile.Angle -= FATSPREAD;
@@ -136,7 +136,7 @@ extend class Mario
 				}
 			}
 		}
-		else if (version == 3)
+		else if (ver == 3)
 		{
 			if (target)
 			{

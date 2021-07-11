@@ -51,7 +51,7 @@ class Metalhead : SmileyActor
 		VILE Q 5 A_Pain;
 		Goto See;
 	Death:
-		VILE Q 0 Mirrorize();
+		VILE Q 0 A_Mirrorize();
 		VILE Q 7;
 		VILE R 7 A_Scream;
 		VILE S 7 A_NoBlocking;

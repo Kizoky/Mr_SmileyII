@@ -14,7 +14,7 @@ DoomEdNums
   3005 = BigEye
   16 = Frosty
   3002 = Hugaholic
-  58 = Rapeaholic
+  58 = SilentHug
   65 = Gangster
   3001 = SmileyAlien
   67 = Mario

@@ -38,7 +38,7 @@ class Hugaholic : SmileyActor
 				{
 					A_StartSound("barney/transform", CHAN_VOICE);
 					Speed = 20;
-					A_SetRadius(50);
+					//Radius = 50;
 					Height = 67;
 					Scale.X = 1.3;
 					Scale.Y = Scale.X;

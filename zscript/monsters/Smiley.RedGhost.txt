@@ -180,7 +180,16 @@ extend class RedGhost
 
 			if (!(flags & PAF_NOSKULLATTACK))
 			{
-				A_PaccAttack();
+				double skullspeed = 20;
+				if (target == null) return;
+
+				if (skullspeed <= 0) skullspeed = DEFSKULLSPEED;
+				
+				bSkullfly = true;
+				A_StartSound(AttackSound, CHAN_VOICE);
+				A_FaceTarget();
+				VelFromAngle(skullspeed);
+				Vel.Z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, skullspeed);
 			}
 		}
 	}

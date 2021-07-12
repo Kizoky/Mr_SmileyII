@@ -114,7 +114,7 @@ class PaccPoint : actor
 	{
 		Radius 1;
 		Height 1;
-		+RIPPER
+		+NOINTERACTION
 	}
 	States
 	{
@@ -157,8 +157,7 @@ class PaccHelper : FastProjectile
 		Height 1;
 		Damage 0;
 		+CANNOTPUSH
-		+NOCLIP
-		+NOINTERACTION
+		+RIPPER
 	}
 	States
 	{

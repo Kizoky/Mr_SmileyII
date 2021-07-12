@@ -65,8 +65,108 @@ extend class Pacc
 		bSkullfly = true;
 		A_StartSound(AttackSound, CHAN_VOICE);
 		A_FaceTarget();
+		
+		let proj = SpawnMissile (target, "PaccHelper");
+		if (proj)
+		{
+			let Helper = PaccHelper(proj);
+			if (Helper)
+			{
+				Helper.thetarget = target;
+				Helper.Paccman = self;
+				Helper.vel.z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, skullspeed);
+			}
+		}
+		
 		VelFromAngle(skullspeed);
 		Vel.Z = (target.pos.Z + target.Height/2 - pos.Z) / DistanceBySpeed(target, skullspeed);
 	}
 	
+}
+
+class PaccPoint : actor
+{
+	actor Pacman;
+	
+	override void PostBeginPlay()
+	{
+		Super.PostBeginPlay();
+		SetXYZ(pos+(0,0,5));
+	}
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (Pacman)
+		{
+			if (Distance2D(Pacman) < 20)
+			{
+				A_StartSound("pacman/chomp", CHAN_AUTO);
+				Destroy();
+			}
+				
+			if (!Pacman.bSkullfly || Pacman.bKILLED)
+				Destroy();
+		}
+	}
+	
+	Default
+	{
+		Radius 1;
+		Height 1;
+		+RIPPER
+	}
+	States
+	{
+	Spawn:
+		PCMN A -1;
+		Stop;
+	}
+}
+
+class PaccHelper : FastProjectile
+{
+	actor Paccman, thetarget;
+	
+	override void Tick()
+	{
+		Super.Tick();
+		if (Paccman && thetarget)
+		{
+			if (Distance2D(thetarget) > 77 && Distance2D(Paccman) > 60)
+			{
+				let WakaWaka = spawn("PaccPoint", pos);
+				if (WakaWaka)
+				{
+					let PacPoint = PaccPoint(WakaWaka);
+					if (PacPoint)
+					{
+						PacPoint.Pacman = Paccman;
+					}
+				}
+			}
+			else
+				Destroy();
+		}
+	
+	}
+	Default
+	{
+		Speed 125;
+		Radius 1;
+		Height 1;
+		Damage 0;
+		+CANNOTPUSH
+		+NOCLIP
+		+NOINTERACTION
+	}
+	States
+	{
+	Spawn:
+		TNT1 A 4;
+		Loop;
+	Death:
+		TNT1 A 4;
+		Stop;
+	}
 }

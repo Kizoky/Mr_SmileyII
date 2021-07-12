@@ -1,3 +1,5 @@
+pacman/chomp sounds/Pacman/chomp.wav
+
 redranger/death sounds/DSRDRNGR.ogg
 
 toasty sounds/DSTOAST.wav

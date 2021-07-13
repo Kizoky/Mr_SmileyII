@@ -23,19 +23,22 @@ class EmoleyFlame : SmileyActor
 			{
 				let p = Hugaholic(Owner);
 				
-				// Check if they can transform
-				if (!p.canTransform)
-					SetOrigin(Owner.pos+(0,0,38), TRUE);
-				else
+				if (p)
 				{
-					if (!FlameAdjusted)
+					// Check if they can transform
+					if (!p.canTransform)
+						SetOrigin(Owner.pos+(0,0,38), TRUE);
+					else
 					{
-						// Make the flame bigger
-						Scale.X = 0.25;
-						Scale.Y = Scale.X;
-						FlameAdjusted = true;
+						if (!FlameAdjusted)
+						{
+							// Make the flame bigger
+							Scale.X = 0.25;
+							Scale.Y = Scale.X;
+							FlameAdjusted = true;
+						}
+						SetOrigin(Owner.pos+(0,0,48), TRUE);
 					}
-					SetOrigin(Owner.pos+(0,0,48), TRUE);
 				}
 			}
 			
@@ -45,13 +48,13 @@ class EmoleyFlame : SmileyActor
 				
 			if (Owner is 'BigEye')
 			{
-					if (!FlameAdjusted)
-					{
-						// Giant eye ball needs a bigger flame
-						Scale.X = 0.35;
-						Scale.Y = Scale.X;
-						FlameAdjusted = true;
-					}
+				if (!FlameAdjusted)
+				{
+					// Giant eye ball needs a bigger flame
+					Scale.X = 0.35;
+					Scale.Y = Scale.X;
+					FlameAdjusted = true;
+				}
 					
 				SetOrigin(Owner.pos+(0,0,24), TRUE);
 			}
@@ -70,7 +73,6 @@ class EmoleyFlame : SmileyActor
 			
 			if (Owner is 'Mario')
 			{
-				
 				if (!FlameAdjusted)
 				{
 					Scale.X = 0.20;

@@ -22,7 +22,7 @@ gameinfo
 
 clearepisodes
 
-episode INTRO
+episode MAP01
 {
 	picname = "M_DUM2"
 	name="Safari II"
@@ -46,21 +46,10 @@ episode E3M1
 	name="The Safari"
 }
 
-//episode E4M1
-//{
-//	picname = "M_EPI4"
-//	name="I Haz All The Dudes Hating On Me!!"
-//}
-
 episode DEVMAP
 {
 	name="Development Map"
 }
-
-//episode XMAS01
-//{
-//	name="I Smiley XMAS <3"
-//}
 
 defaultmap //We don't want crouch and jumping for a while.
 {
@@ -83,7 +72,7 @@ map INTRO "XYZ years ago..."
 	sky1=SKY1
 }
 
-map map01 "Deja vuuh??"
+map map01 "Flashback 1: Start of a Safari"
 {
 	next=map02
 	par=120
@@ -91,7 +80,7 @@ map map01 "Deja vuuh??"
 	sky1=SKY1
 }
 
-map map02 "Ugly caztle!!!"
+map map02 "Flashback 2: Why is this so huge?"
 {
 	next=map03
 	par=120
@@ -99,7 +88,7 @@ map map02 "Ugly caztle!!!"
 	sky1=SKY1
 }
 
-map map03 "Safari again??"
+map map03 "Flashback 3: Near Completion of Journey"
 {
 	next=map04
 	par=120

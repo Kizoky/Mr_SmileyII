@@ -14,23 +14,25 @@ class BlackFlame : SmileyActor
 				SetOrigin(Owner.pos+(0,0,45), TRUE);
 				
 			// Let's not forget that Barneys can transform
-			if ((Owner is 'SilentHug') || (Owner is 'SilentHug'))
+			if ((Owner is 'Hugaholic') || (Owner is 'SilentHug'))
 			{
 				let p = Hugaholic(Owner);
-				
-				// Check if they can transform
-				if (p.canTransform != true)
-					SetOrigin(Owner.pos+(0,0,38), TRUE);
-				else
+				if (p)
 				{
-					if (FlameAdjusted != true)
+					// Check if they can transform
+					if (p.canTransform != true)
+						SetOrigin(Owner.pos+(0,0,38), TRUE);
+					else
 					{
-						// Make the flame bigger
-						Scale.X = 0.25;
-						Scale.Y = Scale.X;
-						FlameAdjusted = true;
+						if (FlameAdjusted != true)
+						{
+							// Make the flame bigger
+							Scale.X = 0.25;
+							Scale.Y = Scale.X;
+							FlameAdjusted = true;
+						}
+						SetOrigin(Owner.pos+(0,0,48), TRUE);
 					}
-					SetOrigin(Owner.pos+(0,0,48), TRUE);
 				}
 			}
 			
@@ -39,13 +41,13 @@ class BlackFlame : SmileyActor
 				
 			if (Owner is 'BigEye')
 			{
-					if (FlameAdjusted != true)
-					{
-						// Giant eye ball needs a bigger flame
-						Scale.X = 0.35;
-						Scale.Y = Scale.X;
-						FlameAdjusted = true;
-					}
+				if (FlameAdjusted != true)
+				{
+					// Giant eye ball needs a bigger flame
+					Scale.X = 0.35;
+					Scale.Y = Scale.X;
+					FlameAdjusted = true;
+				}
 					
 				SetOrigin(Owner.pos+(0,0,24), TRUE);
 			}
@@ -64,7 +66,6 @@ class BlackFlame : SmileyActor
 			
 			if (Owner is 'Mario')
 			{
-				
 				if (FlameAdjusted != true)
 				{
 					Scale.X = 0.20;

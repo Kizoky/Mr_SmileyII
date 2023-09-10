@@ -4,9 +4,6 @@ Development started in 2014 (July) just as something to spend time. Eventually t
 The theme of this mod is random, it has Power Rangers, Barneys, dead Doomguy, stupid and joke sounds, and so on.
 Goal is to somewhat keep that 90s feeling, when at that time was considered famous, nowadays it is forgotten in the shadows.
 
-# Official Discord server
-https://discord.gg/XAQ9UCK
-
 # Features:
 - Completely redrawn textures (inspired by MS-PAINT Doom)
 - New monsters and weapons
